@@ -13,8 +13,7 @@ class CreateGuiasTable extends Migration
     public function up()
     {
         Schema::create('guias', function (Blueprint $table) {
-            $table->integer('guiId');
-            $table->primary('guiId');
+            $table->increments('guiId');
             $table->string('guiDescripcion');
             $table->integer('usuId');
             $table->foreign('usuId')->references('usuId')->on('usuarios');
