@@ -13,8 +13,12 @@ class CreateHechizosTable extends Migration
     public function up()
     {
         Schema::create('hechizos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->integer('hecId');
+            $table->primary('hecId');
+            $table->string('hecNombre');
+            $table->string('hecDescripcion');
+            $table->binary('hecImagen');
+            $table->integer('hecReutilizacion');
         });
     }
 
