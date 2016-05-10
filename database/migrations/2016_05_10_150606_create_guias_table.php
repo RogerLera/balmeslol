@@ -23,6 +23,10 @@ class CreateGuiasTable extends Migration
             $table->date('guiFecha');
             $table->string('guiVersion');
             $table->timestamps();
+            
+            $table->foreign('guiId')
+            ->references('guiId')->on('favoritos')
+            >onDelete('cascade');
         });
     }
 
