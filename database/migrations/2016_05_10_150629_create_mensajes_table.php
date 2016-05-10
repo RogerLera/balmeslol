@@ -13,8 +13,7 @@ class CreateMensajesTable extends Migration
     public function up()
     {
         Schema::create('mensajes', function (Blueprint $table) {
-            $table->integer('menId');
-            $table->primary('menId');
+            $table->increments('menId');
             $table->integer('menEmisor');
             $table->foreign('menEmisor')->references('usuId')->on('usuarios');
             $table->string('menTexto');
