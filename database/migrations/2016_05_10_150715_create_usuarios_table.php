@@ -13,8 +13,18 @@ class CreateUsuariosTable extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('usuId');
+            $table->string('usuAlias');
+            $table->string('usuEmail')->unique();
+            $table->date('usuFdn');
+            $table->increments('usuPswd');
+            $table->rememberToken();
             $table->timestamps();
+            $table->foreign('usuId')->references('menEmisor')
+                ->on('mensajes')
+                ->onDelete('cascade');
+            $table->foreign('usuId')->references('menDestino')
+                ->('mensajes');
         });
     }
 
