@@ -22,6 +22,7 @@ class CreateGuiasTable extends Migration
             $table->integer('guiNegativo');
             $table->date('guiFecha');
             $table->string('guiVersion');
+            $table->timestamps();
         });
     }
 
