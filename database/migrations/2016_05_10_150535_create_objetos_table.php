@@ -13,8 +13,14 @@ class CreateObjetosTable extends Migration
     public function up()
     {
         Schema::create('objetos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('objId');
+            $table->string('objNombre');
+            $table->string('objDescripcion');
+            $table->binary('objImagen');
+            $table->integer('objPrecio');
+            $table->primary('objId');
             $table->timestamps();
+            
         });
     }
 
