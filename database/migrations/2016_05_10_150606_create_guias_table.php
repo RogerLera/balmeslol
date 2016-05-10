@@ -13,8 +13,15 @@ class CreateGuiasTable extends Migration
     public function up()
     {
         Schema::create('guias', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->integer('guiId');
+            $table->primary('guiId');
+            $table->string('guiDescripcion');
+            $table->integer('usuId');
+            $table->foreign('usuId')->references('usuId')->on('usuario');
+            $table->integer('guiPositivo');
+            $table->integer('guiNegativo');
+            $table->date('guiFecha');
+            $table->string('guiVersion');
         });
     }
 
