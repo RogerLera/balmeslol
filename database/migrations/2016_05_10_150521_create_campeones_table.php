@@ -13,7 +13,7 @@ class CreateCampeonesTable extends Migration
     public function up()
     {
         Schema::create('campeones', function (Blueprint $table) {
-            $table->integer('camId');
+            $table->integer('camId')->unsigned();
             $table->string('camNobre');
             $table->string('camTitulo');
             $table->binary('camMiniatura');
@@ -24,9 +24,6 @@ class CreateCampeonesTable extends Migration
             $table->string('camConsejos');
             $table->string('camConsejosAdv');
             $table->primary('camId');
-            $table->foreign('camId')->references('camId')
-                ->('habilidades')
-                ->onDelete('cascade');
         });
     }
 

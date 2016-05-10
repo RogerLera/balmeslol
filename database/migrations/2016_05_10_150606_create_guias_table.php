@@ -13,19 +13,16 @@ class CreateGuiasTable extends Migration
     public function up()
     {
         Schema::create('guias', function (Blueprint $table) {
+            //$table->engine = 'InnoDB';
             $table->increments('guiId');
             $table->string('guiDescripcion');
-            $table->integer('usuId');
+            $table->integer('usuId')->unsigned();
             $table->foreign('usuId')->references('usuId')->on('usuarios');
             $table->integer('guiPositivo');
             $table->integer('guiNegativo');
             $table->date('guiFecha');
             $table->string('guiVersion');
             $table->timestamps();
-            
-            $table->foreign('guiId')
-            ->references('guiId')->on('favoritos')
-            >onDelete('cascade');
         });
     }
 

@@ -16,10 +16,9 @@ class CreateHabilidadesTable extends Migration
             $table->integer('habId');
             $table->binary('habImagen');
             $table->string('habDescripcion');
-            $table->integer('camId');
+            $table->integer('camId')->unsigned();
+            $table->foreign('camId')->references('camId')->on('campeones')->onDelete('cascade');
             $table->primary('habId');
-            $table->foreign('camId');
-            ->references('camid')->on('campeones');
         });
     }
 
