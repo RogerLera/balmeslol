@@ -17,7 +17,7 @@ class CreateGuiasTable extends Migration
             $table->primary('guiId');
             $table->string('guiDescripcion');
             $table->integer('usuId');
-            $table->foreign('usuId')->references('usuId')->on('usuario');
+            $table->foreign('usuId')->references('usuId')->on('usuarios');
             $table->integer('guiPositivo');
             $table->integer('guiNegativo');
             $table->date('guiFecha');
