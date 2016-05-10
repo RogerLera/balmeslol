@@ -24,6 +24,9 @@ class CreateCampeonesTable extends Migration
             $table->string('camConsejos');
             $table->string('camConsejosAdv');
             $table->primary('camId');
+            $table->foreign('camId')->references('camId')
+                ->('habilidades')
+                ->onDelete('cascade');
         });
     }
 
