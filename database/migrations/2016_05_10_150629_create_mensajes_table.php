@@ -16,10 +16,10 @@ class CreateMensajesTable extends Migration
             $table->integer('menId');
             $table->primary('menId');
             $table->integer('menEmisor');
-            $table->foreign('menEmisor')->references('usuId')->on('usuario');
+            $table->foreign('menEmisor')->references('usuId')->on('usuarios');
             $table->string('menTexto');
             $table->integer('menDestino');
-            $table->foreign('menDestino')->references('usuId')->on('usuario');
+            $table->foreign('menDestino')->references('usuId')->on('usuarios');
             $table->date('menFecha');
             $table->timestamps();
         });
