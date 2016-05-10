@@ -13,7 +13,7 @@ class CreateFavoritosTable extends Migration
     public function up()
     {
         Schema::create('favoritos', function (Blueprint $table) {
-            $table->integer('favId');
+            $table->increments('favId');
             $table->integer('usuId');
             $table->integer('guiId');
             
@@ -23,7 +23,6 @@ class CreateFavoritosTable extends Migration
             $table->foreign('guiId')
             ->references('guiId')->on('guias')
             
-            $table->primary('favId');
             $table->timestamps();
         });
     }
