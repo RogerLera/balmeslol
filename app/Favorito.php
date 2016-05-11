@@ -35,7 +35,7 @@ class Favorito extends Model
      *
      * @return guia al que pertenece.
      */
-    public function guias()
+    public function guia()
     {
         return $this->belongsTo(Guia::class);
     }

@@ -15,6 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/* --- CAMPEONES --- */
 Route::get('/campeones', 'CampeonController@index');
-Route::post('/campeon', 'CampeonController@store');
-Route::delete('/campeon/{campeon}', 'CampeonController@destroy');
+Route::get('/campeones/{campeon}', 'CampeonController@obtenerCampeon');
+
+/* --- GUIAS --- */
+Route::get('/guias', 'GuiaController@index');
+Route::get('/guias/{guia}', 'GuiaController@obtenerGuia');
+// Alomejor necesita crear ruta para favoritos, no desde GuiaController.
+Route::get('/guias/favoritos', 'GuiaController@obtenerGuiasFavoritos');
+Route::post('/guias/crear', 'GuiaController@crearGuia');
+Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
+Route::delete('/guias/{guia}', 'GuiaController@eliminarGuia');
+
+/* --- USUARIOS --- */
+Route::post('/perfil/{usuario}/editar', 'UsuarioController@editarUsuario');
+Route::delete('/perfil/{usuario}', 'UsuarioController@eliminarUsuario');
+
+/* --- MENSAJES --- */
+Route::get('/mensajes', 'MensajeController@index');
+Route::get('/mensajes/{mensaje}', 'MensajeController@obtenerMensaje');
+Route::post('/mensajes/crear', 'MensajeController@crearMensaje');
+Route::put('/mensajes/{mensaje}/editar', 'MensajeController@editarMensaje');
+Route::delete('/mensajes/{mensaje}', 'MensajeController@eliminarMensaje');
