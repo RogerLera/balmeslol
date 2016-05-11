@@ -13,8 +13,10 @@ class CreateEstadisticasHechizosTable extends Migration
     public function up()
     {
         Schema::create('estadisticasHechizos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->integer('eshId');
+            $table->primary('eshId');
+            $table->integer('eshUsado');
+            $table->foreign('eshId')->references('hecId')->on('hechizos')->onDelete('cascade');
         });
     }
 

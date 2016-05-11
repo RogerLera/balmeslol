@@ -13,8 +13,11 @@ class CreateEstadisticasCampeonesTable extends Migration
     public function up()
     {
         Schema::create('estadisticasCampeones', function (Blueprint $table) {
-            $table->increments('escId');
-            $table->timestamps();
+            $table->integer('escId')->unsigned();
+            $table->integer('escUsado');
+            $table->integer('escBloqueado');
+            $table->primary('escId');
+            $table->foreign('escId')->references('camId')->on('campeones')->onDelete('cascade');
         });
     }
 
