@@ -14,7 +14,7 @@ class CreateCampeonesTable extends Migration
     {
         Schema::create('campeones', function (Blueprint $table) {
             $table->integer('camId')->unsigned();
-            $table->string('camNobre');
+            $table->string('camNombre');
             $table->string('camTitulo');
             $table->binary('camMiniatura');
             $table->binary('camImagen');
