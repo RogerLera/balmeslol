@@ -13,7 +13,7 @@ class CreateHabilidadesTable extends Migration
     public function up()
     {
         Schema::create('habilidades', function (Blueprint $table) {
-            $table->autoincrement('habId');
+            $table->increments('habId');
             $table->string('habNombre');
             $table->string('habTipo');
             $table->binary('habImagen');
