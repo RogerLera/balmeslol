@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Guia;
+use App\Favorito;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -27,4 +29,24 @@ class Usuario extends Model
     protected $hidden = [
         'usuPswd', 'remember_token',
     ];
+
+    /**
+    * Obtener todas las guias que el usuario a creado.
+    *
+    * @return todas las guias.
+    */
+   public function guias()
+   {
+       return $this->hasMany(Guia::class);
+   }
+
+   /**
+   * Obtener todos los favoritos.
+   *
+   * @return todos los favoritos
+   */
+  public function favoritos()
+  {
+      return $this->hasMany(Favorito::class);
+  }
 }
