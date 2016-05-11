@@ -13,7 +13,6 @@ class CreateGuiasTable extends Migration
     public function up()
     {
         Schema::create('guias', function (Blueprint $table) {
-            //$table->engine = 'InnoDB';
             $table->increments('guiId');
             $table->string('guiDescripcion');
             $table->integer('usuId')->unsigned();
