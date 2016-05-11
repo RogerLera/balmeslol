@@ -13,12 +13,13 @@ class CreateHabilidadesTable extends Migration
     public function up()
     {
         Schema::create('habilidades', function (Blueprint $table) {
-            $table->integer('habId');
+            $table->autoincrement('habId');
+            $table->string('habNombre');
+            $table->string('habTipo');
             $table->binary('habImagen');
             $table->string('habDescripcion');
             $table->integer('camId')->unsigned();
             $table->foreign('camId')->references('camId')->on('campeones')->onDelete('cascade');
-            $table->primary('habId');
         });
     }
 
