@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/campeones', 'CampeonController@index');
+Route::post('/campeon', 'CampeonController@store');
+Route::delete('/campeon/{campeon}', 'CampeonController@destroy');
