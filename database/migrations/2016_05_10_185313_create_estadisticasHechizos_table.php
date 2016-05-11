@@ -3,27 +3,25 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+* Classe que genera la tabla estadisticasHechizos en la base de datos.
+*/
 class CreateEstadisticasHechizosTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * Ejecuta la migración a la base de datos.
      */
     public function up()
     {
         Schema::create('estadisticasHechizos', function (Blueprint $table) {
-            $table->integer('eshId');
-            $table->primary('eshId');
+            $table->integer('eshId')->unsigned();
             $table->integer('eshUsado');
-            $table->foreign('eshId')->references('hecId')->on('hechizos')->onDelete('cascade');
+            $table->primary('eshId');
         });
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
+     * Hace una marcha atras de la migración, i vuelve al estado original.
      */
     public function down()
     {

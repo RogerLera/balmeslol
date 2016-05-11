@@ -3,32 +3,32 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+* Classe que genera la tabla guias en la base de datos.
+*/
 class CreateGuiasTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * Ejecuta la migración a la base de datos.
      */
     public function up()
     {
         Schema::create('guias', function (Blueprint $table) {
             $table->increments('guiId');
+            $table->string('guiTitulo');
             $table->string('guiDescripcion');
+            $table->integer('camId')->unsigned();
             $table->integer('usuId')->unsigned();
-            $table->foreign('usuId')->references('usuId')->on('usuarios');
             $table->integer('guiPositivo');
             $table->integer('guiNegativo');
-            $table->date('guiFecha');
             $table->string('guiVersion');
             $table->timestamps();
+            $table->foreign('usuId')->references('usuId')->on('usuarios');
         });
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
+     * Hace una marcha atras de la migración, i vuelve al estado original.
      */
     public function down()
     {

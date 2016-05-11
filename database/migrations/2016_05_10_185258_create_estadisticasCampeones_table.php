@@ -3,12 +3,13 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+* Classe que genera la tabla estadisticasCampeones en la base de datos.
+*/
 class CreateEstadisticasCampeonesTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * Ejecuta la migración a la base de datos.
      */
     public function up()
     {
@@ -17,14 +18,11 @@ class CreateEstadisticasCampeonesTable extends Migration
             $table->integer('escUsado');
             $table->integer('escBloqueado');
             $table->primary('escId');
-            $table->foreign('escId')->references('camId')->on('campeones')->onDelete('cascade');
         });
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
+     * Hace una marcha atras de la migración, i vuelve al estado original.
      */
     public function down()
     {

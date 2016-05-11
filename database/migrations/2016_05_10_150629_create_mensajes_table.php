@@ -3,31 +3,29 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+* Classe que genera la tabla mensajes en la base de datos.
+*/
 class CreateMensajesTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * Ejecuta la migración a la base de datos.
      */
     public function up()
     {
         Schema::create('mensajes', function (Blueprint $table) {
             $table->increments('menId');
             $table->integer('menEmisor')->unsigned();
-            $table->foreign('menEmisor')->references('usuId')->on('usuarios')->onDelete('cascade');
-            $table->string('menTexto');
             $table->integer('menDestino')->unsigned();
-            $table->foreign('menDestino')->references('usuId')->on('usuarios');
-            $table->date('menFecha');
+            $table->string('menTexto');
             $table->timestamps();
+            $table->foreign('menEmisor')->references('usuId')->on('usuarios')->onDelete('cascade');
+            $table->foreign('menDestino')->references('usuId')->on('usuarios');
         });
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
+     * Hace una marcha atras de la migración, i vuelve al estado original.
      */
     public function down()
     {
