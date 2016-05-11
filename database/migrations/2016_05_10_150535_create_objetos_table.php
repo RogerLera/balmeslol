@@ -19,7 +19,6 @@ class CreateObjetosTable extends Migration
             $table->binary('objImagen');
             $table->integer('objPrecio');
             $table->primary('objId');
-            $table->timestamps();
         });
     }
 
