@@ -39,6 +39,10 @@ Route::post('/mensajes/crear', 'MensajeController@crearMensaje');
 Route::put('/mensajes/{mensaje}/editar', 'MensajeController@editarMensaje');
 Route::delete('/mensajes/{mensaje}', 'MensajeController@eliminarMensaje');
 
+/* --- ESTADISTICAS CAMPEONES/HECHIZOS --- */
+Route::get('/estadisticas/campeones', 'EstadisticasCampeonController@index');
+Route::get('/estadisticas/hechizos', 'EstadisticasHechizoController@index');
+
 /* --- REGISTRE/INICI SESSIÓ --- */
 Route::auth();
 Route::get('/home', 'HomeController@index');
