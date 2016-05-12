@@ -3,12 +3,13 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+* Classe que genera la tabla favoritos en la base de datos.
+*/
 class CreateFavoritosTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * Ejecuta la migración a la base de datos.
      */
     public function up()
     {
@@ -16,16 +17,14 @@ class CreateFavoritosTable extends Migration
             $table->increments('favId');
             $table->integer('usuId')->unsigned();
             $table->integer('guiId')->unsigned();
+            $table->timestamps();
             $table->foreign('usuId')->references('usuId')->on('usuarios')->onDelete('cascade');
             $table->foreign('guiId')->references('guiId')->on('guias')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
+     * Hace una marcha atras de la migración, i vuelve al estado original.
      */
     public function down()
     {

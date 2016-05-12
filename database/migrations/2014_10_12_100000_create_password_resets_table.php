@@ -3,12 +3,13 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+* Classe que genera la tabla password_resets en la base de datos.
+*/
 class CreatePasswordResetsTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
+     * Ejecuta la migración a la base de datos.
      */
     public function up()
     {
@@ -20,9 +21,7 @@ class CreatePasswordResetsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
+     * Hace una marcha atras de la migración, i vuelve al estado original.
      */
     public function down()
     {
