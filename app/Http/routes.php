@@ -29,6 +29,7 @@ Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
 Route::delete('/guias/{guia}', 'GuiaController@eliminarGuia');
 
 /* --- USUARIOS --- */
+Route::get('perfil/{id}', 'UsuarioController@mostrarPerfil');
 Route::post('/perfil/{usuario}/editar', 'UsuarioController@editarUsuario');
 Route::delete('/perfil/{usuario}', 'UsuarioController@eliminarUsuario');
 
