@@ -20,6 +20,30 @@ class CampeonController extends Controller
 	*/
 	public function index(Request $request)
 	{
-	    return view('campeones.index');
+	    return view('campeones.index', [
+            'campeones' => obtenerCampeones(),
+		]);
+	}
+
+	/*
+	* Método
+	*
+	*/
+	public function obtenerCampeones()
+	{
+		// Más adelante implementat sessión con idioma.
+		//$idioma = Session::get('idioma');
+		$json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=es_ES&champData=image&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+		$data = json_decode($json);
+		$campeones = array();
+		foreach($data->data as $infoCampeon){
+		    $campeones[] = array(
+		            'id' => $infoCampeon->id,
+		            'nombre' => $infoCampeon->name,
+		            'titulo' => $infoCampeon->title,
+		            'imagen' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/' . $infoCampeon->image->full,
+		        );
+		}
+		return $campeones;
 	}
 }
