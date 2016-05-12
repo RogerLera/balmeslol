@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 /* --- CAMPEONES --- */
 Route::get('/campeones', 'CampeonController@index');
-Route::get('/campeones/{campeon}', 'CampeonController@obtenerCampeon');
+Route::get('/campeones/{id}', 'CampeonController@obtenerCampeon');
 
 /* --- GUIAS --- */
 Route::get('/guias', 'GuiaController@index');
@@ -34,10 +34,10 @@ Route::post('/perfil/{usuario}/editar', 'UsuarioController@editarUsuario');
 Route::delete('/perfil/{usuario}', 'UsuarioController@eliminarUsuario');
 
 /* --- MENSAJES --- */
-Route::get('/mensajes', 'MensajeController@index');
-Route::get('/mensajes/{mensaje}', 'MensajeController@obtenerMensaje');
-Route::post('/mensajes/crear', 'MensajeController@crearMensaje');
-Route::put('/mensajes/{mensaje}/editar', 'MensajeController@editarMensaje');
+Route::get('/mensajes/bandejaEntrada', 'MensajeController@entrada');
+Route::get('/mensajes/bandejaSalida', 'MensajeController@salida');
+Route::get('/mensajes/{id}', 'MensajeController@obtenerMensaje');
+Route::post('/mensaje', 'MensajeController@crearMensaje');
 Route::delete('/mensajes/{mensaje}', 'MensajeController@eliminarMensaje');
 
 /* --- ESTADISTICAS CAMPEONES/HECHIZOS --- */
