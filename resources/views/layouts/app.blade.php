@@ -15,23 +15,14 @@
     <link rel="stylesheet" href="<?php echo asset('bootstrap/css/bootstrap.css')?>" type="text/css"> 
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
-    <style>
-        body {
-            font-family: 'Lato';
-        }
-        .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; // remove the gap so it doesn't close
- }
-    </style>
 </head>
 <body id="app-layout">
     <div class="container">
         <div class="row" style="background-color: lightblue;">
             <div class="col-md-6">
-                <a href="{{ url('/') }}"><img alt ="Logo principal" src="<?php echo asset('images/banner.png')?>"></a>
+                <a href="{{ url('/') }}"><img alt ="Logo principal" src="<?php echo asset('images/banner-large.png')?>"></a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" style="padding-top:30px;">
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Buscar jugador">
@@ -106,7 +97,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">Todos los campeones</a>
+                            <a href="{{ url('/campeones') }}">Todos los campeones</a>
                         </li>
                         <li>
                             <a href="#">Últimos campeones</a>

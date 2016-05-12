@@ -9,8 +9,58 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+
+.champ-box {
+  text-align: center;
+  border: 1px solid #233148;
+  margin: 5px;
+  background: #000;
+  display: block;
+  color: #fff;
+  width: 106px;
+  padding: 6px 3px 3px 3px;
+  float: left;
+}
+
+.champ-info {
+  padding: 4px;
+  background: #233148;
+  text-align: center;
+}
+
+.champ-box > img {
+  min-height: 71px;
+  width: 100%;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+ }
 body {
   margin: 0;
+
+    /* Location of the image */
+  background-image: url("/images/background.png");
+  
+  /* Image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Image doesn't repeat */
+  background-repeat: no-repeat;
+  
+  /* Makes the image fixed in the viewport so that it doesn't move when 
+     the content height is greater than the image height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based on its container's size */
+  background-size: cover;
+  
+  /* Pick a solid background color that will be displayed while the background image is loading */
+  background-color:#464646;
+  
+  /* SHORTHAND CSS NOTATION
+   * background: url(background-photo.jpg) center center cover no-repeat fixed;
+   */
 }
 article,
 aside,
@@ -5454,7 +5504,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #d6e2f0;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -5688,12 +5738,12 @@ button.list-group-item-danger.active:focus {
   border-bottom: 1px solid #ddd;
 }
 .panel-default {
-  border-color: #ddd;
+  border-color: #add8e6;
 }
 .panel-default > .panel-heading {
   color: #333;
-  background-color: #f5f5f5;
-  border-color: #ddd;
+  background-color: lightblue;
+  border-color: #add8e6;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #ddd;
