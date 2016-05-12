@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel Quickstart - Basic</title>
+    <title>Balmeslol - Home</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
     <!-- Styles -->
     <link rel="stylesheet" href="<?php echo asset('bootstrap/css/bootstrap.css')?>" type="text/css"> 
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
@@ -19,59 +19,59 @@
         body {
             font-family: 'Lato';
         }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-        .input-group-btn select {
-    border-color: #ccc;
-margin-top: 0px;
-    margin-bottom: 0px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-}
-
+        .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+ }
     </style>
 </head>
 <body id="app-layout">
-<div class="container">
-      <div class="row" style="margin-top:10px;">
-        <div class="col-md-6">
-         <img src="<?php echo asset('images/banner.png')?>">
-        </div>
-        <div class="col-md-6">
-          <form class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar jugador">
-                    <span class="input-group-btn">
-                        <select class="btn" data-width="fit">
-                            <option value="euw">EU Oeste</option>
-                            <option value="eune">EU Nórdica y Este</option>
-                            <option value="na">Norteamérica</option>
-                            <option value="lan">Latinoamérica Norte</option>
-                            <option value="las">Latinoamérica Sur</option>
-                            <option value="br">Brasil</option>
-                            <option value="jap">Japón</option>
-                            <option value="ru">Rusia</option>
-                            <option value="tr">Turquía</option>
-                            <option value="oce">Oceanía</option>
-                            <option value="kr">Republica de Corea</option>
-                        </select>
-                    </span>
-                </div>
+    <div class="container">
+        <div class="row" style="background-color: lightblue;">
+            <div class="col-md-6">
+                <a href="{{ url('/') }}"><img alt ="Logo principal" src="<?php echo asset('images/banner.png')?>"></a>
             </div>
-            <button type="submit" class="btn btn-info">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </form>
-        </div>
+            <div class="col-md-6">
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar jugador">
+                        <select class="selectpicker" data-width="fit">
+                            <option data-subtext="EU Oeste" value="euw">EUW</option>
+                            <option data-subtext="EU Nórdica y Este" value="eune">EUNE</option>
+                            <option data-subtext="Norteamérica" value="na">NA</option>
+                            <option data-subtext="Latinoamérica Norte" value="lan">LAN</option>
+                            <option data-subtext="Latinoamérica Sur" value="las">LAS</option>
+                            <option data-subtext="Brasil" value="br">BR</option>
+                            <option data-subtext="Japón" value="jap">JAP</option>
+                            <option data-subtext="Rusia" value="ru">RU</option>
+                            <option data-subtext="Turquía" value="tr">TR</option>
+                            <option data-subtext="Oceanía" value="oce">OCE</option>
+                            <option data-subtext="Republica de Corea" value="kr">KR</option>
+                        </select>
+                        <button type="submit" class="btn btn-info">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
       </div>
  
       <div class="row">
-        <nav class="navbar navbar-default" role="navigation">
+        
+        <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <!-- Guias menú -->
+                              <!-- Guias menú -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Guías de campeones<b class="caret"></b>
@@ -155,51 +155,43 @@ margin-top: 0px;
                         </li>
                     </ul>
                 </li>
+                </ul>
+              </li>
             </ul>
-        </nav>
-      </div>
+            <ul class="nav navbar-nav navbar-right">
+               <!-- Authentication Links -->
+                @if (Auth::guest())
+                    <li>
+                        <a href="{{ url('/login') }}">Login</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/register') }}">Register</a>
+                    </li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                @endif
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+  </div>
 </div>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
-<p>loreooerwowsdoosdoasd</p>
+
     @yield('content')
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>
