@@ -38,3 +38,7 @@ Route::get('/mensajes/{mensaje}', 'MensajeController@obtenerMensaje');
 Route::post('/mensajes/crear', 'MensajeController@crearMensaje');
 Route::put('/mensajes/{mensaje}/editar', 'MensajeController@editarMensaje');
 Route::delete('/mensajes/{mensaje}', 'MensajeController@eliminarMensaje');
+
+/* --- REGISTRE/INICI SESSIÓ --- */
+Route::auth();
+Route::get('/home', 'HomeController@index');
