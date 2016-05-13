@@ -16,12 +16,24 @@ class CampeonController extends Controller
 	* Método principal que se llama al acceder a la pestanya campeones.
 	* Coje del .json toda la información necessaria para la vista.
 	*
-	* @return informacion campeones a la vista.
+	* @return información campeones a la vista.
 	*/
 	public function index(Request $request)
 	{
 	    return view('campeones.index', [
             'campeones' => obtenerCampeones(),
+		]);
+	}
+
+	/**
+	* Método que devuelve a la vista la información sobre el campeón seleccionado.
+	*
+	* @return información campeón a la vista.
+	*/
+	public function mostrarCampeon(Request $request)
+	{
+		return view('campeones.infoCampeon', [
+			'campeon' => obtenerCampeonPorId($request->id),
 		]);
 	}
 
@@ -44,13 +56,25 @@ class CampeonController extends Controller
 		// En la variable campeones vamos introduciendo cada campeón.
 		foreach($data->data as $infoCampeon){
 		    $campeones[] = array(
+					'nombre' => $infoCampeon->name,
 		            'id' => $infoCampeon->id,
-		            'nombre' => $infoCampeon->name,
 		            'titulo' => $infoCampeon->title,
 		            'imagen' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/' . $infoCampeon->image->full,
 		        );
 		}
+		// Ordenamos el array por nombre.
+		asort($campeones);
 		// Devolvemos el array.
 		return $campeones;
+	}
+
+	/**
+	* Método que a partir de una id, obtiene el campeón deseado.
+	*
+	* @return array associativo con la información del campeón.
+	*/
+	public function obtenerCampeonPorId($id)
+	{
+
 	}
 }
