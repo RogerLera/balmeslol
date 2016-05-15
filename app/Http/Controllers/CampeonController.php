@@ -75,6 +75,48 @@ class CampeonController extends Controller
 	*/
 	public function obtenerCampeonPorId($id)
 	{
+        // Obtenemos el json.
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/412?locale=es_ES&champData=image,info,lore,passive,spells,stats&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        // Lo transformamos a objetos que php pueda entender.
+        $infoCampeon = json_decode($json);
+        // Array con los claves de características, estadísticas i habilidades campeón.
+        $caracteristicas = ['Ataque', 'Defensa', 'Magia', 'Dificultad'];
+        $estadisticas = ['Armadura', 'Armadura por nivel', 'Ataque', 'Ataque por nivel',
+                        'Rango', 'Velocidad de ataque por nivel', 'Crítico', 'Crítico por nivel',
+                        'Ataque por nivel', 'Vida', 'Vida por nivel', 'Regeneración vida',
+                        'Regeneración vida por nivel', 'Velocidad', 'Mana', 'Mana por nivel',
+                        'Regeneración de mana', 'Regeneración de mana por nivel', 'Resistencia mágica',
+                        'Resistencia mágica por nivel'];
+        $habilidades = ['Q', 'W', 'E', 'R'];
+        // Inicializamos el array campeón con toda la información que necessitamos.
+        $campeon = array(
+            'nombre' => $infoCampeon->name,
+            'titulo' => $infoCampeon->title,
+            'lore' => str_replace("<br>", "", $infoCampeon->lore),
+        );
+        $n = 0;
+        // Realizamos un bucle para cada apartado que está dentro de un objeto.
+        foreach ($infoCampeon->info as $info) {
+            $campeon['caracteristicas'][$caracteristicas[$n]] = $info;
+            $n++;
+        }
+        $n = 0;
+        foreach ($infoCampeon->stats as $stats) {
+            $campeon['estadisticas'][$estadisticas[$n]] = $stats;
+            $n++;
+        }
+        $campeon['habilidades']['passiva']['nombre'] = $infoCampeon->passive->name;
+        $campeon['habilidades']['passiva']['descripcion'] = $infoCampeon->passive->description;
+        $campeon['habilidades']['passiva']['imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/passive/' . $infoCampeon->passive->image->full;
 
+        $n = 0;
+        foreach ($infoCampeon->spells as $spell) {
+            $campeon['habilidades'][$habilidades[$n]]['nombre'] = $spell->name;
+            $campeon['habilidades'][$habilidades[$n]]['descripcion'] = $spell->description;
+            $campeon['habilidades'][$habilidades[$n]]['imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $spell->image->full;
+            $n++;
+        }
+        // Devolvemos el array campeón.
+        return $campeon;
 	}
 }
