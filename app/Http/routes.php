@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 /* --- CAMPEONES --- */
 Route::get('/campeones', 'CampeonController@index');
-Route::get('/campeones/{id}', 'CampeonController@obtenerCampeon');
+Route::get('/campeones/{id}', 'CampeonController@mostrarCampeon');
 
 /* --- GUIAS --- */
 Route::get('/guias', 'GuiaController@index');
