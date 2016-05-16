@@ -51,8 +51,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['web']], function () {
     // Rutas inicio sesión.
-    Route::get('/usuario/login','UsuarioAuth\AuthController@formularioInicioSesion');
-    Route::post('/usuario/login','UsuarioAuth\AuthController@inicioSesion');
+    Route::get('/usuario/inicioSesion','UsuarioAuth\AuthController@formularioInicioSesion');
+    Route::post('/usuario/inicioSesion','UsuarioAuth\AuthController@inicioSesion');
     Route::get('/usuario/logout','UsuarioAuth\AuthController@cerrarSesion');
 
     // Rutas registro usuario.

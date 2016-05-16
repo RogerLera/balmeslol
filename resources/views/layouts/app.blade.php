@@ -18,9 +18,9 @@
 </head>
 <body id="app-layout">
     <div class="container">
-        <div class="row" style="background-color: lightblue;">
+        <div class="row banner">
             <div class="col-md-6">
-                <a href="{{ url('/') }}"><img alt ="Logo principal" src="<?php echo asset('images/banner-large.png')?>"></a>
+                
             </div>
             <div class="col-md-6" style="padding-top:30px;">
                 <form class="navbar-form navbar-right" role="search">
@@ -153,10 +153,10 @@
                <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li>
-                        <a href="{{ url('/usuario/inicioSesion') }}">Login</a>
+                        <a href="{{ url('/usuario/inicioSesion') }}">Iniciar</a>
                     </li>
                     <li>
-                        <a href="{{ url('/usuario/registro') }}">Register</a>
+                        <a href="{{ url('/usuario/registro') }}">Registrarse</a>
                     </li>
                 @else
                     <li class="dropdown">
@@ -165,7 +165,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <li><a href="{{ url('/usuario/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                         </ul>
                     </li>
                 @endif
