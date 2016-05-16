@@ -18,7 +18,7 @@ class MensajeRepository
                     ->orderBy('created_at', 'asc')
                     ->get();
     }
-    
+
     /**
      * Obtiene todos los mensajes que envió el usuario que se encuentra logueado
      *
