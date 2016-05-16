@@ -48,3 +48,17 @@ Route::get('/estadisticas/hechizos', 'EstadisticasHechizoController@index');
 /* --- REGISTRE/INICI SESSIÓ --- */
 Route::auth();
 Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware' => ['web']], function () {
+    // Rutas inicio sesión.
+    Route::get('/usuario/login','UsuarioAuth\AuthController@formularioInicioSesion');
+    Route::post('/usuario/login','UsuarioAuth\AuthController@inicioSesion');
+    Route::get('/usuario/logout','UsuarioAuth\AuthController@cerrarSesion');
+
+    // Rutas registro usuario.
+    Route::get('usuario/registro', 'UsuarioAuth\AuthController@formularioRegistro');
+    Route::post('usuario/registro', 'UsuarioAuth\AuthController@registro');
+
+    Route::get('/usuario', 'UsuarioController@index');
+
+});

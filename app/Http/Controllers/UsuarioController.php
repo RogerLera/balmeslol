@@ -13,6 +13,13 @@ use Illuminate\Support\ServiceProvider;
 class UsuarioController extends Controller {
 
     /**
+    * Constructor principal.
+    */
+    public function __construct(){
+        $this->middleware('usuario');
+   }
+
+    /**
      * Mostrar el perfil de un cierto usuario
      *
      * @param  int  $id
@@ -34,7 +41,7 @@ class UsuarioController extends Controller {
         $usuario->usuPswd = $request->input('usuPswd');
         $usuario->save();
         return redirect('/');
-        
+
         /* http://www.core45.com/using-database-to-store-images-in-laravel-5-1/
          * si apareixen problemes amb les imatges:
          tema composer no esta aclarat:
@@ -47,7 +54,7 @@ class UsuarioController extends Controller {
      * Eliminar el usuario especificado.
      * @param Request $request
      * @param Usuario $usuario
-     * @return redireccionamento 
+     * @return redireccionamento
      */
     public function eliminarUsuario(Usuario $usuario) {
         $this->authorize('permisoUsuario', $usuario);
