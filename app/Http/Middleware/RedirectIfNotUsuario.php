@@ -24,5 +24,6 @@ class RedirectIfNotUsuario
         }
 
         return $next($request);
+    }
 }
 ?>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UsuarioAuth;
 
 use App\Usuario;
+use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -30,7 +31,7 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
-    protected $guard = 'usuario';
+    protected $guard = 'web';
 
     /**
      * Create a new authentication controller instance.
@@ -60,20 +61,21 @@ class AuthController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Método que registra un usuario en la base de datos.
      *
-     * @param  array  $data
-     * @return User
+     * @param  Request  $request
+     * @return vista al inicio.
      */
-    protected function create(array $data)
+    protected function registro(Request $request)
     {
         return Usuario::create([
-            'usuAlias' => $data['usuAlias'],
-            'usuEmail' => $data['usuEmail'],
-            'usuFdn' => $data['usuFdn'],
-            'usuAvatar' => $data['usuAvatar'],
-            'usuPswd' => bcrypt($data['usuPswd']),
+        'usuAlias' => $request->usuAlias,
+        'usuEmail' => $request->usuEmail,
+        'usuFdn' => $request->usuFdn,
+        'usuAvatar' => $request->usuAvatar,
+        'usuPswd' => bcrypt($request->usuPswd),
         ]);
+        return view('/');
     }
 
     /**
@@ -87,7 +89,7 @@ class AuthController extends Controller
             return view('auth.authenticate');
         }
 
-        return view('usuario.auth.inicioSesion');
+        return view('usuarios.auth.inicioSesion');
     }
 
     /**
@@ -97,6 +99,6 @@ class AuthController extends Controller
     */
     public function formularioRegistro()
     {
-        return view('usuario.auth.registro');
+        return view('usuarios.auth.registro');
     }
 }

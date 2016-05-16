@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
     <!-- Styles -->
-    <link rel="stylesheet" href="<?php echo asset('bootstrap/css/bootstrap.css')?>" type="text/css"> 
+    <link rel="stylesheet" href="<?php echo asset('bootstrap/css/bootstrap.css')?>" type="text/css">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
 </head>
@@ -46,9 +46,9 @@
                 </form>
             </div>
       </div>
- 
+
       <div class="row">
-        
+
         <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -58,7 +58,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            
+
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -153,10 +153,10 @@
                <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li>
-                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/usuario/inicioSesion') }}">Login</a>
                     </li>
                     <li>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/usuario/registro') }}">Register</a>
                     </li>
                 @else
                     <li class="dropdown">

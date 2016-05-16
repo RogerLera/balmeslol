@@ -40,9 +40,9 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'usuario' => [
+        'web' => [
             'driver' => 'session',
-            'provider' => 'usuario',
+            'provider' => 'usuarios',
         ],
 
         'api' => [
@@ -76,7 +76,7 @@ return [
 
          'usuarios' => [
              'driver' => 'eloquent',
-             'table' => App\Usuarios::class,
+             'model' => App\Usuario::class,
          ],
     ],
 
@@ -107,7 +107,7 @@ return [
             'expire' => 60,
         ],
         'usuarios' => [
-            'provider' => 'usuario',
+            'provider' => 'usuarios',
             'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
