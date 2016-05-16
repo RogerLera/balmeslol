@@ -105,15 +105,15 @@ class CampeonController extends Controller
             $campeon['estadisticas'][$estadisticas[$n]] = $stats;
             $n++;
         }
-        $campeon['habilidades']['passiva']['nombre'] = $infoCampeon->passive->name;
-        $campeon['habilidades']['passiva']['descripcion'] = $infoCampeon->passive->description;
-        $campeon['habilidades']['passiva']['imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/passive/' . $infoCampeon->passive->image->full;
+        $campeon['habilidades']['Passiva']['Nombre'] = $infoCampeon->passive->name;
+        $campeon['habilidades']['Passiva']['Descripcion'] = $infoCampeon->passive->description;
+        $campeon['habilidades']['Passiva']['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/passive/' . $infoCampeon->passive->image->full;
 
         $n = 0;
         foreach ($infoCampeon->spells as $spell) {
-            $campeon['habilidades'][$habilidades[$n]]['nombre'] = $spell->name;
-            $campeon['habilidades'][$habilidades[$n]]['descripcion'] = $spell->description;
-            $campeon['habilidades'][$habilidades[$n]]['imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $spell->image->full;
+            $campeon['habilidades'][$habilidades[$n]]['Nombre'] = $spell->name;
+            $campeon['habilidades'][$habilidades[$n]]['Descripcion'] = $spell->description;
+            $campeon['habilidades'][$habilidades[$n]]['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $spell->image->full;
             $n++;
         }
         // Devolvemos el array campeón.
