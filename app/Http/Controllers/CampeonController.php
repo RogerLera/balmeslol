@@ -93,6 +93,7 @@ class CampeonController extends Controller
             'nombre' => $infoCampeon->name,
             'titulo' => $infoCampeon->title,
             'lore' => str_replace("<br>", "", $infoCampeon->lore),
+            'retrato' => 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'.$infoCampeon->key.'_0.jpg',
         );
         $n = 0;
         // Realizamos un bucle para cada apartado que está dentro de un objeto.

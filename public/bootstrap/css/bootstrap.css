@@ -12,14 +12,36 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 .banner {
-
-
     /* Location of the image */
   background-image: url("/images/banner-large.png");
   width: auto;
   height: 120px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.splashart{
+  position: relative;
+  display: block;
+  border: 2px solid #998822;
+border-radius: 10px;
+  box-shadow: 10px 10px 5px #888888;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+.splashart > img {
+  position: absolute;
+  top: -70px;  /* Change this */
+}
+
+.splash-title {
+  z-index: 100;
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  top: 70px;
+  left: 20px;
 }
 
   .champ-box {
