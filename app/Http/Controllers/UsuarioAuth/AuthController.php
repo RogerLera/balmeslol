@@ -3,24 +3,15 @@
 namespace App\Http\Controllers\UsuarioAuth;
 
 use App\Usuario;
-use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -36,11 +27,13 @@ class AuthController extends Controller
     /**
      * Create a new authentication controller instance.
      *
+     * @param Autentificador $auth
+     * @param Usuario $usuario
      * @return void
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => 'cerrarSesion']);
     }
 
     /**
@@ -68,14 +61,44 @@ class AuthController extends Controller
      */
     protected function registro(Request $request)
     {
-        return Usuario::create([
-        'usuAlias' => $request->usuAlias,
-        'usuEmail' => $request->usuEmail,
-        'usuFdn' => $request->usuFdn,
-        'usuAvatar' => $request->usuAvatar,
-        'usuPswd' => bcrypt($request->usuPswd),
+        Usuario::create([
+            'usuAlias' => $request->usuAlias,
+            'usuEmail' => $request->usuEmail,
+            'usuFdn' => $request->usuFdn,
+            'usuAvatar' => $request->usuAvatar,
+            'usuPswd' => bcrypt($request->usuPswd),
         ]);
-        return view('/');
+        return redirect('/');
+    }
+
+    /**
+     * Método que comprueba que el usuario existe en la base de datos,
+     * y inicia la sesión  en la web.
+     *
+     * @param  Request  $request
+     * @return vista al inicio.
+     */
+    protected function inicioSesion(Request $request)
+    {
+        if (Auth::attempt(['usuAlias' => $request->usuAlias, 'usuPswd' => $request->usuPswd])) {
+           return redirect('/');
+       }
+
+       return redirect('/usuario/inicioSesion')->withErrors([
+           'usuAlias' => 'Los datos introducidos no coinciden con nuestros registros, intentalo de nuevo.',
+       ]);
+    }
+
+    /**
+     * Método para que el usuario se desconecte de la aplicación.
+     *
+     * @return Response
+     */
+    public function cerrarSesion()
+    {
+        $this->auth->logout();
+
+        return redirect('/');
     }
 
     /**

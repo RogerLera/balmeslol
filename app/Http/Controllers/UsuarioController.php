@@ -16,7 +16,7 @@ class UsuarioController extends Controller {
     * Constructor principal.
     */
     public function __construct(){
-        $this->middleware('usuario');
+        $this->middleware('guest');
    }
 
     /**

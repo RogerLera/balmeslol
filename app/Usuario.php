@@ -5,14 +5,15 @@ namespace App;
 use App\Guia;
 use App\Favorito;
 use App\Mensaje;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
 * Classe Usuario que representa a una persona, la qual puede hacer distintas cosas
 * (iniciar sessión, enviar mensajes, crear guias, editar perfil, ...) en la web.
 */
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
+
     /**
     * Atributos de la classe que son assignables.
     *

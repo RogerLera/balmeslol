@@ -46,7 +46,7 @@ Route::get('/estadisticas/campeones', 'EstadisticasCampeonController@index');
 Route::get('/estadisticas/hechizos', 'EstadisticasHechizoController@index');
 
 /* --- REGISTRE/INICI SESSIÓ --- */
-Route::auth();
+//Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['web']], function () {
