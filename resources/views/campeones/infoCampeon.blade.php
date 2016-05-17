@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">{{ $campeon['nombre'] }}, {{ $campeon['titulo'] }}</div>
-                <div class="panel-body">
+                <div class="panel-body-min">
                     <div class="splashart"> 
                         <img src="{{ $campeon['retrato'] }}"> 
                         <p class="splash-title"><b>{{ $campeon['nombre'] }}</b><br>{{ $campeon['titulo'] }}</p>
@@ -52,5 +51,4 @@
         </div>
     </div>
 </div>
-
 @endsection
