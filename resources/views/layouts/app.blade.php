@@ -138,19 +138,19 @@
                            <!-- Authentication Links -->
                             @if (Auth::guest())
                                 <li>
-                                    <a href="{{ url('/usuario/inicioSesion') }}">Iniciar</a>
+                                    <a href="{{ url('/login') }}">Iniciar</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/usuario/registro') }}">Registrarse</a>
+                                    <a href="{{ url('/register') }}">Registrarse</a>
                                 </li>
                             @else
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        {{ Auth::usuario()->usuAlias }} <span class="caret"></span>
+                                        {{ Auth::user()->usuAlias }} <span class="caret"></span>
                                     </a>
 
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ url('/usuario/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
+                                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                                     </ul>
                                 </li>
                             @endif
