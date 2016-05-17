@@ -18,7 +18,7 @@ class CreateFavoritosTable extends Migration
             $table->integer('usuId')->unsigned();
             $table->integer('guiId')->unsigned();
             $table->timestamps();
-            $table->foreign('usuId')->references('usuId')->on('usuarios')->onDelete('cascade');
+            $table->foreign('usuId')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('guiId')->references('guiId')->on('guias')->onDelete('cascade');
         });
     }

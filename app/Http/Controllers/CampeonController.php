@@ -107,9 +107,9 @@ class CampeonController extends Controller
             $campeon['estadisticas'][$estadisticas[$n]] = $stats;
             $n++;
         }
-        $campeon['habilidades']['Passiva']['Nombre'] = $infoCampeon->passive->name;
-        $campeon['habilidades']['Passiva']['Descripcion'] = $infoCampeon->passive->description;
-        $campeon['habilidades']['Passiva']['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/passive/' . $infoCampeon->passive->image->full;
+        $campeon['habilidades']['Pasiva']['Nombre'] = $infoCampeon->passive->name;
+        $campeon['habilidades']['Pasiva']['Descripcion'] = $infoCampeon->passive->description;
+        $campeon['habilidades']['Pasiva']['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/passive/' . $infoCampeon->passive->image->full;
 
         $n = 0;
         foreach ($infoCampeon->spells as $spell) {

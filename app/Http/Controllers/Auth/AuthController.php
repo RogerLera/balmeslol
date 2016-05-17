@@ -30,6 +30,8 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
+    protected $username = 'usuAlias';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -49,8 +51,10 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'usuAlias' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
+            'usuFdn' => 'date|date_format:"Y/m/d"',
+            'usuAvatar' => 'image',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -63,9 +67,19 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        print_r("ola");
+        //$file = $data['usuAvatar'];
+        //$img = Image::make($file);
+        //Response::make($img->encode('jpeg'));
+        $avatar = null;
+        if (isset($data['usuAvatar'])) {
+            $avatar = $data['usuAvatar'];
+        }
         return User::create([
-            'name' => $data['name'],
+            'usuAlias' => $data['usuAlias'],
             'email' => $data['email'],
+            'usuFdn' => $data['usuFdn'],
+            'usuAvatar' => $avatar,
             'password' => bcrypt($data['password']),
         ]);
     }

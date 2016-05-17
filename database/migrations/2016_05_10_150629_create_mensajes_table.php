@@ -19,8 +19,8 @@ class CreateMensajesTable extends Migration
             $table->integer('menDestino')->unsigned();
             $table->string('menTexto');
             $table->timestamps();
-            $table->foreign('menEmisor')->references('usuId')->on('usuarios')->onDelete('cascade');
-            $table->foreign('menDestino')->references('usuId')->on('usuarios');
+            $table->foreign('menEmisor')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('menDestino')->references('id')->on('users');
         });
     }
 

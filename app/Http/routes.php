@@ -46,19 +46,19 @@ Route::get('/estadisticas/campeones', 'EstadisticasCampeonController@index');
 Route::get('/estadisticas/hechizos', 'EstadisticasHechizoController@index');
 
 /* --- REGISTRE/INICI SESSIÓ --- */
-//Route::auth();
+Route::auth();
 Route::get('/home', 'HomeController@index');
 
-Route::group(['middleware' => ['web']], function () {
+//Route::group(['middleware' => ['web']], function () {
     // Rutas inicio sesión.
-    Route::get('/usuario/inicioSesion','UsuarioAuth\AuthController@formularioInicioSesion');
-    Route::post('/usuario/inicioSesion','UsuarioAuth\AuthController@inicioSesion');
-    Route::get('/usuario/logout','UsuarioAuth\AuthController@cerrarSesion');
+//    Route::get('/usuario/inicioSesion','Auth\AuthController@formularioInicioSesion');
+//    Route::post('/usuario/inicioSesion','Auth\AuthController@inicioSesion');
+//    Route::get('/usuario/logout','Auth\AuthController@cerrarSesion');
 
     // Rutas registro usuario.
-    Route::get('usuario/registro', 'UsuarioAuth\AuthController@formularioRegistro');
-    Route::post('usuario/registro', 'UsuarioAuth\AuthController@registro');
+//    Route::get('usuario/registro', 'Auth\AuthController@formularioRegistro');
+//    Route::post('usuario/registro', 'Auth\AuthController@create');
 
-    Route::get('/usuario', 'UsuarioController@index');
+//    Route::get('/usuario', 'UsuarioController@index');
 
-});
+//});

@@ -62,4 +62,9 @@ class UsuarioController extends Controller {
         return redirect('/');
     }
 
+    public function getAuthPassword()
+    {
+        return $this->usuPswd;
+    }
+
 }

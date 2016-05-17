@@ -23,7 +23,7 @@ class CreateGuiasTable extends Migration
             $table->integer('guiNegativo');
             $table->string('guiVersion');
             $table->timestamps();
-            $table->foreign('usuId')->references('usuId')->on('usuarios');
+            $table->foreign('usuId')->references('id')->on('users');
         });
     }
 
