@@ -83,12 +83,9 @@ class CampeonController extends Controller
         $infoCampeon = json_decode($json);
         // Array con los claves de características, estadísticas i habilidades campeón.
         $caracteristicas = ['Ataque', 'Defensa', 'Magia', 'Dificultad'];
-        $estadisticas = ['Armadura', 'Armadura por nivel', 'Ataque', 'Ataque por nivel',
-                        'Rango', 'Velocidad de ataque', 'Velocidad de ataque por nivel', 'Crítico',
-						'Crítico por nivel', 'Vida', 'Vida por nivel', 'Regeneración vida',
-                        'Regeneración vida por nivel', 'Velocidad', 'Mana', 'Mana por nivel',
-                        'Regeneración de mana', 'Regeneración de mana por nivel', 'Resistencia mágica',
-                        'Resistencia mágica por nivel'];
+        $estadisticas = ['Armadura', 'Ataque', 'Rango', 'Velocidad de ataque', 'Crítico',
+						'Vida', 'Regeneración vida', 'Velocidad', 'Mana', 'Regeneración de mana',
+						'Resistencia mágica'];
         $habilidades = ['Q', 'W', 'E', 'R'];
         // Inicializamos el array campeón con toda la información que necessitamos.
         $campeon = array(
@@ -104,12 +101,24 @@ class CampeonController extends Controller
             $n++;
         }
         $n = 0;
+		$count = 0;
         foreach ($infoCampeon->stats as $nombre => $stats) {
 			if ($nombre === 'attackspeedoffset'){
 				$stats = 0.625 / (1 + $stats);
 			}
-        	$campeon['estadisticas'][$estadisticas[$n]] = round($stats, 3);
-        	$n++;
+			if ($nombre !== 'attackrange' && $nombre !== 'movespeed') {
+				if ($count == 1) {
+					$campeon['estadisticas'][$estadisticas[$n - 1]] .= " (+" . round($stats, 3) . " por nivel)";
+					$count = 0;
+				} else {
+					$count++;
+					$campeon['estadisticas'][$estadisticas[$n]] = round($stats, 3);
+					$n++;
+				}
+			} else {
+				$campeon['estadisticas'][$estadisticas[$n]] = round($stats, 3);
+				$n++;
+			}
         }
         $campeon['habilidades']['Pasiva']['Nombre'] = $infoCampeon->passive->name;
         $campeon['habilidades']['Pasiva']['Descripcion'] = $infoCampeon->passive->description;
