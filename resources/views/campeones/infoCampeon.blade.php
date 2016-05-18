@@ -9,7 +9,7 @@
                 <div class="panel-body-min">
                     <div class="splashart"> 
                         <img src="{{ $campeon['retrato'] }}"> 
-                        <p class="splash-title"><b>{{ $campeon['nombre'] }}</b><br>{{ $campeon['titulo'] }}</p>
+                        <p class="splash-title"><b>{{ $campeon['nombre'] }}</b><br><i>{{ $campeon['titulo'] }}</i></p>
                     </div>
                     <br><br>
                     <ul class="nav nav-tabs">
@@ -25,16 +25,25 @@
                             <p>{{ $campeon['lore'] }}</p>
                         </div>
                         <div id="caracteristicas" class="tab-pane fade">
+                            <!--Barras de caracteristicas de colores-->
                             <h3>Características</h3>
                             @foreach($campeon['caracteristicas'] as $atributo => $valor)
-                                <p><b>{{ $atributo }}: </b>{{ $valor }}</p>
+                                <label>{{ $atributo }}</label>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-{{ $atributo }}" role="progressbar" aria-valuenow="{{ $valor }}"
+                                  aria-valuemin="0" aria-valuemax="10" style="width:{{ $valor }}0%">
+                                    {{ $valor }}
+                                    </div>
+                                </div>
                             @endforeach
                         </div>
                         <div id="estadisticas" class="tab-pane fade">
                             <h3>Estadísticas</h3>
-                            @foreach($campeon['estadisticas'] as $atributo => $valor)
-                                <p><b>{{ $atributo }}: </b>{{ $valor }}</p>
-                            @endforeach
+                            <ul >
+                                @foreach($campeon['estadisticas'] as $atributo => $valor)
+                                    <li class="2colum">  <b>{{ $atributo }}:</b> {{ $valor }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div id="habilidades" class="tab-pane fade">
                             <h3>Habilidades</h3>

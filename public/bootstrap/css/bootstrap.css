@@ -90,11 +90,32 @@
   margin-bottom: 15px;
  }
 
+ .progress-bar-Defensa {
+  background-color: #73a839;
+}
+
+.progress-bar-Magia {
+  background-color: #033c73;
+}
+
+.progress-bar-Dificultad {
+  background-color: #dd5600;
+}
+
+.progress-bar-Ataque {
+  background-color: #c71c22;
+}
+
+.2colum  {
+  float:left;
+}
+
  html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
 body {
    margin: 0;
 
@@ -5250,7 +5271,7 @@ a.thumbnail.active {
   line-height: 20px;
   color: #ffffff;
   text-align: center;
-  background-color: #034b8f;
+  
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -webkit-transition: width 0.6s ease;
