@@ -40,9 +40,10 @@
   z-index: 100;
   position: absolute;
   color: white;
-  font-size: 20px;
-  top: 70px;
+  font-size: 28px;
+  top: 50px;
   left: 20px;
+  text-shadow: 2px 2px black;
 }
 
   .champ-box {
@@ -69,12 +70,24 @@
 }
 .dropdown:hover .dropdown-menu {
     display: block;
-    margin-top: 0; // remove the gap so it doesn't close
+    margin-top: 0;
  }
 
  .content {
   background-color: red;
   border-radius: 5px black;
+ }
+
+ .titulo {
+  border: 2px solid #998822;
+  border-radius: 10px;
+  background-image: url("/images/tittlebackground.png");
+  font-size: 24px;
+  color: white;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin-bottom: 15px;
  }
 
  html {
