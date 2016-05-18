@@ -19,7 +19,7 @@
                                     <option value="Mage">Mago</option>
                                     <option value="Fighter">Luchador</option>
                                     <option value="Support">Soporte</option>
-                                    <option value="Assasin">Asesino</option>
+                                    <option value="Assassin">Asesino</option>
                                     <option value="Tank">Tanque</option>
                                     <option value="Marksman">Tirador</option>
                                 </select>
