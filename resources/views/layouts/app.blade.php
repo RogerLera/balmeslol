@@ -146,11 +146,13 @@
                             @else
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        {{ Auth::user()->usuAlias }} <span class="caret"></span>
+                                        <img src="/perfil/{{ Auth::user()->id }}/avatar" alt="Avatar usuario"> {{ Auth::user()->usuAlias }} <span class="caret"></span>
                                     </a>
 
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
+                                        <li><a href="/perfil/{{ Auth::user()->id }}"><i class="fa fa-btn fa-user"></i> Perfil</a></li>
+                                        <li><a href="/guias/favoritos"><i class="fa fa-btn fa-star"></i> Guias favoritas</a></li>
+                                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Desconectarse</a></li>
                                     </ul>
                                 </li>
                             @endif

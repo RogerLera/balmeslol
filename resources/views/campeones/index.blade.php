@@ -39,7 +39,6 @@
 	    		 			</div>
 	    		 		</a>
   			           @endforeach
-                       <div id="info"></div>
                     </div>
                 </div>
             </div>

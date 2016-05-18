@@ -30,9 +30,12 @@ Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
 Route::delete('/guias/{guia}', 'GuiaController@eliminarGuia');
 
 /* --- USUARIOS --- */
-Route::get('perfil/{id}', 'UsuarioController@mostrarPerfil');
-Route::post('/perfil/{usuario}/editar', 'UsuarioController@editarUsuario');
-Route::delete('/perfil/{usuario}', 'UsuarioController@eliminarUsuario');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/perfil/{id}', 'UserController@mostrarAvatar');
+    Route::get('/perfil/{id}/avatar', 'UserController@mostrarAvatar');
+    Route::post('/perfil/{id}/editar', 'UserController@editarUser');
+    Route::delete('/perfil/{id}', 'UserController@eliminarUser');
+});
 
 /* --- MENSAJES --- */
 Route::get('/mensajes/bandejaEntrada', 'MensajeController@entrada');
@@ -51,14 +54,14 @@ Route::get('/home', 'HomeController@index');
 
 //Route::group(['middleware' => ['web']], function () {
     // Rutas inicio sesión.
-//    Route::get('/usuario/inicioSesion','Auth\AuthController@formularioInicioSesion');
-//    Route::post('/usuario/inicioSesion','Auth\AuthController@inicioSesion');
-//    Route::get('/usuario/logout','Auth\AuthController@cerrarSesion');
+//    Route::get('/user/inicioSesion','Auth\AuthController@formularioInicioSesion');
+//    Route::post('/user/inicioSesion','Auth\AuthController@inicioSesion');
+//    Route::get('/user/logout','Auth\AuthController@cerrarSesion');
 
-    // Rutas registro usuario.
-//    Route::get('usuario/registro', 'Auth\AuthController@formularioRegistro');
-//    Route::post('usuario/registro', 'Auth\AuthController@create');
+    // Rutas registro user.
+//    Route::get('user/registro', 'Auth\AuthController@formularioRegistro');
+//    Route::post('user/registro', 'Auth\AuthController@create');
 
-//    Route::get('/usuario', 'UsuarioController@index');
+//    Route::get('/user', 'UserController@index');
 
 //});

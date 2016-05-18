@@ -7,20 +7,50 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+    * Atributos de la classe que son assignables.
+    *
+    * @var $fillable: array con los valores que se pueden modificar.
      */
     protected $fillable = [
         'usuAlias', 'email', 'usuFdn', 'usuAvatar', 'password',
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
+    * Atributos ocultos.
+    *
+    * @var $hidden: array con los valores ocultos.
      */
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+    * Obtener todas las guias que el usuario a creado.
+    *
+    * @return todas las guias.
+    */
+    public function guias()
+    {
+        return $this->hasMany(Guia::class);
+    }
+
+    /**
+    * Obtener todos los favoritos.
+    *
+    * @return todos los favoritos
+    */
+    public function favoritos()
+    {
+        return $this->hasMany(Favorito::class);
+    }
+
+    /**
+    * Obtener todos los mensajes.
+    *
+    * @return todos los mensajes
+    */
+    public function mensajes()
+    {
+        return $this->hasMany(Mensaje::class);
+    }
 }
