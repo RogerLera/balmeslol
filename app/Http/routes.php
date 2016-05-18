@@ -30,9 +30,10 @@ Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
 Route::delete('/guias/{guia}', 'GuiaController@eliminarGuia');
 
 /* --- USUARIOS --- */
-Route::group(['middleware' => ['web']], function () {
-    Route::get('/perfil/{id}', 'UserController@mostrarAvatar');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/perfil/{id}', 'UserController@mostrarPerfil');
     Route::get('/perfil/{id}/avatar', 'UserController@mostrarAvatar');
+    Route::get('/perfil/{id}/editar', 'UserController@formularioEditarUser');
     Route::post('/perfil/{id}/editar', 'UserController@editarUser');
     Route::delete('/perfil/{id}', 'UserController@eliminarUser');
 });

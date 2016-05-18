@@ -30,9 +30,20 @@ class UserController extends Controller {
         return view('users.perfil');
     }
 
+    /**
+     * Redireccionar al formulario para editar información del usuario.
+     *
+     * @param  int  $id
+     * @return Respuesta
+     */
+    public function formularioEditarUser($id)
+    {
+        return view('users.editar');
+    }
+
     public function editarUser(Request $request, User $user)
     {
-        $this->authorize('permisoUser', $user);
+        $this->authorize('permisoUser', $user, $request);
         //$user->usuAlias = $request->input('usuAlias');
         //$user->email = $request->input('email');
         //$user->usuFdn = $request->input('usuFdn');

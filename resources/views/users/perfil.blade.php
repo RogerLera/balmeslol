@@ -14,12 +14,10 @@
                             <h2 class="text-left">Perfil de {{ Auth::user()->usuAlias }}</h2>
                         </div>
                     <hr />
-                    <!--<p class="text-center">Alias: <b>{{ Auth::user()->usuAlias }}</b></p>
-                    <p class="text-center">Avatar: <b>{{ print_r(Auth::user()->usuAvatar) }}</b></p>
+                    <p class="text-center">Alias: <b>{{ Auth::user()->usuAlias }}</b></p>
+                    <p class="text-center">Avatar: <b>{{ Auth::user()->usuAvatar }}</b></p>
                     <p class="text-center">Fecha nacimiento: <b>{{ Auth::user()->usuFdn }}</b></p>
-                    <p class="text-center">E-Mail: <b>{{ Auth::user()->email }}</b></p>-->
-                    <p class="text-center">Avatar: <b>{{ print_r(Auth::user()->usuAvatar) }}</b></p>
-                    <p class="text-center">Avatar: <b>{{ print_r($user) }}</b></p>
+                    <p class="text-center">E-Mail: <b>{{ Auth::user()->email }}</b></p>
                 </div>
             </div>
         </div>
