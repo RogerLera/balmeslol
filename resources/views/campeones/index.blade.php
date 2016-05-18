@@ -15,8 +15,8 @@
                             <div class="col-md-6">
                                 <p>Filtrar</p>
                                 <select class="selectpicker" id="filtrarcampeon">
-                                    <option selected value="todos"><b>Todos</b></option>
-                                    <option value="free">Rotación Semanal</option>
+                                    <option selected value="Todos"><b>Todos</b></option>
+                                    <option value="Gratis">Rotación Semanal</option>
                                     <optgroup label="Rol">
                                     <option value="Mage">Mago</option>
                                     <option value="Fighter">Luchador</option>
