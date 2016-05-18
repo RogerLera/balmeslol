@@ -22,6 +22,7 @@ class CampeonController extends Controller
 	{
 	    return view('campeones.index', [
             'campeones' => CampeonController::obtenerCampeones(),
+            'campeonesGratuitos' => CampeonController::obtenerCampeonesGratis(), 
 		]);
 	}
 
@@ -120,5 +121,34 @@ class CampeonController extends Controller
         }
         // Devolvemos el array campeón.
         return $campeon;
+	}
+
+	/**
+	* Método para obtener los campeones gratuitos de la semana.
+	*
+	*
+	* @return array associativo con la información de los campeones.
+	*/
+	public function obtenerCampeonesGratis()
+	{
+		// Más adelante implementat sessión con idioma.
+		//$idioma = Session::get('idioma');
+		// Obtenemos el json.
+		$json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v1.2/champion?freeToPlay=true&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+		// Lo transformamos a objetos que php pueda entender.
+		$data = json_decode($json);
+		// Creamos el array que almazenará los campeones.
+		$campeones = array();
+		// En la variable campeones vamos introduciendo el id de cada campeón.
+		foreach($data->champions as $infoCampeon){
+		    $campeones[] = array(
+		            'id' => $infoCampeon->id,
+		        );
+		}
+		// Ordenamos el array por nombre.
+		asort($campeones);
+		// Devolvemos el array.
+		return $campeones;
+
 	}
 }
