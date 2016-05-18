@@ -1,16 +1,16 @@
 $(document).ready(function() {
     $("#buscarcampeon").keyup(function() {
 
-        // Recogemos el valor que haya escrito en el input
-        var filter = $(this).val();
+        // Recogemos el valor que haya escrito en el input.
+        var filtro = $(this).val();
 
-        // Hacemos un bucle por cada champinfo
+        // Hacemos un bucle por cada champinfo.
         $(".champ-box").each(function() {
 
-            // Si el texto no contiene el valor lo ocultamos
-            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+            // Si el texto no contiene el valor lo ocultamos.
+            if ($(this).text().search(new RegExp(filtro, "i")) < 0) {
                 $(this).fadeOut();
-                // Si lo tiene lo mostramos
+                // Si lo tiene lo mostramos.
             } else {
                 $(this).show();
             }
@@ -19,22 +19,18 @@ $(document).ready(function() {
 
     $("#filtrarcampeon").change(function() {
 
-        // Retrieve the input field text and reset the count to zero
-        var filter = $(this).val();
-        // Loop through the comment list
+        // Recojemos el valor de la opción del select escogida.
+        var filtro = $(this).val();
+        // Hacemos un bucle por cada campeón.
         $(".champ-box").each(function() {
-            // If the list item does not contain the text phrase fade it out
-            //if ($('input').val().search(new RegExp(filter, "i")) < 0) {
-            //    $(this).fadeOut();
-                // Show the list item if the phrase matches
-            //} else {
-            //    $(this).show();
-            //}
-            var prueba = $(this).find('[name="tag"]').val();
-            var todo = "";
-            if (filter === prueba) {
+            // Recojemos en una variable los valores de los inputs hidden.
+            var rolCampeon = $(this).find('[name="tag"]').val();
+            // Comparamos con el filtro si coincide con el rol del campeón.
+            if (filtro === rolCampeon) {
+                // Si coincide lo mostramos.
                 $(this).show();
             } else {
+                // Sinó lo escondemos.
                 $(this).fadeOut();
             }
         });
