@@ -8,10 +8,11 @@
                 <div class="panel-heading">Campeones</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <p>Escribe el nombre del campeón que quieras buscar</p>
                                 <input type="text" id="buscarcampeon" class="form-control" placeholder="Buscar campeón">
-                                <br>
+                            </div>
+                            <div class="col-md-6">
                                 <p>Filtrar</p>
                                 <select class="selectpicker" id="filtrarcampeon">
                                     <optgroup label="Rol">
@@ -25,7 +26,7 @@
                                 <br>
                             </div>
                         </div>
-                   	    @foreach($campeones as $campeon) 
+                   	    @foreach($campeones as $campeon)
 	    		 		<a href="/campeones/{{ $campeon['id'] }}">
 	    		 			<div class="champ-box">
 	    		 				<img src="{{ $campeon['imagen'] }}">
@@ -33,11 +34,12 @@
     		 						{{ $campeon['nombre'] }}
     		 					</div>
                                 @foreach($campeon['tags'] as $tag)
-                                    <input type="hidden" id="tag" value="{{ $tag }}">
-                                 @endforeach 
+                                    <input type="hidden" name="tag" value="{{ $tag }}">
+                                 @endforeach
 	    		 			</div>
 	    		 		</a>
   			           @endforeach
+                       <div id="info"></div>
                     </div>
                 </div>
             </div>
