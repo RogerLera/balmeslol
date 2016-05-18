@@ -15,7 +15,7 @@
                         </div>
                     <hr />
                     <p class="text-center">Alias: <b>{{ Auth::user()->usuAlias }}</b></p>
-                    <p class="text-center">Avatar: <b>{{ Auth::user()->usuAvatar }}</b></p>
+                    <p class="text-center">Avatar: <img src="/perfil/{{ Auth::id() }}/avatar" class="avatarPerfil" alt="Avatar usuario"></p>
                     <p class="text-center">Fecha nacimiento: <b>{{ Auth::user()->usuFdn }}</b></p>
                     <p class="text-center">E-Mail: <b>{{ Auth::user()->email }}</b></p>
                 </div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\ServiceProvider;
 use Response;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller {
 
@@ -41,28 +42,23 @@ class UserController extends Controller {
         return view('users.editar');
     }
 
-    public function editarUser(Request $request, User $user)
+    public function editarUser(Request $request, $id)
     {
-        $this->authorize('permisoUser', $user, $request);
-        //$user->usuAlias = $request->input('usuAlias');
-        //$user->email = $request->input('email');
-        //$user->usuFdn = $request->input('usuFdn');
-        //$file = Input::file('usuAvatar');
-        //$img = Image::make($file);
-        //Response::make($img->encode('jpeg'));
-        //$user->usuAvatar = $img;
-        //$user->password = $request->input('password');
-        //$user->save();
+        $user = User::whereId($id)->firstOrFail();
         $this->validate($request, [
-            'usuAlias' => 'required|max:255|unique:users',
-            'email' => 'required|email|max:255|unique:users',
-            'usuFdn' => 'date|date_format:"Y/m/d"',
+            'usuAlias' => 'required|max:255|unique:users,usuAlias,' . $user->id,
+            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+            'usuFdn' => 'date|date_format:Y-n-j',
             'usuAvatar' => 'image',
-            'password' => 'required|min:6|confirmed',
         ]);
-
         $user = User::whereId($user->id)->firstOrFail();
         $user->fill(Input::except('usuAvatar'));
+        if (isset($request->usuAvatar)) {
+            $file = $request->usuAvatar;
+            $avatar = Image::make($file);
+            Response::make($avatar->encode('jpeg'));
+            $user->usuAvatar = $avatar;
+        }
         $user->save();
         return redirect('/');
 
@@ -87,14 +83,18 @@ class UserController extends Controller {
         return redirect('/');
     }
 
+    /**
+    * Método que carga la imagen binaria de la base de datos.
+    * @param id identificador usuario.
+    * @return $response con la imagen.
+    */
     public function mostrarAvatar($id)
     {
         $user = User::whereId($id)->firstOrFail();
-        $response = Response::make($user->usuAvatar, 200);
+        $avatar = Image::make($user->usuAvatar);
+        $response = Response::make($avatar->encode('jpeg'));
         $response->header('Content-Type', 'image/jpeg');
-        return view('users.perfil', [
-            'user' => $response,
-        ]);
+        return $response;
     }
 
 }
