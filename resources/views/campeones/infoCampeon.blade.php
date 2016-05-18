@@ -39,11 +39,23 @@
                         </div>
                         <div id="estadisticas" class="tab-pane fade">
                             <h3>Estadísticas</h3>
-                            <ul >
+                            <table class="table-bordered">
+                                <tbody>
+                                  <?php $count = 1 ?>
                                 @foreach($campeon['estadisticas'] as $atributo => $valor)
-                                    <li class="2colum">  <b>{{ $atributo }}:</b> {{ $valor }}</li>
+                                @if ($count % 2 == 0)
+                              
+                                    <td> <b>{{ $atributo }}:</b> {{ $valor }}</td>   
+                                </tr>
+                                @else 
+                                  <tr>
+                                <td> <b>{{ $atributo }}:</b> {{ $valor }}</td>
+
+                                @endif
+                                <?php $count++ ?>
                                 @endforeach
-                            </ul>
+                                </tbody>
+                            </table>
                         </div>
                         <div id="habilidades" class="tab-pane fade">
                             <h3>Habilidades</h3>
