@@ -83,8 +83,8 @@ class CampeonController extends Controller
         // Array con los claves de características, estadísticas i habilidades campeón.
         $caracteristicas = ['Ataque', 'Defensa', 'Magia', 'Dificultad'];
         $estadisticas = ['Armadura', 'Armadura por nivel', 'Ataque', 'Ataque por nivel',
-                        'Rango', 'Velocidad de ataque por nivel', 'Crítico', 'Crítico por nivel',
-                        'Ataque por nivel', 'Vida', 'Vida por nivel', 'Regeneración vida',
+                        'Rango', 'Velocidad de ataque', 'Velocidad de ataque por nivel', 'Crítico',
+						'Crítico por nivel', 'Vida', 'Vida por nivel', 'Regeneración vida',
                         'Regeneración vida por nivel', 'Velocidad', 'Mana', 'Mana por nivel',
                         'Regeneración de mana', 'Regeneración de mana por nivel', 'Resistencia mágica',
                         'Resistencia mágica por nivel'];
@@ -103,9 +103,12 @@ class CampeonController extends Controller
             $n++;
         }
         $n = 0;
-        foreach ($infoCampeon->stats as $stats) {
-            $campeon['estadisticas'][$estadisticas[$n]] = $stats;
-            $n++;
+        foreach ($infoCampeon->stats as $nombre => $stats) {
+			if ($nombre === 'attackspeedoffset'){
+				$stats = 0.625 / (1 + $stats);
+			}
+        	$campeon['estadisticas'][$estadisticas[$n]] = round($stats, 3);
+        	$n++;
         }
         $campeon['habilidades']['Pasiva']['Nombre'] = $infoCampeon->passive->name;
         $campeon['habilidades']['Pasiva']['Descripcion'] = $infoCampeon->passive->description;
