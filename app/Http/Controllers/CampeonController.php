@@ -22,7 +22,7 @@ class CampeonController extends Controller
 	{
 	    return view('campeones.index', [
             'campeones' => CampeonController::obtenerCampeones(),
-            'campeonesGratuitos' => CampeonController::obtenerCampeonesGratis(), 
+            'campeonesGratuitos' => CampeonController::obtenerCampeonesGratis(),
 		]);
 	}
 
@@ -31,10 +31,10 @@ class CampeonController extends Controller
 	*
 	* @return información campeón a la vista.
 	*/
-	public function mostrarCampeon(Request $request)
+	public function mostrarCampeon($id)
 	{
 		return view('campeones.infoCampeon', [
-			'campeon' => CampeonController::obtenerCampeonPorId($request->id),
+			'campeon' => CampeonController::obtenerCampeonPorId($id),
 		]);
 	}
 
