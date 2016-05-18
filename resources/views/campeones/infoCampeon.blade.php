@@ -39,18 +39,11 @@
                         </div>
                         <div id="estadisticas" class="tab-pane fade">
                             <h3>Estadísticas</h3>
-                            <table>
-                                <tbody>
-                                    
-
-                            @foreach($campeon['estadisticas'] as $atributo => $valor)
-                            <tr>
-                                <td><b>{{ $atributo }}: </b></td>
-                                <td>{{ $valor }}</td>
-                            </tr>
-                            @endforeach
-                                </tbody>
-                            </table>
+                            <ul >
+                                @foreach($campeon['estadisticas'] as $atributo => $valor)
+                                    <li class="2colum">  <b>{{ $atributo }}:</b> {{ $valor }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div id="habilidades" class="tab-pane fade">
                             <h3>Habilidades</h3>

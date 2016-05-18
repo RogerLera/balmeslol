@@ -106,12 +106,16 @@
   background-color: #c71c22;
 }
 
+.2colum  {
+  float:left;
+}
 
  html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
 body {
    margin: 0;
 
