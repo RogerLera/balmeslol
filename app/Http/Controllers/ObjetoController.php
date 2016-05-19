@@ -21,7 +21,7 @@ class ObjetoController extends Controller
     public function index(Request $request)
     {
         return view('objetos.index', [
-            'objetos' => ObjetoController::obtenerObjetos(),
+            'objetos' => $this->obtenerObjetos(),
         ]);
     }
 
@@ -33,7 +33,7 @@ class ObjetoController extends Controller
     public function mostrarObjeto($id)
     {
         return view('objetos.infoObjeto', [
-            'objeto' => ObjetoController::obtenerObjetoPorId($id),
+            'objeto' => $this->obtenerObjetoPorId($id),
         ]);
     }
 
@@ -45,9 +45,11 @@ class ObjetoController extends Controller
     */
     public function obtenerObjetos()
     {
+        // Obtenemos el json y lo parseamos a objeto php.
         $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale=es_ES&itemListData=image&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
-
         $data = json_decode($json);
+
+        // Creamos el array contenedor de todos los objetos.
         $objetos = array();
 		// En la variable objetos vamos introduciendo cada objeto.
 		foreach($data->data as $infoObjeto) {
@@ -65,6 +67,7 @@ class ObjetoController extends Controller
         // Devolvemos el objeto.
         return $objetos;
     }
+
     /**
 	* Método que a partir de una id, obtiene el objeto deseado.
 	*
@@ -72,17 +75,20 @@ class ObjetoController extends Controller
 	*/
 	public function obtenerObjetoPorId($id)
 	{
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,sanitizedDescription,stats,image,into&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-
+        // Obtenemos el json y lo parseamos a objeto php.
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         $data = json_decode($json);
-        $descripcion = str_replace("<br>", "-", $data->description);
-        // http://stackoverflow.com/questions/1364974/php-regular-expression-to-remove-tags-in-html-document
-        // buscar remover tags php.
-        $patron = '/<[\s\S]>/i';
-        $descripcion = preg_replace($patron, "", $descripcion);
+
+        // Realizamos todos los canvios al apartado $data->description que nos llega,
+        // para obtener las estadisticas del objeto bien formateadas.
+        $estadisticas = str_replace("<br>", "_", $data->description);
+        $estadisticas = preg_replace("/<.*?>/", "", $estadisticas);
+        $estadisticas = explode("_", $estadisticas);
+
+        // Creamos el array objeto que tiene toda la información.
         $objeto = array(
             'nombre' => $data->name,
-            'descripcion' => $descripcion,
+            'estadisticas' => $estadisticas,
             'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->image->full,
             'precio' => array(
                 'total' => $data->gold->total,
@@ -90,12 +96,72 @@ class ObjetoController extends Controller
             ),
         );
 
-        if (isset($data->into)) {
-            for ($n = 0; $n < count($data->into); $n++) {
-                $objeto['transforma'][$n] = 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->into[$n] . '.png';
+        // Si existe el atributo 'from' (el objeto viene de otros objetos)
+        // guardamos en un array la información de dichos objetos.
+        if (isset($data->from)) {
+            for ($n = 0; $n < count($data->from); $n++) {
+                if ($data->from[$n] != 3718 && $data->from[$n] != 3722) {
+                    $objeto['procede'][] = $this->obtenerObjetodelObjetoPorId($data->from[$n]);
+                }
             }
         }
-        print_r($objeto);
+
+        // Si existe el atributo 'into' (el objeto puede 'mejorarse' para hacer uno de mejor)
+        // guardamos en un array la información de dichos objetos.
+        if (isset($data->into)) {
+            for ($n = 0; $n < count($data->into); $n++) {
+                if ($data->into[$n] != 3718 && $data->into[$n] != 3722) {
+                    $objeto['mejora'][] = $this->obtenerObjetodelObjetoPorId($data->into[$n]);
+                }
+            }
+        }
+        // Devolvemos el objeto.
+        return $objeto;
+    }
+
+    /**
+	* Método que busca un objeto a partir de un id, que procede de otro objeto (padre o hijo),
+    * para que en el dicho objeto se puda ver de donde procede o lo que se puede hacer con el.
+	*
+	* @return array associativo con la información del objeto.
+	*/
+	private function obtenerObjetodelObjetoPorId($id)
+	{
+        // Obtenemos el json y lo parseamos a objeto php.
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        $data = json_decode($json);
+
+        // Creamos el array objeto que tiene toda la información.
+        $objeto = array(
+            'nombre' => $data->name,
+            'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->image->full,
+            'precio' => array(
+                'total' => $data->gold->total,
+                'base' => $data->gold->base,
+            ),
+        );
+
+        // Si existe el atributo 'from' (el objeto viene de otros objetos)
+        // guardamos en un array las imagenes de los objetos.
+        if (isset($data->from)) {
+            for ($n = 0; $n < count($data->from); $n++) {
+                    // Llamamos a la función para obtener el objeto del que procede para obtener información a mostrar.
+                    $objeto['procede'][$n] = 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->from[$n] . '.png';
+            }
+            // Ordenamos el array de $objeto['procede'] por id.
+            asort($objeto['procede']);
+        }
+
+        // Si existe el atributo 'into' (el objeto puede 'mejorarse' para hacer uno de mejor)
+        // guardamos en un array las imagenes de los objetos.
+        if (isset($data->into)) {
+            for ($n = 0; $n < count($data->into); $n++) {
+                    $objeto['mejora'][$n] = 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->into[$n] . '.png';
+            }
+            // Ordenamos el array de $objeto['mejora'] por id.
+            asort($objeto['mejora']);
+        }
+        // Devolvemos el objeto.
         return $objeto;
     }
 }

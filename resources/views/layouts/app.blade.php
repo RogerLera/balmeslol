@@ -20,10 +20,10 @@
     <div class="container">
         <div class="row banner">
             <div class="col-md-6 col-md-offset-6" style="padding-top:30px;">
-                <form class="navbar-form navbar-right" role="search">
+                <form class="navbar-form navbar-right" role="search" action="/invocador">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Buscar jugador">
-                        <select class="selectpicker" data-width="fit">
+                        <input name="nombre" type="text" class="form-control" placeholder="Buscar jugador">
+                        <select class="selectpicker" data-width="fit" name="region">
                             <option data-subtext="EU Oeste" value="euw">EUW</option>
                             <option data-subtext="EU Nórdica y Este" value="eune">EUNE</option>
                             <option data-subtext="Norteamérica" value="na">NA</option>

@@ -21,8 +21,8 @@ class CampeonController extends Controller
 	public function index(Request $request)
 	{
 	    return view('campeones.index', [
-            'campeones' => CampeonController::obtenerCampeones(),
-            'campeonesGratuitos' => CampeonController::obtenerCampeonesGratis(),
+            'campeones' => $this->obtenerCampeones(),
+            'campeonesGratuitos' => $this->obtenerCampeonesGratis(),
 		]);
 	}
 
@@ -34,7 +34,7 @@ class CampeonController extends Controller
 	public function mostrarCampeon($id)
 	{
 		return view('campeones.infoCampeon', [
-			'campeon' => CampeonController::obtenerCampeonPorId($id),
+			'campeon' => $this->obtenerCampeonPorId($id),
 		]);
 	}
 
