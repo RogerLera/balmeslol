@@ -12,6 +12,23 @@ use App\Http\Requests;
 class HechizoController extends Controller {
 
     /**
+     * Método principal que nos devuelve la vista de todos los hechizos existentes
+     * @return type la vista de los hechizos
+     */
+    public function mostrarHechizos(){
+        return view('hechizos.index', [
+            'hechizos' => $this->obtenerHechizos(),
+        ]);
+    }
+    
+    public function mostrarHechizo($id){
+        return view('hechizos.infoHechizo', [
+			'hechizo' => $this->obtenerHechizoPorId($id),
+		]);
+    }
+    
+    
+    /**
      * Método que obtiene todos los hechizos, en el idioma que se está visualizando la pàgina.
      *
      *

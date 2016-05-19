@@ -11,6 +11,11 @@ use App\Http\Requests;
  */
 class InvocadorController extends Controller {
 
+    /**
+     * Método principal que se llama al hacer una búsqueda de un jugador. Nos lleva a la vista de su perfil.
+     * @param Request $request recoge los parámetros del input
+     * @return type la vista
+     */
     public function index(Request $request) {
         return view('invocador.index', [
             'invocador' => $this->obtenerInvocador($request->input('nombre'), $request->input('region')),
