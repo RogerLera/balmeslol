@@ -57,6 +57,9 @@ Route::get('/estadisticas/hechizos', 'EstadisticasHechizoController@index');
 Route::auth();
 Route::get('/home', 'HomeController@index');
 
+/* --- INVOCADOR --- */
+Route::get('/invocador', 'InvocadorController@index');
+
 //Route::group(['middleware' => ['web']], function () {
     // Rutas inicio sesión.
 //    Route::get('/user/inicioSesion','Auth\AuthController@formularioInicioSesion');
