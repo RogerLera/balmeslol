@@ -81,10 +81,10 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="embed-responsive embed-responsive-16by9 customborder">
-                                                        <video controls poster="https://lolstatic-a.akamaihd.net/champion-abilities/images/{{ $valor['Video'] }}.jpg">
-                                                            <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/mp4/{{ $valor['Video'] }}.mp4" type="video/mp4" />
-                                                            <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/webm/{{ $valor['Video'] }}.webm" type="video/webm" />
-                                                            <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/ogv/{{ $valor['Video'] }}.ogv" type="video/ogg" />
+                                                        <video controls poster="https://lolstatic-a.akamaihd.net/champion-abilities/images/{{ $valor['Descripcion'] }}.jpg">
+                                                            <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/mp4/{{ $valor['Descripcion'] }}.mp4" type="video/mp4" />
+                                                            <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/webm/{{ $valor['Descripcion'] }}.webm" type="video/webm" />
+                                                            <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/ogv/{{ $valor['Descripcion'] }}.ogv" type="video/ogg" />
                                                         </video>
                                                     </div>
                                                 </div>

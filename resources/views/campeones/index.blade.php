@@ -5,8 +5,19 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Campeones</div>
                     <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="breadcrumb">
+                                    <li>
+                                        <a href="{{ url('/') }}">
+                                            Inicio</i>                                  
+                                        </a>
+                                    </li>
+                                    <li class="active">Campeones</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <p>Escribe el nombre del campeón que quieras buscar</p>
