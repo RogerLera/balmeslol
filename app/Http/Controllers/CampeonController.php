@@ -84,7 +84,7 @@ class CampeonController extends Controller
         // Array con los claves de características, estadísticas i habilidades campeón.
         $caracteristicas = ['Ataque', 'Defensa', 'Magia', 'Dificultad'];
         $estadisticas = ['Armadura', 'Ataque', 'Rango', 'Velocidad de ataque', 'Crítico',
-						'Vida', 'Regeneración vida', 'Velocidad', 'Mana', 'Regeneración de mana',
+						'Vida', 'Regeneración de vida', 'Velocidad', 'Mana', 'Regeneración de mana',
 						'Resistencia mágica'];
         $habilidades = ['Q', 'W', 'E', 'R'];
         // Inicializamos el array campeón con toda la información que necessitamos.
@@ -138,6 +138,7 @@ class CampeonController extends Controller
         $campeon['habilidades']['Pasiva']['Nombre'] = $infoCampeon->passive->name;
         $campeon['habilidades']['Pasiva']['Descripcion'] = $infoCampeon->passive->description;
         $campeon['habilidades']['Pasiva']['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/passive/' . $infoCampeon->passive->image->full;
+		$campeon['habilidades']['Pasiva']['Video'] = $this->videoHabilidadCampeon($id, 0);
 
         $n = 0;
 		// Añadimos el resto de habilidades al array.
@@ -145,22 +146,10 @@ class CampeonController extends Controller
             $campeon['habilidades'][$habilidades[$n]]['Nombre'] = $spell->name;
             $campeon['habilidades'][$habilidades[$n]]['Descripcion'] = $spell->description;
             $campeon['habilidades'][$habilidades[$n]]['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $spell->image->full;
-            // Montamos el enlace del video
-            if($id <= 9)
-            {
-            	$campeon['habilidades'][$habilidades[$n]]['Video'] = "000".$id."_0".$n+1;
-            }
-            else if ($id <= 99)
-            {
-            	$campeon['habilidades'][$habilidades[$n]]['Video'] = "00".$id."_0".$n+1;
-            }
-            else
-            {
-            	$campeon['habilidades'][$habilidades[$n]]['Video'] = "0".$id."_0".$n+1;
-            }
-            $n++;
+			$campeon['habilidades'][$habilidades[$n]]['Video'] = $this->videoHabilidadCampeon($id, $n);
+			$n++;
         }
-
+		print_r($campeon);
         // Devolvemos el array campeón.
         return $campeon;
 	}
@@ -191,5 +180,18 @@ class CampeonController extends Controller
 		asort($campeones);
 		// Devolvemos el array.
 		return $campeones;
+	}
+
+	private function videoHabilidadCampeon($id, $n)
+	{
+		$ficheroVideo;
+		if ($id < 10) {
+			$ficheroVideo = "000" . $id . "_0" . ($n + 1);
+		} else if ($id < 100) {
+			$ficheroVideo = "00" . $id . "_0" . ($n + 1);
+		} else {
+			$ficheroVideo = "0" . $id . "_0" . ($n + 1);
+		}
+		return $ficheroVideo;
 	}
 }

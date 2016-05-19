@@ -23,7 +23,7 @@ class GuiaController extends Controller
      *
      * @return void
      */
-    public function __construct(ObjecteRepository $guias)
+    public function __construct(GuiaRepository $guias)
     {
         $this->middleware('auth');
         $this->guias = $guias;
@@ -32,13 +32,12 @@ class GuiaController extends Controller
     /**
 	* Método principal que se llama al acceder a la pestanya guias.
 	*
-    * @param $request
 	* @return información guias a la vista.
 	*/
-	public function index(Request $request)
+	public function index()
 	{
 	    return view('guias.index', [
-            'guias' => totalGuias(),
+            'guias' => $this->guias->totalGuias(),
 		]);
 	}
 
@@ -48,12 +47,22 @@ class GuiaController extends Controller
     * @param $id identificador
 	* @return información completa de la guia.
 	*/
-	public function obtenirGuia($id)
+	public function obtenerGuia($id)
 	{
 	    return view('guias.guia', [
             'guia' => Guia::findOrFail($id),
 		]);
 	}
+
+    /**
+    * Método que devuelve el formulario para crear una guia.
+    *
+    * @return información guias a la vista.
+    */
+    public function formularioCrearGuia()
+    {
+        return view('guias.crear');
+    }
 
     /**
      * Método que crea una guia nueva.

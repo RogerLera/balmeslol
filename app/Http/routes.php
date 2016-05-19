@@ -29,6 +29,7 @@ Route::get('/guias', 'GuiaController@index');
 Route::get('/guias/{id}', 'GuiaController@obtenerGuia');
 // Alomejor necesita crear ruta para favoritos, no desde GuiaController.
 Route::get('/guias/favoritos', 'GuiaController@obtenerGuiasFavoritos');
+Route::get('/guias/crear', 'GuiaController@formularioCrearGuia');
 Route::post('/guias/crear', 'GuiaController@crearGuia');
 Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
 Route::delete('/guias/{guia}', 'GuiaController@eliminarGuia');

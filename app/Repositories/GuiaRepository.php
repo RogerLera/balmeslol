@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Usuario;
 use App\Guia;
 
-class MensajeRepository
+class GuiaRepository
 {
     /**
      * Obtiene todas las guias creadas en la base de datos.

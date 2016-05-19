@@ -7,8 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{ $campeon['nombre'] }}, {{ $campeon['titulo'] }}</div>
                     <div class="panel-body">
-                        <div class="splashart"> 
-                            <img src="{{ $campeon['retrato'] }}"> 
+                        <div class="splashart">
+                            <img src="{{ $campeon['retrato'] }}">
                             <p class="splash-title"><b>{{ $campeon['nombre'] }}</b><br><i>{{ $campeon['titulo'] }}</i></p>
                         </div>
                         <br><br>
@@ -22,11 +22,11 @@
                                                     {{--*/ $count = 1;  /*--}}
                                                     @foreach($campeon['estadisticas'] as $atributo => $valor)
                                                         @if ($count % 2 == 0)
-                                                            <td><b><img src="{{asset('/images/').'/'.$atributo}}.png"> {{ $atributo }}:</b> {{ $valor }}</td>   
+                                                            <td><b><img src="{{asset('/images/').'/'.str_replace(['á','í','ó'],['a','i','o'],$atributo) }}.png"> {{ $atributo }}:</b> {{ $valor }}</td>
                                                         </tr>
-                                                        @else 
+                                                        @else
                                                         <tr>
-                                                            <td><b><img src="{{asset('/images/').'/'.$atributo}}.png"> {{ $atributo }}:</b> {{ $valor }}</td>
+                                                            <td><b><img src="{{asset('/images/').'/'.str_replace(['á','í','ó'],['a','i','o'],$atributo) }}.png"> {{ $atributo }}:</b> {{ $valor }}</td>
                                                         @endif
                                                             {{--*/ $count++; /*--}}
                                                     @endforeach
@@ -47,7 +47,7 @@
                                                     {{ $valor }}
                                                     </div>
                                                 </div>
-                                            @endforeach 
+                                            @endforeach
                                         </div>
                                 </div>
                             </div>

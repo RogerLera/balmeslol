@@ -60,7 +60,7 @@
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="#">Todas las guías</a>
+                                        <a href="{{ url('/guias') }}">Todas las guías</a>
                                     </li>
                                     <li>
                                         <a href="#">Nuevo</a>
