@@ -102,7 +102,7 @@
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="#">Todos los objetos</a>
+                                        <a href="{{ url('/objetos') }}">Todos los objetos</a>
                                     </li>
                                     <li>
                                         <a href="#">Últimos objetos</a>

@@ -20,6 +20,10 @@ Route::get('/', function () {
 Route::get('/campeones', 'CampeonController@index');
 Route::get('/campeones/{id}', 'CampeonController@mostrarCampeon');
 
+/* --- OBJETOS --- */
+Route::get('/objetos', 'ObjetoController@index');
+Route::get('/objetos/{id}', 'ObjetoController@mostrarObjeto');
+
 /* --- GUIAS --- */
 Route::get('/guias', 'GuiaController@index');
 Route::get('/guias/{id}', 'GuiaController@obtenerGuia');

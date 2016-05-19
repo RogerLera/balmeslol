@@ -146,7 +146,7 @@ class CampeonController extends Controller
             $campeon['habilidades'][$habilidades[$n]]['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $spell->image->full;
             $n++;
         }
-		
+
         // Devolvemos el array campeón.
         return $campeon;
 	}
@@ -177,6 +177,5 @@ class CampeonController extends Controller
 		asort($campeones);
 		// Devolvemos el array.
 		return $campeones;
-
 	}
 }
