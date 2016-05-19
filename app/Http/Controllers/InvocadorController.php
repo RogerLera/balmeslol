@@ -29,6 +29,8 @@ class InvocadorController extends Controller {
      */
     public function obtenerInvocador($nombre, $region) {
 
+        // Pasamos el nombre a minúsculas.
+        $nombre = strtolower($nombre);
         // Obtenemos el json.
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.4/summoner/by-name/' . $nombre . '?api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
         // Lo transformamos a objetos que php pueda entender.
