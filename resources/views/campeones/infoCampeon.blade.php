@@ -6,68 +6,106 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">{{ $campeon['nombre'] }}, {{ $campeon['titulo'] }}</div>
-                <div class="panel-body-min">
-                    <div class="splashart"> 
-                        <img src="{{ $campeon['retrato'] }}"> 
-                        <p class="splash-title"><b>{{ $campeon['nombre'] }}</b><br><i>{{ $campeon['titulo'] }}</i></p>
-                    </div>
-                    <br><br>
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#lore">Lore</a></li>
-                        <li><a data-toggle="tab" href="#caracteristicas">Características</a></li>
-                        <li><a data-toggle="tab" href="#estadisticas">Estadísticas</a></li>
-                        <li><a data-toggle="tab" href="#habilidades">Habilidades</a></li>
-                    </ul>
-
-                    <div class="tab-content">
-                        <div id="lore" class="tab-pane fade in active">
-                            <h3>Lore</h3>
-                            <p>{{ $campeon['lore'] }}</p>
+                    <div class="panel-body">
+                        <div class="splashart"> 
+                            <img src="{{ $campeon['retrato'] }}"> 
+                            <p class="splash-title"><b>{{ $campeon['nombre'] }}</b><br><i>{{ $campeon['titulo'] }}</i></p>
                         </div>
-                        <div id="caracteristicas" class="tab-pane fade">
-                            <!--Barras de caracteristicas de colores-->
-                            <h3>Características</h3>
-                            @foreach($campeon['caracteristicas'] as $atributo => $valor)
-                                <label>{{ $atributo }}</label>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-{{ $atributo }}" role="progressbar" aria-valuenow="{{ $valor }}"
-                                  aria-valuemin="0" aria-valuemax="10" style="width:{{ $valor }}0%">
-                                    {{ $valor }}
-                                    </div>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-md-4" >
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Estadísticas</div>
+                                        <div class="panel-body-min">
+                                            <table class="table-condensed">
+                                                <tbody>
+                                                    {{--*/ $count = 1;  /*--}}
+                                                    @foreach($campeon['estadisticas'] as $atributo => $valor)
+                                                        @if ($count % 2 == 0)
+                                                            <td><b><img src="{{asset('/images/').'/'.$atributo}}.png"> {{ $atributo }}:</b> {{ $valor }}</td>   
+                                                        </tr>
+                                                        @else 
+                                                        <tr>
+                                                            <td><b><img src="{{asset('/images/').'/'.$atributo}}.png"> {{ $atributo }}:</b> {{ $valor }}</td>
+                                                        @endif
+                                                            {{--*/ $count++; /*--}}
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
                                 </div>
-                            @endforeach
+                            </div>
+                            <div class="col-md-8">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Características</div>
+                                        <div class="panel-body-min">
+                                            @foreach($campeon['caracteristicas'] as $atributo => $valor)
+                                                <label>{{ $atributo }}</label>
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-{{ $atributo }}" role="progressbar" aria-valuenow="{{ $valor }}"
+                                                  aria-valuemin="0" aria-valuemax="10" style="width:{{ $valor }}0%">
+                                                    {{ $valor }}
+                                                    </div>
+                                                </div>
+                                            @endforeach 
+                                        </div>
+                                </div>
+                            </div>
                         </div>
-                        <div id="estadisticas" class="tab-pane fade">
-                            <h3>Estadísticas</h3>
-                            <table class="table-bordered">
-                                <tbody>
-                                  <?php $count = 1 ?>
-                                @foreach($campeon['estadisticas'] as $atributo => $valor)
-                                @if ($count % 2 == 0)
-                              
-                                    <td> <b>{{ $atributo }}:</b> {{ $valor }}</td>   
-                                </tr>
-                                @else 
-                                  <tr>
-                                <td> <b>{{ $atributo }}:</b> {{ $valor }}</td>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Habilidades</div>
+                                        <div class="panel-body-min">
+                                            @foreach($campeon['habilidades'] as $atributo => $valor)
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <img class="customborder" src="{{ $valor['Imagen'] }}">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <h4>Habilidad: {{  $atributo }}</h4>
+                                                            <div class="row">
+                                                                 <div class="col-md-12">
+                                                                    <h5>{{ $valor['Nombre'] }}</h5>
+                                                                 </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <p>{{ $valor['Descripcion'] }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="embed-responsive embed-responsive-16by9 customborder">
+                                                        <video controls poster="https://lolstatic-a.akamaihd.net/champion-abilities/images/{{ $valor['Video'] }}.jpg">
+                                                            <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/mp4/{{ $valor['Video'] }}.mp4" type="video/mp4" />
+                                                            <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/webm/{{ $valor['Video'] }}.webm" type="video/webm" />
+                                                            <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/ogv/{{ $valor['Video'] }}.ogv" type="video/ogg" />
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Lore</div>
+                                        <div class="panel-body-min">
+                                            <p>{{ $campeon['lore'] }}</p>
 
-                                @endif
-                                <?php $count++ ?>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <div id="habilidades" class="tab-pane fade">
-                            <h3>Habilidades</h3>
-                            @foreach($campeon['habilidades'] as $atributo => $valor)
-                                <h4>{{  $atributo }}</h4>
-                                <p>{{ $valor['Nombre'] }}</p>
-                                <p>{{ $valor['Descripcion'] }}</p>
-                                <p><img src="{{ $valor['Imagen'] }}"></p>
-                            @endforeach
+                                        </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>

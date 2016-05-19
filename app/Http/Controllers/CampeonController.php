@@ -89,6 +89,7 @@ class CampeonController extends Controller
         $habilidades = ['Q', 'W', 'E', 'R'];
         // Inicializamos el array campeón con toda la información que necessitamos.
         $campeon = array(
+        	'id' => $infoCampeon->id,
             'nombre' => $infoCampeon->name,
             'titulo' => $infoCampeon->title,
             'lore' => str_replace("<br>", "", $infoCampeon->lore),
@@ -144,6 +145,19 @@ class CampeonController extends Controller
             $campeon['habilidades'][$habilidades[$n]]['Nombre'] = $spell->name;
             $campeon['habilidades'][$habilidades[$n]]['Descripcion'] = $spell->description;
             $campeon['habilidades'][$habilidades[$n]]['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $spell->image->full;
+            // Montamos el enlace del video
+            if($id <= 9)
+            {
+            	$campeon['habilidades'][$habilidades[$n]]['Video'] = "000".$id."_0".$n+1;
+            }
+            else if ($id <= 99)
+            {
+            	$campeon['habilidades'][$habilidades[$n]]['Video'] = "00".$id."_0".$n+1;
+            }
+            else
+            {
+            	$campeon['habilidades'][$habilidades[$n]]['Video'] = "0".$id."_0".$n+1;
+            }
             $n++;
         }
 

@@ -39,7 +39,6 @@
 .splashart > img {
     position: absolute;
     top: -120px;
-    /* Change this */
     width: 100%;
 }
 
@@ -76,6 +75,16 @@
     width: 100%;
 }
 
+.customborder {
+    margin-top: 5px;
+    border: 2px solid #998822;
+
+}
+
+.videoclass {
+     border: 2px solid #998822;
+     padding-bottom: 5px;
+}
 .object-box {
     text-align: center;
     border: 1px solid #233148;
@@ -142,6 +151,9 @@ html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+}
+* {
+        /* outline: 1px solid red; */
 }
 
 body {
@@ -5047,8 +5059,6 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 }
 .panel-body-min {
     padding: 15px;
-    min-height: 600px;
-    height: auto;
 }
 .panel-heading {
     padding: 10px 15px;
