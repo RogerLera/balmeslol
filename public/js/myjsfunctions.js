@@ -17,6 +17,25 @@ $(document).ready(function() {
         });
     });
 
+    $("#buscarobjeto").keyup(function() {
+
+        // Recogemos el valor que haya escrito en el input.
+        var filtro = $(this).val();
+
+        // Hacemos un bucle por cada champinfo.
+        $(".object-box").each(function() {
+
+            // Si el texto no contiene el valor lo ocultamos.
+            if ($(this).text().search(new RegExp(filtro, "i")) < 0) {
+                $(this).fadeOut();
+                // Si lo tiene lo mostramos.
+            } else {
+                $(this).show();
+            }
+        });
+    });
+
+
     $("#filtrarcampeon").change(function() {
 
         // Recojemos el valor de la opción del select escogida.
