@@ -10,14 +10,19 @@
                     Nombre: {{ $invocador['nombre'] }}<br>
                     Nivel: {{ $invocador['nivel'] }}<br>
                     Imagen Perfil:  <img src="{{ $invocador['imagenPerfil'] }}"><br> 
-                    
+                    <form action="/partidas">
+                        <input type="hidden" name="nombre" value="{{ $invocador['nombre'] }}">
+                        <input type="hidden" name="region" value="{{ $invocador['region'] }}">
+                        <input type="submit" value="Historial de Partidas Recientes">
+                    </form>
                     <br><br>
-                    @foreach($invocador['partidas'] as $partidas)
-                        @foreach($partidas as $atributo => $valor)
+                    @foreach($invocador['partidas'] as $jugado)
+                        @foreach($jugado as $atributo => $valor)
                         <b>{{ $atributo }}</b> : {{ $valor }}<br>
                         @endforeach
                         <br><br><br>
                     @endforeach
+                                       
                 </div>
             </div>
         </div>

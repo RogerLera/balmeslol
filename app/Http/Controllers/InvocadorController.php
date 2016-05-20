@@ -28,8 +28,6 @@ class InvocadorController extends Controller {
      * @return type
      */
     public function obtenerInvocador($nombre, $region) {
-
-        // Pasamos el nombre a minúsculas.
         $nombre = strtolower($nombre);
         // Obtenemos el json.
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.4/summoner/by-name/' . $nombre . '?api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
@@ -41,6 +39,7 @@ class InvocadorController extends Controller {
         $invocador = array(
             'id' => $infoInvocador->$nombre->id,
             'nombre' => $infoInvocador->$nombre->name,
+            'region' => $region,
             'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/'.$infoInvocador->$nombre->profileIconId.'.png',
             'nivel' => $infoInvocador->$nombre->summonerLevel,
         );

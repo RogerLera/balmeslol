@@ -60,6 +60,7 @@ Route::get('/home', 'HomeController@index');
 
 /* --- INVOCADOR --- */
 Route::get('/invocador', 'InvocadorController@index');
+Route::get('/partidas', 'ListaPartidasController@index');
 
 //Route::group(['middleware' => ['web']], function () {
     // Rutas inicio sesión.
