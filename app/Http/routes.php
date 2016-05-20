@@ -29,6 +29,7 @@ Route::get('/guias', 'GuiaController@index');
 Route::get('/guias/crear', 'GuiaController@formularioCrearGuia');
 // Alomejor necesita crear ruta para favoritos, no desde GuiaController.
 Route::get('/guias/favoritos', 'GuiaController@obtenerGuiasFavoritos');
+Route::get('/guias/usuario/{id}', 'GuiaController@misGuias');
 Route::post('/guias/crear', 'GuiaController@crearGuia');
 Route::get('/guias/{id}', 'GuiaController@obtenerGuia');
 Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
@@ -60,17 +61,3 @@ Route::get('/home', 'HomeController@index');
 
 /* --- INVOCADOR --- */
 Route::get('/invocador', 'InvocadorController@index');
-
-//Route::group(['middleware' => ['web']], function () {
-    // Rutas inicio sesión.
-//    Route::get('/user/inicioSesion','Auth\AuthController@formularioInicioSesion');
-//    Route::post('/user/inicioSesion','Auth\AuthController@inicioSesion');
-//    Route::get('/user/logout','Auth\AuthController@cerrarSesion');
-
-    // Rutas registro user.
-//    Route::get('user/registro', 'Auth\AuthController@formularioRegistro');
-//    Route::post('user/registro', 'Auth\AuthController@create');
-
-//    Route::get('/user', 'UserController@index');
-
-//});
