@@ -115,7 +115,8 @@
 }
 
 .content {
-    background-color: white;
+    background-color: red;
+    border-radius: 5px black;
 }
 
 .titulo {
@@ -3907,7 +3908,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .navbar {
     position: relative;
     min-height: 50px;
-    /*margin-bottom: 20px;*/
+    margin-bottom: 20px;
     border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -4405,9 +4406,8 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     padding: 8px 15px;
     margin-bottom: 20px;
     list-style: none;
-    background-color: #a0b3dd;
+    background-color: #f5f5f5;
     border-radius: 4px;
-    font-size: 20px;
 }
 .breadcrumb > li {
     display: inline-block;
@@ -4415,10 +4415,10 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .breadcrumb > li + li:before {
     content: "/\00a0";
     padding: 0 5px;
-    color: #white;
+    color: #cccccc;
 }
 .breadcrumb > .active {
-    color: #white;
+    color: #999999;
 }
 .pagination {
     display: inline-block;
