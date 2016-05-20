@@ -146,10 +146,9 @@ class CampeonController extends Controller
             $campeon['habilidades'][$habilidades[$n]]['Nombre'] = $spell->name;
             $campeon['habilidades'][$habilidades[$n]]['Descripcion'] = $spell->description;
             $campeon['habilidades'][$habilidades[$n]]['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $spell->image->full;
-			$campeon['habilidades'][$habilidades[$n]]['Video'] = $this->videoHabilidadCampeon($id, $n);
+			$campeon['habilidades'][$habilidades[$n]]['Video'] = $this->videoHabilidadCampeon($id, $n+1);
 			$n++;
         }
-		print_r($campeon);
         // Devolvemos el array campeón.
         return $campeon;
 	}

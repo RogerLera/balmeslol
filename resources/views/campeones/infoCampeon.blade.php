@@ -22,11 +22,11 @@
                                                     {{--*/ $count = 1;  /*--}}
                                                     @foreach($campeon['estadisticas'] as $atributo => $valor)
                                                         @if ($count % 2 == 0)
-                                                            <td><b><img src="{{asset('/images/').'/'.str_replace(['á','í','ó'],['a','i','o'],$atributo) }}.png"> {{ $atributo }}:</b> {{ $valor }}</td>
+                                                            <td><b><img src="{{asset('/images/').'/'.str_replace(['á','í','ó',' '],['a','i','o','_'],$atributo) }}.png"> {{ $atributo }}:</b> {{ $valor }}</td>
                                                         </tr>
                                                         @else
                                                         <tr>
-                                                            <td><b><img src="{{asset('/images/').'/'.str_replace(['á','í','ó'],['a','i','o'],$atributo) }}.png"> {{ $atributo }}:</b> {{ $valor }}</td>
+                                                            <td><b><img src="{{asset('/images/').'/'.str_replace(['á','í','ó',' '],['a','i','o','_'],$atributo) }}.png"> {{ $atributo }}:</b> {{ $valor }}</td>
                                                         @endif
                                                             {{--*/ $count++; /*--}}
                                                     @endforeach
