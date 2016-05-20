@@ -61,3 +61,4 @@ Route::get('/home', 'HomeController@index');
 
 /* --- INVOCADOR --- */
 Route::get('/invocador', 'InvocadorController@index');
+Route::get('/partidas', 'ListaPartidasController@index');

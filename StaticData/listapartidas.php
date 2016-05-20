@@ -19,8 +19,8 @@
                 if(is_object($cs)){
                     foreach ($cs as $css){
                         if(isset($css->id)){ 
-                            $pj[$css->id] = $css->name;
-                            $img[$css->id] = $css->image->full;
+                            $pj[$css->id]['nombre'] = $css->name;
+                            $pj[$css->id]['imagen'] = $css->image->full;
                         }
                     }
                 }
@@ -50,7 +50,7 @@
                     if (is_array($ms)) {
                         foreach ($ms as $mss) {
                             if (is_object($mss)) {
-                                if ($mss->subType === "RANKED_SOLO_5x5") {
+                                //if ($mss->subType === "RANKED_SOLO_5x5") {
                                     $gameID = $mss->gameId;
 
                                     //aqui mirem per id de la partida cada partida
@@ -72,7 +72,7 @@
                                                         //echo "spell 1: ".$jugadores->spell1Id."<br>";
                                                         //echo "spell 2: ".$jugadores->spell2Id."<br>";
                                                         echo "JUGADOR: ".$gs->participantIdentities[$i]->player->summonerName."<img width='25' height='25' src='http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/" . $gs->participantIdentities[$i]->player->profileIcon . ".png'>";
-                                                        echo "pers. jugado: ".$pj[$jugadores->championId]."<img width='25' height='25' src=\"https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/".$img[$jugadores->championId]."\">";
+                                                        echo "pers. jugado: ".$pj[$jugadores->championId]['nombre']."<img width='25' height='25' src=\"https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/".$pj[$jugadores->championId]['imagen']."\">";
                                                         $k = $jugadores->stats->kills;
                                                         $d = $jugadores->stats->deaths;
                                                         $a = $jugadores->stats->assists;
@@ -91,14 +91,14 @@
                                                     }
                                                     foreach ($gs->teams as $equipos) {
                                                         foreach ($equipos->bans as $personajesBan) {
-                                                            echo "ban: ".$pj[$personajesBan->championId]."<img width='25' height='25' src=\"https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/".$img[$personajesBan->championId]."\"><br>";
+                                                            echo "ban: ".$pj[$personajesBan->championId]['nombre']."<img width='25' height='25' src=\"https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/".$pj[$personajesBan->championId]['imagen']."\"><br>";
                                                         }
                                                         
                                                     }
                                                 }
 
                                         }
-                                }
+                                //}
                             }
                         }
                     }
