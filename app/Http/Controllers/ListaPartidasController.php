@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 /**
- * Clase CampeonController que llama la vista para mostrar los datos referente a los
- * campeones, obteniendo la información de la API Riot en formato .json.
+ * Clase ListaPartidasController que llama la vista para mostrar los datos referente a la
+ * lista de partidas de un usuario, obteniendo la información de la API Riot en formato .json.
  */
 class ListaPartidasController extends Controller {
 

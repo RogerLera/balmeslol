@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 /**
- * Clase CampeonController que llama la vista para mostrar los datos referente a los
- * campeones, obteniendo la información de la API Riot en formato .json.
+ * Clase HechizoController que llama la vista para mostrar los datos referente a los
+ * hechizos, obteniendo la información de la API Riot en formato .json.
  */
 class HechizoController extends Controller {
 
