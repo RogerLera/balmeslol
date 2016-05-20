@@ -10,8 +10,7 @@ class GuiaRepository
     /**
      * Obtiene todas las guias creadas en la base de datos.
      *
-     * @param  Usuario  $usuario
-     * @return Devuelve
+     * @return Devuelve las guias.
      */
     public function totalGuias()
     {

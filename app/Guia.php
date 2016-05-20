@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Usuario;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -17,7 +17,8 @@ class Guia extends Model
      * @var $fillable: array con los valores que se pueden modificar.
      */
     protected $fillable = [
-        'guiTitulo', 'guiDescripcion', 'camId', 'usuId', 'guiPositivo', 'guiNegativo', 'guiVersion',
+        'guiTitulo', 'camId', 'rolId', 'usuId', 'guiHechizos', 'guiRunas', 'guiMaestrias',
+        'guiHabilidades', 'guiObjetos', 'guiPositivo', 'guiNegativo', 'guiVersion',
     ];
 
     /**
@@ -25,8 +26,8 @@ class Guia extends Model
      *
      * @return usuario al que pertenece.
      */
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(User::class);
     }
 }

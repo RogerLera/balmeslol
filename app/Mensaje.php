@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Usuario;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,8 +24,8 @@ class Mensaje extends Model
      *
      * @return usuario al que pertenece.
      */
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(User::class);
     }
 }

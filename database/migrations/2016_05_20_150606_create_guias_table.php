@@ -16,10 +16,14 @@ class CreateGuiasTable extends Migration
         Schema::create('guias', function (Blueprint $table) {
             $table->increments('guiId');
             $table->string('guiTitulo');
-            $table->string('guiDescripcion');
             $table->integer('camId')->unsigned();
             $table->integer('rolId')->unsigned();
             $table->integer('usuId')->unsigned();
+            $table->string('guiHechizos');
+            $table->string('guiRunas');
+            $table->string('guiMaestrias');
+            $table->string('guiHabilidades');
+            $table->string('guiObjetos');
             $table->integer('guiPositivo');
             $table->integer('guiNegativo');
             $table->string('guiVersion');

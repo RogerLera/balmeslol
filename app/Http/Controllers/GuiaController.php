@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 use App\Guia;
+use App\Role;
 use App\Http\Requests;
 use App\Repositories\GuiaRepository;
 
 class GuiaController extends Controller
 {
+
     /**
     * Instancia del objeto repositorio.
     *
@@ -61,7 +63,11 @@ class GuiaController extends Controller
     */
     public function formularioCrearGuia()
     {
-        return view('guias.crear');
+        return view('guias.crear', [
+            //'campeones' => ControllerCampeon::obtenerCampeones(),
+            'roles' => Role::orderBy('rolId', 'asc')->get(),
+            'versiones' => $this->version(),
+        ]);
     }
 
     /**
@@ -74,14 +80,19 @@ class GuiaController extends Controller
     {
         $this->validate($request, [
             'guiTitulo' => 'required|max:100',
-            'guiDescripcion' => 'required|max:1000',
             'camId' => 'required',
+            'rolId' => 'required',
             'usuId' => 'required',
+            'guiHechizos' => 'max:1000',
+            'guiRunas' => 'max:1000',
+            'guiMaestrias' => 'max:1000',
+            'guiHabilidades' => 'max:1000',
+            'guiObjetos' => 'max:1000',
+            'guiVersion' => 'required',
             'guiVersion' => 'required',
         ]);
 
-        $guias->fill(Input::all());
-        $guias->save();
+        Guia::create(Input::all());
 
         return redirect('/guias');
     }
@@ -96,9 +107,14 @@ class GuiaController extends Controller
     {
         $this->validate($request, [
             'guiTitulo' => 'required|max:100',
-            'guiDescripcion' => 'required|max:1000',
             'camId' => 'required',
+            'rolId' => 'required',
             'usuId' => 'required',
+            'guiHechizos' => 'max:1000',
+            'guiRunas' => 'max:1000',
+            'guiMaestrias' => 'max:1000',
+            'guiHabilidades' => 'max:1000',
+            'guiObjetos' => 'max:1000',
             'guiVersion' => 'required',
         ]);
 
@@ -123,5 +139,15 @@ class GuiaController extends Controller
         $guia->delete();
 
         return redirect('/guias');
+    }
+
+    public function version()
+    {
+        // Obtenemos el json.
+		$json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/versions?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+		// Lo transformamos a objetos que php pueda entender.
+		$versiones = json_decode($json);
+        // Devolvemos las 10 últimas versiones.
+        return array_slice($versiones , 0, 10);
     }
 }
