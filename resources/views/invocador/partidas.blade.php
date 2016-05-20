@@ -7,7 +7,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Historial de partidas más recientes</div>
                 <div class="panel-body">
-                    <a href="/invocador?nombre={{ $_GET['nombre'] }}&region={{ $_GET['region'] }}">Volver al perfil</a>
+                    <form action="/invocador" accept-charset="ISO-8859-1">
+                        <input type="hidden" name="nombre" value="{{ mb_convert_encoding($_GET['nombre'], "UTF-8", "ISO-8859-1") }}">
+                        <input type="hidden" name="region" value="{{ $_GET['region'] }}">
+                        <input type="submit" value="Volver al perfil">
+                    </form>
                     <br><br>
                     @foreach($partidas as $partida)
                     

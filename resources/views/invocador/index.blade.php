@@ -10,7 +10,7 @@
                     Nombre: {{ $invocador['nombre'] }}<br>
                     Nivel: {{ $invocador['nivel'] }}<br>
                     Imagen Perfil:  <img src="{{ $invocador['imagenPerfil'] }}"><br> 
-                    <form action="/partidas">
+                    <form action="/partidas" accept-charset="ISO-8859-1">
                         <input type="hidden" name="nombre" value="{{ $invocador['nombre'] }}">
                         <input type="hidden" name="region" value="{{ $invocador['region'] }}">
                         <input type="submit" value="Historial de Partidas Recientes">
