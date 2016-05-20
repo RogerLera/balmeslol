@@ -30,7 +30,7 @@
                         <div class="form-group{{ $errors->has('camId') ? ' has-error' : '' }}">
                             <label class="col-md-3 control-label">Campeón</label>
 
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <select class="form-control" name="camId">
                                     <option value="1">Seleciona un campeón</option>
 
@@ -48,7 +48,7 @@
                         <div class="form-group{{ $errors->has('rolId') ? ' has-error' : '' }}">
                             <label class="col-md-3 control-label">Rol</label>
 
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <select class="form-control" name="rolId">
                                     <option value="-">Seleciona un rol</option>
                                     @foreach ($roles as $rol)
@@ -68,12 +68,9 @@
                         <div class="form-group{{ $errors->has('guiVersion') ? ' has-error' : '' }}">
                             <label class="col-md-3 control-label">Versión</label>
 
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <select class="form-control" name="guiVersion">
-                                    <option value="-">Versión de la guía</option>
-                                    @foreach ($versiones as $version)
                                         <option value="{{ $version }}">{{ $version }}</option>
-                                    @endforeach
                                 </select>
 
                                 @if ($errors->has('guiVersion'))
@@ -88,7 +85,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Usuario</label>
 
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <select class="form-control" name="usuId">
                                     <option value="{{ Auth::id() }}">{{ Auth::user()->usuAlias }}</option>
                                 </select>
@@ -109,7 +106,7 @@
                                         </div>
                                         <div id="collapse1" class="panel-collapse collapse in">
                                             <div>
-                                                <textarea class="form-control" name="guiHechizos"rows="5"></textarea>
+                                                <textarea class="form-control" name="guiHechizos"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +127,7 @@
                                         </div>
                                         <div id="collapse2" class="panel-collapse collapse">
                                             <div>
-                                                <textarea class="form-control" name="guiRunas"rows="5"></textarea>
+                                                <textarea class="form-control" name="guiRunas"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +148,7 @@
                                         </div>
                                         <div id="collapse3" class="panel-collapse collapse">
                                             <div>
-                                                <textarea class="form-control" name="guiMaestrias" rows="5"></textarea>
+                                                <textarea class="form-control" name="guiMaestrias"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -172,7 +169,7 @@
                                         </div>
                                         <div id="collapse4" class="panel-collapse collapse">
                                             <div>
-                                                <textarea class="form-control" name="guiHabilidades" rows="5"></textarea>
+                                                <textarea class="form-control" name="guiHabilidades"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -193,7 +190,7 @@
                                         </div>
                                         <div id="collapse5" class="panel-collapse collapse">
                                             <div>
-                                                <textarea class="form-control" name="guiObjetos" rows="5"></textarea>
+                                                <textarea class="form-control" name="guiObjetos"></textarea>
                                             </div>
                                         </div>
                                     </div>

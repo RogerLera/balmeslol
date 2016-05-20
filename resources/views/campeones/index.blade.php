@@ -31,7 +31,7 @@
                             </div>
                         </div>
                    	    @foreach($campeones as $campeon)
-	    		 		<a href="/campeones/{{ $campeon['id'] }}">
+	    		 		<a href="/campeones/{{ $campeon['nombre'] }}">
 	    		 			<div class="champ-box">
 	    		 				<img src="{{ $campeon['imagen'] }}">
     		 					<div class="champ-info">

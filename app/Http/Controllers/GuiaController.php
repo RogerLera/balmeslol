@@ -56,6 +56,12 @@ class GuiaController extends Controller
 		]);
 	}
 
+    public function misGuias($id) {
+        return view('guias.user', [
+            'guias' => $this->guias->delUser($id),
+        ]);
+    }
+
     /**
     * Método que devuelve el formulario para crear una guia.
     *
@@ -66,7 +72,7 @@ class GuiaController extends Controller
         return view('guias.crear', [
             //'campeones' => ControllerCampeon::obtenerCampeones(),
             'roles' => Role::orderBy('rolId', 'asc')->get(),
-            'versiones' => $this->version(),
+            'version' => $this->version(),
         ]);
     }
 
@@ -146,8 +152,8 @@ class GuiaController extends Controller
         // Obtenemos el json.
 		$json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/versions?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
 		// Lo transformamos a objetos que php pueda entender.
-		$versiones = json_decode($json);
-        // Devolvemos las 10 últimas versiones.
-        return array_slice($versiones , 0, 10);
+		$version = json_decode($json);
+        // Devolvemos la última versión.
+        return $version[0];
     }
 }
