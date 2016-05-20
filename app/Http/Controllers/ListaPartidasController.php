@@ -11,6 +11,11 @@ use App\Http\Requests;
  */
 class ListaPartidasController extends Controller {
 
+    /**
+     * Método principal para mostrar la lista de partidas que obtendremos con obtenerListaPartidas
+     * @param Request $request los campos nombre y region en los que nos sustentaremos para buscar las partidas
+     * @return type la vista
+     */
     public function index(Request $request) {
         return view('invocador.partidas', [
             'partidas' => $this->obtenerListaPartidas($request->input('nombre'), $request->input('region')),
@@ -49,12 +54,16 @@ class ListaPartidasController extends Controller {
     }
 
     /**
-     * 
-     * @param type $nombre
-     * @param type $region
+     * Método principal que nos devuelve las últimas 7 partidas de un usuario en base a su nombre y región
+     * @param type $nombre nick del usuario
+     * @param type $region region donde juega
+     * @return type lista de partidas en un array
      */
     public function obtenerListaPartidas($nombre, $region) {
+        //arreglamos el nombre para no tener problemas con espacios, mayusculas o carácteres extraños
         $nombre = strtolower($nombre);
+        $nombre = str_replace(' ', '', $nombre);
+        $nombre = mb_convert_encoding($nombre, "UTF-8", "ISO-8859-1");
 
         //obtenemos el array con los personajes (pj)  y la id del jugador que esta consultando
         $pj = $this->obtenerArrayCampeones();
@@ -78,6 +87,13 @@ class ListaPartidasController extends Controller {
         return $partidas;
     }
 
+    /**
+     * Método complementario de obtenerListaPartidas donde obtenemos una sola partida para guardarla
+     * @param type $idPartida id de la partida en cuestión
+     * @param type $region region del usuario
+     * @param type $pj array con los nombres y imágenes de los personajes relacionados en base a su id
+     * @return type devuelve un array con los datos de una partida 
+     */
     public function obtenerPartida($idPartida, $region, $pj) {
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v2.2/match/' . $idPartida . '?api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
         $infoPartida = json_decode($json);

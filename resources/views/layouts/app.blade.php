@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row banner">
             <div class="col-md-6 col-md-offset-6" style="padding-top:30px;">
-                <form class="navbar-form navbar-right" role="search" action="/invocador">
+                <form class="navbar-form navbar-right"  accept-charset="ISO-8859-1" role="search" action="/invocador">
                     <div class="form-group">
                         <input name="nombre" type="text" class="form-control" placeholder="Buscar jugador">
                         <select class="selectpicker" data-width="fit" name="region">
