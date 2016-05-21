@@ -92,7 +92,7 @@
 .object-box {
     text-align: center;
     border: 5px solid #233148;
-    margin: 5px;
+    margin: 2px;
     background: #000;
     display: block;
     color: #fff;
@@ -155,13 +155,44 @@
     background-color: #c71c22;
 }
 
+.table-custom {
+    display: block;
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+.table-custom  th {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.table-custom td {  
+    padding-left: 30px;
+}
+
+.table-custom tbody {
+    padding: 100px;
+}
+
+.scroll {
+    overflow-y: scroll;
+    max-height: 900px;
+}
+
+.itemlayout {
+    border: 5px groove #d0b510;
+    background: #000;
+     border-radius: 10px;
+}
+
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
 * {
-        /* outline: 1px solid red; */
+         outline: 1px solid red; 
 }
 
 body {

@@ -46,7 +46,7 @@ class ObjetoController extends Controller
     public function obtenerObjetos()
     {
         // Obtenemos el json y lo parseamos a objeto php.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale=es_ES&itemListData=image&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale=es_ES&itemListData=image,tags&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
         $data = json_decode($json);
 
         // Creamos el array contenedor de todos los objetos.
@@ -58,6 +58,8 @@ class ObjetoController extends Controller
 					'nombre' => (isset($infoObjeto->name)) ? $infoObjeto->name : "Farsight Orb",
 		            'id' => $infoObjeto->id,
 		            'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $infoObjeto->image->full,
+                    // Comprovamos que tienen etiquetas (hay muchos objetos que no tienen etiquetas).
+                    'tags' => (isset($infoObjeto->tags)) ? $infoObjeto->tags : "other",
                     // Comprovamos que tienen grupo (hay muchos objetos que no tienen un grupo).
                     'grupo' => (isset($infoObjeto->group)) ? $infoObjeto->group : "ninguno",
 		        );
@@ -88,7 +90,7 @@ class ObjetoController extends Controller
         // Creamos el array objeto que tiene toda la información.
         $objeto = array(
             'nombre' => $data->name,
-            'estadisticas' => $estadisticas,
+            'estadisticas' => $data->description,
             'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->image->full,
             'precio' => array(
                 'total' => $data->gold->total,

@@ -5,14 +5,37 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Objetos</div>
-                <div class="panel-body-min">
-                    <p><img src="{{ $objeto['imagen'] }}"> {{ $objeto['nombre'] }}</p>
-                    <p>Precio total: {{ $objeto['precio']['total'] }}</p>
+                <div class="panel-body">
+                    <div class="row">
+                         <div class="col-md-12">
+                            <ul class="breadcrumb">
+                                <li><a href="{{ url('/') }}">Inicio</a></li>
+                                <li><a href="{{ url('/objetos') }}">Objetos</a></li>
+                                <li class="active">{{ $objeto['nombre'] }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img src="{{ $objeto['imagen'] }}"> 
+                        </div>
+                        <div class="col-md-3">
+                            {{ $objeto['nombre'] }}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{--*/ print_r($objeto['estadisticas']) /*--}}
+          
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            Precio total: {{ $objeto['precio']['total'] }}
+                        </div>
+ 
+                    </div>
+                    
                     <p>Precio de la receta: {{ $objeto['precio']['base'] }}</p>
-                    @foreach ($objeto['estadisticas'] as $estadistica)
-                        <p>{{ $estadistica }}</p>
-                    @endforeach
+                    
                     @if (isset($objeto['procede']))
                         <p>{{ $objeto['nombre'] }} se convierte en:</p>
                         <table>
