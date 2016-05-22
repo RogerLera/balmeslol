@@ -89,6 +89,7 @@ class ObjetoController extends Controller
 
         // Creamos el array objeto que tiene toda la información.
         $objeto = array(
+            'id' => $data->id,
             'nombre' => $data->name,
             'estadisticas' => $data->description,
             'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->image->full,
@@ -135,6 +136,7 @@ class ObjetoController extends Controller
 
         // Creamos el array objeto que tiene toda la información.
         $objeto = array(
+            'id' => $data->id,
             'nombre' => $data->name,
             'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->image->full,
             'precio' => array(

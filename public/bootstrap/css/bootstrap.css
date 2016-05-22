@@ -85,7 +85,6 @@
 }
 
 .videoclass {
-
    margin: 5px;
 }
 
@@ -182,7 +181,61 @@
 .itemlayout {
     border: 5px groove #d0b510;
     background: #000;
-     border-radius: 10px;
+    border-radius: 10px;
+}
+
+.itemimg {
+    border: 5px groove #d0b510;
+    border-radius: 10px;
+}
+
+.itemsmall-build {
+    border: 5px groove #d0b510;
+    border-radius: 10px;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.table-items td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.table-items th, .table-items td {
+    text-align: center;
+    border: 3px solid #ddd;
+}
+
+.table-items th {
+    color: white;
+    font-size: 15px;
+    background-image: -webkit-linear-gradient(#9eb6ee, #6585cd 60%, #4b6ebe);
+    background-image: -o-linear-gradient(#9eb6ee, #6585cd 60%, #02325f);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#9eb6ee), color-stop(60%, #6585cd), to(#4b6ebe));
+    background-image: linear-gradient(#9eb6ee, #6585cd 60%, #4b6ebe);
+    background-repeat: no-repeat;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff04519b', endColorstr='#ff02325f', GradientType=0);
+    border-bottom: 1px solid #022241;
+    -webkit-filter: none;
+    filter: none;
+    -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.pricetext{
+    color:#9e8a10;
+    font-weight: bold;
+}
+
+unique{
+    font-weight: bold;
+}
+
+stats {
+    color: #9c9778;
 }
 
 
@@ -192,7 +245,7 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 * {
-         outline: 1px solid red; 
+        /* outline: 1px solid red; */
 }
 
 body {
@@ -5100,6 +5153,7 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 }
 .panel-body-min {
     padding: 15px;
+    background: #dbdad4;
 }
 .panel-heading {
     padding: 10px 15px;
