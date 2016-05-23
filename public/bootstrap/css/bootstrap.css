@@ -28,7 +28,7 @@
 .splashart {
     position: relative;
     display: block;
-    border: 2px solid #998822;
+    border: 5px groove #d0b510;
     border-radius: 10px;
     box-shadow: 10px 10px 5px #888888;
     width: 100%;
@@ -54,7 +54,7 @@
 
 .champ-box {
     text-align: center;
-    border: 1px solid #233148;
+    border: 5px solid #233148;
     margin: 5px;
     background: #000;
     display: block;
@@ -64,8 +64,12 @@
     float: left;
 }
 
+.champ-box:hover{
+    border: 5px groove #d0b510;
+}
+
 .champ-info {
-    padding: 4px;
+    padding: 1px;
     background: #233148;
     text-align: center;
 }
@@ -77,34 +81,38 @@
 
 .customborder {
     margin-top: 5px;
-    border: 2px solid #998822;
-
+    border: 5px groove #d0b510;
 }
 
 .videoclass {
-     border: 2px solid #998822;
-     padding-bottom: 5px;
+   margin: 5px;
 }
+
 .object-box {
     text-align: center;
-    border: 1px solid #233148;
+    border: 5px solid #233148;
+    margin: 2px;
+    background: #000;
     display: block;
     color: #fff;
-    width: 170px;
-    padding: 10px 3px 3px 3px;
+    width: 120px;
+    height: 155px;
+    padding: 6px 3px 3px 3px;
     float: left;
+}
+.object-box:hover{
+    border: 5px groove #d0b510;
 }
 
 .object-info {
-    padding: 4px 0px 4px 0px;
-    font-size: 10px;
-    color: #868686;
+    margin-top:3px;
+    padding: auto;
+    background: #233148;
     text-align: center;
+    height: 82px;
 }
 
 .object-box > img {
-    padding: 3px;
-    background: #868686;
     height: auto;
     width: 50%;
 }
@@ -115,8 +123,7 @@
 }
 
 .content {
-    background-color: red;
-    border-radius: 5px black;
+    background-color: white;
 }
 
 .titulo {
@@ -146,6 +153,91 @@
 .progress-bar-Ataque {
     background-color: #c71c22;
 }
+
+.table-custom {
+    display: block;
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+.table-custom  th {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.table-custom td {  
+    padding-left: 30px;
+}
+
+.table-custom tbody {
+    padding: 100px;
+}
+
+.scroll {
+    overflow-y: scroll;
+    max-height: 900px;
+}
+
+.itemlayout {
+    border: 5px groove #d0b510;
+    background: #000;
+    border-radius: 10px;
+}
+
+.itemimg {
+    border: 5px groove #d0b510;
+    border-radius: 10px;
+}
+
+.itemsmall-build {
+    border: 5px groove #d0b510;
+    border-radius: 10px;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.table-items td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.table-items th, .table-items td {
+    text-align: center;
+    border: 3px solid #ddd;
+}
+
+.table-items th {
+    color: white;
+    font-size: 15px;
+    background-image: -webkit-linear-gradient(#9eb6ee, #6585cd 60%, #4b6ebe);
+    background-image: -o-linear-gradient(#9eb6ee, #6585cd 60%, #02325f);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#9eb6ee), color-stop(60%, #6585cd), to(#4b6ebe));
+    background-image: linear-gradient(#9eb6ee, #6585cd 60%, #4b6ebe);
+    background-repeat: no-repeat;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff04519b', endColorstr='#ff02325f', GradientType=0);
+    border-bottom: 1px solid #022241;
+    -webkit-filter: none;
+    filter: none;
+    -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.pricetext{
+    color:#9e8a10;
+    font-weight: bold;
+}
+
+unique{
+    font-weight: bold;
+}
+
+stats {
+    color: #9c9778;
+}
+
 
 html {
     font-family: sans-serif;
@@ -3908,7 +4000,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .navbar {
     position: relative;
     min-height: 50px;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -4406,8 +4498,9 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     padding: 8px 15px;
     margin-bottom: 20px;
     list-style: none;
-    background-color: #f5f5f5;
+    background-color: #a0b3dd;
     border-radius: 4px;
+    font-size: 20px;
 }
 .breadcrumb > li {
     display: inline-block;
@@ -4415,10 +4508,11 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .breadcrumb > li + li:before {
     content: "/\00a0";
     padding: 0 5px;
-    color: #cccccc;
+    color: white;
+    font-size: 20px;
 }
 .breadcrumb > .active {
-    color: #999999;
+    color: white;
 }
 .pagination {
     display: inline-block;
@@ -5059,6 +5153,7 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 }
 .panel-body-min {
     padding: 15px;
+    background: #dbdad4;
 }
 .panel-heading {
     padding: 10px 15px;

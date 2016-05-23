@@ -5,8 +5,16 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">{{ $campeon['nombre'] }}, {{ $campeon['titulo'] }}</div>
                     <div class="panel-body">
+                         <div class="row">
+                             <div class="col-md-12">
+                                <ul class="breadcrumb">
+                                    <li><a href="{{ url('/') }}">Inicio</a></li>
+                                    <li><a href="{{ url('/campeones') }}">Campeones</a></li>
+                                    <li class="active">{{ $campeon['nombre'] }}</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="splashart">
                             <img src="{{ $campeon['retrato'] }}">
                             <p class="splash-title"><b>{{ $campeon['nombre'] }}</b><br><i>{{ $campeon['titulo'] }}</i></p>
@@ -80,7 +88,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div class="embed-responsive embed-responsive-16by9 customborder">
+                                                    <div class="embed-responsive embed-responsive-16by9 customborder videoclass">
                                                         <video controls poster="https://lolstatic-a.akamaihd.net/champion-abilities/images/{{ $valor['Video'] }}.jpg">
                                                             <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/mp4/{{ $valor['Video'] }}.mp4" type="video/mp4" />
                                                             <source src="https://lolstatic-a.akamaihd.net/champion-abilities/videos/webm/{{ $valor['Video'] }}.webm" type="video/webm" />
