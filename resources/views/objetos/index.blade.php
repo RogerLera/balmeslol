@@ -26,109 +26,109 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p>Filtrar objetos</p>
-                                    <table class="table-custom">
+                                    <table id="filtrarObjeto" class="table-custom">
                                         <tbody>
                                             <tr>
                                                 <th>Objetos iniciales</th>
                                             </tr>
                                             <tr>
                                                     <td>Jungla</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="Jungle"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="Jungle"></td>
                                             </tr>
                                             <tr>
                                                 <td>Actividad en las calles</td>
-                                                <td><input type="checkbox" id="filtrarobjeto" value="Lane"></td>
+                                                <td><input type="checkbox" class="filtroObjeto" value="Lane"></td>
                                             </tr>
                                             <tr>
                                                 <th>Herramientas</th>
                                             </tr>
                                             <tr>
                                                     <td>De un solo uso</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="Consumable"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="Consumable"></td>
                                             </tr>
                                             <tr>
                                                 <td>Ganancias de Oro</td>
-                                                <td><input type="checkbox" id="filtrarobjeto" value="GoldPer"></td>
+                                                <td><input type="checkbox" class="filtroObjeto" value="GoldPer"></td>
                                             </tr>
                                             <tr>
                                                 <td>Visión</td>
-                                                <td><input type="checkbox" id="filtrarobjeto" value="Vision"></td>
+                                                <td><input type="checkbox" class="filtroObjeto" value="Vision"></td>
                                             </tr>
                                             <tr>
                                                 <td>Talismanes</td>
-                                                <td><input type="checkbox" id="filtrarobjeto" value="Trinket"></td>
+                                                <td><input type="checkbox" class="filtroObjeto" value="Trinket"></td>
                                             </tr>
                                             <tr>
                                                 <th>Defensa</th>
                                             </tr>
                                             <tr>
                                                     <td>Vida</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="Health"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="Health"></td>
                                             </tr>
                                             <tr>
                                                     <td>Armadura</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="Armor"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="Armor"></td>
                                             </tr>
                                             <tr>
                                                     <td>Resistencia mágica</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="SpellBlock"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="SpellBlock"></td>
                                             </tr>
                                             <tr>
                                                     <td>Regeneración de vida</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="HealthRegen"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="HealthRegen"></td>
                                             </tr>
                                             <tr>
                                                     <td>Tenacidad</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="Tenacity"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="Tenacity"></td>
                                             </tr>
                                             <tr>
                                                 <th>Ataque</th>
                                             </tr>
                                             <tr>
                                                     <td>Velocidad de ataque</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="AttackSpeed"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="AttackSpeed"></td>
                                             </tr>
                                             <tr>
                                                     <td>Impacto crítico</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="CriticalStrike"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="CriticalStrike"></td>
                                             </tr>
                                             <tr>
                                                     <td>Daño</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="Damage"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="Damage"></td>
                                             </tr>
                                             <tr>
                                                     <td>Robo de vida</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="LifeSteal"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="LifeSteal"></td>
                                             </tr>
                                             <tr>
                                                 <th>Magia</th>
                                             </tr>
                                             <tr>
                                                     <td>Reducción de enfriamiento</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="CooldownReduction"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="CooldownReduction"></td>
                                             </tr>
                                             <tr>
                                                     <td>Maná</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="Mana"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="Mana"></td>
                                             </tr>
                                             <tr>
                                                     <td>Regeneración de maná</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="ManaRegen"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="ManaRegen"></td>
                                             </tr>
                                             <tr>
                                                     <td>Poder de habilidad</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="SpellDamage"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="SpellDamage"></td>
                                             </tr>
                                             <tr>
                                                 <th>Movimiento</th>
                                             </tr>
                                             <tr>
                                                     <td>Botas</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="Boots"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="Boots"></td>
                                             </tr>
                                             <tr>
                                                     <td>Otros objetos</td>
-                                                    <td><input type="checkbox" id="filtrarobjeto" value="Other"></td>
+                                                    <td><input type="checkbox" class="filtroObjeto" value="Other"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -145,8 +145,13 @@
                                         </div>
                                         <!--Comprovamos las etiquetas de los objetos-->
                                         <!-- HACER UN FOREACH DE TAGS $objeto[tags] as $tag da error falta arreglarlo -->
-                                            <input type="hidden" name="tag" value="{{ $objeto['tags'][0]}}">
-                                        
+                                        @if (is_array($objeto['tags']))
+                                            @foreach ($objeto['tags'] as $tags)
+                                                <input type="hidden" name="tag" value="{{ $tags }}">
+                                            @endforeach
+                                        @else
+                                            <input type="hidden" name="tag" value=" {{ $objeto['tags'] }}">
+                                        @endif
                                     </div>
                                 </a>
                             @endforeach

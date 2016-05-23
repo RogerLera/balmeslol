@@ -8,7 +8,7 @@ tinymce.init({
       text: 'Hechizos',
       icon: false,
       onclick: function () {
-        editor.insertContent('&nbsp;<b>It\'s my button!</b>&nbsp;');
+        editor.insertContent('<img alt="sd" src=" https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/SummonerClairvoyance.png"/>');
       }
     });
   },
