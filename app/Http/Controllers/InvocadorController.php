@@ -34,7 +34,7 @@ class InvocadorController extends Controller {
         $nombre = mb_convert_encoding($nombre, "UTF-8", "ISO-8859-1");
         
         // Obtenemos el json.
-        $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.4/summoner/by-name/' . $nombre . '?api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.4/summoner/by-name/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         // Lo transformamos a objetos que php pueda entender.
         $infoInvocador = json_decode($json);
 
@@ -46,9 +46,10 @@ class InvocadorController extends Controller {
             'region' => $region,
             'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/'.$infoInvocador->$nombre->profileIconId.'.png',
             'nivel' => $infoInvocador->$nombre->summonerLevel,
+            'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id),
         );
 
-        $json2 = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.3/stats/by-summoner/' . $invocador['id'] . '/summary?season=SEASON2016&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $json2 = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.3/stats/by-summoner/' . $invocador['id'] . '/summary?season=SEASON2016&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         $infoPartidas = json_decode($json2);
 
         $n = 0;
@@ -71,6 +72,26 @@ class InvocadorController extends Controller {
         }
 
         return $invocador;
+    }
+
+    public function obtenerLiga($id) {
+         // Obtenemos el json.
+        $json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        // Lo transformamos a objetos que php pueda entender.
+        $infoLiga = json_decode($json);
+        // Montamos el array con la información del json
+
+        $ligas = array();
+        foreach ($infoLiga->$id as $data) {
+            $ligas[] = array(
+            'nombre' => $data->name,
+            'liga' => $data->tier,
+            'cola' => $data->queue,
+        );
+
+        }
+        return $ligas;
+        
     }
 
 }
