@@ -8,7 +8,15 @@ tinymce.init({
       text: 'Hechizos',
       icon: false,
       onclick: function () {
-        editor.insertContent('<img alt="sd" src=" https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/SummonerClairvoyance.png"/>');
+          editor.windowManager.open({
+            title: "Escojer un hechizo",
+            url: 'insertimage.php',
+            width: 700,
+            height: 600,
+            inline: true,
+            close_previous: "yes"
+        });
+        //editor.insertContent('<img alt="sd" src=" https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/SummonerClairvoyance.png"/>');
       }
     });
   },
