@@ -52,8 +52,10 @@ Route::post('/mensaje', 'MensajeController@crearMensaje');
 Route::delete('/mensajes/{mensaje}', 'MensajeController@eliminarMensaje');
 
 /* --- ESTADISTICAS CAMPEONES/HECHIZOS --- */
-Route::get('/estadisticas/campeones', 'EstadisticasCampeonController@index');
-Route::get('/estadisticas/hechizos', 'EstadisticasHechizoController@index');
+Route::get('/estadisticas/genera', 'EstadisticasController@generaEstadisticas');
+Route::get('/estadisticas/popularidad_campeones', 'EstadisticasController@mostrarPopularidadCampeones');
+Route::get('/estadisticas/popularidad_hechizos', 'EstadisticasController@mostrarPopularidadHechizos');
+Route::get('/estadisticas/bloqueo_campeones', 'EstadisticasController@mostrarBloqueoCampeones');
 
 /* --- REGISTRE/INICI SESSIÓ --- */
 Route::auth();

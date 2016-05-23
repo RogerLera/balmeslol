@@ -120,16 +120,16 @@
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="#">Popularidad de campeones</a>
+                                        <a href="/estadisticas/popularidad_campeones">Popularidad de campeones</a>
                                     </li>
                                     <li>
-                                        <a href="#">Popularidad de hechizos</a>
+                                        <a href="/estadisticas/popularidad_hechizos">Popularidad de hechizos</a>
                                     </li>
                                     <li>
-                                        <a href="#">Bloqueo de campeones</a>
+                                        <a href="/estadisticas/bloqueo_campeones">Bloqueo de campeones</a>
                                     </li>
                                     <li>
-                                        <a href="#">Ratio de victorias</a>
+                                        <a href="/estadisticas/genera">Genera estadísticas</a>
                                     </li>
                                 </ul>
                             </li>

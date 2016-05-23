@@ -35,8 +35,6 @@ class ListaPartidasController extends Controller {
             $pj[$infoCampeon->id]['imagen'] = $infoCampeon->image->full;
         }
 
-        $pj[163]['nombre'] = "Taliyah";
-        $pj[163]['imagen'] = "";
         return $pj;
     }
 
