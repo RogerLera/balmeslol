@@ -25,6 +25,29 @@
     background-size: cover;
 }
 
+.summoner-banner {
+    position: relative;
+    display: block;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.summoner-banner > img {
+    position: absolute;
+    width: 100%;
+}
+
+.summoner-title {
+    position: absolute;
+    color: white;
+    font-size: 28px;
+    text-shadow: 2px 2px black;
+}
+
 .splashart {
     position: relative;
     display: block;
@@ -245,7 +268,7 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 * {
-        /* outline: 1px solid red; */
+         /* outline: 1px solid red; */
 }
 
 body {
