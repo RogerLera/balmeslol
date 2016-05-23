@@ -1,35 +1,19 @@
-//http://stackoverflow.com/questions/21854798/insert-an-image-into-a-tinymce-editor
-
 tinymce.init({
-  selector: 'textarea',  // change this value according to your HTML
-  images_upload_handler: function (blobInfo, success, failure) {
-    var xhr, formData;
-
-    xhr = new XMLHttpRequest();
-    xhr.withCredentials = false;
-    xhr.open('POST', 'postAcceptor.php');
-
-    xhr.onload = function() {
-      var json;
-
-      if (xhr.status != 200) {
-        failure('HTTP Error: ' + xhr.status);
-        return;
+  selector: 'textarea',
+  height: 200,
+  toolbar: 'botonHechizos',
+  menubar: false,
+  setup: function (editor) {
+    editor.addButton('botonHechizos', {
+      text: 'Hechizos',
+      icon: false,
+      onclick: function () {
+        editor.insertContent('&nbsp;<b>It\'s my button!</b>&nbsp;');
       }
-
-      json = JSON.parse(xhr.responseText);
-
-      if (!json || typeof json.location != 'string') {
-        failure('Invalid JSON: ' + xhr.responseText);
-        return;
-      }
-
-      success(json.location);
-    };
-
-    formData = new FormData();
-    formData.append('file', blobInfo.blob(), blobInfo.filename());
-
-    xhr.send(formData);
-  }
+    });
+  },
+  content_css: [
+    '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+    '//www.tinymce.com/css/codepen.min.css'
+  ]
 });

@@ -9,9 +9,12 @@ use App\Guia;
 use App\Role;
 use App\Http\Requests;
 use App\Repositories\GuiaRepository;
+use App\Traits\TraitCampeones;
+use App\Traits\TraitHechizos;
 
 class GuiaController extends Controller
 {
+    use TraitCampeones, TraitHechizos;
 
     /**
     * Instancia del objeto repositorio.
@@ -70,7 +73,8 @@ class GuiaController extends Controller
     public function formularioCrearGuia()
     {
         return view('guias.crear', [
-            //'campeones' => ControllerCampeon::obtenerCampeones(),
+            'campeones' => $this->obtenerCampeones(),
+            'hechizos' => $this->obtenerHechizos(),
             'roles' => Role::orderBy('rolId', 'asc')->get(),
             'version' => $this->version(),
         ]);

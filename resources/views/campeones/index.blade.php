@@ -16,7 +16,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <p>Escribe el nombre del campeón que quieras buscar</p>
+                                <p>Campeón a buscar</p>
                                 <input type="text" id="buscarcampeon" class="form-control" placeholder="Buscar campeón">
                             </div>
                             <div class="col-md-6">
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                    	    @foreach($campeones as $campeon)
-	    		 		<a href="/campeones/{{ $campeon['nombre'] }}">
+	    		 		<a href="/campeones/{{ $campeon['id'] }}">
 	    		 			<div class="champ-box">
 	    		 				<img src="{{ $campeon['imagen'] }}">
     		 					<div class="champ-info">

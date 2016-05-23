@@ -33,7 +33,9 @@
                             <div class="col-md-4">
                                 <select class="form-control" name="camId">
                                     <option value="1">Seleciona un campeón</option>
-
+                                    @foreach ($campeones as $campeon)
+                                        <option value="{{ $campeon['id'] }}">{{ $campeon['nombre'] }}</option>
+                                    @endforeach
                                 </select>
 
                                 @if ($errors->has('camId'))
@@ -107,6 +109,13 @@
                                         <div id="collapse1" class="panel-collapse collapse in">
                                             <div>
                                                 <textarea class="form-control" name="guiHechizos"></textarea>
+                                                <table id="imgTable">
+                                                    <tr>
+                                                        @foreach ($hechizos as $hechizo)
+                                                            <td><img src=" {{ $hechizo['imagen'] }}" alt="{{ $hechizo['nombre'] }}"></td>
+                                                        @endforeach
+                                                    </tr>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
