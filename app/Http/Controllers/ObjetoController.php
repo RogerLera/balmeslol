@@ -60,8 +60,6 @@ class ObjetoController extends Controller
 		            'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $infoObjeto->image->full,
                     // Comprovamos que tienen etiquetas (hay muchos objetos que no tienen etiquetas).
                     'tags' => (isset($infoObjeto->tags)) ? $infoObjeto->tags : "other",
-                    // Comprovamos que tienen grupo (hay muchos objetos que no tienen un grupo).
-                    'grupo' => (isset($infoObjeto->group)) ? $infoObjeto->group : "ninguno",
 		        );
 		}
 		// Ordenamos el array por nombre.
@@ -103,7 +101,7 @@ class ObjetoController extends Controller
         // guardamos en un array la información de dichos objetos.
         if (isset($data->from)) {
             for ($n = 0; $n < count($data->from); $n++) {
-                if ($data->from[$n] != 3718 && $data->from[$n] != 3722) {
+                if ($data->from[$n] != 3718 && $data->from[$n] != 3722 && $data->from[$n] != 1313) {
                     $objeto['procede'][] = $this->obtenerObjetodelObjetoPorId($data->from[$n]);
                 }
             }
@@ -113,7 +111,7 @@ class ObjetoController extends Controller
         // guardamos en un array la información de dichos objetos.
         if (isset($data->into)) {
             for ($n = 0; $n < count($data->into); $n++) {
-                if ($data->into[$n] != 3718 && $data->into[$n] != 3722) {
+                if ($data->into[$n] != 3718 && $data->into[$n] != 3722 && $data->into[$n] != 1313) {
                     $objeto['mejora'][] = $this->obtenerObjetodelObjetoPorId($data->into[$n]);
                 }
             }

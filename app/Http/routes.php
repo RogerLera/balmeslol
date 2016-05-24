@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/perfil/{id}/avatar', 'UserController@mostrarAvatar');
     Route::get('/perfil/{id}/editar', 'UserController@formularioEditarUser');
     Route::post('/perfil/{id}/editar', 'UserController@editarUser');
+    Route::post('/perfil/{id}/editar/password', 'UserController@editarUserPassword');
     Route::delete('/perfil/{id}', 'UserController@eliminarUser');
 });
 

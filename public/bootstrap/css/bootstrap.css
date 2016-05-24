@@ -25,6 +25,29 @@
     background-size: cover;
 }
 
+.summoner-banner {
+    position: relative;
+    display: block;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.summoner-banner > img {
+    position: absolute;
+    width: 100%;
+}
+
+.summoner-title {
+    position: absolute;
+    color: white;
+    font-size: 28px;
+    text-shadow: 2px 2px black;
+}
+
 .splashart {
     position: relative;
     display: block;
@@ -165,7 +188,7 @@
     padding-bottom: 5px;
 }
 
-.table-custom td {  
+.table-custom td {
     padding-left: 30px;
 }
 
@@ -230,6 +253,18 @@
     font-weight: bold;
 }
 
+.profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.profile-edit {
+    width: 100%;
+    height: 100%;
+
+}
+
 unique{
     font-weight: bold;
 }
@@ -245,7 +280,7 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 * {
-        /* outline: 1px solid red; */
+         /* outline: 1px solid red; */
 }
 
 body {
@@ -4186,8 +4221,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     }
 
     .navbar-nav > li > a {
-        padding-top: 15px;
-        padding-bottom: 15px;
+
     }
 }
 .navbar-form {
@@ -5154,6 +5188,14 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 .panel-body-min {
     padding: 15px;
     background: #dbdad4;
+}
+
+.panel-body-nop {
+    background: #dbdad4;
+}
+
+.panel-body-nop > p {
+    padding-left: 15px;
 }
 .panel-heading {
     padding: 10px 15px;

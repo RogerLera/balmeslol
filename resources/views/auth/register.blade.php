@@ -3,10 +3,17 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Registro</div>
                 <div class="panel-body">
+                    <div class="row">
+                         <div class="col-md-12">
+                            <ul class="breadcrumb">
+                                <li><a href="{{ url('/') }}">Inicio</a></li>
+                                <li class="active">Registro</li>
+                            </ul>
+                        </div>
+                    </div>
                     <form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
 
@@ -18,9 +25,10 @@
                                 <input type="text" class="form-control" name="usuAlias" value="{{ old('usuAlias') }}">
 
                                 @if ($errors->has('usuAlias'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('usuAlias') }}</strong>
-                                    </span>
+                                    <br>
+                                    <div class="alert alert-danger">
+                                         <strong>Error! </strong>{{ $errors->first('usuAlias') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -33,9 +41,10 @@
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                    <br>
+                                    <div class="alert alert-danger">
+                                        <strong>Error! </strong>{{ $errors->first('email') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -48,9 +57,10 @@
                                 <input type="date" class="form-control" name="usuFdn" value="{{ old('usuFdn') }}">
 
                                 @if ($errors->has('usuFdn'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('usuFdn') }}</strong>
-                                    </span>
+                                    <br>
+                                    <div class="alert alert-danger">
+                                        <strong>Erorr! </strong>{{ $errors->first('usuFdn') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -63,9 +73,10 @@
                                 <input type="file" class="form-control" name="usuAvatar" value="{{ old('usuAvatar') }}">
 
                                 @if ($errors->has('usuAvatar'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('usuAvatar') }}</strong>
-                                    </span>
+                                    <br>
+                                    <div class="alert alert-danger">
+                                        <strong>Error! </strong>{{ $errors->first('usuAvatar') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -77,9 +88,10 @@
                                 <input type="password" class="form-control" name="password">
 
                                 @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                    <br>
+                                    <div class="alert alert-danger">
+                                        <strong>Error! </strong>{{ $errors->first('password') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -91,17 +103,18 @@
                                 <input type="password" class="form-control" name="password_confirmation">
 
                                 @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
+                                    <br>
+                                    <div class="alert alert-danger">
+                                        <strong>Error! </strong>{{ $errors->first('password_confirmation') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Registrarse
+                                <button type="submit" class="btn btn-info">
+                                    <i class="fa fa-btn fa-user"></i> Registrarse
                                 </button>
                             </div>
                         </div>

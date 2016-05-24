@@ -48,7 +48,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav navbar-left">
                             <!-- Guias menú -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -146,9 +146,8 @@
                             @else
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <img src="/perfil/{{ Auth::id() }}/avatar" class="avatarPerfil" alt="Avatar usuario"> {{ Auth::user()->usuAlias }} <span class="caret"></span>
+                                        <img src="/perfil/{{ Auth::id() }}/avatar" class="profile" alt="Avatar usuario"> {{ Auth::user()->usuAlias }} <span class="caret"></span>
                                     </a>
-
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="/perfil/{{ Auth::id() }}"><i class="fa fa-btn fa-user"></i> Perfil</a></li>
                                         <li><a href="{{URL::to('mensajes')}}"><i class="fa fa-btn fa-envelope"></i> Mensajes @include('messenger.unread-count')</a></li>
