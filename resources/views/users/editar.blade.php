@@ -18,9 +18,9 @@
                                 <input type="text" class="form-control" name="usuAlias" value="{{ Auth::user()->usuAlias }}">
 
                                 @if ($errors->has('usuAlias'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('usuAlias') }}</strong>
-                                    </span>
+                                    <div class="alert alert-danger">
+                                        <strong>Error! </strong>{{ $errors->first('usuAlias') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -33,9 +33,9 @@
                                 <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                    <div class="alert alert-danger">
+                                        <strong>Error! </strong>{{ $errors->first('email') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -48,9 +48,9 @@
                                 <input type="date" class="form-control" name="usuFdn" value="{{ Auth::user()->usuFdn }}">
 
                                 @if ($errors->has('usuFdn'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('usuFdn') }}</strong>
-                                    </span>
+                                    <div class="alert alert-danger">
+                                        <strong>Error! </strong>{{ $errors->first('usuFdn') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -63,9 +63,9 @@
                                 <input type="file" class="form-control" name="usuAvatar" value="{{ Auth::user()->usuAvatar }}">
 
                                 @if ($errors->has('usuAvatar'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('usuAvatar') }}</strong>
-                                    </span>
+                                    <div class="alert alert-danger">
+                                        <strong>Error! </strong>{{ $errors->first('usuAvatar') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>

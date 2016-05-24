@@ -3,11 +3,17 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Restablecer contraseña</div>
-
                 <div class="panel-body">
+                    <div class="row">
+                         <div class="col-md-12">
+                            <ul class="breadcrumb">
+                                <li><a href="{{ url('/') }}">Inicio</a></li>
+                                <li class="active">Restablecer contraseña</li>
+                            </ul>
+                        </div>
+                    </div>
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
                         {!! csrf_field() !!}
 
@@ -56,7 +62,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-info">
                                     <i class="fa fa-btn fa-refresh"></i> Restablecer contraseña
                                 </button>
                             </div>

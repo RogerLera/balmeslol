@@ -46,10 +46,10 @@ class UserController extends Controller {
     {
         $user = User::whereId($id)->firstOrFail();
         $this->validate($request, [
-            'usuAlias' => 'required|max:255|unique:users,usuAlias,' . $user->id,
-            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+            'usuAlias' => 'required|min:2|max:25|unique:users,usuAlias,' . $user->id,
+            'email' => 'required|email|min:2|max:35|unique:users,email,' . $user->id,
             'usuFdn' => 'date|date_format:Y-n-j',
-            'usuAvatar' => 'image',
+            'usuAvatar' => 'dimensions:max_width=350,max_height=350',
         ]);
         $user = User::whereId($user->id)->firstOrFail();
         $user->fill(Input::except('usuAvatar'));
@@ -60,7 +60,7 @@ class UserController extends Controller {
             $user->usuAvatar = $avatar;
         }
         $user->save();
-        return redirect('/');
+        return redirect('/perfil/$id');
 
         /* http://www.core45.com/using-database-to-store-images-in-laravel-5-1/
          * si apareixen problemes amb les imatges:
@@ -68,6 +68,18 @@ class UserController extends Controller {
         $ composer require intervention/image
         See http://image.intervention.io/getting_started/installation
          */
+    }
+
+    public function editarUserPassword(Request $request, $id)
+    {
+        $user = User::whereId($id)->firstOrFail();
+        $this->validate($request, [
+            'password' => 'required|min:6|confirmed',
+        ]);
+        $user = User::whereId($user->id)->firstOrFail();
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect('/perfil/$id');
     }
 
     /**
