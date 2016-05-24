@@ -39,7 +39,7 @@
                                  
                                     @endforeach
                                
-                                            <h2>Añadir un mensaje nuevo</h2>
+                                            <h3>Añadir un mensaje nuevo</h3>
                                             {!! Form::open(['route' => ['mensajes.actualizar', $thread->id], 'method' => 'PUT']) !!}
                                             <!-- Message Form Input -->
                                             <div class="form-group">
@@ -56,7 +56,7 @@
 
                                             <!-- Submit Form Input -->
                                             <div class="form-group">
-                                                {!! Form::submit('Enviar', ['class' => 'btn btn-primary form-control']) !!}
+                                                {!! Form::submit('Enviar', ['class' => 'btn btn-info form-control']) !!}
                                             </div>
                                             {!! Form::close() !!}
                                      

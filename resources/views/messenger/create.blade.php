@@ -39,7 +39,7 @@
 
                                     <!-- Submit Form Input -->
                                     <div class="form-group">
-                                        {!! Form::submit('Enviar', ['class' => 'btn btn-primary form-control']) !!}
+                                        {!! Form::submit('Enviar', ['class' => 'btn btn-info form-control']) !!}
                                     </div>
                                 </div>
                                 {!! Form::close() !!}

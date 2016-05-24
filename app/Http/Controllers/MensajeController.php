@@ -57,6 +57,7 @@ class MensajeController extends Controller
         }        
         $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
         $thread->markAsRead($userId);
+        Carbon::setLocale('es');
         return view('messenger.show', compact('thread', 'users'));
     }
     /**
