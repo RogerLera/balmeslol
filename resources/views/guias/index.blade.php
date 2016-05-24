@@ -9,7 +9,7 @@
                 <div class="panel-body">
                     @if (count($guias) > 0)
                         @foreach($guias as $guia)
-                            <p>{{ $guia->guiTitulo }}</p>
+                            <p>{{--*/ print_r($guia->guiHechizos) /*--}}</p>
                         @endforeach
                     @else
                         <p>No existe ninguna guia! <a href="{{ url('/guias/crear') }}">Crea una guia!</a></p>

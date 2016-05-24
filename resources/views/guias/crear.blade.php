@@ -108,14 +108,7 @@
                                         </div>
                                         <div id="collapse1" class="panel-collapse collapse in">
                                             <div>
-                                                <textarea class="form-control" name="guiHechizos"></textarea>
-                                                <table id="imgTable">
-                                                    <tr>
-                                                        @foreach ($hechizos as $hechizo)
-                                                            <td><img src=" {{ $hechizo['imagen'] }}" alt="{{ $hechizo['nombre'] }}"></td>
-                                                        @endforeach
-                                                    </tr>
-                                                </table>
+                                                <textarea class="form-control guia" name="guiHechizos"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +129,7 @@
                                         </div>
                                         <div id="collapse2" class="panel-collapse collapse">
                                             <div>
-                                                <textarea class="form-control" name="guiRunas"></textarea>
+                                                <textarea class="form-control guia" name="guiRunas"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +150,7 @@
                                         </div>
                                         <div id="collapse3" class="panel-collapse collapse">
                                             <div>
-                                                <textarea class="form-control" name="guiMaestrias"></textarea>
+                                                <textarea class="form-control guia" name="guiMaestrias"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -178,7 +171,7 @@
                                         </div>
                                         <div id="collapse4" class="panel-collapse collapse">
                                             <div>
-                                                <textarea class="form-control" name="guiHabilidades"></textarea>
+                                                <textarea class="form-control guia" name="guiHabilidades"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -199,7 +192,7 @@
                                         </div>
                                         <div id="collapse5" class="panel-collapse collapse">
                                             <div>
-                                                <textarea class="form-control" name="guiObjetos"></textarea>
+                                                <textarea class="form-control guia" name="guiObjetos"></textarea>
                                             </div>
                                         </div>
                                     </div>

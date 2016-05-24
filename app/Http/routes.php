@@ -26,7 +26,6 @@ Route::get('/objetos/{id}', 'ObjetoController@mostrarObjeto');
 
 /* --- Hechizos --- */
 Route::get('/hechizos', 'HechizoController@index');
-Route::get('/hechizos/{id}', 'HechizoController@mostrarHechizo');
 
 /* --- GUIAS --- */
 Route::get('/guias', 'GuiaController@index');
@@ -72,3 +71,7 @@ Route::get('/home', 'HomeController@index');
 /* --- INVOCADOR --- */
 Route::get('/invocador', 'InvocadorController@index');
 Route::get('/partidas', 'ListaPartidasController@index');
+
+/* -- LLAMADAS JSON -- */
+Route::get('/json/hechizos', 'HechizoController@obtenerHechizos');
+Route::get('/json/campeones', 'CampeonController@obtenerCampeones');
