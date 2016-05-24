@@ -1,96 +1,140 @@
 <?php
+namespace App\Http\Controllers;
 
-use App\Mensaje;
-use App\Http\Requests;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Repositories\ObjecteRepository;
-use DB;
-use Illuminate\Support\ServiceProvider;
+use App\User;
+use Carbon\Carbon;
+use Cmgmyr\Messenger\Models\Message;
+use Cmgmyr\Messenger\Models\Participant;
+use Cmgmyr\Messenger\Models\Thread;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
-class MensajeController extends Controller {
-
+class MensajeController extends Controller
+{
     /**
-     * Instancia al repositorio de mensajes.
+     * Muestra todos los threads de mensajes segun el usuario logeado.
      *
-     * @var MensajeRepository
+     * @return mixed
      */
-    protected $mensajes;
-
+    public function index()
+    {
+        $currentUserId = Auth::user()->id;
+        // Todos los threads, ignora los participantes borrados/archivados
+        $threads = Thread::getAllLatest()->get();
+        // Todos los threads en que participa el usuario 
+        // $threads = Thread::forUser($currentUserId)->latest('updated_at')->get();
+        // Todos los threads en que participa el usuario, con mensajes nuevos
+        // $threads = Thread::forUserWithNewMessages($currentUserId)->latest('updated_at')->get();
+        return view('messenger.index', compact('threads', 'currentUserId'));
+    }
     /**
-     * Create a new controller instance.
+     * Muestra un thread de mensajes segun la id
      *
-     * @param  TaskRepository  $tasks
-     * @return void
+     * @param $id id del thread
+     * @return mixed
      */
-    public function __construct(MensajeRepository $mensajes) {
-        $this->middleware('auth');
-        $this->mensajes = $mensajes;
+    public function show($id)
+    {
+        try {
+            $thread = Thread::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            Session::flash('error_message', 'No se encontró la conversación con la ID: ' . $id . '.');
+            return redirect('mensajes');
+        }
+        // muestra el usuario actual en una lista si no es un participante actual
+        // $users = User::whereNotIn('id', $thread->participantsUserIds())->get();
+        // no mostrar el usuario actual en la lista
+        $userId = Auth::user()->id;
+        $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
+        $thread->markAsRead($userId);
+        return view('messenger.show', compact('thread', 'users'));
     }
-
     /**
-     * Muestra los mensajes del usuario en una lista
-     * Actua como mostrador de bandeja de entrada
-     * @param  Request  $request
-     * @return Response
+     * Crea un nuevo thread de mensajes.
+     *
+     * @return mixed
      */
-    public function entrada(Request $request) {
-        return view('mensajes.index', [
-            'mensajes' => $this->mensajes->recibidos($request->usuario()),
-        ]);
-    }
-
-    /**
-     * Muestra los mensajes del usuario en una lista
-     * Actua como mostrador de bandeja de entrada
-     * @param  Request  $request
-     * @return Response
-     */
-    public function salida(Request $request) {
-        return view('mensajes.index', [
-            'mensajes' => $this->mensajes->enviados($request->usuario()),
-        ]);
+    public function create()
+    {
+        $users = User::where('id', '!=', Auth::id())->get();
+        return view('messenger.create', compact('users'));
     }
     
     /**
-     * Obtenemos un mensaje en cuestion para mostrarlo
-     * @param type $id
-     */
-    public function obtenerMensaje($id) {
-        return view('mensajes.mensaje', ['mensaje' => Mensaje::findOrFail($id)]);
-    }
-
-    /**
-     * Crea un mensaje nuevo
+     * Guarda un nuevo mensaje en un thread nuevo
      *
-     * @param  Request  $request
-     * @return Response
+     * @return mixed
      */
-    public function crearMensaje(Request $request)
+    public function store()
     {
-        $this->validate($request, [
-            'menDestino' => 'required',
-            'menTexto' => 'required|max:255',
-        ]);
-        $request->usuario()->mensajes()->create([
-            'menEmisor' => $request->usuario()->usuId,
-            'menDestino' => $request->menDestino,
-            'menTexto' => $request->menTexto,
-            
-        ]);
-        return redirect('/mensajes');
+        $input = Input::all();
+        // Thread nuevo
+        $thread = Thread::create(
+            [
+                'subject' => $input['subject'],
+            ]
+        );
+        // Mensaje
+        Message::create(
+            [
+                'thread_id' => $thread->id,
+                'user_id'   => Auth::user()->id,
+                'body'      => $input['message'],
+            ]
+        );
+        // El que lo envia
+        Participant::create(
+            [
+                'thread_id' => $thread->id,
+                'user_id'   => Auth::user()->id,
+                'last_read' => new Carbon,
+            ]
+        );
+        // El/los que lo recibe
+        if (Input::has('recipients')) {
+            $thread->addParticipants($input['recipients']);
+        }
+        return redirect('mensajes');
     }
-
+    
     /**
-     * Eliminar el mensaje especificado.
-     * @param Request $request
-     * @param Usuario $usuario
-     * @return redireccionamento 
+     * Añade un mensaje nuevo para el thread actual
+     *
+     * @param $id id del thread
+     * @return mixed
      */
-    public function eliminarMensaje(Mensaje $mensaje) {
-        $this->authorize('borrar', $mensaje);
-        $mensaje->delete();
-        return redirect('/mensajes');
+    public function update($id)
+    {
+        try {
+            $thread = Thread::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            Session::flash('error_message', 'No se encontró la conversación con la ID: ' . $id . '.');
+            return redirect('mensajes');
+        }
+        $thread->activateAllParticipants();
+        // Mensaje
+        Message::create(
+            [
+                'thread_id' => $thread->id,
+                'user_id'   => Auth::id(),
+                'body'      => Input::get('message'),
+            ]
+        );
+        // Añade un participante nuevo
+        $participant = Participant::firstOrCreate(
+            [
+                'thread_id' => $thread->id,
+                'user_id'   => Auth::user()->id,
+            ]
+        );
+        $participant->last_read = new Carbon;
+        $participant->save();
+        // El/los que lo recibe
+        if (Input::has('recipients')) {
+            $thread->addParticipants(Input::get('recipients'));
+        }
+        return redirect('mensajes/' . $id);
     }
-
 }

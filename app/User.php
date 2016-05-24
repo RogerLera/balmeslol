@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Cmgmyr\Messenger\Traits\Messagable;
+
 class User extends Authenticatable
 {
+     use Messagable;
     /**
     * Atributos de la classe que son assignables.
     *
@@ -49,8 +52,8 @@ class User extends Authenticatable
     *
     * @return todos los mensajes
     */
-    public function mensajes()
+    public function message()
     {
-        return $this->hasMany(Mensaje::class);
+        return $this->hasMany(Message::class);
     }
 }
