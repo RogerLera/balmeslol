@@ -9,6 +9,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="breadcrumb">
+                                <li><a href="{{ url('/') }}">Inicio</a></li>
                                 <li class="active">{!! $thread->subject !!}</li>
                             </ul>
                             <div class="row">

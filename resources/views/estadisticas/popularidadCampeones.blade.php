@@ -9,6 +9,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="breadcrumb">
+                                <li><a href="{{ url('/') }}">Inicio</a></li>
                                 <li class="active">Estadísticas de popularidad de los campeones</li>
                             </ul>
                             <table width="60%" class="table table-hover">
