@@ -18,7 +18,7 @@ class InvocadorController extends Controller {
      */
     public function index(Request $request) {
         return view('invocador.index', [
-            'invocador' => $this->obtenerInvocador($request->input('nombre'), $request->input('region')),
+            'invocador' => $this->obtenerId($request->input('nombre'), $request->input('region')),
         ]);
     }
 
@@ -27,15 +27,10 @@ class InvocadorController extends Controller {
      * @param type $nombre nombre del jugador en cuestión
      * @return type
      */
-    public function obtenerInvocador($nombre, $region) {
-        //arreglamos el nombre para no tener problemas con espacios, mayusculas o carácteres extraños
-        $nombre = strtolower($nombre);
-        $nombre = str_replace(' ', '', $nombre);
-        $nombre = mb_convert_encoding($nombre, "UTF-8", "ISO-8859-1");
-        
-        // Obtenemos el json.
-        $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.4/summoner/by-name/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-        // Lo transformamos a objetos que php pueda entender.
+    public function obtenerInvocador($nombre,$region) {
+
+        $id = $this->obtenerId($nombre, $region);
+        $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.3/stats/by-summoner/' .$id. '/summary?season=SEASON2016&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         $infoInvocador = json_decode($json);
 
         $estadisticas = ['Total Monstruos Asesinados', 'Total Minions Asesinados', 'Total Campeones Asesinados', 'Total Asistencias', 'Total Torres Destruidas', 'Victorias', 'Derrotas'];
@@ -49,11 +44,8 @@ class InvocadorController extends Controller {
             'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id),
         );
 
-        $json2 = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.3/stats/by-summoner/' . $invocador['id'] . '/summary?season=SEASON2016&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-        $infoPartidas = json_decode($json2);
-
         $n = 0;
-        foreach ($infoPartidas->playerStatSummaries as $modo) {
+        foreach ($infoInvocador->playerStatSummaries as $modo) {
             $invocador['partidas'][$n]['Modo de Juego'] = $modo->playerStatSummaryType;
             if (isset($modo->aggregatedStats->totalNeutralMinionsKilled))
                 $invocador['partidas'][$n][$estadisticas[0]] = $modo->aggregatedStats->totalNeutralMinionsKilled;
@@ -74,6 +66,38 @@ class InvocadorController extends Controller {
         return $invocador;
     }
 
+    /**
+     * Método que a partir de un nick obtienes su Id
+     * @param type $nombre nombre del jugador en cuestión
+     * @return type
+     */
+    public function obtenerId($nombre, $region) {
+        //arreglamos el nombre para no tener problemas con espacios, mayusculas o carácteres extraños
+        $nombre = strtolower($nombre);
+        $nombre = str_replace(' ', '', $nombre);
+        $nombre = mb_convert_encoding($nombre, "UTF-8", "ISO-8859-1");
+        
+        // Obtenemos el json.
+        $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.4/summoner/by-name/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        // Lo transformamos a objetos que php pueda entender.
+        $infoInvocador = json_decode($json);
+
+        $invocador = array(
+            'id' => $infoInvocador->$nombre->id,
+            'nombre' => $infoInvocador->$nombre->name,
+            'region' => $region,
+            'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/'.$infoInvocador->$nombre->profileIconId.'.png',
+            'nivel' => $infoInvocador->$nombre->summonerLevel,
+        );
+
+        return $invocador;
+    }
+
+    /**
+     * Método que a partir de un id obtienes sus ligas
+     * @param type $id nombre del jugador en cuestión
+     * @return type
+     */
     public function obtenerLiga($id) {
          // Obtenemos el json.
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');

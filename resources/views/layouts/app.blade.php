@@ -123,7 +123,7 @@
                             @else
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <img src="/perfil/{{ Auth::id() }}/avatar" class="profile" alt="Avatar usuario"> {{ Auth::user()->usuAlias }} <span class="caret"></span>
+                                        <img src="/perfil/{{ Auth::id() }}/avatar" class="profile" alt="Avatar usuario"> {{ Auth::user()->usuAlias }}<span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="/perfil/{{ Auth::id() }}"><i class="fa fa-btn fa-user"></i> Perfil</a></li>
