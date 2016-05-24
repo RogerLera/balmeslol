@@ -74,40 +74,16 @@
                                 </ul>
                             </li>
                             <!-- Campeones menú -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Campeones<b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-header">
-                                        Campeones
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="{{ url('/campeones') }}">Todos los campeones</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Últimos campeones</a>
-                                    </li>
-                                </ul>
+                            <li>
+                                <a href="{{ url('/campeones') }}">Campeones</a>
                             </li>
                             <!-- Objetos menú -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Objetos<b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-header">
-                                        Objetos
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="{{ url('/objetos') }}">Todos los objetos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Últimos objetos</a>
-                                    </li>
-                                </ul>
+                            <li>
+                                <a href="{{ url('/objetos') }}">Objetos</a>
+                            </li>
+                            <!-- Hechizos menú -->
+                            <li>
+                                <a href="{{ url('/hechizos') }}">Hechizos</a>
                             </li>
                             <!-- Estadísticas menú -->
                             <li class="dropdown">

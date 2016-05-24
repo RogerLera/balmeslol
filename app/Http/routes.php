@@ -24,9 +24,14 @@ Route::get('/campeones/{id}', 'CampeonController@mostrarCampeon');
 Route::get('/objetos', 'ObjetoController@index');
 Route::get('/objetos/{id}', 'ObjetoController@mostrarObjeto');
 
+/* --- Hechizos --- */
+Route::get('/hechizos', 'HechizoController@index');
+Route::get('/hechizos/{id}', 'HechizoController@mostrarHechizo');
+
 /* --- GUIAS --- */
 Route::get('/guias', 'GuiaController@index');
 Route::get('/guias/crear', 'GuiaController@formularioCrearGuia');
+
 // Alomejor necesita crear ruta para favoritos, no desde GuiaController.
 Route::get('/guias/favoritos', 'GuiaController@obtenerGuiasFavoritos');
 Route::get('/guias/usuario/{id}', 'GuiaController@misGuias');
