@@ -88,8 +88,10 @@ class InvocadorController extends Controller {
             'region' => $region,
             'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/'.$infoInvocador->$nombre->profileIconId.'.png',
             'nivel' => $infoInvocador->$nombre->summonerLevel,
+            'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id),
         );
 
+        print_r($invocador);
         return $invocador;
     }
 
@@ -98,24 +100,40 @@ class InvocadorController extends Controller {
      * @param type $id nombre del jugador en cuestión
      * @return type
      */
-    public function obtenerLiga($id) {
+    public function obtenerLiga($id) 
+    {
          // Obtenemos el json.
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         // Lo transformamos a objetos que php pueda entender.
         $infoLiga = json_decode($json);
         // Montamos el array con la información del json
 
+        $entries = ['Division', 'Puntos', 'Ganadas', 'Perdidas'];
+
         $ligas = array();
-        foreach ($infoLiga->$id as $data) {
+        foreach ($infoLiga->$id as $data) 
+        {
             $ligas[] = array(
             'nombre' => $data->name,
             'liga' => $data->tier,
             'cola' => $data->queue,
-        );
+            );
 
+       
+            $n = 0;
+            foreach ($data->entries as $rankedInfo) 
+            {
+                if (isset($rankedInfo->division))
+                    $ligas['rankeds'][$n][$entries[0]] = $rankedInfo->division;
+                if (isset($rankedInfo->leaguePoints))
+                    $ligas['rankeds'][$n][$entries[1]] = $rankedInfo->leaguePoints;
+                if (isset($rankedInfo->wins))
+                    $ligas['rankeds'][$n][$entries[2]] = $rankedInfo->wins;
+                if (isset($rankedInfo->losses))
+                    $ligas['rankeds'][$n][$entries[3]] = $rankedInfo->losses;
+                $n++;
+            }
         }
-        return $ligas;
-        
+        return $ligas; 
     }
-
 }

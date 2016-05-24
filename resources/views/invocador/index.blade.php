@@ -20,7 +20,7 @@
                                 <img src="{{asset('/images/profile-background.png')}}">
                                 <div class="row">
                                     <div class="col-md-2">
-                                         <img class="profileSummoner" src="{{ $invocador['imagenPerfil'] }}">
+                                         <img class="summoner-icon" src="{{ $invocador['imagenPerfil'] }}">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="summoner-title">
@@ -33,13 +33,31 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
-                                       
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Estadísticas
+                                </div>
+                                <div class="panel-body-min">
+                                    <div class="row">
+                                        {{print_r($invocador['ligas'])}}
+                                        @foreach($invocador['ligas'] as $atributo)
+                                        <div class="col-md-4">
+                                            {{$atributo['nombre']}}
+                                            <img class="summoner-icon" src="{{asset('/images/')}}.png">
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                     
+                </div><!--Panel body -->
+            </div><!--panel panel-default-->
+        </div><!--col-md-10 col-md-offset-1-->
+    </div><!--Row-->
+</div><!--Container-->
 
 @endsection

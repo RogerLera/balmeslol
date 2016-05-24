@@ -42,10 +42,19 @@
 }
 
 .summoner-title {
+    margin-top: 20px;
     position: absolute;
     color: white;
     font-size: 28px;
     text-shadow: 2px 2px black;
+}
+
+.summoner-icon {
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 70%;
 }
 
 .splashart {
@@ -265,6 +274,20 @@
     height: 100%;
 }
 
+ table.tablesorter thead tr .header {
+    background-image: url(/images/bg.gif);
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+table.tablesorter thead tr .headerSortUp {
+    background-image: url(/images/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+    background-image: url(/images/desc.gif);
+}
+
 
 unique{
     font-weight: bold;
@@ -275,11 +298,13 @@ stats {
 }
 
 
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
+
 * {
          /* outline: 1px solid red; */
 }
