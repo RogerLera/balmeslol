@@ -22,18 +22,25 @@
                                     {{ $hechizo['nombre'] }}
                                 </div>
                                 <div class="panel-body-min">
-                                    {{ $hechizo['descripcion'] }}
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                           <img class="customborder" src="{{ $hechizo['imagen'] }}">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>{{ $hechizo['descripcion'] }}</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p><b>Se obtiene al nivel: {{ $hechizo['nivel'] }}</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-md-offset-2">
+                                            <p><b>Reutilización: {{ $hechizo['reutilizacion'] }} segundos</b></p>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
-
-                		 		<a href="/hechizos/{{ $hechizo['id'] }}">
-                		 			<div class="champ-box">
-                		 				<img src="{{ $hechizo['imagen'] }}">
-            		 					<div class="champ-info">
-            		 						{{ $hechizo['nombre'] }}
-            		 					</div>
-                		 			</div>
-                		 		</a>
         			        @endforeach
                         </div>
                     </div>
