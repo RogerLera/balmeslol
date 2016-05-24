@@ -151,7 +151,9 @@
 
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="/perfil/{{ Auth::id() }}"><i class="fa fa-btn fa-user"></i> Perfil</a></li>
-                                         <li><a href="/guias/usuario/{{ Auth::id() }}"><i class="fa fa-btn fa-star"></i> Mis guias</a></li>
+                                        <li><a href="{{URL::to('mensajes')}}"><i class="fa fa-btn fa-envelope"></i> Mensajes @include('messenger.unread-count')</a></li>
+                                        <li><a href="{{URL::to('mensajes/crear')}}"><i class="fa fa-btn fa-envelope"></i> Nuevo Mensaje</a></li>
+                                        <li><a href="/guias/usuario/{{ Auth::id() }}"><i class="fa fa-btn fa-star"></i> Mis guias</a></li>
                                         <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Desconectarse</a></li>
                                     </ul>
                                 </li>
@@ -168,7 +170,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
     <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script src="<?php echo asset('js/tinymce.js')?>"></script>
+    <script src="<?php echo asset('js/tinymce.js')?>"></script> 
     <script src="<?php echo asset('js/myjsfunctions.js')?>"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
