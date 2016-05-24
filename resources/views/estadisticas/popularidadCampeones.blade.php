@@ -5,11 +5,17 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Estadísticas de popularidad de los campeones</div>
                 <div class="panel-body">
-                    @foreach($estadisticas as $estadistica)
-                    <p>ID: {{ $estadistica['id'] }} Nombre: {{ $estadistica['nombre'] }} Imagen: <img src="{{ $estadistica['imagen'] }}"> Estadística: {{ $estadistica['porciento'] }}</p>
-                    @endforeach
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="breadcrumb">
+                                <li class="active">Estadísticas de popularidad de los campeones</li>
+                            </ul>
+                            @foreach($estadisticas as $estadistica)
+                            <p><img src="{{ $estadistica['imagen'] }}"> Nombre: {{ $estadistica['nombre'] }} Estadística: {{ $estadistica['porciento'] }}</p>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
