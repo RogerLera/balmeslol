@@ -11,9 +11,24 @@
                             <ul class="breadcrumb">
                                 <li class="active">Estadísticas de bloqueo de los hechizos</li>
                             </ul>
-                            @foreach($estadisticas as $estadistica)
-                            <p><img src="{{ $estadistica['imagen'] }}"> Nombre: {{ $estadistica['nombre'] }} Estadística: {{ $estadistica['porciento'] }}</p>
-                            @endforeach
+                            <table width="60%" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="20%">&nbsp;</th>
+                                        <th>Nombre</th>
+                                        <th>Popularidad (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($estadisticas as $estadistica)
+                                    <tr>
+                                        <td><img height="60" width="60" class="img-responsive" src="{{ $estadistica['imagen'] }}"></td>
+                                        <td>{{ $estadistica['nombre'] }}</td>
+                                        <td>{{ $estadistica['porciento'] }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
