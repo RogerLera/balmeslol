@@ -10,11 +10,13 @@
                         <div class="col-md-12">
                             <ul class="breadcrumb">
                                 <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Mensaje nuevo</li>
+                                <li><a href="{{ url('/mensajes') }}">Mensajes</a></li>
+                                <li class="active">Nuevo</li>
                             </ul>
+                            {!! csrf_field() !!}
                             {!! Form::open(['route' => 'mensajes.guardar']) !!}
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-offset-3 col-md-6">
                                     <!-- Subject Form Input -->
                                     <div class="form-group">
                                         {!! Form::label('subject', 'Sujeto', ['class' => 'control-label']) !!}

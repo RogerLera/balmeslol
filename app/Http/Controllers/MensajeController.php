@@ -20,7 +20,11 @@ class MensajeController extends Controller
      */
     public function index()
     {
-        $currentUserId = Auth::user()->id;
+        if(isset(Auth::user()->id)){
+            $currentUserId = Auth::user()->id;
+        }else{
+            return redirect('/');
+        }
         // Todos los threads, ignora los participantes borrados/archivados
         $threads = Thread::getAllLatest()->get();
         // Todos los threads en que participa el usuario 
@@ -46,7 +50,11 @@ class MensajeController extends Controller
         // muestra el usuario actual en una lista si no es un participante actual
         // $users = User::whereNotIn('id', $thread->participantsUserIds())->get();
         // no mostrar el usuario actual en la lista
-        $userId = Auth::user()->id;
+        if(isset(Auth::user()->id)){
+            $userId = Auth::user()->id;
+        }else{
+            return redirect('/');
+        }        
         $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
         $thread->markAsRead($userId);
         return view('messenger.show', compact('thread', 'users'));
@@ -58,6 +66,9 @@ class MensajeController extends Controller
      */
     public function create()
     {
+        if(!isset(Auth::user()->id)){
+            return redirect('/');
+        }
         $users = User::where('id', '!=', Auth::id())->get();
         return view('messenger.create', compact('users'));
     }

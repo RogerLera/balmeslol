@@ -10,27 +10,41 @@
                         <div class="col-md-12">
                             <ul class="breadcrumb">
                                 <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Conversaciones</li>
+                                <li class="active">Mensajes</li>
                             </ul>
-
-                            @if (Session::has('error_message'))
-                            <div class="alert alert-danger" role="alert">
-                                {!! Session::get('error_message') !!}
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-6">
+                                    {!! csrf_field() !!}
+                                    @if (Session::has('error_message'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {!! Session::get('error_message') !!}
+                                    </div>
+                                    @endif
+                                    @if($threads->count() > 0)
+                                    @foreach($threads as $thread)
+                                    @foreach($thread->participants as $participant)
+                                    @if($participant->user_id === Auth::id())
+                                    <?php
+                                    if ($thread->isUnread($currentUserId)) {
+                                        $class = 'alert-info';
+                                    } else {
+                                        $class = 'alert-success';
+                                    }
+                                    ?>
+                                    <div class="media alert {!!$class!!}">
+                                        <h4 class="media-heading">{!! link_to('mensajes/' . $thread->id, $thread->subject) !!}</h4>
+                                        <p>{!! $thread->latestMessage->body !!}</p>
+                                        <p><small><strong>Creador:</strong> {!! $thread->creator()->usuAlias !!}</small></p>
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                    @endforeach
+                                    @else
+                                    <p>Lo sentimos, no se encuentran mensajes.</p>
+                                    @endif
+                                    @stop
+                                </div>
                             </div>
-                            @endif
-                            @if($threads->count() > 0)
-                            @foreach($threads as $thread)
-                            <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                            <div class="media alert {!!$class!!}">
-                                <h4 class="media-heading">{!! link_to('mensajes/' . $thread->id, $thread->subject) !!}</h4>
-                                <p>{!! $thread->latestMessage->body !!}</p>
-                                <p><small><strong>Creador:</strong> {!! $thread->creator()->usuAlias !!}</small></p>
-                            </div>
-                            @endforeach
-                            @else
-                            <p>Lo sentimos, no se encuentran mensajes.</p>
-                            @endif
-                            @stop
                         </div>
                     </div>
                 </div>
