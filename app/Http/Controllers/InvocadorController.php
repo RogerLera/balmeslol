@@ -120,18 +120,18 @@ class InvocadorController extends Controller {
             );
 
        
-            $n = 0;
+
             foreach ($data->entries as $rankedInfo) 
             {
                 if (isset($rankedInfo->division))
-                    $ligas['rankeds'][$n][$entries[0]] = $rankedInfo->division;
+                    $ligas[$entries[0]] = $rankedInfo->division;
                 if (isset($rankedInfo->leaguePoints))
-                    $ligas['rankeds'][$n][$entries[1]] = $rankedInfo->leaguePoints;
+                    $ligas[$entries[1]] = $rankedInfo->leaguePoints;
                 if (isset($rankedInfo->wins))
-                    $ligas['rankeds'][$n][$entries[2]] = $rankedInfo->wins;
+                    $ligas[$entries[2]] = $rankedInfo->wins;
                 if (isset($rankedInfo->losses))
-                    $ligas['rankeds'][$n][$entries[3]] = $rankedInfo->losses;
-                $n++;
+                    $ligas[$entries[3]] = $rankedInfo->losses;
+
             }
         }
         return $ligas; 

@@ -42,10 +42,11 @@
                                 </div>
                                 <div class="panel-body-min">
                                     <div class="row">
-                                        {{print_r($invocador['ligas'])}}
-                                        @foreach($invocador['ligas'] as $atributo)
+
+                                        @foreach($invocador['ligas'][0] as $atributo)
+
                                         <div class="col-md-4">
-                                            {{$atributo['nombre']}}
+                                            {{$atributo}}
                                             <img class="summoner-icon" src="{{asset('/images/')}}.png">
                                         </div>
                                         @endforeach
