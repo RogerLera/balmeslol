@@ -44,12 +44,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/perfil/{id}', 'UserController@eliminarUser');
 });
 
-/* --- MENSAJES --- */
-Route::get('/mensajes/bandejaEntrada', 'MensajeController@entrada');
-Route::get('/mensajes/bandejaSalida', 'MensajeController@salida');
-Route::get('/mensajes/{id}', 'MensajeController@obtenerMensaje');
-Route::post('/mensaje', 'MensajeController@crearMensaje');
-Route::delete('/mensajes/{mensaje}', 'MensajeController@eliminarMensaje');
+/* --- MENSAJES Messenger --- */
+Route::group(['prefix' => 'mensajes'], function () {
+    Route::get('/', ['as' => 'mensajes', 'uses' => 'MensajeController@index']);
+    Route::get('crear', ['as' => 'mensajes.crear', 'uses' => 'MensajeController@create']);
+    Route::post('/', ['as' => 'mensajes.guardar', 'uses' => 'MensajeController@store']);
+    Route::get('{id}', ['as' => 'mensajes.mostrar', 'uses' => 'MensajeController@show']);
+    Route::put('{id}', ['as' => 'mensajes.actualizar', 'uses' => 'MensajeController@update']);
+});
 
 /* --- ESTADISTICAS CAMPEONES/HECHIZOS --- */
 Route::get('/estadisticas/genera', 'EstadisticasController@generaEstadisticas');
