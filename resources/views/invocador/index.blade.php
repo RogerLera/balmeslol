@@ -20,7 +20,7 @@
                                 <img src="{{asset('/images/profile-background.png')}}">
                                 <div class="row">
                                     <div class="col-md-2">
-                                         <img src="{{ $invocador['imagenPerfil'] }}">
+                                         <img class="profileSummoner" src="{{ $invocador['imagenPerfil'] }}">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="summoner-title">
@@ -33,23 +33,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-8">
-                            {{$invocador['ligas'][0]['liga']}}
-                            <form action="/partidas" accept-charset="ISO-8859-1">
-                                <input type="hidden" name="nombre" value="{{ $invocador['nombre'] }}">
-                                <input type="hidden" name="region" value="{{ $invocador['region'] }}">
-                                <input type="submit" value="Historial de Partidas Recientes">
-                            </form>
-                            <br><br>
-                            @foreach($invocador['partidas'] as $jugado)
-                                @foreach($jugado as $atributo => $valor)
-                                <b>{{ $atributo }}</b> : {{ $valor }}<br>
-                                @endforeach
-                                <br><br><br>
-                            @endforeach
-                        </div>
-                    </div>
+                    
+                    
                                        
                 </div>
             </div>
