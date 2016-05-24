@@ -14,6 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="<?php echo asset('bootstrap/css/bootstrap.css')?>" type="text/css">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
 </head>
 <body id="app-layout">
@@ -146,6 +147,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
     <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
     <script src="<?php echo asset('js/tinymce.js')?>"></script> 
+    <script src="<?php echo asset('js/jquery.tablesorter.min.js')?>"></script> 
     <script src="<?php echo asset('js/myjsfunctions.js')?>"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

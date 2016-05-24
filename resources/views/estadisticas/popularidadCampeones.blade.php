@@ -12,7 +12,7 @@
                                 <li><a href="{{ url('/') }}">Inicio</a></li>
                                 <li class="active">Estadísticas de popularidad de los campeones</li>
                             </ul>
-                            <table width="60%" class="table table-hover">
+                            <table id="ordenar" width="60%" class="table table-hover tablesorter">
                                 <thead>
                                     <tr>
                                         <th width="20%">&nbsp;</th>
@@ -23,7 +23,7 @@
                                 <tbody>
                                     @foreach($estadisticas as $estadistica)
                                     <tr>
-                                        <td><img height="80" width="80" class="img-responsive" src="{{ $estadistica['imagen'] }}"></td>
+                                        <td><img height="80" width="80" class="customborder img-responsive" src="{{ $estadistica['imagen'] }}"></td>
                                         <td>{{ $estadistica['nombre'] }}</td>
                                         <td>{{ $estadistica['porciento'] }}</td>
                                     </tr>

@@ -6479,3 +6479,18 @@ button.close {
 .panel-primary .panel-heading, .panel-success .panel-heading, .panel-warning .panel-heading, .panel-danger .panel-heading, .panel-info .panel-heading, .panel-primary .panel-title, .panel-success .panel-title, .panel-warning .panel-title, .panel-danger .panel-title, .panel-info .panel-title {
     color: #fff;
 }
+
+table.tablesorter thead tr .header {
+    background-image: url(/images/bg.gif);
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+table.tablesorter thead tr .headerSortUp {
+    background-image: url(/images/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+    background-image: url(/images/desc.gif);
+}
+
