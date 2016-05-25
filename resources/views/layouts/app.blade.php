@@ -123,12 +123,12 @@
                             @else
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        <img src="/perfil/{{ Auth::id() }}/avatar" class="profile" alt="Avatar usuario"> {{ Auth::user()->usuAlias }}<span class="caret"></span>
+                                        <img src="/perfil/{{ Auth::id() }}/avatar" class="profile" alt="Avatar usuario"> {{ Auth::user()->usuAlias }} @include('messenger.unread-count')<span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="/perfil/{{ Auth::id() }}"><i class="fa fa-btn fa-user"></i> Perfil</a></li>
                                         <li><a href="{{URL::to('mensajes')}}"><i class="fa fa-btn fa-envelope"></i> Mensajes @include('messenger.unread-count')</a></li>
-                                        <li><a href="{{URL::to('mensajes/crear')}}"><i class="fa fa-btn fa-envelope"></i> Nuevo</a></li>
+                                        <li><a href="{{URL::to('mensajes/crear')}}"><i class="fa fa-btn fa-envelope"></i> Nuevo Mensaje</a></li>
                                         <li><a href="/guias/usuario/{{ Auth::id() }}"><i class="fa fa-btn fa-star"></i> Mis guias</a></li>
                                         <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Desconectarse</a></li>
                                     </ul>
