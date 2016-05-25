@@ -42,14 +42,168 @@
                                 </div>
                                 <div class="panel-body-min">
                                     <div class="row">
-
-                                        @foreach($invocador['ligas'][0] as $atributo)
-
+                                        @foreach($invocador['ligas'] as $liga)
+                                        @if ($liga['cola'] == "RANKED_TEAM_3x3")
+                                            <div class="col-md-4">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row">   
+                                                            <div class="col-md-12">
+                                                                <h4 style="text-align:center;">Equipo 3v3</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h5 style="text-align:center;">{{ $liga['nombre'] }}</h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">   
+                                                            <div class="col-md-12">
+                                                                <img class="summoner-icon" src="{{asset('/images/medals') }}/{{$liga['tier']}} {{$liga['division']}}.png">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">   
+                                                            <div class="col-md-12">
+                                                                <h4 style="text-align:center;"><b>{{ $liga['tier']}} {{$liga['division'] }}</b></h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">   
+                                                            <div class="col-md-12">
+                                                                <h4 style="text-align:center;">{{ $liga['puntos'] }} puntos</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">   
+                                                            <div class="col-md-6">
+                                                                <h5 style="text-align:center;">Victorias: {{ $liga['ganadas'] }}</h5>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <h5 style="text-align:center;">Derrotas: {{ $liga['perdidas'] }}</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                        @elseif ($liga['cola'] == "RANKED_SOLO_5x5")
+                                            <div class="col-md-4">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row">   
+                                                            <div class="col-md-12">
+                                                                <h4 style="text-align:center;">Clasificatoria</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h5 style="text-align:center;">{{ $liga['nombre'] }}</h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">   
+                                                            <div class="col-md-12">
+                                                                <img class="summoner-icon" src="{{asset('/images/medals') }}/{{$liga['tier']}} {{$liga['division']}}.png">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">   
+                                                            <div class="col-md-12">
+                                                                <h4 style="text-align:center;"><b>{{ $liga['tier']}} {{$liga['division'] }}</b></h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">   
+                                                            <div class="col-md-12">
+                                                                <h4 style="text-align:center;">{{ $liga['puntos'] }} puntos</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">   
+                                                            <div class="col-md-6">
+                                                                <h5 style="text-align:center;">Victorias: {{ $liga['ganadas'] }}</h5>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <h5 style="text-align:center;">Derrotas: {{ $liga['perdidas'] }}</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                        @else
                                         <div class="col-md-4">
-                                            {{$atributo}}
-                                            <img class="summoner-icon" src="{{asset('/images/')}}.png">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">   
+                                                        <div class="col-md-12">
+                                                            <h4 style="text-align:center;">Sin Equipo</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h5 style="text-align:center;">--</h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">   
+                                                        <div class="col-md-12">
+                                                            <img class="summoner-icon" src="{{asset('/images/medals/default') }}.png">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">   
+                                                        <div class="col-md-12">
+                                                            <h4 style="text-align:center;">--</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">   
+                                                        <div class="col-md-12">
+                                                            <h4 style="text-align:center;">--</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">   
+                                                        <div class="col-md-6">
+                                                            <h5 style="text-align:center;">--</h5>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <h5 style="text-align:center;">--</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>    
                                         </div>
+                                        @endif
                                         @endforeach
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">   
+                                                        <div class="col-md-12">
+                                                            <h4 style="text-align:center;">Equipo 5v5</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h5 style="text-align:center;">--</h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">   
+                                                        <div class="col-md-12">
+                                                            <img class="summoner-icon" src="{{asset('/images/medals/default') }}.png">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">   
+                                                        <div class="col-md-12">
+                                                            <h4 style="text-align:center;">--</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">   
+                                                        <div class="col-md-12">
+                                                            <h4 style="text-align:center;">--</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">   
+                                                        <div class="col-md-6">
+                                                            <h5 style="text-align:center;">--</h5>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <h5 style="text-align:center;">--</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                        </div>
                                     </div>
                                 </div>
                             </div>

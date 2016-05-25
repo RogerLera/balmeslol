@@ -108,14 +108,14 @@ class InvocadorController extends Controller {
         $infoLiga = json_decode($json);
         // Montamos el array con la información del json
 
-        $entries = ['Division', 'Puntos', 'Ganadas', 'Perdidas'];
+        $entries = ['division', 'puntos', 'ganadas', 'perdidas'];
         $n = 0;
         $ligas = array();
         foreach ($infoLiga->$id as $data)
         {
             $ligas[] = array(
             'nombre' => $data->name,
-            'liga' => $data->tier,
+            'tier' => $data->tier,
             'cola' => $data->queue,
             );
 
