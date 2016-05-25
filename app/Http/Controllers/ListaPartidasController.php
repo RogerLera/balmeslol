@@ -12,7 +12,8 @@ use App\Http\Requests;
 class ListaPartidasController extends Controller {
 
     /**
-     * Método principal para mostrar la lista de partidas que obtendremos con obtenerListaPartidas
+     * Método principal para mostrar la lista de partidas que obtendremos con obtenerListaPartidas.
+     * 
      * @param Request $request los campos nombre y region en los que nos sustentaremos para buscar las partidas
      * @return type la vista
      */
@@ -23,7 +24,8 @@ class ListaPartidasController extends Controller {
     }
 
     /**
-     * Método para obtener un array que nos permita referenciar una id de un personaje con su nombre y su imagen
+     * Método para obtener un array que nos permita referenciar una id de un personaje con su nombre y su imagen.
+     * 
      * @return type array con los nombres y imágenes referenciados segun la id
      */
     public function obtenerArrayCampeones() {
@@ -39,7 +41,8 @@ class ListaPartidasController extends Controller {
     }
 
     /**
-     * Método para saber el ID del invocador mediante su nombre
+     * Método para saber el ID del invocador mediante su nombre.
+     * 
      * @param type $nombre nombre del invocador del que queremos saber su id
      * @param type $region region del usuario
      * @return type id numérica del invocador 
@@ -52,7 +55,8 @@ class ListaPartidasController extends Controller {
     }
 
     /**
-     * Método principal que nos devuelve las últimas 7 partidas de un usuario en base a su nombre y región
+     * Método principal que nos devuelve las últimas 7 partidas de un usuario en base a su nombre y región.
+     * 
      * @param type $nombre nick del usuario
      * @param type $region region donde juega
      * @return type lista de partidas en un array
@@ -87,6 +91,7 @@ class ListaPartidasController extends Controller {
 
     /**
      * Método complementario de obtenerListaPartidas donde obtenemos una sola partida para guardarla
+     * 
      * @param type $idPartida id de la partida en cuestión
      * @param type $region region del usuario
      * @param type $pj array con los nombres y imágenes de los personajes relacionados en base a su id

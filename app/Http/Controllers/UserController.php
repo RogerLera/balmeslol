@@ -14,11 +14,11 @@ use Intervention\Image\Facades\Image;
 class UserController extends Controller {
 
     /**
-    * Constructor principal.
-    */
-    public function __construct(){
+     * Constructor principal.
+     */
+    public function __construct() {
         $this->middleware('auth');
-   }
+    }
 
     /**
      * Mostrar el perfil de un cierto user
@@ -26,8 +26,7 @@ class UserController extends Controller {
      * @param  int  $id
      * @return Respuesta
      */
-    public function mostrarPerfil($id)
-    {
+    public function mostrarPerfil($id) {
         return view('users.perfil');
     }
 
@@ -37,13 +36,18 @@ class UserController extends Controller {
      * @param  int  $id
      * @return Respuesta
      */
-    public function formularioEditarUser($id)
-    {
+    public function formularioEditarUser($id) {
         return view('users.editar');
     }
 
-    public function editarUser(Request $request, $id)
-    {
+    /**
+     * Método para cambiar los datos del usuario.
+     * 
+     * @param Request $request datos del input
+     * @param type $id id del usuario a cambiar
+     * @return type redireccionamento
+     */
+    public function editarUser(Request $request, $id) {
         $user = User::whereId($id)->firstOrFail();
         $this->validate($request, [
             'usuAlias' => 'required|min:2|max:25|unique:users,usuAlias,' . $user->id,
@@ -61,17 +65,16 @@ class UserController extends Controller {
         }
         $user->save();
         return redirect('/perfil/$id');
-
-        /* http://www.core45.com/using-database-to-store-images-in-laravel-5-1/
-         * si apareixen problemes amb les imatges:
-         tema composer no esta aclarat:
-        $ composer require intervention/image
-        See http://image.intervention.io/getting_started/installation
-         */
     }
 
-    public function editarUserPassword(Request $request, $id)
-    {
+    /**
+     * Método para cambiar el password del usuario.
+     * 
+     * @param Request $request nuevo password
+     * @param type $id id del usuario a editar
+     * @return type redireccionamento
+     */
+    public function editarUserPassword(Request $request, $id) {
         $user = User::whereId($id)->firstOrFail();
         $this->validate($request, [
             'password' => 'required|min:6|confirmed',
@@ -84,24 +87,24 @@ class UserController extends Controller {
 
     /**
      * Eliminar el user especificado.
+     * 
      * @param Request $request
      * @param User $user
      * @return redireccionamento
      */
-    public function eliminarUser(User $user)
-    {
+    public function eliminarUser(User $user) {
         $this->authorize('permisoUser', $user);
         $user->delete();
         return redirect('/');
     }
 
     /**
-    * Método que carga la imagen binaria de la base de datos.
-    * @param id identificador usuario.
-    * @return $response con la imagen.
-    */
-    public function mostrarAvatar($id)
-    {
+     * Método que carga la imagen binaria de la base de datos.
+     * 
+     * @param id identificador usuario.
+     * @return $response con la imagen.
+     */
+    public function mostrarAvatar($id) {
         $user = User::whereId($id)->firstOrFail();
         $avatar = Image::make($user->usuAvatar);
         $response = Response::make($avatar->encode('jpeg'));

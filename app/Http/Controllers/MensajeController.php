@@ -11,10 +11,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
+/**
+ * Clase MensajeController que nos servira para gestionar los mensajes y mostrarlos. 
+ */
 class MensajeController extends Controller
 {
     /**
-     * Muestra todos los threads de mensajes segun el usuario logeado.
+     * Muestra todos los threads (conversaciones) de mensajes segun el usuario logeado.
      *
      * @return mixed
      */
@@ -25,16 +28,16 @@ class MensajeController extends Controller
         }else{
             return redirect('/');
         }
-        // Todos los threads, ignora los participantes borrados/archivados
+        // Todos los threads (conversaciones), ignora los participantes borrados/archivados
         $threads = Thread::getAllLatest()->get();
-        // Todos los threads en que participa el usuario 
+        // Todos los threads (conversaciones) en que participa el usuario 
         // $threads = Thread::forUser($currentUserId)->latest('updated_at')->get();
-        // Todos los threads en que participa el usuario, con mensajes nuevos
+        // Todos los threads (conversaciones) en que participa el usuario, con mensajes nuevos
         // $threads = Thread::forUserWithNewMessages($currentUserId)->latest('updated_at')->get();
         return view('messenger.index', compact('threads', 'currentUserId'));
     }
     /**
-     * Muestra un thread de mensajes segun la id
+     * Muestra un thread (conversacion) de mensajes segun la id
      *
      * @param $id id del thread
      * @return mixed
@@ -61,7 +64,7 @@ class MensajeController extends Controller
         return view('messenger.show', compact('thread', 'users'));
     }
     /**
-     * Crea un nuevo thread de mensajes.
+     * Crea un nuevo thread (conversacion) de mensajes.
      *
      * @return mixed
      */
@@ -75,7 +78,7 @@ class MensajeController extends Controller
     }
     
     /**
-     * Guarda un nuevo mensaje en un thread nuevo
+     * Guarda un nuevo mensaje en un thread (conversacion) nuevo
      *
      * @return mixed
      */
@@ -112,7 +115,7 @@ class MensajeController extends Controller
     }
     
     /**
-     * Añade un mensaje nuevo para el thread actual
+     * Añade un mensaje nuevo para el thread (conversacion) actual
      *
      * @param $id id del thread
      * @return mixed

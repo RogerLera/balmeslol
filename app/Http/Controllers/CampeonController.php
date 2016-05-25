@@ -169,7 +169,7 @@ class CampeonController extends Controller
 		$json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v1.2/champion?freeToPlay=true&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
 		// Lo transformamos a objetos que php pueda entender.
 		$data = json_decode($json);
-		// Creamos el array que almazenará los campeones.
+		// Creamos el array que almacenará los campeones.
 		$campeones = array();
 		// En la variable campeones vamos introduciendo el id de cada campeón.
 		foreach($data->champions as $infoCampeon){
@@ -182,7 +182,15 @@ class CampeonController extends Controller
 		// Devolvemos el array.
 		return $campeones;
 	}
-
+        
+        /**
+         * Método para obtener los vídeos de las habilidades de un campeón, según la id del campeón,
+         * retornara el nombre del fichero de vídeo de la habilidad que queremos.
+         * 
+         * @param type $id id del campeón del que queremos el vídeo
+         * @param type $n la habilidad de la que queremos obtener el vídeo
+         * @return string nombre del fichero de vídeo que contiene dicha habilidad para dicho campeón
+         */
 	private function videoHabilidadCampeon($id, $n)
 	{
 		$ficheroVideo;

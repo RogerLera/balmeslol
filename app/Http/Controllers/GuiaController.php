@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-
 use App\Guia;
 use App\Role;
 use App\Http\Requests;
@@ -12,15 +11,16 @@ use App\Repositories\GuiaRepository;
 use App\Traits\TraitCampeones;
 use App\Traits\TraitHechizos;
 
-class GuiaController extends Controller
-{
-    use TraitCampeones, TraitHechizos;
+class GuiaController extends Controller {
+
+    use TraitCampeones,
+        TraitHechizos;
 
     /**
-    * Instancia del objeto repositorio.
-    *
-    * @var GuiaRepository
-    */
+     * Instancia del objeto repositorio.
+     *
+     * @var GuiaRepository
+     */
     protected $guias;
 
     /**
@@ -28,37 +28,40 @@ class GuiaController extends Controller
      *
      * @return void
      */
-    public function __construct(GuiaRepository $guias)
-    {
+    public function __construct(GuiaRepository $guias) {
         $this->middleware('auth');
         $this->guias = $guias;
     }
 
     /**
-	* Método principal que se llama al acceder a la pestanya guias.
-	*
-	* @return información guias a la vista.
-	*/
-	public function index()
-	{
-	    return view('guias.index', [
+     * Método principal que se llama al acceder a la pestanya guias.
+     *
+     * @return información guias a la vista.
+     */
+    public function index() {
+        return view('guias.index', [
             'guias' => $this->guias->totalGuias(),
-		]);
-	}
+        ]);
+    }
 
     /**
-	* Método que mustra una guia seleccionada.
-	*
-    * @param $id identificador
-	* @return información completa de la guia.
-	*/
-	public function obtenerGuia($id)
-	{
-	    return view('guias.guia', [
+     * Método que mustra una guia seleccionada.
+     *
+     * @param $id identificador
+     * @return información completa de la guia.
+     */
+    public function obtenerGuia($id) {
+        return view('guias.guia', [
             'guia' => Guia::findOrFail($id),
-		]);
-	}
+        ]);
+    }
 
+    /**
+     * Método que devuelve las guías que ha creado el usuario logueado por su id.
+     * 
+     * @param type $id id del usuario
+     * @return type vista de las guias
+     */
     public function misGuias($id) {
         return view('guias.user', [
             'guias' => $this->guias->delUser($id),
@@ -66,12 +69,11 @@ class GuiaController extends Controller
     }
 
     /**
-    * Método que devuelve el formulario para crear una guia.
-    *
-    * @return información guias a la vista.
-    */
-    public function formularioCrearGuia()
-    {
+     * Método que devuelve el formulario para crear una guia.
+     *
+     * @return información guias a la vista.
+     */
+    public function formularioCrearGuia() {
         return view('guias.crear', [
             'campeones' => $this->obtenerCampeones(),
             'hechizos' => $this->obtenerHechizos(),
@@ -86,8 +88,7 @@ class GuiaController extends Controller
      * @param Request $request datos a guardar.
      * @return redireccionamos a la página de sus guias.
      */
-    public function crearGuia(Request $request)
-    {
+    public function crearGuia(Request $request) {
         $this->validate($request, [
             'guiTitulo' => 'required|max:100',
             'camId' => 'required',
@@ -113,8 +114,7 @@ class GuiaController extends Controller
      * @param Request $request datos a editar.
      * @return redireccionamos a la página de sus guias.
      */
-    public function editarGuia(Request $request)
-    {
+    public function editarGuia(Request $request) {
         $this->validate($request, [
             'guiTitulo' => 'required|max:100',
             'camId' => 'required',
@@ -142,8 +142,7 @@ class GuiaController extends Controller
      * @param $guia guia a eliminar.
      * @return redireccionamos a la página de sus guias.
      */
-    public function eliminarGuia(Request $request, Guia $guia)
-    {
+    public function eliminarGuia(Request $request, Guia $guia) {
         $this->authorize('destroy', $guia);
 
         $guia->delete();
@@ -151,13 +150,18 @@ class GuiaController extends Controller
         return redirect('/guias');
     }
 
-    public function version()
-    {
+    /**
+     * Método para obtener la versión actual del juego.
+     * 
+     * @return type la versión del juego
+     */
+    public function version() {
         // Obtenemos el json.
-		$json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/versions?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-		// Lo transformamos a objetos que php pueda entender.
-		$version = json_decode($json);
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/versions?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        // Lo transformamos a objetos que php pueda entender.
+        $version = json_decode($json);
         // Devolvemos la última versión.
         return $version[0];
     }
+
 }
