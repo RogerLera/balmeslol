@@ -102,6 +102,9 @@ class InvocadorController extends Controller {
      */
     public function obtenerLiga($id)
     {
+        print_r(get_headers('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0]);
+
+        if (strpos(get_headers('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
          // Obtenemos el json.
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         // Lo transformamos a objetos que php pueda entender.
@@ -113,7 +116,7 @@ class InvocadorController extends Controller {
         $ligas = array();
         foreach ($infoLiga->$id as $data)
         {
-            $ligas[] = array(
+            $ligas[$n] = array(
             'nombre' => $data->name,
             'tier' => $data->tier,
             'cola' => $data->queue,
@@ -134,7 +137,19 @@ class InvocadorController extends Controller {
 
             }
             $n++;
+            print_r($data->queue);
+            if (count($infoLiga->$id) === 1) {
+                $ligas[$n] = array(
+                    'nombre' => 'vacio',
+                );
+            }
         }
+        if (count($ligas) === 2) {
+            $ligas = array_reverse($ligas);
+        }
+    } else {
+        $ligas = "unranked";
+    }
         return $ligas;
     }
 }
