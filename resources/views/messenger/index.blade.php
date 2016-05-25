@@ -26,7 +26,7 @@
                                     @if($participant->user_id === Auth::id())
                                     <?php
                                     if ($thread->isUnread($currentUserId)) {
-                                        $class = 'alert-info';
+                                        $class = 'alert-danger';
                                     } else {
                                         $class = 'alert-success';
                                     }
@@ -34,6 +34,8 @@
                                     <div class="media alert {!!$class!!}">
                                         <h4 class="media-heading">{!! link_to('mensajes/' . $thread->id, $thread->subject) !!}</h4>
                                         <p>{!! $thread->latestMessage->body !!}</p>
+                                        <br>
+                                        <p><small><strong>Último mensaje de:</strong> {!! $thread->participants[count($thread->participants)-1]->user->usuAlias !!}</small></p>
                                         <p><small><strong>Creador:</strong> {!! $thread->creator()->usuAlias !!}</small></p>
                                     </div>
                                     @endif

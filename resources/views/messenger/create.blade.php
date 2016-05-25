@@ -30,9 +30,10 @@
                                     </div>
 
                                     @if($users->count() > 0)
+                                    {!! Form::label('recipientes', 'Destinatario/s', ['class' => 'control-label']) !!}
                                     <div class="checkbox">
                                         @foreach($users as $user)
-                                        <label title="{!!$user->usuAlias!!}"><input type="checkbox" name="recipients[]" value="{!!$user->id!!}">{!!$user->usuAlias!!}</label>
+                                        <label title="{!!$user->usuAlias!!}"><input type="checkbox" id="recipientes" name="recipients[]" value="{!!$user->id!!}">{!!$user->usuAlias!!}</label>
                                         @endforeach
                                     </div>
                                     @endif
