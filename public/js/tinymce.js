@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
     // Variable global 'hechizos', que almazena todos los hechizos.
-    var hechizos;
+    var hechizos, campeones;
     // Llamamos a la funcion 'jsonHechizos' para rellenar la variable 'hechizos'.
     jsonHechizos();
-
+    jsonCampeones();
     // Instanciamos elplugin tinymce (WYSIWYG HTML Editor).
     tinymce.init({
         // Que afecte namás a los 'textarea' con clase 'guia'.
@@ -20,6 +20,8 @@ $(document).ready(function() {
         setup: function(editor) {
             // Creamos array (almazenará src y alt selecionados).
             var arrayHechizos = [];
+            var arrayCampeones = [];
+            var campeonAMostrar = '';
             // Variable que formará la imagen en el textarea.
             var hechizoAMostrar = '';
             // Creamos el boton a nuestro gusto, añadiendo las funcionalidades.
@@ -52,18 +54,21 @@ $(document).ready(function() {
                                     'alt': e.target.alt,
                                     'src': e.target.currentSrc
                                 });
-                            // Si no es una imagen (solo pueden ser boton 'OK' o 'Cancelar').
+                                // Si no es una imagen (solo pueden ser boton 'OK' o 'Cancelar').
                             } else {
-                                // Por cada imagen guardada en el array.
-                                $.each(arrayHechizos, function() {
-                                    // Montamos en la variable 'hechizoAMostrar' una imagen.
-                                    hechizoAMostrar += '<img src="' + this.src + '" alt="' + this.alt + '">';
-                                });
-                                // Pasamos las imagenes al editor.
-                                editor.selection.setContent(hechizoAMostrar);
-                                // Reseteamos variables.
-                                hechizoAMostrar = '';
-                                arrayHechizos = [];
+                                // Comprovamos que el botón seleccionado tienen como texto 'Ok'.
+                                if (e.target.firstChild.innerText.localeCompare('Ok') === 0) {
+                                    // Por cada imagen guardada en el array.
+                                    $.each(arrayHechizos, function() {
+                                        // Montamos en la variable 'hechizoAMostrar' una imagen.
+                                        hechizoAMostrar += '<img src="' + this.src + '" alt="' + this.alt + '">';
+                                    });
+                                    // Pasamos las imagenes al editor.
+                                    editor.selection.setContent(hechizoAMostrar);
+                                    // Reseteamos variables.
+                                    hechizoAMostrar = '';
+                                    arrayHechizos = [];
+                                }
                             }
                         },
                     });
@@ -74,6 +79,49 @@ $(document).ready(function() {
                 text: 'Campeones',
                 // Icono para el botón (false = desactivado).
                 icon: false,
+                // Al apretar el botón realizaremos una funcion.
+                onclick: function() {
+                    // Abriremos un popup.
+                    editor.windowManager.open({
+                        // Título para el popup.
+                        title: "Escojer un campeón",
+                        // Contenido.
+                        body: [{
+                            // Tipo del contenido (contenedor html).
+                            type: 'container',
+                            // En contenido pasamos la variable hechizos con la tabla de imagenes.
+                            html: campeones
+                        }],
+                        // Al apretar en una imagen.
+                        onclick: function(e) {
+                            editor.focus();
+                            // Comprovamos si el target (tag) que nos llega contiene src
+                            //(para diferenciar entre imagenes y otros tags).
+                            if (typeof e.target.currentSrc !== 'undefined') {
+                                // Si es una imagen pasamos el alt y el src al array.
+                                arrayCampeones.push({
+                                    'alt': e.target.alt,
+                                    'src': e.target.currentSrc
+                                });
+                                // Si no es una imagen (solo pueden ser boton 'OK' o 'Cancelar').
+                            } else {
+                                // Comprovamos que el botón seleccionado tienen como texto 'Ok'.
+                                if (e.target.firstChild.innerText.localeCompare('Ok') === 0) {
+                                    // Por cada imagen guardada en el array.
+                                    $.each(arrayCampeones, function() {
+                                        // Montamos en la variable 'campeonAMostrar' una imagen.
+                                        campeonAMostrar += '<img src="' + this.src + '" alt="' + this.alt + '">';
+                                    });
+                                    // Pasamos las imagenes al editor.
+                                    editor.selection.setContent(campeonAMostrar);
+                                    // Reseteamos variables.
+                                    campeonAMostrar = '';
+                                    arrayCampeones = [];
+                                }
+                            }
+                        },
+                    });
+                }
             });
         },
         // Estilo que tendra el textarea.
@@ -106,6 +154,32 @@ $(document).ready(function() {
             tablaHechizos += '</tbody></table>';
             // Pasamos a la variable global 'hechizos' toda la tabla.
             hechizos = tablaHechizos;
+        });
+    }
+
+    // Función que obtiene todos los campeones (llamada json) y los pasamos en formato tabla a la variable 'campeones'.
+    function jsonCampeones() {
+        // Realizamos la llamada json.
+        $.getJSON('/json/campeones', function(data) {
+            // Creamos variable que almazenará la tabla con las imagenes.
+            var tablaCampeones = '<table><tbody>';
+            // Por cada objeto que nos llega en la llamada, hacemos una fila (con 4 columnas).
+            $.each(data, function(n) {
+                // Si n és uno acabamos y empezamos otra fila.
+                if (n === 1) {
+                    tablaCampeones += '<td><img src="' + this.imagen + '" alt="' + this.nombre + '"></td></tr><tr>';
+                    // Si la división de n entre 4 da 0 como resultado, empezamos nueva fila.
+                } else if (n % 8 === 0) {
+                    tablaCampeones += '<tr><td><img src="' + this.imagen + '" alt="' + this.nombre + '"></td>';
+                    // Quando no sea divisible por 4, introducimos a la variable una columna.
+                } else {
+                    tablaCampeones += '<td><img src="' + this.imagen + '" alt="' + this.nombre + '"></td>';
+                }
+            });
+            // Cerramos la tabla.
+            tablaCampeones += '</tbody></table>';
+            // Pasamos a la variable global 'campeones' toda la tabla.
+            campeones = tablaCampeones;
         });
     }
 });
