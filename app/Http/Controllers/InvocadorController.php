@@ -76,7 +76,7 @@ class InvocadorController extends Controller {
         $nombre = strtolower($nombre);
         $nombre = str_replace(' ', '', $nombre);
         $nombre = mb_convert_encoding($nombre, "UTF-8", "ISO-8859-1");
-        
+
         // Obtenemos el json.
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.4/summoner/by-name/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         // Lo transformamos a objetos que php pueda entender.
@@ -100,7 +100,7 @@ class InvocadorController extends Controller {
      * @param type $id nombre del jugador en cuestión
      * @return type
      */
-    public function obtenerLiga($id) 
+    public function obtenerLiga($id)
     {
          // Obtenemos el json.
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
@@ -109,9 +109,9 @@ class InvocadorController extends Controller {
         // Montamos el array con la información del json
 
         $entries = ['Division', 'Puntos', 'Ganadas', 'Perdidas'];
-
+        $n = 0;
         $ligas = array();
-        foreach ($infoLiga->$id as $data) 
+        foreach ($infoLiga->$id as $data)
         {
             $ligas[] = array(
             'nombre' => $data->name,
@@ -119,21 +119,22 @@ class InvocadorController extends Controller {
             'cola' => $data->queue,
             );
 
-       
 
-            foreach ($data->entries as $rankedInfo) 
+
+            foreach ($data->entries as $rankedInfo)
             {
                 if (isset($rankedInfo->division))
-                    $ligas[$entries[0]] = $rankedInfo->division;
+                    $ligas[$n][$entries[0]] = $rankedInfo->division;
                 if (isset($rankedInfo->leaguePoints))
-                    $ligas[$entries[1]] = $rankedInfo->leaguePoints;
+                    $ligas[$n][$entries[1]] = $rankedInfo->leaguePoints;
                 if (isset($rankedInfo->wins))
-                    $ligas[$entries[2]] = $rankedInfo->wins;
+                    $ligas[$n][$entries[2]] = $rankedInfo->wins;
                 if (isset($rankedInfo->losses))
-                    $ligas[$entries[3]] = $rankedInfo->losses;
+                    $ligas[$n][$entries[3]] = $rankedInfo->losses;
 
             }
+            $n++;
         }
-        return $ligas; 
+        return $ligas;
     }
 }
