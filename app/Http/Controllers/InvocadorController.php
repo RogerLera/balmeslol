@@ -22,7 +22,6 @@ class InvocadorController extends Controller {
         ]);
     }
 
-
     /**
      * Método que a partir de un nick o nombre de jugador, obtiene sus datos de perfil y stats.
      * @param type $nombre nombre del jugador en cuestión
@@ -35,7 +34,7 @@ class InvocadorController extends Controller {
         $nombre = mb_convert_encoding($nombre, "UTF-8", "ISO-8859-1");
 
         // Obtenemos el json.
-        $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.4/summoner/by-name/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v1.4/summoner/by-name/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         // Lo transformamos a objetos que php pueda entender.
         $infoInvocador = json_decode($json);
 
@@ -43,10 +42,11 @@ class InvocadorController extends Controller {
             'id' => $infoInvocador->$nombre->id,
             'nombre' => $infoInvocador->$nombre->name,
             'region' => $region,
-            'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/'.$infoInvocador->$nombre->profileIconId.'.png',
+            'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/' . $infoInvocador->$nombre->profileIconId . '.png',
             'nivel' => $infoInvocador->$nombre->summonerLevel,
             'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id),
             'estadisticas' => $this->obtenerEstadisticas($infoInvocador->$nombre->id, $region),
+            'partidas' => "",
         );
 
         return $invocador;
@@ -57,10 +57,9 @@ class InvocadorController extends Controller {
      * @param type $id nombre del jugador en cuestión
      * @return type
      */
+    public function obtenerEstadisticas($id, $region) {
 
-    public function obtenerEstadisticas($id,$region) {
-
-        $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.3/stats/by-summoner/' .$id. '/summary?season=SEASON2016&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v1.3/stats/by-summoner/' . $id . '/summary?season=SEASON2016&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         $infoInvocador = json_decode($json);
 
         $estadisticas = ['Monstruos Asesinados', 'Subditos Asesinados', 'Campeones Asesinados', 'Asistencias', 'Torres Destruidas', 'Victorias', 'Derrotas'];
@@ -71,7 +70,7 @@ class InvocadorController extends Controller {
         foreach ($infoInvocador->playerStatSummaries as $modo) {
             $stats[$n]['Modo de Juego'] = $modo->playerStatSummaryType;
             if (isset($modo->aggregatedStats->totalNeutralMinionsKilled))
-               $stats[$n][$estadisticas[0]] = $modo->aggregatedStats->totalNeutralMinionsKilled; 
+                $stats[$n][$estadisticas[0]] = $modo->aggregatedStats->totalNeutralMinionsKilled;
             else
                 $stats[$n][$estadisticas[0]] = "--";
             if (isset($modo->aggregatedStats->totalMinionKills))
@@ -100,60 +99,180 @@ class InvocadorController extends Controller {
         return $stats;
     }
 
-
     /**
      * Método que a partir de un id obtienes sus ligas
      * @param type $id nombre del jugador en cuestión
      * @return type
      */
-    public function obtenerLiga($id)
-    {
+    public function obtenerLiga($id) {
 
-        if (strpos(get_headers('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
-         // Obtenemos el json.
-        $json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-        // Lo transformamos a objetos que php pueda entender.
-        $infoLiga = json_decode($json);
-        // Montamos el array con la información del json
+        if (strpos(get_headers('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/' . $id . '/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
+            // Obtenemos el json.
+            $json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/' . $id . '/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+            // Lo transformamos a objetos que php pueda entender.
+            $infoLiga = json_decode($json);
+            // Montamos el array con la información del json
 
-        $entries = ['division', 'puntos', 'ganadas', 'perdidas'];
-        $n = 0;
-        $ligas = array();
-        foreach ($infoLiga->$id as $data)
-        {
-            $ligas[$n] = array(
-            'nombre' => $data->name,
-            'tier' => $data->tier,
-            'cola' => $data->queue,
-            );
-
-
-
-            foreach ($data->entries as $rankedInfo)
-            {
-                if (isset($rankedInfo->division))
-                    $ligas[$n][$entries[0]] = $rankedInfo->division;
-                if (isset($rankedInfo->leaguePoints))
-                    $ligas[$n][$entries[1]] = $rankedInfo->leaguePoints;
-                if (isset($rankedInfo->wins))
-                    $ligas[$n][$entries[2]] = $rankedInfo->wins;
-                if (isset($rankedInfo->losses))
-                    $ligas[$n][$entries[3]] = $rankedInfo->losses;
-
-            }
-            $n++;
-            if (count($infoLiga->$id) === 1) {
+            $entries = ['division', 'puntos', 'ganadas', 'perdidas'];
+            $n = 0;
+            $ligas = array();
+            foreach ($infoLiga->$id as $data) {
                 $ligas[$n] = array(
-                    'nombre' => 'vacio',
+                    'nombre' => $data->name,
+                    'tier' => $data->tier,
+                    'cola' => $data->queue,
                 );
+
+
+
+                foreach ($data->entries as $rankedInfo) {
+                    if (isset($rankedInfo->division))
+                        $ligas[$n][$entries[0]] = $rankedInfo->division;
+                    if (isset($rankedInfo->leaguePoints))
+                        $ligas[$n][$entries[1]] = $rankedInfo->leaguePoints;
+                    if (isset($rankedInfo->wins))
+                        $ligas[$n][$entries[2]] = $rankedInfo->wins;
+                    if (isset($rankedInfo->losses))
+                        $ligas[$n][$entries[3]] = $rankedInfo->losses;
+                }
+                $n++;
+                if (count($infoLiga->$id) === 1) {
+                    $ligas[$n] = array(
+                        'nombre' => 'vacio',
+                    );
+                }
             }
+            if (count($ligas) === 2) {
+                $ligas = array_reverse($ligas);
+            }
+        } else {
+            $ligas = "unranked";
         }
-        if (count($ligas) === 2) {
-            $ligas = array_reverse($ligas);
-        }
-    } else {
-        $ligas = "unranked";
-    }
         return $ligas;
     }
+
+    /**
+     * Método principal que nos devuelve las últimas 7 partidas de un usuario en base a su nombre y región.
+     * 
+     * @param type $nombre nick del usuario
+     * @param type $region region donde juega
+     * @return type lista de partidas en un array
+     */
+    public function obtenerListaPartidas($nombre, $region) {
+        //arreglamos el nombre para no tener problemas con espacios, mayusculas o carácteres extraños
+        $nombre = strtolower($nombre);
+        $nombre = str_replace(' ', '', $nombre);
+        $nombre = mb_convert_encoding($nombre, "UTF-8", "ISO-8859-1");
+
+        //obtenemos el array con los personajes (pj)  y la id del jugador que esta consultando
+        $pj = $this->obtenerArrayCampeones();
+        $id = $this->obtenerIdInvocador($nombre, $region);
+
+        $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v1.3/game/by-summoner/' . $id . '/recent?api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $infoPartidas = json_decode($json);
+
+        //la variable n nos ayuda a limitar las consultas dado que nuestra key nos permite un máximo de 10 cada 10s
+        //tambien nos servirà para ordenar las partidas dentro del array de partidas   
+        $n = 0;
+        foreach ($infoPartidas->games as $p) {
+            if ($n < 7 && isset($idPartida)) {
+                $partidas[$n] = $this->obtenerPartida($p, $pj);
+                $n++;
+            }
+        }
+
+        return $partidas;
+    }
+
+    /**
+     * Método complementario de obtenerListaPartidas donde obtenemos una sola partida para guardarla
+     * 
+     * @param type $idPartida id de la partida en cuestión
+     * @param type $region region del usuario
+     * @param type $pj array con los nombres y imágenes de los personajes relacionados en base a su id
+     * @return type devuelve un array con los datos de una partida 
+     */
+    public function obtenerPartida($infoPartida, $pj) {
+        $partida['Tipo'] = $infoPartida->subType;
+
+        //Asignamos si el equipo ganó o perdió
+        if ($infoPartida->stats->win == "true") {
+            $partida['Resultado'] = "VICTORIA";
+        } else {
+            $partida['Resultado'] = "DERROTA";
+        }
+
+        $infoPartida->stats->level = $partida['Nivel'];
+        $infoPartida->stats->goldEarned = $partida['Oro'];
+        $partida['CS'] = $infoPartida->stats->minionsKilled + $infoPartida->stats->neutralMinionsKilled;
+        $k = $infoPartida->stats->championsKilled;
+        $d = $infoPartida->stats->numDeaths;
+        $a = $infoPartida->stats->assists;
+        $partida['KDA'] = $k . "/" . $d . "/" . $a;
+        if ($d != 0) {
+            $partida['Ratio KDA'] = number_format((($k + $a) / $d), 2, '.', '');
+        } else {
+            $partida['Ratio KDA'] = "Perfecto";
+        }
+        $partida['Duracion'] = number_format(($infoPartida->stats->timePlayed / 60), 2, '.', '');
+
+        for ($i = 0; $i < 7; $i++) {
+            if (isset($infoPartida->stats->item{$i})) {
+                $partida['Items'][$i] = $infoPartida->stats->item{$i};
+            }
+        }
+
+        $aliado = 0;
+        $enemigo = 0;
+        if ($infoPartida->teamId == 200) {
+            $partida['Equipo'][$aliado]['Campeon']['Nombre'] = $pj[$infoPartida->championId]['nombre'];
+            $partida['Equipo'][$aliado]['Campeon']['Imagen'] = $pj[$infoPartida->championId]['imagen'];
+            $aliado++;
+        }
+        foreach ($infoPartida->fellowPlayers as $jug) {
+            if ($jug->teamId == $infoPartida->teamId) {
+                $partida['Equipo 1'][$aliado]['Campeon']['Nombre'] = $pj[$infoPartida->championId]['nombre'];
+                $partida['Equipo 1'][$aliado]['Campeon']['Imagen'] = $pj[$infoPartida->championId]['imagen'];
+                $aliado++;
+            } else {
+                $partida['Equipo 2'][$enemigo]['Campeon']['Nombre'] = $pj[$infoPartida->championId]['nombre'];
+                $partida['Equipo 2'][$enemigo]['Campeon']['Imagen'] = $pj[$infoPartida->championId]['imagen'];
+                $enemigo++;
+            }
+        }
+
+        return $partida;
+    }
+
+    /**
+     * Método para saber SOLO el ID del invocador mediante su nombre.
+     * 
+     * @param type $nombre nombre del invocador del que queremos saber su id
+     * @param type $region region del usuario
+     * @return type id numérica del invocador 
+     */
+    public function obtenerIdInvocador($nombre, $region) {
+        $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v1.4/summoner/by-name/' . $nombre . '?api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $infoInvocador = json_decode($json);
+
+        return $infoInvocador->$nombre->id;
+    }
+
+    /**
+     * Método para obtener un array que nos permita referenciar una id de un personaje con su nombre y su imagen.
+     * 
+     * @return type array con los nombres y imágenes referenciados segun la id
+     */
+    public function obtenerArrayCampeones() {
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=es_ES&champData=all&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $data = json_decode($json);
+
+        foreach ($data->data as $infoCampeon) {
+            $pj[$infoCampeon->id]['nombre'] = $infoCampeon->name;
+            $pj[$infoCampeon->id]['imagen'] = $infoCampeon->image->full;
+        }
+
+        return $pj;
+    }
+
 }

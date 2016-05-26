@@ -30,6 +30,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <img class="center-block img-responsive" src="{{ asset('/images/graficos/bloqueo_campeones.png') }}">                            
                         </div>
                     </div>
                 </div>
