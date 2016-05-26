@@ -25,7 +25,7 @@
                                     <tr>
                                         <td><img height="80" width="80" class="customborder img-responsive" src="{{ $estadistica['imagen'] }}"></td>
                                         <td>{{ $estadistica['nombre'] }}</td>
-                                        <td>{{ $estadistica['porciento'] }}</td>
+                                        <td>{{ $estadistica['porciento'] }}%</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

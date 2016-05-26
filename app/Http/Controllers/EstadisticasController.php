@@ -169,7 +169,7 @@ class EstadisticasController extends Controller {
                             'nombre' => $c['nombre'],
                             'id' => $c['id'],
                             'imagen' => $c['imagen'],
-                            'porciento' => $porciento . "%",
+                            'porciento' => $porciento,
                         );
                     }
                 }
@@ -201,7 +201,7 @@ class EstadisticasController extends Controller {
                             'nombre' => $h['nombre'],
                             'id' => $h['id'],
                             'imagen' => $h['imagen'],
-                            'porciento' => $porciento . "%",
+                            'porciento' => $porciento,
                         );
                     }
                 }
@@ -233,7 +233,7 @@ class EstadisticasController extends Controller {
                             'nombre' => $c['nombre'],
                             'id' => $c['id'],
                             'imagen' => $c['imagen'],
-                            'porciento' => $porciento . "%",
+                            'porciento' => $porciento,
                         );
                     }
                 }
