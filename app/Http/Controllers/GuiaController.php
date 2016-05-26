@@ -58,7 +58,7 @@ class GuiaController extends Controller {
 
     /**
      * Método que devuelve las guías que ha creado el usuario logueado por su id.
-     * 
+     *
      * @param type $id id del usuario
      * @return type vista de las guias
      */
@@ -76,7 +76,6 @@ class GuiaController extends Controller {
     public function formularioCrearGuia() {
         return view('guias.crear', [
             'campeones' => $this->obtenerCampeones(),
-            'hechizos' => $this->obtenerHechizos(),
             'roles' => Role::orderBy('rolId', 'asc')->get(),
             'version' => $this->version(),
         ]);
@@ -152,7 +151,7 @@ class GuiaController extends Controller {
 
     /**
      * Método para obtener la versión actual del juego.
-     * 
+     *
      * @return type la versión del juego
      */
     public function version() {
@@ -162,6 +161,20 @@ class GuiaController extends Controller {
         $version = json_decode($json);
         // Devolvemos la última versión.
         return $version[0];
+    }
+
+    public function mostrarHechizosPopUp()
+    {
+        return view('guias.hechizos', [
+            'hechizos' => $this->obtenerHechizos(),
+        ]);
+    }
+
+    public function mostrarCampeonesPopUp()
+    {
+        return view('guias.campeones', [
+            'campeones' => $this->obtenerCampeones(),
+        ]);
     }
 
 }
