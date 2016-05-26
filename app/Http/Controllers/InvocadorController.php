@@ -18,60 +18,17 @@ class InvocadorController extends Controller {
      */
     public function index(Request $request) {
         return view('invocador.index', [
-            'invocador' => $this->obtenerId($request->input('nombre'), $request->input('region')),
+            'invocador' => $this->obtenerPerfil($request->input('nombre'), $request->input('region')),
         ]);
     }
 
+
     /**
-     * Método que a partir de un nick o nombre de jugador, obtiene sus datos de perfil y partidas.
+     * Método que a partir de un nick o nombre de jugador, obtiene sus datos de perfil y stats.
      * @param type $nombre nombre del jugador en cuestión
      * @return type
      */
-    public function obtenerInvocador($nombre,$region) {
-
-        $id = $this->obtenerId($nombre, $region);
-        $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.3/stats/by-summoner/' .$id. '/summary?season=SEASON2016&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-        $infoInvocador = json_decode($json);
-
-        $estadisticas = ['Total Monstruos Asesinados', 'Total Minions Asesinados', 'Total Campeones Asesinados', 'Total Asistencias', 'Total Torres Destruidas', 'Victorias', 'Derrotas'];
-
-        $invocador = array(
-            'id' => $infoInvocador->$nombre->id,
-            'nombre' => $infoInvocador->$nombre->name,
-            'region' => $region,
-            'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/'.$infoInvocador->$nombre->profileIconId.'.png',
-            'nivel' => $infoInvocador->$nombre->summonerLevel,
-            'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id),
-        );
-
-        $n = 0;
-        foreach ($infoInvocador->playerStatSummaries as $modo) {
-            $invocador['partidas'][$n]['Modo de Juego'] = $modo->playerStatSummaryType;
-            if (isset($modo->aggregatedStats->totalNeutralMinionsKilled))
-                $invocador['partidas'][$n][$estadisticas[0]] = $modo->aggregatedStats->totalNeutralMinionsKilled;
-            if (isset($modo->aggregatedStats->totalMinionKills))
-                $invocador['partidas'][$n][$estadisticas[1]] = $modo->aggregatedStats->totalMinionKills;
-            if (isset($modo->aggregatedStats->totalChampionKills))
-                $invocador['partidas'][$n][$estadisticas[2]] = $modo->aggregatedStats->totalChampionKills;
-            if (isset($modo->aggregatedStats->totalAssists))
-                $invocador['partidas'][$n][$estadisticas[3]] = $modo->aggregatedStats->totalAssists;
-            if (isset($modo->aggregatedStats->totalTurretsKilled))
-                $invocador['partidas'][$n][$estadisticas[4]] = $modo->aggregatedStats->totalTurretsKilled;
-            $invocador['partidas'][$n][$estadisticas[5]] = $modo->wins;
-            if (isset($modo->losses))
-                $invocador['partidas'][$n][$estadisticas[6]] = $modo->losses;
-            $n++;
-        }
-
-        return $invocador;
-    }
-
-    /**
-     * Método que a partir de un nick obtienes su Id
-     * @param type $nombre nombre del jugador en cuestión
-     * @return type
-     */
-    public function obtenerId($nombre, $region) {
+    public function obtenerPerfil($nombre, $region) {
         //arreglamos el nombre para no tener problemas con espacios, mayusculas o carácteres extraños
         $nombre = strtolower($nombre);
         $nombre = str_replace(' ', '', $nombre);
@@ -89,11 +46,49 @@ class InvocadorController extends Controller {
             'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/'.$infoInvocador->$nombre->profileIconId.'.png',
             'nivel' => $infoInvocador->$nombre->summonerLevel,
             'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id),
+            'estadisticas' => $this->obtenerEstadisticas($infoInvocador->$nombre->id, $region),
         );
 
-        print_r($invocador);
         return $invocador;
     }
+
+    /**
+     * Método que a partir de un id y region obtienes sus estadisticas
+     * @param type $id nombre del jugador en cuestión
+     * @return type
+     */
+
+    public function obtenerEstadisticas($id,$region) {
+
+        $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.3/stats/by-summoner/' .$id. '/summary?season=SEASON2016&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        $infoInvocador = json_decode($json);
+
+        $estadisticas = ['Total Monstruos Asesinados', 'Total Minions Asesinados', 'Total Campeones Asesinados', 'Total Asistencias', 'Total Torres Destruidas', 'Victorias', 'Derrotas'];
+        $stats = array();
+        $n = 0;
+
+
+        foreach ($infoInvocador->playerStatSummaries as $modo) {
+            $stats[$n]['Modo de Juego'] = $modo->playerStatSummaryType;
+            if (isset($modo->aggregatedStats->totalNeutralMinionsKilled))
+                $stats[$n][$estadisticas[0]] = $modo->aggregatedStats->totalNeutralMinionsKilled;
+            if (isset($modo->aggregatedStats->totalMinionKills))
+                $stats[$n][$estadisticas[1]] = $modo->aggregatedStats->totalMinionKills;
+            if (isset($modo->aggregatedStats->totalChampionKills))
+                $stats[$n][$estadisticas[2]] = $modo->aggregatedStats->totalChampionKills;
+            if (isset($modo->aggregatedStats->totalAssists))
+                $stats[$n][$estadisticas[3]] = $modo->aggregatedStats->totalAssists;
+            if (isset($modo->aggregatedStats->totalTurretsKilled))
+                $stats[$n][$estadisticas[4]] = $modo->aggregatedStats->totalTurretsKilled;
+            $stats[$n][$estadisticas[5]] = $modo->wins;
+            if (isset($modo->losses))
+                $stats[$n][$estadisticas[6]] = $modo->losses;
+            $n++;
+        }
+        print_r($stats);
+        return $stats;
+    }
+
 
     /**
      * Método que a partir de un id obtienes sus ligas
@@ -102,7 +97,6 @@ class InvocadorController extends Controller {
      */
     public function obtenerLiga($id)
     {
-        print_r(get_headers('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0]);
 
         if (strpos(get_headers('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/'.$id.'/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
          // Obtenemos el json.
@@ -137,7 +131,6 @@ class InvocadorController extends Controller {
 
             }
             $n++;
-            print_r($data->queue);
             if (count($infoLiga->$id) === 1) {
                 $ligas[$n] = array(
                     'nombre' => 'vacio',
