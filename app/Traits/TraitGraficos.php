@@ -158,14 +158,14 @@ trait TraitGraficos {
         $myData->setAxisUnit(0, "");
 
         //visual
-        $myPicture = new \pImage(700, 400, $myData);
+        $myPicture = new \pImage(700, 300, $myData);
         $Settings = array("R" => 60, "G" => 118, "B" => 255, "Dash" => 1, "DashR" => 80, "DashG" => 138, "DashB" => 203);
-        $myPicture->drawFilledRectangle(0, 0, 700, 400, $Settings);
+        $myPicture->drawFilledRectangle(0, 0, 700, 300, $Settings);
 
         $Settings = array("StartR" => 255, "StartG" => 255, "StartB" => 255, "EndR" => 0, "EndG" => 32, "EndB" => 138, "Alpha" => 50);
-        $myPicture->drawGradientArea(0, 0, 700, 400, DIRECTION_VERTICAL, $Settings);
+        $myPicture->drawGradientArea(0, 0, 700, 300, DIRECTION_VERTICAL, $Settings);
 
-        $myPicture->drawRectangle(0, 0, 699, 399, array("R" => 0, "G" => 0, "B" => 0));
+        $myPicture->drawRectangle(0, 0, 699, 299, array("R" => 0, "G" => 0, "B" => 0));
 
         $myPicture->setShadow(TRUE, array("X" => 1, "Y" => 1, "R" => 50, "G" => 50, "B" => 50, "Alpha" => 20));
 
