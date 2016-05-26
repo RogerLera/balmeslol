@@ -31,7 +31,6 @@
     border: 3px solid black;
     border-radius: 10px;
     box-shadow: 10px 10px 5px #888888;
-    width: 100%;
     height: 150px;
     overflow: hidden;
 }
@@ -39,6 +38,7 @@
 .summoner-banner > img {
     position: absolute;
     width: 100%;
+    height: 100%;
 }
 
 .summoner-title {
@@ -50,9 +50,10 @@
 }
 
 .summoner-icon {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 5px;
+    margin-left: 5px;
+    border: 3px solid black;
+    border-radius: 10px;
 }
 
 .splashart {
@@ -270,6 +271,36 @@
 .profile-edit {
     width: 100%;
     height: 100%;
+}
+
+.table-stats {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.table-stats  th {
+    background: #908E7E;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.table-stats td:nth-child(odd){ 
+    background: #B4B2A8;
+    
+    padding-left: 30px;
+    width: 70%;
+}
+
+.table-stats td:nth-child(even){   
+    padding-left: 30px;
+    width: 30%;
+}
+
+
+.table-stats tbody {
+    
 }
 
  table.tablesorter thead tr .header {
@@ -5216,6 +5247,11 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 
 .panel-body-nop {
     background: #dbdad4;
+}
+
+.panel-body-stats {
+    background: #dbdad4;
+    height: 400px;
 }
 
 .panel-body-nop > p {

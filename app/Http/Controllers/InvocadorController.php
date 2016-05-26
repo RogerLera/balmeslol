@@ -63,7 +63,7 @@ class InvocadorController extends Controller {
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/'.$region.'/v1.3/stats/by-summoner/' .$id. '/summary?season=SEASON2016&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         $infoInvocador = json_decode($json);
 
-        $estadisticas = ['Total Monstruos Asesinados', 'Total Minions Asesinados', 'Total Campeones Asesinados', 'Total Asistencias', 'Total Torres Destruidas', 'Victorias', 'Derrotas'];
+        $estadisticas = ['Monstruos Asesinados', 'Subditos Asesinados', 'Campeones Asesinados', 'Asistencias', 'Torres Destruidas', 'Victorias', 'Derrotas'];
         $stats = array();
         $n = 0;
 
@@ -71,21 +71,32 @@ class InvocadorController extends Controller {
         foreach ($infoInvocador->playerStatSummaries as $modo) {
             $stats[$n]['Modo de Juego'] = $modo->playerStatSummaryType;
             if (isset($modo->aggregatedStats->totalNeutralMinionsKilled))
-                $stats[$n][$estadisticas[0]] = $modo->aggregatedStats->totalNeutralMinionsKilled;
+               $stats[$n][$estadisticas[0]] = $modo->aggregatedStats->totalNeutralMinionsKilled; 
+            else
+                $stats[$n][$estadisticas[0]] = "--";
             if (isset($modo->aggregatedStats->totalMinionKills))
                 $stats[$n][$estadisticas[1]] = $modo->aggregatedStats->totalMinionKills;
+            else
+                $stats[$n][$estadisticas[1]] = "--";
             if (isset($modo->aggregatedStats->totalChampionKills))
                 $stats[$n][$estadisticas[2]] = $modo->aggregatedStats->totalChampionKills;
+            else
+                $stats[$n][$estadisticas[2]] = "--";
             if (isset($modo->aggregatedStats->totalAssists))
                 $stats[$n][$estadisticas[3]] = $modo->aggregatedStats->totalAssists;
+            else
+                $stats[$n][$estadisticas[3]] = "--";
             if (isset($modo->aggregatedStats->totalTurretsKilled))
                 $stats[$n][$estadisticas[4]] = $modo->aggregatedStats->totalTurretsKilled;
+            else
+                $stats[$n][$estadisticas[4]] = "--";
             $stats[$n][$estadisticas[5]] = $modo->wins;
             if (isset($modo->losses))
                 $stats[$n][$estadisticas[6]] = $modo->losses;
+            else
+                $stats[$n][$estadisticas[6]] = "--";
             $n++;
         }
-        print_r($stats);
         return $stats;
     }
 

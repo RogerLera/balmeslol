@@ -35,12 +35,12 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     Puntuación personal
                                 </div>
-                                <div class="panel-body-min">
+                                <div class="panel-body-stats">
                                     <div class="row">
                                         @if ($invocador['ligas'] != 'unranked')
                                             @foreach($invocador['ligas'] as $liga)
@@ -60,7 +60,7 @@
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <img class="summoner-icon" src="{{asset('/images/medals/default') }}.png">
+                                                                        <img src="{{asset('/images/medals/default') }}.png">
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
@@ -104,7 +104,7 @@
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <img class="summoner-icon" src="{{asset('/images/medals') }}/{{$liga['tier']}} {{$liga['division']}}.png">
+                                                                        <img src="{{asset('/images/medals') }}/{{$liga['tier']}} {{$liga['division']}}.png">
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
@@ -151,7 +151,7 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <img class="summoner-icon" src="{{asset('/images/medals/default') }}.png">
+                                                                    <img src="{{asset('/images/medals/default') }}.png">
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -192,7 +192,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <img class="summoner-icon" src="{{asset('/images/medals/default') }}.png">
+                                                            <img src="{{asset('/images/medals/default') }}.png">
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -220,27 +220,61 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     Estadísticas
                                 </div>
-                                <div class="panel-body-min">
+                                <div class="panel-body-stats scroll">
                                     @foreach($invocador['estadisticas'] as $estadistica)
-                                        <table class="table-bordered">
+                                        <table class="table-stats">
+                                            <thead>
+                                                <tr>
+                                                    <th>{{$estadistica['Modo de Juego']}}</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                                             <tr>
-                                            <th>{{$estadistica['Modo de Juego']}}</th>
+                                                <td>Victorias: </td>
+                                                <td>{{$estadistica['Victorias']}}</td>
                                             </tr>
                                             <tr>
-                                                <td>{{$estadistica['Total Torres Destruidas']}}</td>
-                                                <td></td>
+                                                <td>Derrotas: </td>
+                                                <td>{{$estadistica['Derrotas']}}</td>
                                             </tr>
-
+                                            <tr>
+                                                <td>Campeones Asesinados: </td>
+                                                <td>{{$estadistica['Monstruos Asesinados']}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Asistencias: </td>
+                                                <td>{{$estadistica['Asistencias']}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Torres destruidas: </td>
+                                                <td>{{$estadistica['Torres Destruidas']}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Subditos Asesinados</td>
+                                                <td>{{$estadistica['Subditos Asesinados']}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Monstruos Asesinados</td>
+                                                <td>{{$estadistica['Monstruos Asesinados']}}</td>
+                                            </tr>
+                                            </tbody>
                                         </table>
-                                        
                                     @endforeach
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-8">
+                            <form action="/partidas" accept-charset="ISO-8859-1">
+                                <input type="hidden" name="nombre" value="{{ $invocador['nombre'] }}">
+                                <input type="hidden" name="region" value="{{ $invocador['region'] }}">
+                                <input type="submit" value="Historial de Partidas Recientes">
+                            </form>
                         </div>
                     </div>
                 </div><!--Panel body -->
