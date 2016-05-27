@@ -146,7 +146,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
     <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script src="<?php echo asset('js/tinymce3.js')?>"></script> 
+    <script src="<?php echo asset('js/tinymce.js')?>"></script>
     <script src="<?php echo asset('js/jquery.tablesorter.min.js')?>"></script>
     <script src="<?php echo asset('js/myjsfunctions.js')?>"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
