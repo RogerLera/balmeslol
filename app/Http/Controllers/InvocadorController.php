@@ -177,7 +177,6 @@ class InvocadorController extends Controller {
                 $n++;
             }
         }
-        print_r($partidas);
         return $partidas;
     }
 
@@ -233,13 +232,14 @@ class InvocadorController extends Controller {
             $partida['Ratio KDA'] = "Perfecto";
         }
         $partida['Duracion'] = number_format(($infoPartida->stats->timePlayed / 60), 2, '.', '');
-
         for ($i = 0; $i < 7; $i++) {
-            if (isset($infoPartida->stats->item{$i})) {
-                $partida['Items'][$i] = $infoPartida->stats->item{$i};
+            $item = "item".$i;
+            if (isset($infoPartida->stats->$item)) {
+                $partida['Items'][$i]['Id'] = $infoPartida->stats->$item;
+                $partida['Items'][$i]['Imagen'] = 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $infoPartida->stats->$item . '.png';
+
             }
         }
-
         $partida['CampeonNombre'] = $pj[$infoPartida->championId]['nombre'];
         $partida['CampeonImg'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" . $pj[$infoPartida->championId]['imagen'];
         $partida['Hechizo1'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/" . $sp[$infoPartida->spell1]['imagen'];
@@ -273,6 +273,7 @@ class InvocadorController extends Controller {
         $data = json_decode($json);
 
         foreach ($data->data as $infoCampeon) {
+            $pj[$infoCampeon->id]['id'] = $infoCampeon->id;
             $pj[$infoCampeon->id]['nombre'] = $infoCampeon->name;
             $pj[$infoCampeon->id]['imagen'] = $infoCampeon->image->full;
         }
@@ -290,6 +291,7 @@ class InvocadorController extends Controller {
         $data = json_decode($json);
 
         foreach ($data->data as $infoHechizo) {
+            $sp[$infoHechizo->id]['id'] = $infoHechizo->id;
             $sp[$infoHechizo->id]['nombre'] = $infoHechizo->name;
             $sp[$infoHechizo->id]['imagen'] = $infoHechizo->image->full;
         }

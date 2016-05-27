@@ -311,10 +311,49 @@
 
 .game-title {
     color: white;
+    font-style: bold;
+    font-size: 18px;
 }
 
 .mini-champ {
     width: 20%;
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.mini-spells {
+    width: 30%;
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: auto;
+    border: 1px solid black;
+}
+
+.champ-played {
+    width: 80%;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.champ-played-name {
+    text-align: center;
+    font-size: 20px;
+    font-style: bold;
+}
+
+.champ-played-text {
+    text-align: left;
+    font-size: 15px;
+    font-style: bold;
 }
 
  table.tablesorter thead tr .header {
@@ -349,7 +388,7 @@ html {
 }
 
 * {
-           outline: 1px solid red; 
+             /*outline: 1px solid red; */
 }
 
 body {
