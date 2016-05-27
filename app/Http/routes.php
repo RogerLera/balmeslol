@@ -75,3 +75,4 @@ Route::get('/partidas', 'ListaPartidasController@index');
 /* -- LLAMADAS JSON -- */
 Route::get('/json/hechizos', 'GuiaController@mostrarHechizosPopUp');
 Route::get('/json/campeones', 'GuiaController@mostrarCampeonesPopUp');
+Route::get('/json/runas', 'GuiaController@mostrarRunasPopUp');
