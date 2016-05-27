@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Traits\TraitCampeones;
+use App\Traits\TraitVersionActual;
 
 /**
 * Clase CampeonController que llama la vista para mostrar los datos referente a los
@@ -13,7 +14,7 @@ use App\Traits\TraitCampeones;
 */
 class CampeonController extends Controller
 {
-	use TraitCampeones;
+	use TraitCampeones, TraitVersionActual;
 	/**
 	* Método principal que se llama al acceder a la pestanya campeones.
 	* Coje del .json toda la información necessaria para la vista.
@@ -40,38 +41,6 @@ class CampeonController extends Controller
 		]);
 	}
 
-	/**
-	* Método que obtiene todos los campeones, en el idioma que se está visualizando la pàgina.
-	*
-	*
-	* @return array associativo con la información de los campeones.
-	*/
-	public function obtenerCampeones()
-	{
-		// Más adelante implementat sessión con idioma.
-		//$idioma = Session::get('idioma');
-		// Obtenemos el json.
-		$json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=es_ES&champData=image,tags&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-		// Lo transformamos a objetos que php pueda entender.
-		$data = json_decode($json);
-		// Creamos el array que almazenará los campeones.
-		$campeones = array();
-		// En la variable campeones vamos introduciendo cada campeón.
-		foreach($data->data as $infoCampeon){
-		    $campeones[] = array(
-					'nombre' => $infoCampeon->name,
-		            'id' => $infoCampeon->id,
-		            'titulo' => $infoCampeon->title,
-		            'imagen' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/' . $infoCampeon->image->full,
-		            'tags' => $infoCampeon->tags,
-		        );
-		}
-		// Ordenamos el array por nombre.
-		asort($campeones);
-		// Devolvemos el array.
-		return $campeones;
-	}
-	
 	/**
 	* Método que a partir de una id, obtiene el campeón deseado.
 	*
@@ -139,7 +108,7 @@ class CampeonController extends Controller
 		// Añadimos al array 'habilidades' el array 'passiva'.
         $campeon['habilidades']['Pasiva']['Nombre'] = $infoCampeon->passive->name;
         $campeon['habilidades']['Pasiva']['Descripcion'] = $infoCampeon->passive->description;
-        $campeon['habilidades']['Pasiva']['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/passive/' . $infoCampeon->passive->image->full;
+        $campeon['habilidades']['Pasiva']['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/passive/' . $infoCampeon->passive->image->full;
 		$campeon['habilidades']['Pasiva']['Video'] = $this->videoHabilidadCampeon($id, 0);
 
         $n = 0;
@@ -147,7 +116,7 @@ class CampeonController extends Controller
         foreach ($infoCampeon->spells as $spell) {
             $campeon['habilidades'][$habilidades[$n]]['Nombre'] = $spell->name;
             $campeon['habilidades'][$habilidades[$n]]['Descripcion'] = $spell->description;
-            $campeon['habilidades'][$habilidades[$n]]['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $spell->image->full;
+            $campeon['habilidades'][$habilidades[$n]]['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/spell/' . $spell->image->full;
 			$campeon['habilidades'][$habilidades[$n]]['Video'] = $this->videoHabilidadCampeon($id, $n+1);
 			$n++;
         }
@@ -182,11 +151,11 @@ class CampeonController extends Controller
 		// Devolvemos el array.
 		return $campeones;
 	}
-        
+
         /**
          * Método para obtener los vídeos de las habilidades de un campeón, según la id del campeón,
          * retornara el nombre del fichero de vídeo de la habilidad que queremos.
-         * 
+         *
          * @param type $id id del campeón del que queremos el vídeo
          * @param type $n la habilidad de la que queremos obtener el vídeo
          * @return string nombre del fichero de vídeo que contiene dicha habilidad para dicho campeón

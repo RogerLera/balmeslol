@@ -25,7 +25,7 @@ trait TraitCampeones {
                 'nombre' => $infoCampeon->name,
                 'id' => $infoCampeon->id,
                 'titulo' => $infoCampeon->title,
-                'imagen' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/' . $infoCampeon->image->full,
+                'imagen' => 'http://ddragon.leagueoflegends.com/cdn/' . $data->version . '/img/champion/' . $infoCampeon->image->full,
                 'tags' => $infoCampeon->tags,
             );
         }

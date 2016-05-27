@@ -10,11 +10,12 @@ use App\Http\Requests;
 use App\Repositories\GuiaRepository;
 use App\Traits\TraitCampeones;
 use App\Traits\TraitHechizos;
+use App\Traits\TraitRunas;
+use App\Traits\TraitVersionActual;
 
 class GuiaController extends Controller {
 
-    use TraitCampeones,
-        TraitHechizos;
+    use TraitCampeones, TraitHechizos, TraitRunas, TraitVersionActual;
 
     /**
      * Instancia del objeto repositorio.
@@ -149,20 +150,6 @@ class GuiaController extends Controller {
         return redirect('/guias');
     }
 
-    /**
-     * Método para obtener la versión actual del juego.
-     *
-     * @return type la versión del juego
-     */
-    public function version() {
-        // Obtenemos el json.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/versions?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-        // Lo transformamos a objetos que php pueda entender.
-        $version = json_decode($json);
-        // Devolvemos la última versión.
-        return $version[0];
-    }
-
     public function mostrarHechizosPopUp()
     {
         return view('guias.hechizos', [
@@ -174,6 +161,13 @@ class GuiaController extends Controller {
     {
         return view('guias.campeones', [
             'campeones' => $this->obtenerCampeones(),
+        ]);
+    }
+
+    public function mostrarRunasPopUp()
+    {
+        return view('guias.runas', [
+            'runas' => $this->obtenerRunas(),
         ]);
     }
 

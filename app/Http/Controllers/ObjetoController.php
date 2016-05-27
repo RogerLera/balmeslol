@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Traits\TraitVersionActual;
 
 /**
  * Clase ObjetoController que llama la vista para mostrar los datos referente a los
  * objetos, obteniendo la información de la API Riot en formato .json.
  */
-class ObjetoController extends Controller {
+class ObjetoController extends Controller
+{
+    use TraitVersionActual;
 
     /**
      * Método principal que se llama al acceder a la pestanya objetos.
@@ -53,7 +56,7 @@ class ObjetoController extends Controller {
                 // Comprovamos que existe el atributo name (hay un objeto que no tiene nombre).
                 'nombre' => (isset($infoObjeto->name)) ? $infoObjeto->name : "Farsight Orb",
                 'id' => $infoObjeto->id,
-                'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $infoObjeto->image->full,
+                'imagen' => 'https://ddragon.leagueoflegends.com/cdn/' . $data->version . '/img/item/' . $infoObjeto->image->full,
                 // Comprovamos que tienen etiquetas (hay muchos objetos que no tienen etiquetas).
                 'tags' => (isset($infoObjeto->tags)) ? $infoObjeto->tags : "other",
             );
@@ -77,7 +80,6 @@ class ObjetoController extends Controller {
         // Realizamos todos los canvios al apartado $data->description que nos llega,
         // para obtener las estadisticas del objeto bien formateadas.
         $estadisticas = str_replace("<br>", "_", $data->description);
-        $estadisticas = preg_replace("/<.*?>/", "", $estadisticas);
         $estadisticas = explode("_", $estadisticas);
 
         // Creamos el array objeto que tiene toda la información.
@@ -85,7 +87,7 @@ class ObjetoController extends Controller {
             'id' => $data->id,
             'nombre' => $data->name,
             'estadisticas' => $data->description,
-            'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->image->full,
+            'imagen' => 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->image->full,
             'precio' => array(
                 'total' => $data->gold->total,
                 'base' => $data->gold->base,
@@ -130,7 +132,7 @@ class ObjetoController extends Controller {
         $objeto = array(
             'id' => $data->id,
             'nombre' => $data->name,
-            'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->image->full,
+            'imagen' => 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->image->full,
             'precio' => array(
                 'total' => $data->gold->total,
                 'base' => $data->gold->base,
@@ -142,7 +144,7 @@ class ObjetoController extends Controller {
         if (isset($data->from)) {
             for ($n = 0; $n < count($data->from); $n++) {
                 // Llamamos a la función para obtener el objeto del que procede para obtener información a mostrar.
-                $objeto['procede'][$n] = 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->from[$n] . '.png';
+                $objeto['procede'][$n] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->from[$n] . '.png';
             }
             // Ordenamos el array de $objeto['procede'] por id.
             asort($objeto['procede']);
@@ -152,7 +154,7 @@ class ObjetoController extends Controller {
         // guardamos en un array las imagenes de los objetos.
         if (isset($data->into)) {
             for ($n = 0; $n < count($data->into); $n++) {
-                $objeto['mejora'][$n] = 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $data->into[$n] . '.png';
+                $objeto['mejora'][$n] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->into[$n] . '.png';
             }
             // Ordenamos el array de $objeto['mejora'] por id.
             asort($objeto['mejora']);

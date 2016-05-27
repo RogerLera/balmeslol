@@ -24,7 +24,7 @@ trait TraitHechizos {
             $hechizos[] = array(
                 'nombre' => $infoHechizo->name,
                 'id' => $infoHechizo->id,
-                'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $infoHechizo->image->full,
+                'imagen' => 'https://ddragon.leagueoflegends.com/cdn/' . $data->version . '/img/spell/' . $infoHechizo->image->full,
             );
         }
         // Ordenamos el array por nombre.
