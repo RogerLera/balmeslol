@@ -60,7 +60,7 @@
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <img src="{{asset('/images/medals/default') }}.png">
+                                                                        <img class="medal" src="{{asset('/images/medals/default') }}.png">
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
@@ -104,7 +104,7 @@
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <img src="{{asset('/images/medals') }}/{{$liga['tier']}} {{$liga['division']}}.png">
+                                                                        <img class="medal" src="{{asset('/images/medals') }}/{{$liga['tier']}} {{$liga['division']}}.png">
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
@@ -151,7 +151,7 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <img src="{{asset('/images/medals/default') }}.png">
+                                                                    <img class="medal" src="{{asset('/images/medals/default') }}.png">
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -192,7 +192,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <img src="{{asset('/images/medals/default') }}.png">
+                                                            <img class="medal" src="{{asset('/images/medals/default') }}.png">
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -269,14 +269,94 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <form action="/partidas" accept-charset="ISO-8859-1">
-                                <input type="hidden" name="nombre" value="{{ $invocador['nombre'] }}">
-                                <input type="hidden" name="region" value="{{ $invocador['region'] }}">
-                                <input type="submit" value="Historial de Partidas Recientes">
-                            </form>
-                        </div>
-                    </div>
+                    </div><!--row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Historial de partidas
+                                </div>
+                                <div class="panel-body-min">
+                                     @foreach($invocador['partidas'] as $partida)
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h6 class="game-title">{{$partida['Tipo']}} - {{$partida['Resultado']}} - {{$partida['Duracion']}} minutos</h6>
+                                            </div>
+                                             @if ($partida['Resultado'] == "VICTORIA")
+                                                <div class="panel-body-win">
+                                             @else
+                                                <div class="panel-body-lose">
+                                             @endif
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                             <img src="{{$partida['CampeonImg']}}">
+                                                             <div class="row">
+                                                                <div class="col-md-12">
+                                                                    {{$partida['CampeonNombre']}}
+                                                                </div>
+                                                             </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            Nivel {{$partida['Nivel']}}
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    {{$partida['KDA']}} KDA
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    {{$partida['Ratio KDA']}} ratio KDA
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            {{$partida['Oro']}}<br>
+                                                            oro
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    {{$partida['CS']}}<br>
+                                                                    subditos
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <img src="{{$partida['Hechizo1']}}">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <img src="{{$partida['Hechizo2']}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                             @foreach($partida['Equipo 1'] as $equipo)
+                                                                <div class="row">
+                                                                     <div class="col-md-12">
+                                                                        <img class="mini-champ" src="{{$equipo['Imagen']}}"> {{$equipo['Nombre']}}  
+                                                                    </div>    
+                                                                 </div>  
+                                                             @endforeach
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                             @foreach($partida['Equipo 2'] as $equipo)
+                                                                 <div class="row">
+                                                                     <div class="col-md-12">
+                                                                        <img class="mini-champ" src="{{$equipo['Imagen']}}"> {{$equipo['Nombre']}}  
+                                                                    </div>    
+                                                                 </div>
+                                                                
+                                                             @endforeach
+                                                        </div>
+                                                    </div><!--Row-->
+                                                </div><!--Panel body-->
+                                        </div><!--Panel default-->
+                                     @endforeach
+                                </div><!--panel-body-min-->
+                            </div><!--panel panel-default-->
+                        </div><!--col-md-12-->
+                    </div><!--Row-->
                 </div><!--Panel body -->
             </div><!--panel panel-default-->
         </div><!--col-md-10 col-md-offset-1-->

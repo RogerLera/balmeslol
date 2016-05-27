@@ -46,7 +46,7 @@ class InvocadorController extends Controller {
             'nivel' => $infoInvocador->$nombre->summonerLevel,
             'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id),
             'estadisticas' => $this->obtenerEstadisticas($infoInvocador->$nombre->id, $region),
-            'partidas' => "",
+            'partidas' => $this->obtenerListaPartidas($infoInvocador->$nombre->id, $region),
         );
 
         return $invocador;
@@ -158,15 +158,10 @@ class InvocadorController extends Controller {
      * @param type $region region donde juega
      * @return type lista de partidas en un array
      */
-    public function obtenerListaPartidas($nombre, $region) {
-        //arreglamos el nombre para no tener problemas con espacios, mayusculas o carácteres extraños
-        $nombre = strtolower($nombre);
-        $nombre = str_replace(' ', '', $nombre);
-        $nombre = mb_convert_encoding($nombre, "UTF-8", "ISO-8859-1");
-
-        //obtenemos el array con los personajes (pj)  y la id del jugador que esta consultando
+    public function obtenerListaPartidas($id, $region) {
+        //obtenemos el array con los personajes (pj)
         $pj = $this->obtenerArrayCampeones();
-        $id = $this->obtenerIdInvocador($nombre, $region);
+        $sp = $this->obtenerArrayHechizos();
 
         $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v1.3/game/by-summoner/' . $id . '/recent?api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
         $infoPartidas = json_decode($json);
@@ -174,13 +169,15 @@ class InvocadorController extends Controller {
         //la variable n nos ayuda a limitar las consultas dado que nuestra key nos permite un máximo de 10 cada 10s
         //tambien nos servirà para ordenar las partidas dentro del array de partidas   
         $n = 0;
+        $partidas = array();
         foreach ($infoPartidas->games as $p) {
-            if ($n < 7 && isset($idPartida)) {
-                $partidas[$n] = $this->obtenerPartida($p, $pj);
+            $idPartida = $p->gameId;
+            if (isset($idPartida)) {
+                $partidas[$n] = $this->obtenerPartida($p, $pj, $sp);
                 $n++;
             }
         }
-
+        print_r($partidas);
         return $partidas;
     }
 
@@ -192,7 +189,7 @@ class InvocadorController extends Controller {
      * @param type $pj array con los nombres y imágenes de los personajes relacionados en base a su id
      * @return type devuelve un array con los datos de una partida 
      */
-    public function obtenerPartida($infoPartida, $pj) {
+    public function obtenerPartida($infoPartida, $pj, $sp) {
         $partida['Tipo'] = $infoPartida->subType;
 
         //Asignamos si el equipo ganó o perdió
@@ -202,12 +199,33 @@ class InvocadorController extends Controller {
             $partida['Resultado'] = "DERROTA";
         }
 
-        $infoPartida->stats->level = $partida['Nivel'];
-        $infoPartida->stats->goldEarned = $partida['Oro'];
-        $partida['CS'] = $infoPartida->stats->minionsKilled + $infoPartida->stats->neutralMinionsKilled;
-        $k = $infoPartida->stats->championsKilled;
-        $d = $infoPartida->stats->numDeaths;
-        $a = $infoPartida->stats->assists;
+        if (isset($infoPartida->stats->level))
+            $partida['Nivel'] = $infoPartida->stats->level;
+        else
+            $partida['Nivel'] = 0;
+        if (isset($infoPartida->stats->goldEarned))
+            $partida['Oro'] = $infoPartida->stats->goldEarned;
+        else
+            $partida['Oro'] = 0;
+        if (isset($infoPartida->stats->minionsKilled) && isset($infoPartida->stats->neutralMinionsKilled))
+            $partida['CS'] = $infoPartida->stats->minionsKilled + $infoPartida->stats->neutralMinionsKilled;
+        else if (isset($infoPartida->stats->minionsKilled))
+            $partida['CS'] = $infoPartida->stats->minionsKilled;
+        else
+            $partida['CS'] = 0;
+        if (isset($infoPartida->stats->championsKilled))
+            $k = $infoPartida->stats->championsKilled;
+        else
+            $k = 0;
+        if (isset($infoPartida->stats->numDeaths))
+            $d = $infoPartida->stats->numDeaths;
+        else
+            $d = 0;
+        if (isset($infoPartida->stats->assists))
+            $a = $infoPartida->stats->assists;
+        else
+            $a = 0;
+
         $partida['KDA'] = $k . "/" . $d . "/" . $a;
         if ($d != 0) {
             $partida['Ratio KDA'] = number_format((($k + $a) / $d), 2, '.', '');
@@ -222,40 +240,27 @@ class InvocadorController extends Controller {
             }
         }
 
+        $partida['CampeonNombre'] = $pj[$infoPartida->championId]['nombre'];
+        $partida['CampeonImg'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" . $pj[$infoPartida->championId]['imagen'];
+        $partida['Hechizo1'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/" . $sp[$infoPartida->spell1]['imagen'];
+        $partida['Hechizo2'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/" . $sp[$infoPartida->spell2]['imagen'];
         $aliado = 0;
         $enemigo = 0;
-        if ($infoPartida->teamId == 200) {
-            $partida['Equipo'][$aliado]['Campeon']['Nombre'] = $pj[$infoPartida->championId]['nombre'];
-            $partida['Equipo'][$aliado]['Campeon']['Imagen'] = $pj[$infoPartida->championId]['imagen'];
-            $aliado++;
-        }
+
         foreach ($infoPartida->fellowPlayers as $jug) {
             if ($jug->teamId == $infoPartida->teamId) {
-                $partida['Equipo 1'][$aliado]['Campeon']['Nombre'] = $pj[$infoPartida->championId]['nombre'];
-                $partida['Equipo 1'][$aliado]['Campeon']['Imagen'] = $pj[$infoPartida->championId]['imagen'];
+                $partida['Equipo 1'][$aliado]['Nombre'] = $pj[$jug->championId]['nombre'];
+                $partida['Equipo 1'][$aliado]['Imagen'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" . $pj[$jug->championId]['imagen'];
                 $aliado++;
             } else {
-                $partida['Equipo 2'][$enemigo]['Campeon']['Nombre'] = $pj[$infoPartida->championId]['nombre'];
-                $partida['Equipo 2'][$enemigo]['Campeon']['Imagen'] = $pj[$infoPartida->championId]['imagen'];
+                $partida['Equipo 2'][$enemigo]['Nombre'] = $pj[$jug->championId]['nombre'];
+                $partida['Equipo 2'][$enemigo]['Imagen'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" . $pj[$jug->championId]['imagen'];
                 $enemigo++;
             }
         }
-
+        $partida['Equipo 1'][$aliado]['Nombre'] = $pj[$infoPartida->championId]['nombre'];
+        $partida['Equipo 1'][$aliado]['Imagen'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" . $pj[$infoPartida->championId]['imagen'];
         return $partida;
-    }
-
-    /**
-     * Método para saber SOLO el ID del invocador mediante su nombre.
-     * 
-     * @param type $nombre nombre del invocador del que queremos saber su id
-     * @param type $region region del usuario
-     * @return type id numérica del invocador 
-     */
-    public function obtenerIdInvocador($nombre, $region) {
-        $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v1.4/summoner/by-name/' . $nombre . '?api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
-        $infoInvocador = json_decode($json);
-
-        return $infoInvocador->$nombre->id;
     }
 
     /**
@@ -264,7 +269,7 @@ class InvocadorController extends Controller {
      * @return type array con los nombres y imágenes referenciados segun la id
      */
     public function obtenerArrayCampeones() {
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=es_ES&champData=all&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=es_ES&champData=image&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
         $data = json_decode($json);
 
         foreach ($data->data as $infoCampeon) {
@@ -273,6 +278,23 @@ class InvocadorController extends Controller {
         }
 
         return $pj;
+    }
+
+     /**
+     * Método para obtener un array que nos permita referenciar una id de un hechizo con su nombre y su imagen.
+     * 
+     * @return type array con los nombres y imágenes referenciados segun la id
+     */
+    public function obtenerArrayHechizos() {
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=es_ES&spellData=image&api_key=c6745175-3719-4356-993e-65c331d8f4ae');
+        $data = json_decode($json);
+
+        foreach ($data->data as $infoHechizo) {
+            $sp[$infoHechizo->id]['nombre'] = $infoHechizo->name;
+            $sp[$infoHechizo->id]['imagen'] = $infoHechizo->image->full;
+        }
+
+        return $sp;
     }
 
 }

@@ -303,6 +303,20 @@
     
 }
 
+.medal {
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.game-title {
+    color: white;
+}
+
+.mini-champ {
+    width: 20%;
+}
+
  table.tablesorter thead tr .header {
     background-image: url(/images/bg.gif);
     background-repeat: no-repeat;
@@ -335,7 +349,7 @@ html {
 }
 
 * {
-          /*outline: 1px solid red; */
+           outline: 1px solid red; 
 }
 
 body {
@@ -5254,6 +5268,13 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
     height: 400px;
 }
 
+.panel-body-win {
+    background: #80ff80;
+}
+
+.panel-body-lose {
+    background: #ff8080;
+}
 .panel-body-nop > p {
     padding-left: 15px;
 }
