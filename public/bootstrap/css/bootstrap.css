@@ -16,13 +16,26 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-.banner {
-    /* Location of the image */
-    background-image: url("/images/banner-large.png");
-    width: auto;
-    height: 120px;
-    background-repeat: no-repeat;
-    background-size: cover;
+@media (min-width: 768px) {
+    .banner {
+        /* Location of the image */
+        background-image: url("/images/banner-large.png");
+        width: auto;
+        height: 120px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        /* Location of the image */
+        background-image: url("/images/background.png");
+        width: auto;
+        height: 120px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 
 .summoner-banner {
@@ -4296,11 +4309,9 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .navbar-form {
     margin-left: -15px;
     margin-right: -15px;
-    padding: 10px 15px;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
     margin-top: 6px;
     margin-bottom: 6px;
 }
@@ -4362,6 +4373,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 @media (max-width: 767px) {
     .navbar-form .form-group {
         margin-bottom: 5px;
+        margin-right: 4px;
     }
 
     .navbar-form .form-group:last-child {
@@ -6461,11 +6473,11 @@ button.close {
 }
 @media (max-width: 767px) {
     .navbar .dropdown-header {
-        color: #fff;
+        color: #999999;
     }
 
     .navbar .dropdown-menu a {
-        color: #fff;
+        color: #000;
     }
 }
 .btn {
