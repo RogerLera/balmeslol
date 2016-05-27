@@ -288,7 +288,7 @@
                                                 <div class="panel-body-lose">
                                              @endif
                                                     <div class="row">
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" style="margin-top:2%">
                                                              <img class="champ-played" src="{{$partida['CampeonImg']}}">
                                                              <div class="row">
                                                                 <div class="col-md-12">
@@ -296,7 +296,7 @@
                                                                 </div>
                                                              </div>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" style="margin-top:5%">
                                                             <p class="champ-played-text">Nivel {{$partida['Nivel']}}</p>
                                                             <div class="row">
                                                                 <div class="col-md-12">
@@ -309,7 +309,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" style="margin-top:2%">
                                                              <p class="champ-played-text">{{$partida['Oro']}} <img src="{{asset('/images/coinicon.png')}}"></p>
                                                             <div class="row">
                                                                 <div class="col-md-12">
@@ -324,7 +324,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" style="margin-top:2%">
                                                             <img class="mini-spells" src="{{$partida['Hechizo1']}}">
                                                             <div class="row">
                                                                 <div class="col-md-12">
@@ -336,7 +336,7 @@
                                                              @foreach($partida['Equipo 1'] as $equipo)
                                                                 <div class="row">
                                                                      <div class="col-md-12">
-                                                                        <img class="mini-champ" src="{{$equipo['Imagen']}}"> {{$equipo['Nombre']}}  
+                                                                        <img class="mini-champ" src="{{$equipo['Imagen']}}"><span class="champ-played-text"> {{$equipo['Nombre']}}</span>  
                                                                     </div>    
                                                                  </div>  
                                                              @endforeach
@@ -345,7 +345,7 @@
                                                              @foreach($partida['Equipo 2'] as $equipo)
                                                                  <div class="row">
                                                                      <div class="col-md-12">
-                                                                        <img class="mini-champ" src="{{$equipo['Imagen']}}"> {{$equipo['Nombre']}}  
+                                                                        <img class="mini-champ" src="{{$equipo['Imagen']}}"><span class="champ-played-text"> {{$equipo['Nombre']}}</span>  
                                                                     </div>    
                                                                  </div>
                                                                 
