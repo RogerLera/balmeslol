@@ -289,44 +289,46 @@
                                              @endif
                                                     <div class="row">
                                                         <div class="col-md-2">
-                                                             <img src="{{$partida['CampeonImg']}}">
+                                                             <img class="champ-played" src="{{$partida['CampeonImg']}}">
                                                              <div class="row">
                                                                 <div class="col-md-12">
-                                                                    {{$partida['CampeonNombre']}}
+                                                                    <p class="champ-played-name">{{$partida['CampeonNombre']}}</p>
                                                                 </div>
                                                              </div>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            Nivel {{$partida['Nivel']}}
+                                                            <p class="champ-played-text">Nivel {{$partida['Nivel']}}</p>
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    {{$partida['KDA']}} KDA
+                                                                    <p class="champ-played-text">{{$partida['KDA']}} KDA</p>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    {{$partida['Ratio KDA']}} ratio KDA
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            {{$partida['Oro']}}<br>
-                                                            oro
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    {{$partida['CS']}}<br>
-                                                                    subditos
+                                                                    <p class="champ-played-text">{{$partida['Ratio KDA']}} ratio KDA</p>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-1">
-                                                            <img src="{{$partida['Hechizo1']}}">
+                                                        <div class="col-md-2">
+                                                             <p class="champ-played-text">{{$partida['Oro']}} <img src="{{asset('/images/coinicon.png')}}"></p>
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <img src="{{$partida['Hechizo2']}}">
+                                                                     <p class="champ-played-text">{{$partida['CS']}} <img src="{{asset('/images/creepicon.png')}}"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                     @foreach($partida['Items'] as $item)
+                                                                     <img class="mini-champ" src="{{$item['Imagen']}}">
+                                                                     @endforeach
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <img class="mini-spells" src="{{$partida['Hechizo1']}}">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <img class="mini-spells" src="{{$partida['Hechizo2']}}">
                                                                 </div>
                                                             </div>
                                                         </div>
