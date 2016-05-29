@@ -1,4 +1,5 @@
 <!-- Styles -->
+<link rel="stylesheet" href="<?php echo asset('bootstrap/css/bootstrap.css') ?>" type="text/css">
 <link rel="stylesheet" href="<?php echo asset('bootstrap/css/guias.css')?>" type="text/css">
 <!-- Javascript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

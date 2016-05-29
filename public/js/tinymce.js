@@ -10,10 +10,17 @@ $(document).ready(function() {
     }, {
         'boton': 'botonCampeones',
         'nombre': 'Campeones',
-        'titulo': 'Escojer un campeon',
+        'titulo': 'Escojer un campeón',
         'ruta': '/json/campeones',
         'width': 590,
         'height': 400,
+    }, {
+        'boton': 'botonRunas',
+        'nombre': 'Runas',
+        'titulo': 'Escojer una runa',
+        'ruta': '/json/runas',
+        'width': 730,
+        'height': 500,
     }, ];
     // Inicializamos el plugin tinymce (WYSIWYG HTML Editor).
     tinymce.init({
@@ -26,7 +33,7 @@ $(document).ready(function() {
         // (primera fila), y los botones personalizados para mostrar las imagenes (segunda fila).
         toolbar: [
             'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
-            'botonHechizos | botonCampeones'
+            'botonHechizos | botonCampeones | botonRunas'
         ],
         // No mostramos el menú por defecto, ya que ya tenemos los botones en el toolbar.
         menubar: false,
