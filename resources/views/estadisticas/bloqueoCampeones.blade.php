@@ -25,11 +25,12 @@
                                     <tr>
                                         <td><img height="80" width="80" class="customborder img-responsive" src="{{ $estadistica['imagen'] }}"></td>
                                         <td>{{ $estadistica['nombre'] }}</td>
-                                        <td>{{ $estadistica['porciento'] }}</td>
+                                        <td>{{ $estadistica['porciento'] }}%</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
+                            <img class="center-block img-responsive" src="{{ asset('/images/graficos/bloqueo_campeones.png') }}">                            
                         </div>
                     </div>
                 </div>

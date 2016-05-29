@@ -73,5 +73,6 @@ Route::get('/invocador', 'InvocadorController@index');
 Route::get('/partidas', 'ListaPartidasController@index');
 
 /* -- LLAMADAS JSON -- */
-Route::get('/json/hechizos', 'HechizoController@obtenerHechizos');
-Route::get('/json/campeones', 'CampeonController@obtenerCampeones');
+Route::get('/json/hechizos', 'GuiaController@mostrarHechizosPopUp');
+Route::get('/json/campeones', 'GuiaController@mostrarCampeonesPopUp');
+Route::get('/json/runas', 'GuiaController@mostrarRunasPopUp');

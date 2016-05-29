@@ -1,185 +1,76 @@
 $(document).ready(function() {
-
-    // Variable global 'hechizos', que almazena todos los hechizos.
-    var hechizos, campeones;
-    // Llamamos a la funcion 'jsonHechizos' para rellenar la variable 'hechizos'.
-    jsonHechizos();
-    jsonCampeones();
-    // Instanciamos elplugin tinymce (WYSIWYG HTML Editor).
+    // Variable botones, contiene la información de cada boron personalizada (tamaño popup, nombres títulos, ...).
+    var botones = [{
+        'boton': 'botonHechizos',
+        'nombre': 'Hechizos',
+        'titulo': 'Escojer un hechizo',
+        'ruta': '/json/hechizos',
+        'width': 400,
+        'height': 130,
+    }, {
+        'boton': 'botonCampeones',
+        'nombre': 'Campeones',
+        'titulo': 'Escojer un campeon',
+        'ruta': '/json/campeones',
+        'width': 590,
+        'height': 400,
+    }, ];
+    // Inicializamos el plugin tinymce (WYSIWYG HTML Editor).
     tinymce.init({
         // Que afecte namás a los 'textarea' con clase 'guia'.
         mode: "textareas",
         editor_selector: "guia",
-        // Tendrá una longitud de 200px.
+        // Tendrá una altura de 200px.
         height: 200,
-        // Boton creado para los hechizos.
-        toolbar: ['botonHechizos', 'botonCampeones'],
-        // No mostramos el menú por defecto.
+        // En las herramientas insertamos un array (cada posición es una fila), con los botones que ya incorpora tinymce para editar texto
+        // (primera fila), y los botones personalizados para mostrar las imagenes (segunda fila).
+        toolbar: [
+            'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+            'botonHechizos | botonCampeones'
+        ],
+        // No mostramos el menú por defecto, ya que ya tenemos los botones en el toolbar.
         menubar: false,
         // Al completarse, empezamos función con el editor pasado por variable.
         setup: function(editor) {
-            // Creamos array (almazenará src y alt selecionados).
-            var arrayHechizos = [];
-            var arrayCampeones = [];
-            var campeonAMostrar = '';
-            // Variable que formará la imagen en el textarea.
-            var hechizoAMostrar = '';
-            // Creamos el boton a nuestro gusto, añadiendo las funcionalidades.
-            editor.addButton('botonHechizos', {
-                // Nombre del botoón.
-                text: 'Hechizos',
-                // Icono para el botón (false = desactivado).
-                icon: false,
-                // Al apretar el botón realizaremos una funcion.
-                onclick: function() {
-                    // Abriremos un popup.
-                    editor.windowManager.open({
-                        // Título para el popup.
-                        title: "Escojer un hechizo",
-                        // Contenido.
-                        body: [{
-                            // Tipo del contenido (contenedor html).
-                            type: 'container',
-                            // En contenido pasamos la variable hechizos con la tabla de imagenes.
-                            html: hechizos
-                        }],
-                        // Al apretar en una imagen.
-                        onclick: function(e) {
-                            editor.focus();
-                            // Comprovamos si el target (tag) que nos llega contiene src
-                            //(para diferenciar entre imagenes y otros tags).
-                            if (typeof e.target.currentSrc !== 'undefined') {
-                                // Si es una imagen pasamos el alt y el src al array.
-                                arrayHechizos.push({
-                                    'alt': e.target.alt,
-                                    'src': e.target.currentSrc
-                                });
-                                // Si no es una imagen (solo pueden ser boton 'OK' o 'Cancelar').
-                            } else {
-                                // Comprovamos que el botón seleccionado tienen como texto 'Ok'.
-                                if (e.target.firstChild.innerText.localeCompare('Ok') === 0) {
-                                    // Por cada imagen guardada en el array.
-                                    $.each(arrayHechizos, function() {
-                                        // Montamos en la variable 'hechizoAMostrar' una imagen.
-                                        hechizoAMostrar += '<img src="' + this.src + '" alt="' + this.alt + '">';
-                                    });
-                                    // Pasamos las imagenes al editor.
-                                    editor.selection.setContent(hechizoAMostrar);
-                                    // Reseteamos variables.
-                                    hechizoAMostrar = '';
-                                    arrayHechizos = [];
-                                }
-                            }
-                        },
-                    });
-                }
-            });
-            editor.addButton('botonCampeones', {
-                // Nombre del botoón.
-                text: 'Campeones',
-                // Icono para el botón (false = desactivado).
-                icon: false,
-                // Al apretar el botón realizaremos una funcion.
-                onclick: function() {
-                    // Abriremos un popup.
-                    editor.windowManager.open({
-                        // Título para el popup.
-                        title: "Escojer un campeón",
-                        // Contenido.
-                        body: [{
-                            // Tipo del contenido (contenedor html).
-                            type: 'container',
-                            // En contenido pasamos la variable hechizos con la tabla de imagenes.
-                            html: campeones
-                        }],
-                        // Al apretar en una imagen.
-                        onclick: function(e) {
-                            editor.focus();
-                            // Comprovamos si el target (tag) que nos llega contiene src
-                            //(para diferenciar entre imagenes y otros tags).
-                            if (typeof e.target.currentSrc !== 'undefined') {
-                                // Si es una imagen pasamos el alt y el src al array.
-                                arrayCampeones.push({
-                                    'alt': e.target.alt,
-                                    'src': e.target.currentSrc
-                                });
-                                // Si no es una imagen (solo pueden ser boton 'OK' o 'Cancelar').
-                            } else {
-                                // Comprovamos que el botón seleccionado tienen como texto 'Ok'.
-                                if (e.target.firstChild.innerText.localeCompare('Ok') === 0) {
-                                    // Por cada imagen guardada en el array.
-                                    $.each(arrayCampeones, function() {
-                                        // Montamos en la variable 'campeonAMostrar' una imagen.
-                                        campeonAMostrar += '<img src="' + this.src + '" alt="' + this.alt + '">';
-                                    });
-                                    // Pasamos las imagenes al editor.
-                                    editor.selection.setContent(campeonAMostrar);
-                                    // Reseteamos variables.
-                                    campeonAMostrar = '';
-                                    arrayCampeones = [];
-                                }
-                            }
-                        },
-                    });
-                }
+            // Por cada objeto en el array 'botones', instanciamos un boton en el toolbar (en el toolbar tiene que estar definido
+            // el nombre del botón, i coincidir con el atributo 'boton' del objeto).
+            $.each(botones, function() {
+                // Recojemos en la variable datos el objeto pasado, ya que para usarlo en funciones internas,
+                // no podemos pasar el 'this' o sus atributos como parámetros.
+                var datos = this;
+                // Añadimos el botón con el nombre como parámetro.
+                editor.addButton(datos.boton, {
+                    // Nombre del botón.
+                    text: datos.nombre,
+                    // Icono para el botón (false = desactivado).
+                    icon: false,
+                    // Al apretar el botón realizaremos una funcion.
+                    onclick: function() {
+                        // Llamamos a la función mostrarPopUp.
+                        mostrarPopUp(editor.windowManager, datos);
+                    },
+                });
             });
         },
-        // Estilo que tendra el textarea.
+        // Estilo que tendra el textarea (fuentes de tinymce).
         content_css: [
             '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
             '//www.tinymce.com/css/codepen.min.css'
-        ]
+        ],
     });
 
-    // Función que obtiene todos los hechizos (llamada json) y los pasamos en formato tabla a la variable 'hechizos'.
-    function jsonHechizos() {
-        // Realizamos la llamada json.
-        $.getJSON('/json/hechizos', function(data) {
-            // Creamos variable que almazenará la tabla con las imagenes.
-            var tablaHechizos = '<table><tbody>';
-            // Por cada objeto que nos llega en la llamada, hacemos una fila (con 4 columnas).
-            $.each(data, function(n) {
-                // Si n és uno acabamos y empezamos otra fila.
-                if (n === 1) {
-                    tablaHechizos += '<td><img src="' + this.imagen + '" alt="' + this.nombre + '"></td></tr><tr>';
-                    // Si la división de n entre 4 da 0 como resultado, empezamos nueva fila.
-                } else if (n % 4 === 0) {
-                    tablaHechizos += '<tr><td><img src="' + this.imagen + '" alt="' + this.nombre + '"></td>';
-                    // Quando no sea divisible por 4, introducimos a la variable una columna.
-                } else {
-                    tablaHechizos += '<td><img src="' + this.imagen + '" alt="' + this.nombre + '"></td>';
-                }
-            });
-            // Cerramos la tabla.
-            tablaHechizos += '</tbody></table>';
-            // Pasamos a la variable global 'hechizos' toda la tabla.
-            hechizos = tablaHechizos;
-        });
-    }
-
-    // Función que obtiene todos los campeones (llamada json) y los pasamos en formato tabla a la variable 'campeones'.
-    function jsonCampeones() {
-        // Realizamos la llamada json.
-        $.getJSON('/json/campeones', function(data) {
-            // Creamos variable que almazenará la tabla con las imagenes.
-            var tablaCampeones = '<table><tbody>';
-            // Por cada objeto que nos llega en la llamada, hacemos una fila (con 4 columnas).
-            $.each(data, function(n) {
-                // Si n és uno acabamos y empezamos otra fila.
-                if (n === 1) {
-                    tablaCampeones += '<td><img src="' + this.imagen + '" alt="' + this.nombre + '"></td></tr><tr>';
-                    // Si la división de n entre 4 da 0 como resultado, empezamos nueva fila.
-                } else if (n % 8 === 0) {
-                    tablaCampeones += '<tr><td><img src="' + this.imagen + '" alt="' + this.nombre + '"></td>';
-                    // Quando no sea divisible por 4, introducimos a la variable una columna.
-                } else {
-                    tablaCampeones += '<td><img src="' + this.imagen + '" alt="' + this.nombre + '"></td>';
-                }
-            });
-            // Cerramos la tabla.
-            tablaCampeones += '</tbody></table>';
-            // Pasamos a la variable global 'campeones' toda la tabla.
-            campeones = tablaCampeones;
+    // Función que inserta el contenido de cada botón.
+    // Recive el el popup (windowManager) y el objeto.
+    function mostrarPopUp(editor, datos) {
+        // Abrimos el popup e insertamos las variables dentro.
+        editor.open({
+            // Título para el popup.
+            title: datos.titulo,
+            // Contenido (html con los datos a mostrar).
+            url: datos.ruta,
+            // Tamaño del popup.
+            width: datos.width,
+            height: datos.height,
         });
     }
 });

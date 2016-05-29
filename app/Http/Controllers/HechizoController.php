@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Traits\TraitHechizos;
+use App\Traits\TraitVersionActual;
 
 /**
  * Clase HechizoController que llama la vista para mostrar los datos referente a los
  * hechizos, obteniendo la información de la API Riot en formato .json.
  */
 class HechizoController extends Controller {
-        use TraitHechizos;
+        use TraitHechizos, TraitVersionActual;
 
     /**
      * Método principal que nos devuelve la vista de todos los hechizos existentes
@@ -44,7 +45,7 @@ class HechizoController extends Controller {
                 'id' => $infoHechizo->id,
                 'nombre' => $infoHechizo->name,
                 'descripcion' => $infoHechizo->sanitizedDescription,
-                'imagen' => 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/' . $infoHechizo->image->full,
+                'imagen' => 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/spell/' . $infoHechizo->image->full,
                 'reutilizacion' => $infoHechizo->cooldownBurn,
                 'nivel' => $infoHechizo->summonerLevel,
                 );

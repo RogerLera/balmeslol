@@ -7,6 +7,7 @@ use App\Http\Requests;
 use DB;
 use App\Traits\TraitCampeones;
 use App\Traits\TraitHechizos;
+use App\Traits\TraitGraficos;
 
 /**
  * Clase EstadisticasController que guardara datos de las partidas contenidas en los ficheros seed_data,
@@ -17,6 +18,7 @@ use App\Traits\TraitHechizos;
 class EstadisticasController extends Controller {
 
     use TraitCampeones,
+        TraitGraficos,
         TraitHechizos;
 
     /**
@@ -65,7 +67,7 @@ class EstadisticasController extends Controller {
      */
     public function guardaEstadisticas() {
         for ($i = 1; $i < 11; $i++) {
-            $json = file_get_contents('https://s3-us-west-1.amazonaws.com/riot-api/seed_data/matches'.$i.'.json');
+            $json = file_get_contents('https://s3-us-west-1.amazonaws.com/riot-api/seed_data/matches' . $i . '.json');
             $listaMatch = json_decode($json);
 
             foreach ($listaMatch->matches as $match) {
@@ -83,7 +85,7 @@ class EstadisticasController extends Controller {
                         $this->guardaCampeonBan($escBloqueado);
                     }
                 }
-            }            
+            }
         }
         return "Estadísticas guardadas correctamente";
     }
@@ -167,13 +169,14 @@ class EstadisticasController extends Controller {
                             'nombre' => $c['nombre'],
                             'id' => $c['id'],
                             'imagen' => $c['imagen'],
-                            'porciento' => $porciento . "%",
+                            'porciento' => $porciento,
                         );
                     }
                 }
             }
             $n++;
         }
+        $this->generaGraficoPopularidadCampeones($estadisticas);
         return $estadisticas;
     }
 
@@ -198,13 +201,14 @@ class EstadisticasController extends Controller {
                             'nombre' => $h['nombre'],
                             'id' => $h['id'],
                             'imagen' => $h['imagen'],
-                            'porciento' => $porciento . "%",
+                            'porciento' => $porciento,
                         );
                     }
                 }
             }
             $n++;
         }
+        $this->generaGraficoPopularidadHechizos($estadisticas);
         return $estadisticas;
     }
 
@@ -229,13 +233,14 @@ class EstadisticasController extends Controller {
                             'nombre' => $c['nombre'],
                             'id' => $c['id'],
                             'imagen' => $c['imagen'],
-                            'porciento' => $porciento . "%",
+                            'porciento' => $porciento,
                         );
                     }
                 }
             }
             $n++;
         }
+        $this->generaGraficoBloqueoCampeones($estadisticas);
         return $estadisticas;
     }
 
