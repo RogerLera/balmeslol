@@ -243,6 +243,30 @@
     width: 40px;
     height: 40px;
 }
+.table-mensajes {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.table-mensajes tr {
+    border: 1px solid black !important;
+}
+
+.table-mensajes tr:nth-child(odd){
+
+}
+
+.table-mensajes tr:nth-child(even){
+    background: #B4B2A8;
+}
+
+.table-mensajes th {
+    background: #B4B2A8;
+}
+
+
 
 .table-items td {
     padding-left: 10px;
