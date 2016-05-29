@@ -28,28 +28,40 @@ class InvocadorController extends Controller {
      * @return type
      */
     public function obtenerPerfil($nombre, $region) {
+        $json = "Empty";
         //arreglamos el nombre para no tener problemas con espacios, mayusculas o carácteres extraños
         $nombre = strtolower($nombre);
         $nombre = str_replace(' ', '', $nombre);
         $nombre = mb_convert_encoding($nombre, "UTF-8", "ISO-8859-1");
 
-        // Obtenemos el json.
-        $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v1.4/summoner/by-name/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-        // Lo transformamos a objetos que php pueda entender.
-        $infoInvocador = json_decode($json);
+        //comprobamos que exista el nombre que nos envian o que no sea una id
+        if (strpos(get_headers('https://euw.api.pvp.net/api/lol/' . $region . '/v1.4/summoner/by-name/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
+            // Obtenemos el json por el nombre.
+            $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v1.4/summoner/by-name/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        }
+        //comprobamos si es una id
+        if (strpos(get_headers('https://euw.api.pvp.net/api/lol/' . $region . '/v1.4/summoner/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
+            // Obtenemos el json por el id
+            $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v1.4/summoner/' . $nombre . '?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        }
+        if ($json !== "Empty") {
+            // Lo transformamos a objetos que php pueda entender.
+            $infoInvocador = json_decode($json);
 
-        $invocador = array(
-            'id' => $infoInvocador->$nombre->id,
-            'nombre' => $infoInvocador->$nombre->name,
-            'region' => $region,
-            'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/' . $infoInvocador->$nombre->profileIconId . '.png',
-            'nivel' => $infoInvocador->$nombre->summonerLevel,
-            'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id),
-            'estadisticas' => $this->obtenerEstadisticas($infoInvocador->$nombre->id, $region),
-            'partidas' => $this->obtenerListaPartidas($infoInvocador->$nombre->id, $region),
-        );
+            $invocador = array(
+                'id' => $infoInvocador->$nombre->id,
+                'nombre' => $infoInvocador->$nombre->name,
+                'region' => $region,
+                'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/' . $infoInvocador->$nombre->profileIconId . '.png',
+                'nivel' => $infoInvocador->$nombre->summonerLevel,
+                'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id, $region),
+                'estadisticas' => $this->obtenerEstadisticas($infoInvocador->$nombre->id, $region),
+                'partidas' => $this->obtenerListaPartidas($infoInvocador->$nombre->id, $region),
+            );
 
-        return $invocador;
+            return $invocador;
+        }
+        return $json;
     }
 
     /**
@@ -104,11 +116,11 @@ class InvocadorController extends Controller {
      * @param type $id nombre del jugador en cuestión
      * @return type
      */
-    public function obtenerLiga($id) {
+    public function obtenerLiga($id, $region) {
 
-        if (strpos(get_headers('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/' . $id . '/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
+        if (strpos(get_headers('https://euw.api.pvp.net/api/lol/' . $region . '/v2.5/league/by-summoner/' . $id . '/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
             // Obtenemos el json.
-            $json = file_get_contents('https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/' . $id . '/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+            $json = file_get_contents('https://euw.api.pvp.net/api/lol/' . $region . '/v2.5/league/by-summoner/' . $id . '/entry?api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
             // Lo transformamos a objetos que php pueda entender.
             $infoLiga = json_decode($json);
             // Montamos el array con la información del json
@@ -153,7 +165,7 @@ class InvocadorController extends Controller {
 
     /**
      * Método principal que nos devuelve las últimas 7 partidas de un usuario en base a su nombre y región.
-     * 
+     *
      * @param type $nombre nick del usuario
      * @param type $region region donde juega
      * @return type lista de partidas en un array
@@ -167,13 +179,13 @@ class InvocadorController extends Controller {
         $infoPartidas = json_decode($json);
 
         //la variable n nos ayuda a limitar las consultas dado que nuestra key nos permite un máximo de 10 cada 10s
-        //tambien nos servirà para ordenar las partidas dentro del array de partidas   
+        //tambien nos servirà para ordenar las partidas dentro del array de partidas
         $n = 0;
         $partidas = array();
         foreach ($infoPartidas->games as $p) {
             $idPartida = $p->gameId;
             if (isset($idPartida)) {
-                $partidas[$n] = $this->obtenerPartida($p, $pj, $sp);
+                $partidas[$n] = $this->obtenerPartida($p, $pj, $sp, $region, $id);
                 $n++;
             }
         }
@@ -182,14 +194,15 @@ class InvocadorController extends Controller {
 
     /**
      * Método complementario de obtenerListaPartidas donde obtenemos una sola partida para guardarla
-     * 
+     *
      * @param type $idPartida id de la partida en cuestión
      * @param type $region region del usuario
      * @param type $pj array con los nombres y imágenes de los personajes relacionados en base a su id
-     * @return type devuelve un array con los datos de una partida 
+     * @return type devuelve un array con los datos de una partida
      */
-    public function obtenerPartida($infoPartida, $pj, $sp) {
+    public function obtenerPartida($infoPartida, $pj, $sp, $region, $id) {
         $partida['Tipo'] = $infoPartida->subType;
+        $partida['Region'] = $region;
 
         //Asignamos si el equipo ganó o perdió
         if ($infoPartida->stats->win == "true") {
@@ -240,24 +253,31 @@ class InvocadorController extends Controller {
 
             }
         }
+        $partida['CampeonId'] = $infoPartida->championId;
         $partida['CampeonNombre'] = $pj[$infoPartida->championId]['nombre'];
         $partida['CampeonImg'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" . $pj[$infoPartida->championId]['imagen'];
         $partida['Hechizo1'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/" . $sp[$infoPartida->spell1]['imagen'];
+        $partida['HechizoId1'] = $infoPartida->spell1;
         $partida['Hechizo2'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/spell/" . $sp[$infoPartida->spell2]['imagen'];
+        $partida['HechizoId2'] = $infoPartida->spell2;
+
         $aliado = 0;
         $enemigo = 0;
 
         foreach ($infoPartida->fellowPlayers as $jug) {
             if ($jug->teamId == $infoPartida->teamId) {
+                $partida['Equipo 1'][$aliado]['InvocadorId'] = $jug->summonerId;
                 $partida['Equipo 1'][$aliado]['Nombre'] = $pj[$jug->championId]['nombre'];
                 $partida['Equipo 1'][$aliado]['Imagen'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" . $pj[$jug->championId]['imagen'];
                 $aliado++;
             } else {
+                $partida['Equipo 2'][$enemigo]['InvocadorId'] = $jug->summonerId;
                 $partida['Equipo 2'][$enemigo]['Nombre'] = $pj[$jug->championId]['nombre'];
                 $partida['Equipo 2'][$enemigo]['Imagen'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" . $pj[$jug->championId]['imagen'];
                 $enemigo++;
             }
         }
+        $partida['Equipo 1'][$aliado]['InvocadorId'] = $id;
         $partida['Equipo 1'][$aliado]['Nombre'] = $pj[$infoPartida->championId]['nombre'];
         $partida['Equipo 1'][$aliado]['Imagen'] = "https://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" . $pj[$infoPartida->championId]['imagen'];
         return $partida;
@@ -265,7 +285,7 @@ class InvocadorController extends Controller {
 
     /**
      * Método para obtener un array que nos permita referenciar una id de un personaje con su nombre y su imagen.
-     * 
+     *
      * @return type array con los nombres y imágenes referenciados segun la id
      */
     public function obtenerArrayCampeones() {
@@ -283,7 +303,7 @@ class InvocadorController extends Controller {
 
      /**
      * Método para obtener un array que nos permita referenciar una id de un hechizo con su nombre y su imagen.
-     * 
+     *
      * @return type array con los nombres y imágenes referenciados segun la id
      */
     public function obtenerArrayHechizos() {

@@ -289,10 +289,10 @@
                                              @endif
                                                     <div class="row">
                                                         <div class="col-md-2" style="margin-top:2%">
-                                                             <img class="champ-played" src="{{$partida['CampeonImg']}}">
+                                                            <a href="/campeones/{{ $partida['CampeonId'] }}"> <img class="champ-played" src="{{$partida['CampeonImg']}}"></a>
                                                              <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <p class="champ-played-name">{{$partida['CampeonNombre']}}</p>
+                                                                    <a href="/campeones/{{ $partida['CampeonId'] }}"><p class="champ-played-name">{{$partida['CampeonNombre']}}</p></a>
                                                                 </div>
                                                              </div>
                                                         </div>
@@ -319,36 +319,35 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                      @foreach($partida['Items'] as $item)
-                                                                     <img class="mini-champ" src="{{$item['Imagen']}}">
+                                                                    <a href="/objetos/{{ $item['Id'] }}"><img class="mini-champ" src="{{$item['Imagen']}}"></a>
                                                                      @endforeach
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2" style="margin-top:2%">
-                                                            <img class="mini-spells" src="{{$partida['Hechizo1']}}">
+                                                            <a href="/hechizos"><img class="mini-spells" src="{{$partida['Hechizo1']}}"></a>
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <img class="mini-spells" src="{{$partida['Hechizo2']}}">
+                                                                    <a href="/hechizos"><img class="mini-spells" src="{{$partida['Hechizo2']}}"></a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2">
                                                              @foreach($partida['Equipo 1'] as $equipo)
                                                                 <div class="row">
-                                                                     <div class="col-md-12">
-                                                                        <img class="mini-champ" src="{{$equipo['Imagen']}}"><span class="champ-played-text"> {{$equipo['Nombre']}}</span>  
-                                                                    </div>    
-                                                                 </div>  
+                                                                     <div class="col-md-12 summoner-link">
+                                                                        <a href="/invocador?nombre={{$equipo['InvocadorId']}}&region={{$partida['Region']}}"><img class="mini-champ" src="{{$equipo['Imagen']}}"></a><span class="champ-played-text"> <a href="/invocador?nombre={{$equipo['InvocadorId']}}&region={{$partida['Region']}}">{{$equipo['Nombre']}}</a></span>
+                                                                    </div>
+                                                                 </div>
                                                              @endforeach
                                                         </div>
                                                         <div class="col-md-2">
                                                              @foreach($partida['Equipo 2'] as $equipo)
                                                                  <div class="row">
-                                                                     <div class="col-md-12">
-                                                                        <img class="mini-champ" src="{{$equipo['Imagen']}}"><span class="champ-played-text"> {{$equipo['Nombre']}}</span>  
-                                                                    </div>    
+                                                                     <div class="col-md-12 summoner-link">
+                                                                        <a href="/invocador?nombre={{$equipo['InvocadorId']}}&region={{$partida['Region']}}"><img class="mini-champ" src="{{$equipo['Imagen']}}"></a><span class="champ-played-text"> <a href="/invocador?nombre={{$equipo['InvocadorId']}}&region={{$partida['Region']}}">{{$equipo['Nombre']}}</a></span>
+                                                                    </div>
                                                                  </div>
-                                                                
                                                              @endforeach
                                                         </div>
                                                     </div><!--Row-->

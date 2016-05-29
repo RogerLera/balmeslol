@@ -77,16 +77,15 @@ class ObjetoController extends Controller
         $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         $data = json_decode($json);
 
-        // Realizamos todos los canvios al apartado $data->description que nos llega,
+        // Realizamos todos los cambios al apartado $data->description que nos llega,
         // para obtener las estadisticas del objeto bien formateadas.
-        $estadisticas = str_replace("<br>", "_", $data->description);
-        $estadisticas = explode("_", $estadisticas);
+        $estadisticas = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $data->description);
 
         // Creamos el array objeto que tiene toda la información.
         $objeto = array(
             'id' => $data->id,
             'nombre' => $data->name,
-            'estadisticas' => $data->description,
+            'estadisticas' => $estadisticas,
             'imagen' => 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->image->full,
             'precio' => array(
                 'total' => $data->gold->total,
@@ -98,7 +97,7 @@ class ObjetoController extends Controller
         // guardamos en un array la información de dichos objetos.
         if (isset($data->from)) {
             for ($n = 0; $n < count($data->from); $n++) {
-                if ($data->from[$n] != 3718 && $data->from[$n] != 3722 && $data->from[$n] != 1313) {
+                if ($data->from[$n] != 3718 && $data->from[$n] != 3722 && $data->from[$n] != 1313 && $data->from[$n] != 1312 && $data->from[$n] != 3290) {
                     $objeto['procede'][] = $this->obtenerObjetodelObjetoPorId($data->from[$n]);
                 }
             }
@@ -108,7 +107,7 @@ class ObjetoController extends Controller
         // guardamos en un array la información de dichos objetos.
         if (isset($data->into)) {
             for ($n = 0; $n < count($data->into); $n++) {
-                if ($data->into[$n] != 3718 && $data->into[$n] != 3722 && $data->into[$n] != 1313) {
+                if ($data->into[$n] != 3718 && $data->into[$n] != 3722 && $data->into[$n] != 1313 && $data->into[$n] != 1312 && $data->into[$n] != 3290) {
                     $objeto['mejora'][] = $this->obtenerObjetodelObjetoPorId($data->into[$n]);
                 }
             }
@@ -144,7 +143,8 @@ class ObjetoController extends Controller
         if (isset($data->from)) {
             for ($n = 0; $n < count($data->from); $n++) {
                 // Llamamos a la función para obtener el objeto del que procede para obtener información a mostrar.
-                $objeto['procede'][$n] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->from[$n] . '.png';
+                $objeto['procede'][$n]['img'] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->from[$n] . '.png';
+                $objeto['procede'][$n]['id'] =  $data->from[$n];
             }
             // Ordenamos el array de $objeto['procede'] por id.
             asort($objeto['procede']);
@@ -154,7 +154,8 @@ class ObjetoController extends Controller
         // guardamos en un array las imagenes de los objetos.
         if (isset($data->into)) {
             for ($n = 0; $n < count($data->into); $n++) {
-                $objeto['mejora'][$n] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->into[$n] . '.png';
+                $objeto['mejora'][$n]['img'] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->into[$n] . '.png';
+                $objeto['mejora'][$n]['id'] = $data->into[$n];
             }
             // Ordenamos el array de $objeto['mejora'] por id.
             asort($objeto['mejora']);

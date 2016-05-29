@@ -22,7 +22,7 @@
                                 <div class="panel-body-min">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <img class="itemimg" src="{{ $objeto['imagen'] }}"> 
+                                            <img class="itemimg" src="{{ $objeto['imagen'] }}">
                                         </div>
                                         <div class="col-md-4">
                                             <b>{{ $objeto['nombre'] }}</b>
@@ -86,8 +86,7 @@
                                                         <td>
                                                             @if (isset($procede['procede']))
                                                                 @foreach ($procede['procede'] as $img)
-                                                                    <img class="itemsmall-build" src="{{ $img }}">
-                                                                @endforeach
+                                                                    <a href="/objetos/{{ $img['id'] }}"><img class="itemsmall-build" src="{{ $img['img'] }}"></a>                                                                @endforeach
                                                             @endif
                                                         </td>
                                                     </tr>
@@ -118,7 +117,7 @@
                                                         <td><span class="pricetext">{{ $mejora['precio']['total'] }}</span> <img src="{{asset('/images/coinicon.png')}}"></td>
                                                         <td>
                                                             @foreach ($mejora['procede'] as $img)
-                                                                <img class="itemsmall-build" src="{{ $img }}">
+                                                                <a href="/objetos/{{ $img['id'] }}"><img class="itemsmall-build" src="{{ $img['img'] }}">
                                                             @endforeach
                                                         </td>
                                                     </tr>
@@ -129,7 +128,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>

@@ -38,6 +38,9 @@
     }
 }
 
+.summoner-link a{
+    color: white !important;
+}
 .summoner-banner {
     position: relative;
     display: block;
@@ -299,26 +302,26 @@
     padding-left: 10px;
 }
 
-.table-stats td:nth-child(odd){ 
+.table-stats td:nth-child(odd){
     background: #B4B2A8;
-    
+
     padding-left: 30px;
     width: 70%;
 }
 
-.table-stats td:nth-child(even){   
+.table-stats td:nth-child(even){
     padding-left: 30px;
     width: 30%;
 }
 
 
 .table-stats tbody {
-    
+
 }
 
 .medal {
-    display: block; 
-    margin-left: auto; 
+    display: block;
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -330,7 +333,7 @@
 
 .mini-champ {
     width: 20%;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
     margin-top: 5px;
@@ -341,7 +344,7 @@
 .mini-spells {
     width: 30%;
     display: block;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
     margin-top: 20px;
@@ -351,8 +354,8 @@
 
 .champ-played {
     width: 80%;
-    display: block; 
-    margin-left: auto; 
+    display: block;
+    margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
     border-radius: 10px;
@@ -5324,12 +5327,12 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 
 .panel-body-win {
     background: #004100;
-    /*background: rgba(60,191,51,0.7);   70% opaque green */ 
+    /*background: rgba(60,191,51,0.7);   70% opaque green */
 }
 
 .panel-body-lose {
-    background: #410000; 
-     /*background: rgba(255,88,59,0.7);   70% opaque red */ 
+    background: #410000;
+     /*background: rgba(255,88,59,0.7);   70% opaque red */
 }
 .panel-body-nop > p {
     padding-left: 15px;
@@ -6630,4 +6633,3 @@ table.tablesorter thead tr .headerSortUp {
 table.tablesorter thead tr .headerSortDown {
     background-image: url(/images/desc.gif);
 }
-
