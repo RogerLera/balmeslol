@@ -29,15 +29,17 @@ Route::get('/hechizos', 'HechizoController@index');
 
 /* --- GUIAS --- */
 Route::get('/guias', 'GuiaController@index');
-Route::get('/guias/crear', 'GuiaController@formularioCrearGuia');
+Route::get('/guias/{id}', 'GuiaController@obtenerGuia')->where('id', '[0-9]+');
 
-// Alomejor necesita crear ruta para favoritos, no desde GuiaController.
-Route::get('/guias/favoritos', 'GuiaController@obtenerGuiasFavoritos');
-Route::get('/guias/usuario/{id}', 'GuiaController@misGuias');
-Route::post('/guias/crear', 'GuiaController@crearGuia');
-Route::get('/guias/{id}', 'GuiaController@obtenerGuia');
-Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
-Route::delete('/guias/{guia}', 'GuiaController@eliminarGuia');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/guias/crear', 'GuiaController@formularioCrearGuia');
+    // Alomejor necesita crear ruta para favoritos, no desde GuiaController.
+    Route::get('/guias/favoritos', 'GuiaController@obtenerGuiasFavoritos');
+    Route::get('/guias/usuario/{id}', 'GuiaController@misGuias');
+    Route::post('/guias/crear', 'GuiaController@crearGuia');
+    Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
+    Route::delete('/guias/{guia}', 'GuiaController@eliminarGuia');
+});
 
 /* --- USUARIOS --- */
 Route::group(['middleware' => ['auth']], function () {
@@ -76,3 +78,5 @@ Route::get('/partidas', 'ListaPartidasController@index');
 Route::get('/json/hechizos', 'GuiaController@mostrarHechizosPopUp');
 Route::get('/json/campeones', 'GuiaController@mostrarCampeonesPopUp');
 Route::get('/json/runas', 'GuiaController@mostrarRunasPopUp');
+Route::get('/json/objetos', 'GuiaController@mostrarObjetosPopUp');
+Route::get('/json/habilidades/{id}', 'GuiaController@mostrarHabilidadesPopUp');
