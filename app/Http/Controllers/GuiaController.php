@@ -12,10 +12,11 @@ use App\Traits\TraitCampeones;
 use App\Traits\TraitHechizos;
 use App\Traits\TraitRunas;
 use App\Traits\TraitVersionActual;
+use App\Traits\TraitObjetos;
 
 class GuiaController extends Controller {
 
-    use TraitCampeones, TraitHechizos, TraitRunas, TraitVersionActual;
+    use TraitCampeones, TraitHechizos, TraitRunas, TraitObjetos, TraitVersionActual;
 
     /**
      * Instancia del objeto repositorio.
@@ -30,7 +31,6 @@ class GuiaController extends Controller {
      * @return void
      */
     public function __construct(GuiaRepository $guias) {
-        $this->middleware('auth');
         $this->guias = $guias;
     }
 
@@ -168,6 +168,20 @@ class GuiaController extends Controller {
     {
         return view('guias.runas', [
             'runas' => $this->obtenerRunas(),
+        ]);
+    }
+
+    public function mostrarObjetosPopUp()
+    {
+        return view('guias.objetos', [
+            'objetos' => $this->obtenerObjetos(),
+        ]);
+    }
+
+    public function mostrarHabilidadesPopUp($id)
+    {
+        return view('guias.habilidades', [
+            'habilidades' => $this->obtenerHabilidadesCampeon($id),
         ]);
     }
 
