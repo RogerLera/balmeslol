@@ -12,31 +12,61 @@
                                 <li><a href="{{ url('/') }}">Inicio</a></li>
                                 <li class="active">Estadísticas de bloqueo de los campeones</li>
                             </ul>
-                            <table id="ordenar" width="60%" class="tablesorter table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th width="20%">&nbsp;</th>
-                                        <th>Nombre</th>
-                                        <th>% de Bloqueo</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($estadisticas as $estadistica)
-                                    <tr>
-                                        <td><img height="80" width="80" class="customborder img-responsive" src="{{ $estadistica['imagen'] }}"></td>
-                                        <td>{{ $estadistica['nombre'] }}</td>
-                                        <td>{{ $estadistica['porciento'] }}%</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <img class="center-block img-responsive" src="{{ asset('/images/graficos/bloqueo_campeones.png') }}">                            
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Gráfica de estadísticas
+                                </div>
+                                <div class="panel-body-min">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img class="center-block img-responsive" src="{{ asset('/images/graficos/bloqueo_campeones.png') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Tabla de estadísticas
+                                </div>
+                                <div class="panel-body-min">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="ordenar" width="60%" class="tablesorter table table-hover table-estadisticas">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="20%">&nbsp;</th>
+                                                        <th>Nombre</th>
+                                                        <th>% de Bloqueo</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($estadisticas as $estadistica)
+                                                    <tr>
+                                                        <td><img height="80" width="80" class="customborder img-responsive" src="{{ $estadistica['imagen'] }}"></td>
+                                                        <td>{{ $estadistica['nombre'] }}</td>
+                                                        <td>{{ $estadistica['porciento'] }}%</td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--Panel body-->
+            </div><!--Panel default-->
+        </div><!--Col-md-10-->
+    </div><!--Row-->
+</div><!--Container-->
 
 @endsection

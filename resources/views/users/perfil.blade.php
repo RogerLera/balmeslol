@@ -19,15 +19,16 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">Detalles de perfil</div>
                                     <div class="panel-body-nop">
-                                        <img src="/perfil/{{ Auth::id() }}/avatar" class="profile-edit" alt="Avatar usuario">
+                                        <img src="/perfil/{{ $usuario->id }}/avatar" class="profile-edit" alt="Avatar usuario">
                                         <br><br>
-                                        <p><b>{{ Auth::user()->usuAlias }}</b></p>
-                                        <p><i class="fa fa-envelope" aria-hidden="true"></i> {{ Auth::user()->email }}</p>
-                                        <p><b>Fecha de nacimiento:</b> {{ Auth::user()->usuFdn }} </p>
+                                        <p><b>{{ $usuario->usuAlias }}</b></p>
+                                        <p><i class="fa fa-envelope" aria-hidden="true"></i> {{ $usuario->email }}</p>
+                                        <p><b>Fecha de nacimiento:</b> {{ $usuario->usuFdn }} </p>
                                         <br>
                                     </div>
                             </div>
                         </div>
+                        @if (Auth::id() === $usuario->id)
                         <div class="col-md-8">
                             <div class="panel panel-default">
                                 <div class="panel-heading">Actualizar información de perfil</div>
@@ -162,7 +163,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        @endif
                     </div>
                 </div>
             </div>

@@ -30,7 +30,7 @@
 @media (max-width: 768px) {
     .banner {
         /* Location of the image */
-        background-image: url("/images/background.png");
+        background-image: url("/images/banner-short.png");
         width: auto;
         height: 120px;
         background-repeat: no-repeat;
@@ -199,6 +199,19 @@
 
 .progress-bar-Ataque {
     background-color: #c71c22;
+}
+.table-estadisticas, .table-estadisticas th {
+    text-align: center;
+    border: 1px solid black !important;
+}
+.table-estadisticas th {
+    background: gray;
+    color: white;
+}
+
+.table-estadisticas td > img {
+    display:block;
+    margin:0 auto;
 }
 
 .table-custom {

@@ -15,19 +15,23 @@ class UserController extends Controller {
 
     /**
      * Constructor principal.
-     */
-    public function __construct() {
-        $this->middleware('auth');
-    }
+     *
+     *  public function __construct() {
+     *     $this->middleware('auth');
+     * }
+     **/
 
     /**
-     * Mostrar el perfil de un cierto user
+     * Mostrar un perfil
      *
      * @param  int  $id
-     * @return Respuesta
+     * @return información usuario a la vista
      */
-    public function mostrarPerfil($id) {
-        return view('users.perfil');
+    public function mostrarPerfil($id)
+    {
+        return view('users.perfil', [
+            'usuario' => User::whereId($id)->firstOrFail(),
+        ]);
     }
 
     /**
@@ -79,7 +83,7 @@ class UserController extends Controller {
         $this->validate($request, [
             'password' => 'required|min:6|confirmed',
         ]);
-        $user = User::whereId($user->id)->firstOrFail();
+        $user = User::whereId($id)->firstOrFail();
         $user->password = bcrypt($request->password);
         $user->save();
         return redirect('/perfil/$id');

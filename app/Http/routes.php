@@ -42,9 +42,10 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 /* --- USUARIOS --- */
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/perfil/{id}', 'UserController@mostrarPerfil');
-    Route::get('/perfil/{id}/avatar', 'UserController@mostrarAvatar');
+/* Route::get('/perfil/{id}', 'UserController@mostrarPerfil'); */
+Route::get('/perfil/{id}', 'UserController@mostrarPerfil');
+Route::get('/perfil/{id}/avatar', 'UserController@mostrarAvatar');
+Route::group(['middleware' => ['auth']], function () {  
     Route::get('/perfil/{id}/editar', 'UserController@formularioEditarUser');
     Route::post('/perfil/{id}/editar', 'UserController@editarUser');
     Route::post('/perfil/{id}/editar/password', 'UserController@editarUserPassword');
@@ -61,7 +62,9 @@ Route::group(['prefix' => 'mensajes'], function () {
 });
 
 /* --- ESTADISTICAS CAMPEONES/HECHIZOS --- */
-Route::get('/estadisticas/genera', 'EstadisticasController@generaEstadisticas');
+Route::group(['middleware' => ['auth']], function () {  
+    Route::get('/estadisticas/genera', 'EstadisticasController@generaEstadisticas');
+});
 Route::get('/estadisticas/popularidad_campeones', 'EstadisticasController@mostrarPopularidadCampeones');
 Route::get('/estadisticas/popularidad_hechizos', 'EstadisticasController@mostrarPopularidadHechizos');
 Route::get('/estadisticas/bloqueo_campeones', 'EstadisticasController@mostrarBloqueoCampeones');

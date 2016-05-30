@@ -115,9 +115,11 @@
                                         <li>
                                             <a href="/estadisticas/bloqueo_campeones">Bloqueo de campeones</a>
                                         </li>
+                                         @if (Auth::id() === 1)
                                         <li>
                                             <a href="/estadisticas/genera">Genera estadísticas</a>
                                         </li>
+                                        @endif
                                     </ul>
                                 </li>
                             </ul>
