@@ -59,7 +59,7 @@ class InvocadorController extends Controller {
                 'partidas' => $this->obtenerListaPartidas($infoInvocador->$nombre->id, $region),
             );
 
-            return $invocador;
+            $json = $invocador;
         }
         return $json;
     }
@@ -127,27 +127,34 @@ class InvocadorController extends Controller {
 
             $entries = ['division', 'puntos', 'ganadas', 'perdidas'];
             $n = 0;
+            $ligastres = 0;
             $ligas = array();
             foreach ($infoLiga->$id as $data) {
-                $ligas[$n] = array(
-                    'nombre' => $data->name,
-                    'tier' => $data->tier,
-                    'cola' => $data->queue,
-                );
 
-
-
-                foreach ($data->entries as $rankedInfo) {
-                    if (isset($rankedInfo->division))
-                        $ligas[$n][$entries[0]] = $rankedInfo->division;
-                    if (isset($rankedInfo->leaguePoints))
-                        $ligas[$n][$entries[1]] = $rankedInfo->leaguePoints;
-                    if (isset($rankedInfo->wins))
-                        $ligas[$n][$entries[2]] = $rankedInfo->wins;
-                    if (isset($rankedInfo->losses))
-                        $ligas[$n][$entries[3]] = $rankedInfo->losses;
+                if ($data->queue == "RANKED_TEAM_3x3")
+                {
+                    $ligastres++;
                 }
-                $n++;
+                if ($ligastres <= 1)
+                {
+                    $ligas[$n] = array(
+                        'nombre' => $data->name,
+                        'tier' => $data->tier,
+                        'cola' => $data->queue,
+                    );
+
+                    foreach ($data->entries as $rankedInfo) {
+                        if (isset($rankedInfo->division))
+                            $ligas[$n][$entries[0]] = $rankedInfo->division;
+                        if (isset($rankedInfo->leaguePoints))
+                            $ligas[$n][$entries[1]] = $rankedInfo->leaguePoints;
+                        if (isset($rankedInfo->wins))
+                            $ligas[$n][$entries[2]] = $rankedInfo->wins;
+                        if (isset($rankedInfo->losses))
+                            $ligas[$n][$entries[3]] = $rankedInfo->losses;
+                    }
+                    $n++;
+                }
                 if (count($infoLiga->$id) === 1) {
                     $ligas[$n] = array(
                         'nombre' => 'vacio',

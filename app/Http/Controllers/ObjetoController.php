@@ -73,47 +73,51 @@ class ObjetoController extends Controller
      * @return array associativo con la información del objeto.
      */
     public function obtenerObjetoPorId($id) {
-        // Obtenemos el json y lo parseamos a objeto php.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-        $data = json_decode($json);
+        $json = "Empty";
+        if (strpos(get_headers('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
+            // Obtenemos el json y lo parseamos a objeto php.
+            $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+            $data = json_decode($json);
 
-        // Realizamos todos los cambios al apartado $data->description que nos llega,
-        // para obtener las estadisticas del objeto bien formateadas.
-        $estadisticas = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $data->description);
+            // Realizamos todos los cambios al apartado $data->description que nos llega,
+            // para obtener las estadisticas del objeto bien formateadas.
+            $estadisticas = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $data->description);
 
-        // Creamos el array objeto que tiene toda la información.
-        $objeto = array(
-            'id' => $data->id,
-            'nombre' => $data->name,
-            'estadisticas' => $estadisticas,
-            'imagen' => 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->image->full,
-            'precio' => array(
-                'total' => $data->gold->total,
-                'base' => $data->gold->base,
-            ),
-        );
+            // Creamos el array objeto que tiene toda la información.
+            $objeto = array(
+                'id' => $data->id,
+                'nombre' => $data->name,
+                'estadisticas' => $estadisticas,
+                'imagen' => 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->image->full,
+                'precio' => array(
+                    'total' => $data->gold->total,
+                    'base' => $data->gold->base,
+                ),
+            );
 
-        // Si existe el atributo 'from' (el objeto viene de otros objetos)
-        // guardamos en un array la información de dichos objetos.
-        if (isset($data->from)) {
-            for ($n = 0; $n < count($data->from); $n++) {
-                if ($data->from[$n] != 3718 && $data->from[$n] != 3722 && $data->from[$n] != 1313 && $data->from[$n] != 1312 && $data->from[$n] != 3290) {
-                    $objeto['procede'][] = $this->obtenerObjetodelObjetoPorId($data->from[$n]);
+            // Si existe el atributo 'from' (el objeto viene de otros objetos)
+            // guardamos en un array la información de dichos objetos.
+            if (isset($data->from)) {
+                for ($n = 0; $n < count($data->from); $n++) {
+                    if ($data->from[$n] != 3718 && $data->from[$n] != 3722 && $data->from[$n] != 1313 && $data->from[$n] != 1312 && $data->from[$n] != 3290) {
+                        $objeto['procede'][] = $this->obtenerObjetodelObjetoPorId($data->from[$n]);
+                    }
                 }
             }
-        }
 
-        // Si existe el atributo 'into' (el objeto puede 'mejorarse' para hacer uno de mejor)
-        // guardamos en un array la información de dichos objetos.
-        if (isset($data->into)) {
-            for ($n = 0; $n < count($data->into); $n++) {
-                if ($data->into[$n] != 3718 && $data->into[$n] != 3722 && $data->into[$n] != 1313 && $data->into[$n] != 1312 && $data->into[$n] != 3290) {
-                    $objeto['mejora'][] = $this->obtenerObjetodelObjetoPorId($data->into[$n]);
+            // Si existe el atributo 'into' (el objeto puede 'mejorarse' para hacer uno de mejor)
+            // guardamos en un array la información de dichos objetos.
+            if (isset($data->into)) {
+                for ($n = 0; $n < count($data->into); $n++) {
+                    if ($data->into[$n] != 3718 && $data->into[$n] != 3722 && $data->into[$n] != 1313 && $data->into[$n] != 1312 && $data->into[$n] != 3290) {
+                        $objeto['mejora'][] = $this->obtenerObjetodelObjetoPorId($data->into[$n]);
+                    }
                 }
             }
+            // Devolvemos el objeto.
+            $json = $objeto;
         }
-        // Devolvemos el objeto.
-        return $objeto;
+        return $json;
     }
 
     /**
