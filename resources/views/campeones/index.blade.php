@@ -34,29 +34,32 @@
                                 </select>
                                 <br>
                                 <br>
-
                             </div>
                         </div>
-                   	    @foreach($campeones as $campeon)
-	    		 		<a href="/campeones/{{ $campeon['id'] }}">
-	    		 			<div class="champ-box">
-	    		 				<img src="{{ $campeon['imagen'] }}">
-    		 					<div class="champ-info">
-    		 						{{ $campeon['nombre'] }}
-    		 					</div>
-                                <!--Comprovamos las etiquetas de los campeones-->
-                                @foreach($campeon['tags'] as $tag)
-                                    <input type="hidden" name="tag" value="{{ $tag }}">
-                                @endforeach
-                                <!--Comprovamos los campeones gratuitos semanales-->
-                                @foreach($campeonesGratuitos as $idCampGratis)
-                                    @if($campeon['id'] == $idCampGratis['id'])
-                                    <input type="hidden" name="gratis" value="Gratis">
-                                    @endif
-                                @endforeach
-	    		 			</div>
-	    		 		</a>
-  			           @endforeach
+                        <div class="row">
+                            <div class="col-md-12">
+                           	    @foreach($campeones as $campeon)
+        	    		 		<a href="/campeones/{{ $campeon['id'] }}">
+        	    		 			<div class="champ-box">
+        	    		 				<img src="{{ $campeon['imagen'] }}">
+            		 					<div class="champ-info">
+            		 						{{ $campeon['nombre'] }}
+            		 					</div>
+                                        <!--Comprovamos las etiquetas de los campeones-->
+                                        @foreach($campeon['tags'] as $tag)
+                                            <input type="hidden" name="tag" value="{{ $tag }}">
+                                        @endforeach
+                                        <!--Comprovamos los campeones gratuitos semanales-->
+                                        @foreach($campeonesGratuitos as $idCampGratis)
+                                            @if($campeon['id'] == $idCampGratis['id'])
+                                            <input type="hidden" name="gratis" value="Gratis">
+                                            @endif
+                                        @endforeach
+    	    		 			     </div>
+    	    		 		      </a>
+      			               @endforeach
+                            </div>
+                       </div>
                     </div>
                 </div>
             </div>

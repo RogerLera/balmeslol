@@ -48,80 +48,84 @@ class CampeonController extends Controller
 	*/
 	public function obtenerCampeonPorId($id)
 	{
-        // Obtenemos el json.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/' . $id . '?locale=es_ES&champData=image,info,lore,passive,spells,stats&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
-        // Lo transformamos a objetos que php pueda entender.
-        $infoCampeon = json_decode($json);
-        // Array con los claves de características, estadísticas i habilidades campeón.
-        $caracteristicas = ['Ataque', 'Defensa', 'Magia', 'Dificultad'];
-        $estadisticas = ['Armadura', 'Ataque', 'Rango', 'Velocidad de ataque', 'Crítico',
-						'Vida', 'Regeneración de vida', 'Velocidad', 'Mana', 'Regeneración de mana',
-						'Resistencia mágica'];
-        $habilidades = ['Q', 'W', 'E', 'R'];
-        // Inicializamos el array campeón con toda la información que necessitamos.
-        $campeon = array(
-        	'id' => $infoCampeon->id,
-            'nombre' => $infoCampeon->name,
-            'titulo' => $infoCampeon->title,
-            'lore' => str_replace("<br>", "", $infoCampeon->lore),
-            'retrato' => 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'.$infoCampeon->key.'_0.jpg',
-        );
+		$json = "Empty";
+		if (strpos(get_headers('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/' . $id . '?locale=es_ES&champData=image,info,lore,passive,spells,stats&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
+	        // Obtenemos el json.
+	        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/' . $id . '?locale=es_ES&champData=image,info,lore,passive,spells,stats&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+	        // Lo transformamos a objetos que php pueda entender.
+	        $infoCampeon = json_decode($json);
+	        // Array con los claves de características, estadísticas i habilidades campeón.
+	        $caracteristicas = ['Ataque', 'Defensa', 'Magia', 'Dificultad'];
+	        $estadisticas = ['Armadura', 'Ataque', 'Rango', 'Velocidad de ataque', 'Crítico',
+							'Vida', 'Regeneración de vida', 'Velocidad', 'Mana', 'Regeneración de mana',
+							'Resistencia mágica'];
+	        $habilidades = ['Q', 'W', 'E', 'R'];
+	        // Inicializamos el array campeón con toda la información que necessitamos.
+	        $campeon = array(
+	        	'id' => $infoCampeon->id,
+	            'nombre' => $infoCampeon->name,
+	            'titulo' => $infoCampeon->title,
+	            'lore' => str_replace("<br>", "", $infoCampeon->lore),
+	            'retrato' => 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'.$infoCampeon->key.'_0.jpg',
+	        );
 
-        $n = 0;
-        // Realizamos un bucle para cada apartado que está dentro de un objeto.
-        foreach ($infoCampeon->info as $info) {
-            $campeon['caracteristicas'][$caracteristicas[$n]] = $info;
-            $n++;
-        }
+	        $n = 0;
+	        // Realizamos un bucle para cada apartado que está dentro de un objeto.
+	        foreach ($infoCampeon->info as $info) {
+	            $campeon['caracteristicas'][$caracteristicas[$n]] = $info;
+	            $n++;
+	        }
 
-        $n = 0;
-		$count = 0;
-		// Este bucle tenemos unas condiciones un poco especiales para guardar la información.
-        foreach ($infoCampeon->stats as $nombre => $stats) {
-			// Si el nombre de la clave és 'attackspeedoffset', para obtener el valor de la Velocidad
-			// de ataque necessitamos acer una formula: 0.625 / 1 + 'attackspeedoffset'.
-			if ($nombre === 'attackspeedoffset'){
-				$stats = 0.625 / (1 + $stats);
-			}
-			// Las estadísticas que base que mejoran al subir de nivel vienen después de la base con la
-			// que se empieza, en escepción de las de 'attackrange' y 'movespeed'.
-			if ($nombre !== 'attackrange' && $nombre !== 'movespeed') {
-				// Si count es 1, añadimos a la estaddística base el '(+ X por nivel)'. I ponemos el count a 0.
-				if ($count == 1) {
-					$campeon['estadisticas'][$estadisticas[$n - 1]] .= " (+" . round($stats, 3) . " por nivel)";
-					$count = 0;
-				// Sinó, al ser la estadística base la introducimos al array normalmente.
-				// Añadimos uno a count y a n.
+	        $n = 0;
+			$count = 0;
+			// Este bucle tenemos unas condiciones un poco especiales para guardar la información.
+	        foreach ($infoCampeon->stats as $nombre => $stats) {
+				// Si el nombre de la clave és 'attackspeedoffset', para obtener el valor de la Velocidad
+				// de ataque necessitamos acer una formula: 0.625 / 1 + 'attackspeedoffset'.
+				if ($nombre === 'attackspeedoffset'){
+					$stats = 0.625 / (1 + $stats);
+				}
+				// Las estadísticas que base que mejoran al subir de nivel vienen después de la base con la
+				// que se empieza, en escepción de las de 'attackrange' y 'movespeed'.
+				if ($nombre !== 'attackrange' && $nombre !== 'movespeed') {
+					// Si count es 1, añadimos a la estaddística base el '(+ X por nivel)'. I ponemos el count a 0.
+					if ($count == 1) {
+						$campeon['estadisticas'][$estadisticas[$n - 1]] .= " (+" . round($stats, 3) . " por nivel)";
+						$count = 0;
+					// Sinó, al ser la estadística base la introducimos al array normalmente.
+					// Añadimos uno a count y a n.
+					} else {
+						$count++;
+						$campeon['estadisticas'][$estadisticas[$n]] = round($stats, 3);
+						$n++;
+					}
+				// En caso que el nombre de la estadística sea una de las dos (attackrange o movespeed),
+				// las introducimos sin subir al count, ya que ninguna de estas dos tienen el 'por nivel'.
 				} else {
-					$count++;
 					$campeon['estadisticas'][$estadisticas[$n]] = round($stats, 3);
 					$n++;
 				}
-			// En caso que el nombre de la estadística sea una de las dos (attackrange o movespeed),
-			// las introducimos sin subir al count, ya que ninguna de estas dos tienen el 'por nivel'.
-			} else {
-				$campeon['estadisticas'][$estadisticas[$n]] = round($stats, 3);
+	        }
+
+			// Añadimos al array 'habilidades' el array 'passiva'.
+	        $campeon['habilidades']['Pasiva']['Nombre'] = $infoCampeon->passive->name;
+	        $campeon['habilidades']['Pasiva']['Descripcion'] = $infoCampeon->passive->description;
+	        $campeon['habilidades']['Pasiva']['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/passive/' . $infoCampeon->passive->image->full;
+			$campeon['habilidades']['Pasiva']['Video'] = $this->videoHabilidadCampeon($id, 0);
+
+	        $n = 0;
+			// Añadimos el resto de habilidades al array.
+	        foreach ($infoCampeon->spells as $spell) {
+	            $campeon['habilidades'][$habilidades[$n]]['Nombre'] = $spell->name;
+	            $campeon['habilidades'][$habilidades[$n]]['Descripcion'] = $spell->description;
+	            $campeon['habilidades'][$habilidades[$n]]['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/spell/' . $spell->image->full;
+				$campeon['habilidades'][$habilidades[$n]]['Video'] = $this->videoHabilidadCampeon($id, $n+1);
 				$n++;
-			}
-        }
-
-		// Añadimos al array 'habilidades' el array 'passiva'.
-        $campeon['habilidades']['Pasiva']['Nombre'] = $infoCampeon->passive->name;
-        $campeon['habilidades']['Pasiva']['Descripcion'] = $infoCampeon->passive->description;
-        $campeon['habilidades']['Pasiva']['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/passive/' . $infoCampeon->passive->image->full;
-		$campeon['habilidades']['Pasiva']['Video'] = $this->videoHabilidadCampeon($id, 0);
-
-        $n = 0;
-		// Añadimos el resto de habilidades al array.
-        foreach ($infoCampeon->spells as $spell) {
-            $campeon['habilidades'][$habilidades[$n]]['Nombre'] = $spell->name;
-            $campeon['habilidades'][$habilidades[$n]]['Descripcion'] = $spell->description;
-            $campeon['habilidades'][$habilidades[$n]]['Imagen'] = 'http://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/spell/' . $spell->image->full;
-			$campeon['habilidades'][$habilidades[$n]]['Video'] = $this->videoHabilidadCampeon($id, $n+1);
-			$n++;
-        }
-        // Devolvemos el array campeón.
-        return $campeon;
+	        }
+	        // Devolvemos el array campeón.
+	        $json = $campeon;
+	    } 
+	    return $json;
 	}
 
 	/**

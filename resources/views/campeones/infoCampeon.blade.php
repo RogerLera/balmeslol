@@ -8,6 +8,23 @@
                     <div class="panel-body">
                          <div class="row">
                              <div class="col-md-12">
+                                @if ($campeon == "Empty")
+                                    <ul class="breadcrumb">
+                                        <li><a href="{{ url('/') }}">Inicio</a></li>
+                                        <li><a href="{{ url('/campeones') }}">Campeones</a></li>
+                                        <li class="active">Página de error</li>
+                                    </ul>
+                                    <div class="alert alert-danger" role="alert">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <img style="width:30%;" src="{{asset('/images/alertwarning') }}.png">
+                                            </div>
+                                            <div class="col-md-10">
+                                                <p>Lo sentimos, el campeon que intentas buscar no existe.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @else
                                 <ul class="breadcrumb">
                                     <li><a href="{{ url('/') }}">Inicio</a></li>
                                     <li><a href="{{ url('/campeones') }}">Campeones</a></li>
@@ -113,6 +130,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
             </div>
         </div>
