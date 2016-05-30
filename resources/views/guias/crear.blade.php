@@ -139,27 +139,6 @@
                                         </span>
                                     @endif
                                 </div>
-                                <!-- Maestrias -->
-                                <div class="form-group{{ $errors->has('guiMaestrias') ? ' has-error' : '' }}">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                                                Maestrias</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse3" class="panel-collapse collapse">
-                                            <div>
-                                                <textarea class="form-control guia" name="guiMaestrias"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @if ($errors->has('guiMaestrias'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('guiMaestrias') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
                                 <!-- Habilidades -->
                                 <div class="form-group{{ $errors->has('guiHabilidades') ? ' has-error' : '' }}">
                                     <div class="panel panel-default">

@@ -5,11 +5,11 @@
     {{--*/ array_push($hechizos, $hechizos[0]); unset($hechizos[0]); /*--}}
     @for($n = 1; $n < (count($hechizos) + 1); $n++)
         @if ($n === 1)
-            <tr><td><img src="{{ $hechizos[$n]['imagen'] }}" alt="{{ $hechizos[$n]['nombre'] }}"></td>
+            <tr><td><img src="{{ $hechizos[$n]['imagen'] }}" alt="{{ $hechizos[$n]['nombre'] }}" title="{{ $hechizos[$n]['nombre'] }}"></td>
         @elseif ($n % 7 === 0)
-            <td><img src="{{ $hechizos[$n]['imagen'] }}" alt="{{ $hechizos[$n]['nombre'] }}"></td></tr><tr>
+            <td><img src="{{ $hechizos[$n]['imagen'] }}" alt="{{ $hechizos[$n]['nombre'] }}" title="{{ $hechizos[$n]['nombre'] }}"></td></tr><tr>
         @else
-            <td><img src="{{ $hechizos[$n]['imagen'] }}" alt="{{ $hechizos[$n]['nombre'] }}"></td>
+            <td><img src="{{ $hechizos[$n]['imagen'] }}" alt="{{ $hechizos[$n]['nombre'] }}" title="{{ $hechizos[$n]['nombre'] }}"></td>
         @endif
     @endfor
 @endsection

@@ -21,7 +21,6 @@ class CreateGuiasTable extends Migration
             $table->integer('usuId')->unsigned();
             $table->string('guiHechizos');
             $table->string('guiRunas');
-            $table->string('guiMaestrias');
             $table->string('guiHabilidades');
             $table->string('guiObjetos');
             $table->integer('guiPositivo');
