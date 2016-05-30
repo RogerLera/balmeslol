@@ -2,15 +2,34 @@ body {
     background-image: none;
 }
 
+.imagenesGuias {
+    width: 100%;
+    height: auto;
+    padding: 1%;
+}
+
 .imagenesGuias img {
-    width: 50px;
+    margin: 2px;
+    float: left;
     height: 50px;
+    width: 50px;
+}
+
+.infoRunas {
+    margin-left:60px;
+}
+
+h5 {
+    margin: 0px;
 }
 
 td {
-    max-width: 300px;
+    width: 300px;
 }
 
-.prova {
-    margin-top: 5px;
+.borde {
+    min-height: 55px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 1px;
 }

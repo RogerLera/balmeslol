@@ -5,21 +5,21 @@ $(document).ready(function() {
         'nombre': 'Hechizos',
         'titulo': 'Escojer un hechizo',
         'ruta': '/json/hechizos',
-        'width': 400,
-        'height': 130,
+        'width': 390,
+        'height': 120,
     }, {
         'boton': 'botonCampeones',
         'nombre': 'Campeones',
         'titulo': 'Escojer un campeón',
         'ruta': '/json/campeones',
-        'width': 590,
+        'width': 580,
         'height': 400,
     }, {
         'boton': 'botonRunas',
         'nombre': 'Runas',
         'titulo': 'Escojer una runa',
         'ruta': '/json/runas',
-        'width': 730,
+        'width': 640,
         'height': 500,
     }, ];
     // Inicializamos el plugin tinymce (WYSIWYG HTML Editor).
