@@ -91,7 +91,7 @@ class GuiaController extends Controller {
     public function crearGuia(Request $request) {
         $this->validate($request, [
             'guiTitulo' => 'required|max:100',
-            'camId' => 'required',
+            'camNombre' => 'required',
             'rolId' => 'required',
             'usuId' => 'required',
             'guiHechizos' => 'max:2000',
@@ -116,7 +116,7 @@ class GuiaController extends Controller {
     public function editarGuia(Request $request) {
         $this->validate($request, [
             'guiTitulo' => 'required|max:100',
-            'camId' => 'required',
+            'camNombre' => 'required',
             'rolId' => 'required',
             'usuId' => 'required',
             'guiHechizos' => 'max:1000',
