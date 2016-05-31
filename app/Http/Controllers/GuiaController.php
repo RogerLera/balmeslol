@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Guia;
+use App\Favorito;
 use App\Role;
+use App\Votacion;
 use App\Http\Requests;
 use App\Repositories\GuiaRepository;
 use App\Traits\TraitCampeones;
@@ -149,18 +151,53 @@ class GuiaController extends Controller {
         return redirect('/guias');
     }
 
-    public function clasificacion($id, Request $request)
+    public function votacion()
     {
-        $guia = Guia::whereId($id)->firstOrFail();
-        $tipo = $request->input('tipo');
-        if ($tipo == 1) {
-            $guia->guiPositivo = ($guia->guiPositivo + 1);
+        $idGuia = Input::get('idGuia');
+        $idUser = Input::get('idUser');
+        $tipo = Input::get('tipo');
+        $esNuevo = 0;
+        $where = ['usuId' => $idUser, 'guiId' => $idGuia];
+        $votacionExistente = Votacion::where($where)->first();
+        if (is_null($votacionExistente)) {
+            Votacion::create([
+                'usuId' => $idUser,
+                'guiId' => $idGuia,
+                'votValoracion' => $tipo,
+            ]);
         } else {
-            $guia->guiNegativo = ($guia->guiNegativo + 1);
+            if ($votacionExistente->votValoracion != $tipo) {
+                $votacionExistente->votValoracion = $tipo;
+                $votacionExistente->save();
+                $esNuevo = 1;
+            } else {
+                $esNuevo = 2;
+            }
         }
-        $guia->save();
+        return $this->actualizarValoracion($guiId, $tipo, $esNuevo);
+    }
 
-        return redirect('/guias');
+    public function actualizarValoracion($guiId, $tipo, $esNuevo)
+    {
+        $valoracion = 0;
+        $guia = Guia::whereId($guiId)->firstOrFail();
+            if ($esNuevo == 0) {
+                if ($tipo == 1) {
+                $valoracion = $guia->guiPositivo = ($guia->guiPositivo + 1);
+                } else {
+                    $valoracion = $guia->guiNegativo = ($guia->guiNegativo + 1);
+                }
+            } else if ($esNuevo == 1) {
+                if ($tipo == 1) {
+                $valoracion = $guia->guiNegativo = ($guia->guiNegativo - 1);
+                $valoracion = $guia->guiPositivo = ($guia->guiPositivo + 1);
+                } else {
+                    $valoracion = $guia->guiPositivo = ($guia->guiPositivo - 1);
+                    $valoracion = $guia->guiNegativo = ($guia->guiNegativo + 1);
+                }
+            }
+        $guia->save();
+        return $valoracion;
     }
 
     public function mostrarHechizosPopUp()

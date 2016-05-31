@@ -14,7 +14,7 @@ class CreateGuiasTable extends Migration
     public function up()
     {
         Schema::create('guias', function (Blueprint $table) {
-            $table->increments('guiId');
+            $table->increments('id');
             $table->string('guiTitulo');
             $table->string('camNombre', 20);
             $table->integer('rolId')->unsigned();

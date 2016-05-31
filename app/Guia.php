@@ -30,4 +30,9 @@ class Guia extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function votacions()
+    {
+        return $this->belongsToMany(User::class, 'votacions');
+    }
 }
