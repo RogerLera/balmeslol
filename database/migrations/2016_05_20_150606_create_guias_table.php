@@ -19,10 +19,10 @@ class CreateGuiasTable extends Migration
             $table->integer('camId')->unsigned();
             $table->integer('rolId')->unsigned();
             $table->integer('usuId')->unsigned();
-            $table->string('guiHechizos');
-            $table->string('guiRunas');
-            $table->string('guiHabilidades');
-            $table->string('guiObjetos');
+            $table->string('guiHechizos', 2000);
+            $table->string('guiRunas', 2500);
+            $table->string('guiHabilidades', 3000);
+            $table->string('guiObjetos', 3000);
             $table->integer('guiPositivo');
             $table->integer('guiNegativo');
             $table->string('guiVersion');
