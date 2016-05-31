@@ -16,7 +16,7 @@ class CreateGuiasTable extends Migration
         Schema::create('guias', function (Blueprint $table) {
             $table->increments('guiId');
             $table->string('guiTitulo');
-            $table->integer('camId')->unsigned();
+            $table->string('camNombre', 20);
             $table->integer('rolId')->unsigned();
             $table->integer('usuId')->unsigned();
             $table->string('guiHechizos', 2000);
