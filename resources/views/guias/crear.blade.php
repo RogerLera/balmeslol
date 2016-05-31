@@ -27,7 +27,7 @@
                         </div>
 
                         <!-- Campeones -->
-                        <div class="form-group{{ $errors->has('camId') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('camNombre') ? ' has-error' : '' }}">
                             <label class="col-md-3 control-label">Campeón</label>
 
                             <div class="col-md-4">
@@ -38,9 +38,9 @@
                                     @endforeach
                                 </select>
 
-                                @if ($errors->has('camId'))
+                                @if ($errors->has('camNombre'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('camId') }}</strong>
+                                        <strong>{{ $errors->first('camNombre') }}</strong>
                                     </span>
                                 @endif
                             </div>

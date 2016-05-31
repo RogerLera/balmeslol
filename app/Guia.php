@@ -17,7 +17,7 @@ class Guia extends Model
      * @var $fillable: array con los valores que se pueden modificar.
      */
     protected $fillable = [
-        'guiTitulo', 'camId', 'rolId', 'usuId', 'guiHechizos', 'guiRunas', 'guiMaestrias',
+        'guiTitulo', 'camNombre', 'rolId', 'usuId', 'guiHechizos', 'guiRunas', 'guiMaestrias',
         'guiHabilidades', 'guiObjetos', 'guiPositivo', 'guiNegativo', 'guiVersion',
     ];
 
