@@ -15,19 +15,21 @@ if ($('div').hasClass('borde')) {
         // Finalmente cerramos el iframe.
         window.parent.tinyMCE.activeEditor.windowManager.close();
     });
-    // Si no llega un div, solo una imagen, realizamos lo siguiente.
+    // Si no llega un div, solo una imagen, pero el boton al que hemos apretado es el de habilidades.
 } else if (prova[prova.length - 1] == 'campeones?habilidades=true') {
     $('img').on('click', function(e) {
+        // Al hacer click en un campeón mostramos sus habilidades en otro popup.
         window.parent.tinyMCE.activeEditor.windowManager.open({
             // Título para el popup.
             title: 'Selecionar una habilidad',
             // Contenido (html con los datos a mostrar).
             url: '/json/habilidades/' + e.currentTarget.id,
             // Tamaño del popup.
-            width: 390,
+            width: 340,
             height: 120,
         });
     });
+// Si no llega un div, solo una imagen, realizamos lo siguiente.
 } else {
     // Quando se haga click en una imagen del popup, pasaremos el elemento selecionado por la función.
     $('img').on('click', function(e) {
