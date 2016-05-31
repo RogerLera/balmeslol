@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li class="active">Inicio</li>
+                                <li class="active">@lang('messages.Inicio')</li>
                             </ul>
                         </div>
                     </div>
@@ -17,13 +17,11 @@
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Bienvenido a Balmeslol
+                                     @lang('messages.Bienvenido-titulo')
                                 </div>
                                 <div class="panel-body-min">
                                     <p>
-                                        Balmeslol es un portal que ofrece información detallada y específica del juego on-line League of Legends. 
-                                        Los datos empleados son a tiempo real y totalmente precisos extraídos directamente de los servidores de este. 
-                                        Balmeslol ofrece guías creadas por la comunidad de campeones así como diversas estadísticas actualizadas.
+                                        @lang('messages.Bienvenido')
                                     </p>
                                 </div>
                             </div>
@@ -33,7 +31,7 @@
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Rotación semanal gratuita
+                                   @lang('messages.Rotacion-titulo')
                                 </div>
                                 <div class="panel-body-min">
                                     <div class="row">
@@ -54,7 +52,7 @@
                                             @endforeach
                                         </div>
                                         <div class="col-md-5">
-                                            <p>La rotación semanal es un conjunto de campeones que están disponibles a todo el mundo sin necesidad de poseer al campeón, <b>la rotación cambia cada martes</b></p>
+                                            <p>@lang('messages.Rotacion-descripcion')</p>
                                         </div>
                                     </div>
                                 </div>

@@ -12,6 +12,9 @@
 */
 
 /* --- INICIO --- */
+
+Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
+
 Route::get('/', function () {
     return view('welcome');
 });

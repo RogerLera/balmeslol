@@ -23,7 +23,7 @@
                 <div class="col-md-6 col-md-offset-6 col-xs-6 col-xs-offset-6" style="padding-top:30px;">
                     <form class="navbar-form navbar-right"  accept-charset="ISO-8859-1" role="search" action="/invocador">
                         <div class="form-group">
-                            <input name="nombre" type="text" class="form-control" placeholder="Buscar jugador">
+                            <input name="nombre" type="text" class="form-control" placeholder="@lang('messages.Buscarjugador')">
                             <select class="selectpicker" data-width="fit" name="region">
                                 <option data-subtext="EU Oeste" value="euw">EUW</option>
                                 <option data-subtext="EU Nórdica y Este" value="eune">EUNE</option>
@@ -63,74 +63,89 @@
                                 <!-- Guias menú -->
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        Guías de campeones<b class="caret"></b>
+                                        @lang('messages.Guias-titulo')<b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-header">
-                                            Guías de campeones
+                                            @lang('messages.Guias-titulo')
                                         </li>
                                         <li class="divider"></li>
                                         <li>
-                                            <a href="{{ url('/guias') }}">Todas las guías</a>
+                                            <a href="{{ url('/guias') }}">@lang('messages.Guias-todas')</a>
                                         </li>
                                         <li>
-                                            <a href="#">Nuevo</a>
+                                            <a href="#">@lang('messages.Guias-nuevo')</a>
                                         </li>
                                         <li>
-                                            <a href="#">Popular</a>
+                                            <a href="#">@lang('messages.Guias-popular')</a>
                                         </li>
                                         <li>
-                                            <a href="#">Más votado</a>
+                                            <a href="#">@lang('messages.Guias-votado')</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <!-- Campeones menú -->
                                 <li>
-                                    <a href="{{ url('/campeones') }}">Campeones</a>
+                                    <a href="{{ url('/campeones') }}">@lang('messages.Campeones')</a>
                                 </li>
                                 <!-- Objetos menú -->
                                 <li>
-                                    <a href="{{ url('/objetos') }}">Objetos</a>
+                                    <a href="{{ url('/objetos') }}">@lang('messages.Objetos')</a>
                                 </li>
                                 <!-- Hechizos menú -->
                                 <li>
-                                    <a href="{{ url('/hechizos') }}">Hechizos</a>
+                                    <a href="{{ url('/hechizos') }}">@lang('messages.Hechizos')</a>
                                 </li>
                                 <!-- Estadísticas menú -->
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        Estadísticas<b class="caret"></b>
+                                        @lang('messages.Esta-titulo')<b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-header">
-                                            Estadísticas
+                                             @lang('messages.Esta-titulo')
                                         </li>
                                         <li class="divider"></li>
                                         <li>
-                                            <a href="/estadisticas/popularidad_campeones">Popularidad de campeones</a>
+                                            <a href="/estadisticas/popularidad_campeones">@lang('messages.Esta-popcampeones')</a>
                                         </li>
                                         <li>
-                                            <a href="/estadisticas/popularidad_hechizos">Popularidad de hechizos</a>
+                                            <a href="/estadisticas/popularidad_hechizos">@lang('messages.Esta-pophechizos')</a>
                                         </li>
                                         <li>
-                                            <a href="/estadisticas/bloqueo_campeones">Bloqueo de campeones</a>
+                                            <a href="/estadisticas/bloqueo_campeones">@lang('messages.Esta-bloqueocampeones')</a>
                                         </li>
                                          @if (Auth::id() === 1)
                                         <li>
-                                            <a href="/estadisticas/genera">Genera estadísticas</a>
+                                            <a href="/estadisticas/genera">@lang('messages.Esta-generar')</a>
                                         </li>
                                         @endif
                                     </ul>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
+                                <!--Idioma-->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        @lang('messages.Idioma')<b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        @foreach (Config::get('languages') as $lang => $language)
+                                            @if ($lang != App::getLocale())
+                                                <li>
+                                                    <a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </li>
                                 <!-- Authentication Links -->
                                 @if (Auth::guest())
                                 <li>
-                                    <a href="{{ url('/login') }}">Iniciar</a>
+                                    <a href="{{ url('/login') }}">@lang('messages.Iniciar')</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/register') }}">Registrarse</a>
+                                    <a href="{{ url('/register') }}">@lang('messages.Registrar')</a>
                                 </li>
                                 @else
                                 <li class="dropdown">
@@ -138,11 +153,11 @@
                                         <img src="/perfil/{{ Auth::id() }}/avatar" class="profile" alt="Avatar usuario"> {{ Auth::user()->usuAlias }} @include('messenger.unread-count')<span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/perfil/{{ Auth::id() }}"><i class="fa fa-btn fa-user"></i> Perfil</a></li>
-                                        <li><a href="{{URL::to('mensajes')}}"><i class="fa fa-btn fa-envelope"></i> Mensajes @include('messenger.unread-count')</a></li>
-                                        <li><a href="{{URL::to('mensajes/crear')}}"><i class="fa fa-btn fa-envelope"></i> Nuevo Mensaje</a></li>
-                                        <li><a href="/guias/usuario/{{ Auth::id() }}"><i class="fa fa-btn fa-star"></i> Mis guias</a></li>
-                                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Desconectarse</a></li>
+                                        <li><a href="/perfil/{{ Auth::id() }}"><i class="fa fa-btn fa-user"></i> @lang('messages.Usu-perfil')</a></li>
+                                        <li><a href="{{URL::to('mensajes')}}"><i class="fa fa-btn fa-envelope"></i> @lang('messages.Usu-mensajes') @include('messenger.unread-count')</a></li>
+                                        <li><a href="{{URL::to('mensajes/crear')}}"><i class="fa fa-btn fa-envelope"></i> @lang('messages.Usu-nmensaje')</a></li>
+                                        <li><a href="/guias/usuario/{{ Auth::id() }}"><i class="fa fa-btn fa-star"></i> @lang('messages.Usu-misguias')</a></li>
+                                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> @lang('messages.Usu-desconectarse')</a></li>
                                     </ul>
                                 </li>
                                 @endif
@@ -156,7 +171,7 @@
         <div class="container footer-text footer-balmeslol">
             <div class="row">
                 <div class="col-md-12">
-                    <p>© 2015-2016 Balmeslol Basado en la euw api de League of Legends</p> 
+                    <p>@lang('messages.copyright')</p> 
                 </div>
             </div>
             <div class="row">
@@ -166,7 +181,7 @@
             </div>
             <div class="row footer-balmeslol2">
                 <div class="col-md-12 ">
-                    <p><i class="fa fa-envelope" aria-hidden="true"></i> Contactanos: Administrador@balmeslol.com</p>
+                    <p><i class="fa fa-envelope" aria-hidden="true"></i> @lang('messages.contactanos'): Administrador@balmeslol.com</p>
                 </div>
             </div>
         </div>
