@@ -127,7 +127,7 @@ class GuiaController extends Controller {
             'guiVersion' => 'required',
         ]);
 
-        $guias = Guias::whereId($guias->id)->firstOrFail();
+        $guias = Guia::whereId($guias->id)->firstOrFail();
         $guias->fill(Input::all());
         $guias->save();
 
@@ -145,6 +145,20 @@ class GuiaController extends Controller {
         $this->authorize('destroy', $guia);
 
         $guia->delete();
+
+        return redirect('/guias');
+    }
+
+    public function clasificacion($id, Request $request)
+    {
+        $guia = Guia::whereId($id)->firstOrFail();
+        $tipo = $request->input('tipo');
+        if ($tipo == 1) {
+            $guia->guiPositivo = ($guia->guiPositivo + 1);
+        } else {
+            $guia->guiNegativo = ($guia->guiNegativo + 1);
+        }
+        $guia->save();
 
         return redirect('/guias');
     }

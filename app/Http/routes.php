@@ -18,11 +18,11 @@ Route::get('/', function () {
 
 /* --- CAMPEONES --- */
 Route::get('/campeones', 'CampeonController@index');
-Route::get('/campeones/{id}', 'CampeonController@mostrarCampeon');
+Route::get('/campeones/{id}', 'CampeonController@mostrarCampeon')->where('id', '[0-9]+');
 
 /* --- OBJETOS --- */
 Route::get('/objetos', 'ObjetoController@index');
-Route::get('/objetos/{id}', 'ObjetoController@mostrarObjeto');
+Route::get('/objetos/{id}', 'ObjetoController@mostrarObjeto')->where('id', '[0-9]+');
 
 /* --- Hechizos --- */
 Route::get('/hechizos', 'HechizoController@index');
@@ -35,21 +35,21 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/guias/crear', 'GuiaController@formularioCrearGuia');
     // Alomejor necesita crear ruta para favoritos, no desde GuiaController.
     Route::get('/guias/favoritos', 'GuiaController@obtenerGuiasFavoritos');
-    Route::get('/guias/usuario/{id}', 'GuiaController@misGuias');
+    Route::get('/guias/{id}/clasificacion','GuiaController@clasificacion')->where('id', '[0-9]+');
+    Route::get('/guias/usuario/{id}', 'GuiaController@misGuias')->where('id', '[0-9]+');
     Route::post('/guias/crear', 'GuiaController@crearGuia');
     Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
     Route::delete('/guias/{guia}', 'GuiaController@eliminarGuia');
 });
 
 /* --- USUARIOS --- */
-/* Route::get('/perfil/{id}', 'UserController@mostrarPerfil'); */
 Route::get('/perfil/{id}', 'UserController@mostrarPerfil');
 Route::get('/perfil/{id}/avatar', 'UserController@mostrarAvatar');
-Route::group(['middleware' => ['auth']], function () {  
-    Route::get('/perfil/{id}/editar', 'UserController@formularioEditarUser');
-    Route::post('/perfil/{id}/editar', 'UserController@editarUser');
-    Route::post('/perfil/{id}/editar/password', 'UserController@editarUserPassword');
-    Route::delete('/perfil/{id}', 'UserController@eliminarUser');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/perfil/{id}/editar', 'UserController@formularioEditarUser')->where('id', '[0-9]+');
+    Route::post('/perfil/{id}/editar', 'UserController@editarUser')->where('id', '[0-9]+');
+    Route::post('/perfil/{id}/editar/password', 'UserController@editarUserPassword')->where('id', '[0-9]+');
+    Route::delete('/perfil/{id}', 'UserController@eliminarUser')->where('id', '[0-9]+');
 });
 
 /* --- MENSAJES Messenger --- */
@@ -62,7 +62,7 @@ Route::group(['prefix' => 'mensajes'], function () {
 });
 
 /* --- ESTADISTICAS CAMPEONES/HECHIZOS --- */
-Route::group(['middleware' => ['auth']], function () {  
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/estadisticas/genera', 'EstadisticasController@generaEstadisticas');
 });
 Route::get('/estadisticas/popularidad_campeones', 'EstadisticasController@mostrarPopularidadCampeones');
@@ -82,4 +82,4 @@ Route::get('/json/hechizos', 'GuiaController@mostrarHechizosPopUp');
 Route::get('/json/campeones', 'GuiaController@mostrarCampeonesPopUp');
 Route::get('/json/runas', 'GuiaController@mostrarRunasPopUp');
 Route::get('/json/objetos', 'GuiaController@mostrarObjetosPopUp');
-Route::get('/json/habilidades/{id}', 'GuiaController@mostrarHabilidadesPopUp');
+Route::get('/json/habilidades/{id}', 'GuiaController@mostrarHabilidadesPopUp')->where('id', '[0-9]+');

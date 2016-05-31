@@ -31,10 +31,10 @@
                             <label class="col-md-3 control-label">Campeón</label>
 
                             <div class="col-md-4">
-                                <select class="form-control" name="camId">
+                                <select class="form-control" name="camNombre">
                                     <option value="1">Seleciona un campeón</option>
                                     @foreach ($campeones as $campeon)
-                                        <option value="{{ $campeon['id'] }}">{{ $campeon['nombre'] }}</option>
+                                        <option value="{{ $campeon['nombre'] }}">{{ $campeon['nombre'] }}</option>
                                     @endforeach
                                 </select>
 

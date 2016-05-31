@@ -124,7 +124,7 @@ class CampeonController extends Controller
 	        }
 	        // Devolvemos el array campeón.
 	        $json = $campeon;
-	    } 
+	    }
 	    return $json;
 	}
 
