@@ -15,6 +15,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', 'CampeonController@mostrarCampeonesGratuitos');
 
 /* --- CAMPEONES --- */
 Route::get('/campeones', 'CampeonController@index');

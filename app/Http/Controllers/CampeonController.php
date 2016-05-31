@@ -42,6 +42,19 @@ class CampeonController extends Controller
 	}
 
 	/**
+	* Método que devuelve a la vista los campeones gratuitos de la semana.
+	*
+	* @return información campeón a la vista.
+	*/
+	public function mostrarCampeonesGratuitos()
+	{
+		return view('welcome', [
+			'campeones' => $this->obtenerCampeones(),
+            'campeonesGratuitos' => $this->obtenerCampeonesGratis(),
+		]);
+	}
+
+	/**
 	* Método que a partir de una id, obtiene el campeón deseado.
 	*
 	* @return array associativo con la información del campeón.

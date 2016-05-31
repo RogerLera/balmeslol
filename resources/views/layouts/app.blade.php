@@ -55,7 +55,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="{{ url('/') }}">Balmeslol</a>
+                            <a class="navbar-brand" href="{{ url('/') }}">Balmeslol</i></a>
                         </div>
 
                         <div id="navbar" class="navbar-collapse collapse">
@@ -153,6 +153,23 @@
             </div><!--/.row -->
         </div><!--/.container -->
         @yield('content')
+        <div class="container footer-text footer-balmeslol">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>© 2015-2016 Balmeslol Basado en la euw api de League of Legends</p> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p><a href="http://www.twitter.com"><img src="{{asset('/images/twitter.16x16.png')}}"></a><a href="http://www.facebook.com"><img src="{{asset('/images/facebook.16x16.png') }}"></a><a href="http://www.instagram.com"><img src="{{asset('/images/instagram.16x16.png') }}"></a></p>
+                </div>
+            </div>
+            <div class="row footer-balmeslol2">
+                <div class="col-md-12 ">
+                    <p><i class="fa fa-envelope" aria-hidden="true"></i> Contactanos: Administrador@balmeslol.com</p>
+                </div>
+            </div>
+        </div>
         <!-- JavaScripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
