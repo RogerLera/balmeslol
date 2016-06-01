@@ -211,6 +211,7 @@ return [
     /* show.blade.php */
     'Mensajes-Participantes' => 'Thread participants',
     'Mensajes-Añadir' => 'Add a new message',
+    'Mensajes-Enviado' => 'Sent',
     
     /* --- Invocador --- */
     /* index.blade.php */
