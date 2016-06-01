@@ -167,8 +167,8 @@ return [
     'Gui-Version' => 'Versión',
     'Gui-Usuario' => 'Usuario',
     'Gui-Runas' => 'Runas',
-    '' => '',
-    '' => '',
+    'Gui-Selecciona' => 'Seleciona un campeón',
+    'Gui-Selecrol' => 'Selecciona un rol',
     '' => '',
 
     /* login.blade.php */
