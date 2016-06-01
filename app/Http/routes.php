@@ -37,8 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/guias/votacion', 'GuiaController@votacion');
     Route::get('/guias/usuario/{id}', 'GuiaController@misGuias')->where('id', '[0-9]+');
     Route::post('/guias/crear', 'GuiaController@crearGuia');
-    Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
-    Route::delete('/guias/{guia}', 'GuiaController@eliminarGuia');
+    Route::post('/guias/{id}/editar', 'GuiaController@editarGuia')->where('id', '[0-9]+');
+    Route::delete('/guias/{id}', 'GuiaController@eliminarGuia')->where('id', '[0-9]+');
 });
 
 /* --- USUARIOS --- */

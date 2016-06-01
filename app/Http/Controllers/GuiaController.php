@@ -53,9 +53,15 @@ class GuiaController extends Controller {
      * @param $id identificador
      * @return información completa de la guia.
      */
-    public function obtenerGuia($id) {
-        return view('guias.guia', [
+    public function obtenerGuia(Request $request, $id) {
+        $guia = Guia::findOrFail($id);
+        $vista = 'guias.guia';
+        if ($request->user()->id == $guia->user->id) {
+            $vista = 'guias.editar';
+        }
+        return view($vista, [
             'guia' => Guia::findOrFail($id),
+            'version' => $this->version(),
         ]);
     }
 
@@ -101,7 +107,6 @@ class GuiaController extends Controller {
             'guiHabilidades' => 'max:3000',
             'guiObjetos' => 'max:3000',
             'guiVersion' => 'required',
-            'guiVersion' => 'required',
         ]);
 
         Guia::create(Input::all());
@@ -115,23 +120,22 @@ class GuiaController extends Controller {
      * @param Request $request datos a editar.
      * @return redireccionamos a la página de sus guias.
      */
-    public function editarGuia(Request $request) {
+    public function editarGuia(Request $request, $id) {
         $this->validate($request, [
             'guiTitulo' => 'required|max:100',
             'camNombre' => 'required',
             'rolId' => 'required',
             'usuId' => 'required',
-            'guiHechizos' => 'max:1000',
-            'guiRunas' => 'max:1000',
-            'guiMaestrias' => 'max:1000',
-            'guiHabilidades' => 'max:1000',
-            'guiObjetos' => 'max:1000',
+            'guiHechizos' => 'max:2000',
+            'guiRunas' => 'max:2500',
+            'guiHabilidades' => 'max:3000',
+            'guiObjetos' => 'max:3000',
             'guiVersion' => 'required',
         ]);
 
-        $guias = Guia::whereId($guias->id)->firstOrFail();
-        $guias->fill(Input::all());
-        $guias->save();
+        $guia = Guia::whereId($id)->firstOrFail();
+        $guia->fill(Input::all());
+        $guia->save();
 
         return redirect('/guias');
     }
