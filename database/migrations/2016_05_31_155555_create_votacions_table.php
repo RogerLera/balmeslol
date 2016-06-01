@@ -17,7 +17,6 @@ class CreateVotacionsTable extends Migration
             $table->integer('usuId')->unsigned();
             $table->integer('guiId')->unsigned();
             $table->boolean('votValoracion');
-            $table->softDeletes();
             $table->timestamps();
             $table->foreign('usuId')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('guiId')->references('id')->on('guias')->onDelete('cascade');
