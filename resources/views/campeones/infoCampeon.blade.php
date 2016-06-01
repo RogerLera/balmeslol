@@ -10,9 +10,9 @@
                              <div class="col-md-12">
                                 @if ($campeon == "Empty")
                                     <ul class="breadcrumb">
-                                        <li><a href="{{ url('/') }}">Inicio</a></li>
-                                        <li><a href="{{ url('/campeones') }}">Campeones</a></li>
-                                        <li class="active">Página de error</li>
+                                        <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                        <li><a href="{{ url('/campeones') }}">@lang('messages.Campeones')</a></li>
+                                        <li class="active">@lang('messages.Pagina-Error')</li>
                                     </ul>
                                     <div class="alert alert-danger" role="alert">
                                         <div class="row">
@@ -20,14 +20,14 @@
                                                 <img style="width:30%;" src="{{asset('/images/alertwarning') }}.png">
                                             </div>
                                             <div class="col-md-10">
-                                                <p>Lo sentimos, el campeon que intentas buscar no existe.</p>
+                                                <p>@lang('messages.Inf-Error')</p>
                                             </div>
                                         </div>
                                     </div>
                                 @else
                                 <ul class="breadcrumb">
-                                    <li><a href="{{ url('/') }}">Inicio</a></li>
-                                    <li><a href="{{ url('/campeones') }}">Campeones</a></li>
+                                    <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                    <li><a href="{{ url('/campeones') }}">@lang('messages.Campeones')</a></li>
                                     <li class="active">{{ $campeon['nombre'] }}</li>
                                 </ul>
                             </div>
@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="col-md-4" >
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">Estadísticas</div>
+                                    <div class="panel-heading">@lang('messages.Esta-titulo')</div>
                                         <div class="panel-body-min">
                                             <table class="table-condensed">
                                                 <tbody>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">Características</div>
+                                    <div class="panel-heading">@lang('messages.Inf-Caract')</div>
                                         <div class="panel-body-min">
                                             @foreach($campeon['caracteristicas'] as $atributo => $valor)
                                                 <label>{{ $atributo }}</label>
@@ -80,7 +80,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">Habilidades</div>
+                                    <div class="panel-heading">@lang('messages.Inf-Habilidades')</div>
                                         <div class="panel-body-min">
                                             @foreach($campeon['habilidades'] as $atributo => $valor)
                                             <div class="row">
@@ -90,7 +90,7 @@
                                                             <img class="customborder" src="{{ $valor['Imagen'] }}">
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <h4>Habilidad: {{  $atributo }}</h4>
+                                                            <h4>@lang('messages.Inf-Habilidad'): {{  $atributo }}</h4>
                                                             <div class="row">
                                                                  <div class="col-md-12">
                                                                     <h5>{{ $valor['Nombre'] }}</h5>
@@ -125,7 +125,6 @@
                                     <div class="panel-heading">Lore</div>
                                         <div class="panel-body-min">
                                             <p>{{ $campeon['lore'] }}</p>
-
                                         </div>
                                 </div>
                             </div>

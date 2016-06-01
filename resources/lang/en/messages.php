@@ -52,7 +52,7 @@ return [
     /* End Footer */
 
     'Inicio'               => 'Home',
-    'Bienvenido'           => "Balmeslol it's a webpage that offers specific and detailed information about the game on-line League of Legends. All data useds are in real time and also reliable extracted from lol servers. Balmeslol offers champion guides created from community and updated statistics.",
+    'Bienvenido'           => "Balmeslol is a webpage that offers specific and detailed information about the online game League of Legends. All data is used in real time and is also reliable and extracted from the lol servers. Balmeslol offers champion guides created by the community and updated statistics.",
     'Bienvenido-titulo'    => 'Welcome to Balmeslol',
 
 ];

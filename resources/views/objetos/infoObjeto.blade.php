@@ -10,9 +10,9 @@
                          <div class="col-md-12">
                             @if ($objeto == "Empty")
                                     <ul class="breadcrumb">
-                                        <li><a href="{{ url('/') }}">Inicio</a></li>
-                                        <li><a href="{{ url('/campeones') }}">Objetos</a></li>
-                                        <li class="active">Página de error</li>
+                                        <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                        <li><a href="{{ url('/campeones') }}">@lang('messages.Objetos')</a></li>
+                                        <li class="active">@lang('messages.Pagina-Error')</li>
                                     </ul>
                                     <div class="alert alert-danger" role="alert">
                                         <div class="row">
@@ -20,14 +20,14 @@
                                                 <img style="width:30%;" src="{{asset('/images/alertwarning') }}.png">
                                             </div>
                                             <div class="col-md-10">
-                                                <p>Lo sentimos, el objeto que intentas buscar no existe.</p>
+                                                <p>@lang('messages.Info-Error')</p>
                                             </div>
                                         </div>
                                     </div>
                             @else
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li><a href="{{ url('/objetos') }}">Objetos</a></li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li><a href="{{ url('/objetos') }}">@lang('messages.Objetos')</a></li>
                                 <li class="active">{{ $objeto['nombre'] }}</li>
                             </ul>
                         </div>
