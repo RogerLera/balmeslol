@@ -133,7 +133,6 @@ return [
     'Info-Costem'          => 'Coste mejora',
     'Info-Costet'          => 'Coste total',
     'Info-Sehacecon'       => 'Se hace con',
-    ''                     => '',
     /* End Info campeones */
 
     /* ---Login y registro--- */
@@ -174,7 +173,7 @@ return [
     'PopCamp-Titulo' => 'Estadísticas de popularidad de los campeones',
 
     /* popularidadHechizos.blade.php */
-    'PopHech-Titulo' => 'Estadísticas de bloqueo de los hechizos',
+    'PopHech-Titulo' => 'Estadísticas de popularidad de los hechizos',
 
 
     /* ---Messenger--- */
