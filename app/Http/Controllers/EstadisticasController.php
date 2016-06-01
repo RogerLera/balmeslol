@@ -27,7 +27,7 @@ class EstadisticasController extends Controller {
      */
     public function generaEstadisticas() {
         return view('estadisticas.grabar', [
-            'msj' => $this->guardaEstadisticas(),
+            'ok' => $this->guardaEstadisticas(),
         ]);
     }
 
@@ -87,7 +87,7 @@ class EstadisticasController extends Controller {
                 }
             }
         }
-        return "Estadísticas guardadas correctamente";
+        return "Ok";
     }
 
     /**

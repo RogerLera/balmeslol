@@ -9,11 +9,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Almacenar estadísticas</li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.EstaGrabar-Titulo')</li>
                             </ul>
                         </div>
-                        {{ $msj }}
+                        @if($ok == 'Ok')
+                            @lang('messages.EstaGrabar-MsjOk')
+                        @endif
                     </div>
                     
                 </div>

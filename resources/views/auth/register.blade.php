@@ -9,8 +9,8 @@
                     <div class="row">
                          <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Registro</li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.Registro')</li>
                             </ul>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
 
                         <!-- NOMBRE -->
                         <div class="form-group{{ $errors->has('usuAlias') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Alias</label>
+                            <label class="col-md-4 control-label">@lang('messages.Alias')</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="usuAlias" value="{{ old('usuAlias') }}">
@@ -27,7 +27,7 @@
                                 @if ($errors->has('usuAlias'))
                                     <br>
                                     <div class="alert alert-danger">
-                                         <strong>Error! </strong>{{ $errors->first('usuAlias') }}
+                                         <strong>@lang('messages.Error-exclamacion') </strong>{{ $errors->first('usuAlias') }}
                                     </div>
                                 @endif
                             </div>
@@ -35,7 +35,7 @@
 
                         <!-- E-MAIL -->
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Dirección E-Mail</label>
+                            <label class="col-md-4 control-label">@lang('messages.Email')</label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -43,7 +43,7 @@
                                 @if ($errors->has('email'))
                                     <br>
                                     <div class="alert alert-danger">
-                                        <strong>Error! </strong>{{ $errors->first('email') }}
+                                        <strong>@lang('messages.Error-exclamacion') </strong>{{ $errors->first('email') }}
                                     </div>
                                 @endif
                             </div>
@@ -51,7 +51,7 @@
 
                         <!-- FECHA NACIMIENTO -->
                         <div class="form-group{{ $errors->has('usuFdn') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Fecha nacimiento</label>
+                            <label class="col-md-4 control-label">@lang('messages.Fnacimiento')</label>
 
                             <div class="col-md-6">
                                 <input type="date" class="form-control" name="usuFdn" value="{{ old('usuFdn') }}">
@@ -59,7 +59,7 @@
                                 @if ($errors->has('usuFdn'))
                                     <br>
                                     <div class="alert alert-danger">
-                                        <strong>Erorr! </strong>{{ $errors->first('usuFdn') }}
+                                        <strong>@lang('messages.Error-exclamacion') </strong>{{ $errors->first('usuFdn') }}
                                     </div>
                                 @endif
                             </div>
@@ -67,7 +67,7 @@
 
                         <!-- AVATAR -->
                         <div class="form-group{{ $errors->has('usuAvatar') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Imagen de perfil</label>
+                            <label class="col-md-4 control-label">@lang('messages.ImgPerfil')</label>
 
                             <div class="col-md-6">
                                 <input type="file" class="form-control" name="usuAvatar" value="{{ old('usuAvatar') }}">
@@ -75,14 +75,14 @@
                                 @if ($errors->has('usuAvatar'))
                                     <br>
                                     <div class="alert alert-danger">
-                                        <strong>Error! </strong>{{ $errors->first('usuAvatar') }}
+                                        <strong>@lang('messages.Error-exclamacion') </strong>{{ $errors->first('usuAvatar') }}
                                     </div>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Contraseña</label>
+                            <label class="col-md-4 control-label">@lang('messages.Contraseña')</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password">
@@ -90,14 +90,14 @@
                                 @if ($errors->has('password'))
                                     <br>
                                     <div class="alert alert-danger">
-                                        <strong>Error! </strong>{{ $errors->first('password') }}
+                                        <strong>@lang('messages.Error-exclamacion') </strong>{{ $errors->first('password') }}
                                     </div>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirmación contraseña</label>
+                            <label class="col-md-4 control-label">@lang('messages.Contraseña-Confirmar')</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password_confirmation">
@@ -105,7 +105,7 @@
                                 @if ($errors->has('password_confirmation'))
                                     <br>
                                     <div class="alert alert-danger">
-                                        <strong>Error! </strong>{{ $errors->first('password_confirmation') }}
+                                        <strong>@lang('messages.Error-exclamacion') </strong>{{ $errors->first('password_confirmation') }}
                                     </div>
                                 @endif
                             </div>
@@ -114,7 +114,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-info">
-                                    <i class="fa fa-btn fa-user"></i> Registrarse
+                                    <i class="fa fa-btn fa-user"></i> @lang('messages.Registrarse')
                                 </button>
                             </div>
                         </div>

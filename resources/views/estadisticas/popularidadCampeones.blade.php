@@ -9,8 +9,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Estadísticas de popularidad de los campeones</li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.PopCamp-Titulo')</li>
                             </ul>
                         </div>
                     </div>
@@ -18,7 +18,7 @@
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Gráfica de estadísticas
+                                    @lang('messages.Esta-Grafica')
                                 </div>
                                 <div class="panel-body-min">
                                     <div class="row">
@@ -34,7 +34,7 @@
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Tabla de estadísticas
+                                    @lang('messages.Esta-Tabla')
                                 </div>
                                 <div class="panel-body-min">
                                     <div class="row">
@@ -43,8 +43,8 @@
                                                 <thead>
                                                     <tr>
                                                         <th width="20%">&nbsp;</th>
-                                                        <th>Nombre</th>
-                                                        <th>Popularidad (%)</th>
+                                                        <th>@lang('messages.Esta-Nombre')</th>
+                                                        <th>@lang('messages.Esta-Popularidad')</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

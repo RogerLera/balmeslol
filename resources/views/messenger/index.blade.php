@@ -9,14 +9,14 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Mensajes</li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.Mensajes')</li>
                             </ul>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Mensajes sin leer
+                                            @lang('messages.Mensajes-SinLeer')
                                         </div>
                                         <div class="panel-body-min">
                                             <div class="row">
@@ -39,10 +39,10 @@
                                                                                     <img style="width:30%;" src="{{asset('/images/alert') }}.png">
                                                                                 </div>
                                                                                 <div class="col-md-3">
-                                                                                    <p><strong>Sujeto:</strong> {!! link_to('mensajes/' . $thread->id, $thread->subject) !!}</p>
+                                                                                    <p><strong>@lang('messages.Mensajes-Sujeto'):</strong> {!! link_to('mensajes/' . $thread->id, $thread->subject) !!}</p>
                                                                                 </div>
                                                                                 <div class="col-md-4">
-                                                                                    <p><strong>Remitente:</strong> {!! $thread->creator()->usuAlias !!}</p>
+                                                                                    <p><strong>@lang('messages.Mensajes-Remitente'):</strong> {!! $thread->creator()->usuAlias !!}</p>
                                                                                 </div>
                                                                                 <div class="col-md-3">
                                                                                     <p>{!! $thread->created_at->diffForHumans() !!}</p>
@@ -64,7 +64,7 @@
                                 <div class="col-md-12">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Mensajes leidos
+                                            @lang('messages.Mensajes-Leidos')
                                         </div>
                                         <div class="panel-body-min">
                                             <div class="row">
@@ -80,10 +80,10 @@
                                                                                     <img style="width:30%;" src="{{asset('/images/success') }}.png">
                                                                                 </div>
                                                                                 <div class="col-md-3">
-                                                                                    <p><strong>Sujeto:</strong> {!! link_to('mensajes/' . $thread->id, $thread->subject) !!}</p>
+                                                                                    <p><strong>@lang('messages.Mensajes-Sujeto'):</strong> {!! link_to('mensajes/' . $thread->id, $thread->subject) !!}</p>
                                                                                 </div>
                                                                                 <div class="col-md-4">
-                                                                                    <p><strong>Remitente:</strong> {!! $thread->creator()->usuAlias !!}</p>
+                                                                                    <p><strong>@lang('messages.Mensajes-Remitente'):</strong> {!! $thread->creator()->usuAlias !!}</p>
                                                                                 </div>
                                                                                 <div class="col-md-3">
                                                                                     <p>{!! $thread->created_at->diffForHumans() !!}</p>
@@ -103,7 +103,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <a href="/mensajes/crear" class="btn btn-info" role="button">Nuevo mensaje</a>
+                                    <a href="/mensajes/crear" class="btn btn-info" role="button">@lang('messages.Mensajes-NuevoMsj')</a>
                                 </div>
                             </div>
                         </div>

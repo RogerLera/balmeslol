@@ -9,8 +9,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li><a href="{{ url('/mensajes') }}">Mensajes</a></li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li><a href="{{ url('/mensajes') }}">@lang('messages.Mensajes')</a></li>
                                 <li class="active">{!! $thread->subject !!}</li>
                             </ul>
                             <div class="row">
@@ -39,7 +39,7 @@
                                  
                                     @endforeach
                                
-                                            <h3>Añadir un mensaje nuevo:</h3>
+                                            <h3>@lang('messages.Mensajes-Añadir'):</h3>
                                             {!! Form::open(['route' => ['mensajes.actualizar', $thread->id], 'method' => 'PUT']) !!}
                                             <!-- Message Form Input -->
                                             <div class="form-group">
@@ -47,7 +47,7 @@
                                             </div>
                                             
                                             <div class="form-group">
-                                                <p><span class="text-muted">Participantes de la conversación:</span>
+                                                <p><span class="text-muted">@lang('messages.Mensajes-Participantes'):</span>
                                                 @foreach($thread->participants as $participant)
                                                     {{{$participant == $thread->participants[count($thread->participants)-1] ? $participant->user->usuAlias."." : $participant->user->usuAlias."," }}}
                                                 @endforeach
@@ -56,7 +56,7 @@
 
                                             <!-- Submit Form Input -->
                                             <div class="form-group">
-                                                {!! Form::submit('Enviar', ['class' => 'btn btn-info form-control']) !!}
+                                                {!! Form::submit('@lang('messages.Enviar')', ['class' => 'btn btn-info form-control']) !!}
                                             </div>
                                             {!! Form::close() !!}
                                      
