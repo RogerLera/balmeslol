@@ -19,24 +19,4 @@ class Favorito extends Model
     protected $fillable = [
         'usuId', 'guiId',
     ];
-
-    /**
-     * Obtenemos el usuario que le ha dado a favorito.
-     *
-     * @return usuario al que pertenece.
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Obtenemos la guia que a marcado como favorita.
-     *
-     * @return guia al que pertenece.
-     */
-    public function guia()
-    {
-        return $this->belongsTo(Guia::class);
-    }
 }

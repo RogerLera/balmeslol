@@ -44,9 +44,9 @@ class User extends Authenticatable
     *
     * @return todos los favoritos
     */
-    public function favoritos()
+    public function favorito()
     {
-        return $this->hasMany(Favorito::class, 'usuId');
+        return $this->hasOne(Favorito::class, 'usuId');
     }
 
     /**

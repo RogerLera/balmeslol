@@ -24,6 +24,7 @@ function votacion(guiId, usuId, elemento, tipoVotacion) {
 function favorito(guiId, usuId, buttonId, metodo)
 {
     var texto = (metodo === 'POST') ? "Borrar favorito" : "Añadir favorito";
+    var metodoSiguiente = (metodo === 'POST') ? "'DELETE'" : "'POST'";
     // Empezamos la llamada.
     $.ajax({
         // Tipo POST/DELETE.
@@ -39,7 +40,9 @@ function favorito(guiId, usuId, buttonId, metodo)
         // Si todo sale correctamente, actualizamos el elemento con el nuevo número.
         success: function(resultado) {
             alert(resultado);
-            $('#' + buttonId).html(texto);
+            var button = $('#' + buttonId);
+            button.html(texto);
+            button.attr('onclick','favorito(' + guiId + ', ' + usuId + ', this.id, ' + metodoSiguiente + ')');
         }
     });
 }

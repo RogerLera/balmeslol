@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-md-6">Mis guias</div>
                         <div class="col-md-3">
-                            <a href="/guias/{{ Auth::id() }}/favoritos">Guias favoritas</a>
+                            <a href="/guias/favoritos/{{ Auth::id() }}">Guias favoritas</a>
                         </div>
                         <div class="col-md-3">
                             <a href="{{ url('/guias/crear') }}">Crear guia</a>
@@ -30,6 +30,11 @@
                                     <span id="meGusta{{ $guia->id }}">{{ $guia->guiPositivo}}</span>
                                     <span class="glyphicon glyphicon-thumbs-down" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 'noMeGusta{{ $guia->id }}', 0)"></span>&nbsp;
                                     <span id="noMeGusta{{ $guia->id }}">{{ $guia->guiNegativo}}</span>
+                                    @if (isset($guia->favorito->usuId) && Auth::user()->favorito->usuId == Auth::id())
+                                        <button id="favorito{{ $guia->id }}" type="button" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">Borrar favorito</button>
+                                    @else
+                                        <button id="favorito{{ $guia->id }}" type="button" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')">Añadir favorito</button>
+                                    @endif
                             </div>
                         @endforeach
                     @else
