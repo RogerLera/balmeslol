@@ -20,7 +20,7 @@
                                     <span id="meGusta{{ $guia->id }}">{{ $guia->guiPositivo}}</span>
                                     <span class="glyphicon glyphicon-thumbs-down" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 'noMeGusta{{ $guia->id }}', 0)"></span>&nbsp;
                                     <span id="noMeGusta{{ $guia->id }}">{{ $guia->guiNegativo}}</span>
-                                </form                            </div>
+                            </div>
                         @endforeach
                     @else
                         <p>No existe ninguna guia! <a href="{{ url('/guias/crear') }}">Crea una guia!</a></p>
