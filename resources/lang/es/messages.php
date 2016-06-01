@@ -136,66 +136,66 @@ return [
     /* End Info campeones */
 
     /* ---Login y registro--- */
-'Alias' -> 'Alias'
-'Contraseña' -> 'Contraseña'
+'Alias' => 'Alias',
+'Contraseña' => 'Contraseña',
 
 /* login.blade.php */
-'Contraseña-olvidada' -> 'Olvidaste tu contraseña?'
-'Iniciar-sesión' -> 'Iniciar sesión'
-'Recordarme' -> 'Recordarme'
-'Iniciar' -> 'Iniciar'
+'Contraseña-olvidada' => 'Olvidaste tu contraseña?',
+'Iniciar-sesión' => 'Iniciar sesión',
+'Recordarme' => 'Recordarme',
+'Iniciar' => 'Iniciar',
 
 /* register.blade.php */
-'Registro' -> 'Registro'
-'Error-exclamacion' -> 'Error!'
-'Email' -> 'Dirección E-Mail'
-'Fnacimiento' -> 'Fecha nacimiento'
-'ImgPerfil' -> 'Imagen de perfil'
-'Contraseña-Confirmar' -> 'Confirmación contraseña'
-'Registrarse' -> 'Registrarse'
+'Registro' => 'Registro',
+'Error-exclamacion' => 'Error!',
+'Email' => 'Dirección E-Mail',
+'Fnacimiento' => 'Fecha nacimiento',
+'ImgPerfil' => 'Imagen de perfil',
+'Contraseña-Confirmar' => 'Confirmación contraseña',
+'Registrarse' => 'Registrarse',
 
 
 /* ---Estadisticas--- */
-'Esta-Grafica' -> 'Gráfica de estadísticas'
-'Esta-Tabla' -> 'Tabla de estadísticas'
-'Esta-Nombre' -> 'Nombre'
-'Esta-Popularidad' -> 'Popularidad (%)'
+'Esta-Grafica' => 'Gráfica de estadísticas',
+'Esta-Tabla' => 'Tabla de estadísticas',
+'Esta-Nombre' => 'Nombre',
+'Esta-Popularidad' => 'Popularidad (%)',
 
 /* bloqueoCampeones.blade.php */
-'BloqCamp-Titulo' -> 'Estadísticas de bloqueo de los campeones'
-'BloqCamp-Porcentaje' -> '% de Bloqueo'
+'BloqCamp-Titulo' => 'Estadísticas de bloqueo de los campeones',
+'BloqCamp-Porcentaje' => '% de Bloqueo',
 
 /* grabar.blade.php */
-'EstaGrabar-Titulo' -> 'Almacenar estadísticas'
-'EstaGrabar-MsjOk' -> 'Estadísticas guardadas correctamente'
+'EstaGrabar-Titulo' => 'Almacenar estadísticas',
+'EstaGrabar-MsjOk' => 'Estadísticas guardadas correctamente',
 
 /* popularidadCampeones.blade.php */
-'PopCamp-Titulo' -> 'Estadísticas de popularidad de los campeones'
+'PopCamp-Titulo' => 'Estadísticas de popularidad de los campeones',
 
 /* popularidadHechizos.blade.php */
-'PopHech-Titulo' -> 'Estadísticas de bloqueo de los hechizos'
+'PopHech-Titulo' => 'Estadísticas de bloqueo de los hechizos',
 
 
 /* ---Messenger--- */
-'Mensajes' -> 'Mensajes'
+'Mensajes' => 'Mensajes',
 
 /* create.blade.php */
-'Mensaje' -> 'Mensaje'
-'Nuevo' -> 'Nuevo'
-'Sujeto' -> 'Sujeto'
-'Destinatario' -> 'Destinatario/s'
-'Enviar' -> 'Enviar'
+'Mensaje' => 'Mensaje',
+'Nuevo' => 'Nuevo',
+'Sujeto' => 'Sujeto',
+'Destinatario' => 'Destinatario/s',
+'Enviar' => 'Enviar',
 
 /* index.blade.php */
-'Mensajes-SinLeer' -> 'Mensajes sin leer'
-'Mensajes-Leidos' -> 'Mensajes leidos'
-'Mensajes-Sujeto' -> 'Sujeto'
-'Mensajes-Remitente' -> 'Remitente'
-'Mensajes-NuevoMsj' -> 'Nuevo mensaje'
+'Mensajes-SinLeer' => 'Mensajes sin leer',
+'Mensajes-Leidos' => 'Mensajes leidos',
+'Mensajes-Sujeto' => 'Sujeto',
+'Mensajes-Remitente' => 'Remitente',
+'Mensajes-NuevoMsj' => 'Nuevo mensaje',
 
 /* show.blade.php */
-'Mensajes-Participantes' -> 'Participantes de la conversación'
-'Mensajes-Añadir' -> 'Añadir un mensaje nuevo'
+'Mensajes-Participantes' => 'Participantes de la conversación',
+'Mensajes-Añadir' => 'Añadir un mensaje nuevo',
 
 
 
