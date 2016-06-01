@@ -174,13 +174,13 @@ class GuiaController extends Controller {
                 $esNuevo = 2;
             }
         }
-        return $this->actualizarValoracion($guiId, $tipo, $esNuevo);
+        return $this->actualizarValoracion($idGuia, $tipo, $esNuevo);
     }
 
-    public function actualizarValoracion($guiId, $tipo, $esNuevo)
+    public function actualizarValoracion($idGuia, $tipo, $esNuevo)
     {
         $valoracion = 0;
-        $guia = Guia::whereId($guiId)->firstOrFail();
+        $guia = Guia::whereId($idGuia)->firstOrFail();
             if ($esNuevo == 0) {
                 if ($tipo == 1) {
                 $valoracion = $guia->guiPositivo = ($guia->guiPositivo + 1);
@@ -195,6 +195,8 @@ class GuiaController extends Controller {
                     $valoracion = $guia->guiPositivo = ($guia->guiPositivo - 1);
                     $valoracion = $guia->guiNegativo = ($guia->guiNegativo + 1);
                 }
+            } else {
+                $valoracion = ($tipo == 1) ? $guia->guiPositivo : $guia->guiNegativo;
             }
         $guia->save();
         return $valoracion;
