@@ -43,7 +43,7 @@ trait TraitGraficos {
         $myPicture->setFontProperties(array("FontName" => app_path() . "\Graficos/fonts/verdana.ttf", "FontSize" => 14));
         $TextSettings = array("Align" => TEXT_ALIGN_MIDDLEMIDDLE
             , "R" => 255, "G" => 255, "B" => 255);
-        $myPicture->drawText(350, 25, "Popularidad de los Campeones (en %)", $TextSettings);
+        //$myPicture->drawText(350, 25, "Popularidad de los Campeones (en %)", $TextSettings);
 
         $myPicture->setShadow(TRUE);
         $myPicture->setGraphArea(50, 50, 675, 250);
@@ -108,7 +108,7 @@ trait TraitGraficos {
         $myPicture->setFontProperties(array("FontName" => app_path() . "\Graficos/fonts/verdana.ttf", "FontSize" => 14));
         $TextSettings = array("Align" => TEXT_ALIGN_MIDDLEMIDDLE
             , "R" => 255, "G" => 255, "B" => 255);
-        $myPicture->drawText(350, 25, "Bloqueo de los Campeones (en %)", $TextSettings);
+        //$myPicture->drawText(350, 25, "Bloqueo de los Campeones (en %)", $TextSettings);
 
         $myPicture->setShadow(TRUE);
         $myPicture->setGraphArea(50, 50, 675, 250);
@@ -173,7 +173,7 @@ trait TraitGraficos {
         $myPicture->setFontProperties(array("FontName" => app_path() . "\Graficos/fonts/verdana.ttf", "FontSize" => 14));
         $TextSettings = array("Align" => TEXT_ALIGN_MIDDLEMIDDLE
             , "R" => 255, "G" => 255, "B" => 255);
-        $myPicture->drawText(350, 25, "Popularidad de los Hechizos (en %)", $TextSettings);
+        //$myPicture->drawText(350, 25, "Popularidad de los Hechizos (en %)", $TextSettings);
 
         $myPicture->setShadow(TRUE);
         $myPicture->setGraphArea(50, 50, 675, 250);
