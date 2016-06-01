@@ -36,6 +36,7 @@ $(document).ready(function() {
         'width': 580,
         'height': 400,
     }, ];
+
     // Inicializamos el plugin tinymce (WYSIWYG HTML Editor).
     tinymce.init({
         // Que afecte namás a los 'textarea' con clase 'guia'.
@@ -74,6 +75,25 @@ $(document).ready(function() {
             });
         },
         // Estilo que tendra el textarea (fuentes de tinymce).
+        content_css: [
+            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+            '//www.tinymce.com/css/codepen.min.css'
+        ],
+    });
+
+    // Solo inizializamos este plugin quando sea al visualizar una guia, que no necesita
+    // botones, y es solo para ver, no se puede editar.
+    tinymce.init({
+        // Que afecte namás a los 'textarea' con clase 'visualizarGuia'.
+        mode: "textareas",
+        editor_selector: "visualizarGuia",
+        // Tamaño de 200px.
+        height: 200,
+        // Sin menú o toolbar.
+        menubar: false,
+        toolbar: false,
+        // Solo lectura.
+        readonly: 1,
         content_css: [
             '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
             '//www.tinymce.com/css/codepen.min.css'
