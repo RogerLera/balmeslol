@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Balmeslol - Your guide</title>
 
@@ -171,7 +172,7 @@
         <div class="container footer-text footer-balmeslol">
             <div class="row">
                 <div class="col-md-12">
-                    <p>@lang('messages.copyright')</p> 
+                    <p>@lang('messages.copyright')</p>
                 </div>
             </div>
             <div class="row">
@@ -191,7 +192,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
         <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
         <script src="<?php echo asset('js/tinymce.js') ?>"></script>
-        <script src="<?php echo asset('js/clasificacionGuias.js') ?>"></script>
+        <script src="<?php echo asset('js/votacionGuias.js') ?>"></script>
         <script src="<?php echo asset('js/jquery.tablesorter.min.js') ?>"></script>
         <script src="<?php echo asset('js/myjsfunctions.js') ?>"></script>
         {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}

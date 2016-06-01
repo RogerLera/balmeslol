@@ -3,20 +3,20 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-/**
-* Classe que genera la tabla favoritos en la base de datos.
-*/
-class CreateFavoritosTable extends Migration
+class CreateVotacionsTable extends Migration
 {
     /**
-     * Ejecuta la migración a la base de datos.
+     * Run the migrations.
+     *
+     * @return void
      */
     public function up()
     {
-        Schema::create('favoritos', function (Blueprint $table) {
-            $table->increments('favId');
+        Schema::create('votacions', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('usuId')->unsigned();
             $table->integer('guiId')->unsigned();
+            $table->boolean('votValoracion');
             $table->timestamps();
             $table->foreign('usuId')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('guiId')->references('id')->on('guias')->onDelete('cascade');
@@ -24,10 +24,12 @@ class CreateFavoritosTable extends Migration
     }
 
     /**
-     * Hace una marcha atras de la migración, i vuelve al estado original.
+     * Reverse the migrations.
+     *
+     * @return void
      */
     public function down()
     {
-        Schema::drop('favoritos');
+        //
     }
 }

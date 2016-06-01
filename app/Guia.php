@@ -3,6 +3,7 @@
 namespace App;
 
 use App\User;
+use App\Role;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -28,6 +29,16 @@ class Guia extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'usuId');
     }
+
+    public function votacions()
+    {
+        return $this->belongsToMany(User::class, 'votacions');
+    }
+
+    public function role()
+   {
+       return $this->hasOne(Role::class, 'rolId', 'rolId');
+   }
 }

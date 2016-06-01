@@ -19,7 +19,18 @@
                 <div class="panel-body">
                     @if (count($guias) > 0)
                         @foreach($guias as $guia)
-                            <p>{{ $guia->guiTitulo }}</p>
+                            <div>
+                                <img src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
+                                <a href="/guias/{{ $guia->id }}"><h4>{{ $guia->guiTitulo }}</h4></a>
+                                <p>{{ $guia->guiNombre }}</p>
+                                <p>{{ $guia->guiVersion }}</p>
+                                <p>{{ $guia->role->rolNombre }}</p>
+                                <p>{{ $guia->user->usuAlias }}</p>
+                                    <span class="glyphicon glyphicon-thumbs-up" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 'meGusta{{ $guia->id }}', 1)"></span>&nbsp;
+                                    <span id="meGusta{{ $guia->id }}">{{ $guia->guiPositivo}}</span>
+                                    <span class="glyphicon glyphicon-thumbs-down" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 'noMeGusta{{ $guia->id }}', 0)"></span>&nbsp;
+                                    <span id="noMeGusta{{ $guia->id }}">{{ $guia->guiNegativo}}</span>
+                            </div>
                         @endforeach
                     @else
                         <p>No existe ninguna guia! <a href="{{ url('/guias/crear') }}">Crea una guia!</a></p>

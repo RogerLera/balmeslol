@@ -3,7 +3,9 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Guia;
+use App\Favorito;
+use App\Message;
 use Cmgmyr\Messenger\Traits\Messagable;
 
 class User extends Authenticatable
@@ -55,5 +57,10 @@ class User extends Authenticatable
     public function message()
     {
         return $this->hasMany(Message::class);
+    }
+
+    public function votacions()
+    {
+        return $this->belongsToMany(Guia::class, 'votacions', 'usuId', 'guiId');
     }
 }

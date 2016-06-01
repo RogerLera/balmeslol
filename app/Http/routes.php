@@ -12,12 +12,7 @@
 */
 
 /* --- INICIO --- */
-
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
-
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/', 'CampeonController@mostrarCampeonesGratuitos');
 
 /* --- CAMPEONES --- */
@@ -39,7 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/guias/crear', 'GuiaController@formularioCrearGuia');
     // Alomejor necesita crear ruta para favoritos, no desde GuiaController.
     Route::get('/guias/favoritos', 'GuiaController@obtenerGuiasFavoritos');
-    Route::get('/guias/{id}/clasificacion','GuiaController@clasificacion')->where('id', '[0-9]+');
+    Route::post('/guias/votacion', 'GuiaController@votacion');
     Route::get('/guias/usuario/{id}', 'GuiaController@misGuias')->where('id', '[0-9]+');
     Route::post('/guias/crear', 'GuiaController@crearGuia');
     Route::put('/guias/{guia}/editar', 'GuiaController@editarGuia');
