@@ -45,10 +45,10 @@
                                             <b>{{ $objeto['nombre'] }}</b>
                                         </div>
                                         <div class="col-md-4">
-                                            Precio: <span class="pricetext"> {{ $objeto['precio']['total'] }}</span> <img src="{{asset('/images/coinicon.png')}}">
+                                            @lang('messages.Info-Precio'): <span class="pricetext"> {{ $objeto['precio']['total'] }}</span> <img src="{{asset('/images/coinicon.png')}}">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    Precio de la receta: <span class="pricetext"> {{ $objeto['precio']['base'] }}</span> <img src="{{asset('/images/coinicon.png')}}">
+                                                    @lang('messages.Info-Receta'): <span class="pricetext"> {{ $objeto['precio']['base'] }}</span> <img src="{{asset('/images/coinicon.png')}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -69,14 +69,14 @@
                                 {{--*/ $factive = "";  /*--}}
                                 {{--*/ $tactive = "";  /*--}}
                                 @if (isset($objeto['procede']))
-                                    <li class="active"><a data-toggle="tab" href="#from">A partir de</a></li>
+                                    <li class="active"><a data-toggle="tab" href="#from">@lang('messages.Info-Apartir')</a></li>
                                     {{--*/ $factive = "in active";  /*--}}
                                 @endif
                                 @if (!isset($objeto['procede']) && isset($objeto['mejora']))
-                                    <li class="active"><a data-toggle="tab" href="#to">Se convierte en</a></li>
+                                    <li class="active"><a data-toggle="tab" href="#to">@lang('messages.Info-Convierte')</a></li>
                                     {{--*/ $tactive = "in active";  /*--}}
                                 @elseif (isset($objeto['procede']) && isset($objeto['mejora']))
-                                    <li><a data-toggle="tab" href="#to">Se convierte en</a></li>
+                                    <li><a data-toggle="tab" href="#to">@lang('messages.Info-Convierte')</a></li>
                                 @endif
                             </ul>
                             <div class="tab-content">
@@ -86,11 +86,11 @@
                                         <table class="table-items">
                                             <thead>
                                                 <tr>
-                                                    <th>Imagen</th>
-                                                    <th>Nombre</th>
-                                                    <th>Coste mejora</th>
-                                                    <th>Coste total</th>
-                                                    <th>Se hace con</th>
+                                                    <th>@lang('messages.Info-Imagen')</th>
+                                                    <th>@lang('messages.Info-Nombre')</th>
+                                                    <th>@lang('messages.Info-Costem')</th>
+                                                    <th>@lang('messages.Info-Costet')</th>
+                                                    <th>@lang('messages.Info-Sehacecon')</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -118,11 +118,11 @@
                                         <table class="table-items">
                                             <thead>
                                                 <tr>
-                                                    <th>Imagen</th>
-                                                    <th>Nombre</th>
-                                                    <th>Coste mejora</th>
-                                                    <th>Coste total</th>
-                                                    <th>Se hace con</th>
+                                                    <th>@lang('messages.Info-Imagen')</th>
+                                                    <th>@lang('messages.Info-Nombre')</th>
+                                                    <th>@lang('messages.Info-Costem')</th>
+                                                    <th>@lang('messages.Info-Costet')</th>
+                                                    <th>@lang('messages.Info-Sehacecon')</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
