@@ -33,7 +33,7 @@
                                                 <div class="media-body">
                                                     <h5 class="media-heading">{!! $message->user->usuAlias !!}</h5>
                                                     <p>{!! $message->body !!}</p>
-                                                    <div class="text-muted"><small>Enviado {!! $message->created_at->diffForHumans() !!}</small></div>
+                                                    <div class="text-muted"><small>@lang('messages.Mensajes-Enviado') {!! $message->created_at->diffForHumans() !!}</small></div>
                                                 </div>
                                             </div>
                                  
@@ -56,7 +56,7 @@
 
                                             <!-- Submit Form Input -->
                                             <div class="form-group">
-                                                {!! Form::submit('@lang('messages.Enviar')', ['class' => 'btn btn-info form-control']) !!}
+                                                {!! Form::submit(Lang::get('messages.Enviar'), ['class' => 'btn btn-info form-control']) !!}
                                             </div>
                                             {!! Form::close() !!}
                                      

@@ -19,18 +19,18 @@
                                 <div class="col-md-offset-3 col-md-6">
                                     <!-- Subject Form Input -->
                                     <div class="form-group">
-                                        {!! Form::label('subject', '@lang('messages.Sujeto')', ['class' => 'control-label']) !!}
+                                        {!! Form::label('subject', Lang::get('messages.Sujeto'), ['class' => 'control-label']) !!}
                                         {!! Form::text('subject', null, ['class' => 'form-control']) !!}
                                     </div>
 
                                     <!-- Message Form Input -->
                                     <div class="form-group">
-                                        {!! Form::label('message', '@lang('messages.Mensaje')', ['class' => 'control-label']) !!}
+                                        {!! Form::label('message', Lang::get('messages.Mensaje'), ['class' => 'control-label']) !!}
                                         {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
                                     </div>
 
                                     @if($users->count() > 0)
-                                    {!! Form::label('recipientes', '@lang('messages.Destinatario')', ['class' => 'control-label']) !!}
+                                    {!! Form::label('recipientes', Lang::get('messages.Destinatario'), ['class' => 'control-label']) !!}
                                     <div class="checkbox">
                                         @foreach($users as $user)
                                         <label title="{!!$user->usuAlias!!}"><input type="checkbox" id="recipientes" name="recipients[]" value="{!!$user->id!!}">{!!$user->usuAlias!!}</label>
@@ -40,7 +40,7 @@
 
                                     <!-- Submit Form Input -->
                                     <div class="form-group">
-                                        {!! Form::submit('@lang('messages.Enviar')', ['class' => 'btn btn-info form-control']) !!}
+                                        {!! Form::submit(Lang::get('messages.Enviar'), ['class' => 'btn btn-info form-control']) !!}
                                     </div>
                                 </div>
                                 {!! Form::close() !!}
