@@ -10,8 +10,8 @@
                     <div class="row">
                          <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Reestablecer contraseña</li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.Ema-Rest')</li>
                             </ul>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Dirección E-Mail</label>
+                            <label class="col-md-4 control-label">@lang('messages.Per-Direccion')</label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-info">
-                                    <i class="fa fa-btn fa-envelope"></i> Enviar enlace para restablecer la contraseña
+                                    <i class="fa fa-btn fa-envelope"></i> @lang('messages.Ema-Enviar')
                                 </button>
                             </div>
                         </div>

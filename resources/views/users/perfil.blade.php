@@ -9,21 +9,21 @@
                     <div class="row">
                          <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Perfil</li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.Per-Perfil')</li>
                             </ul>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="panel panel-default">
-                                <div class="panel-heading">Detalles de perfil</div>
+                                <div class="panel-heading">@lang('messages.Per-Detalles')</div>
                                     <div class="panel-body-nop">
                                         <img src="/perfil/{{ $usuario->id }}/avatar" class="profile-edit" alt="Avatar usuario">
                                         <br><br>
                                         <p><b>{{ $usuario->usuAlias }}</b></p>
                                         <p><i class="fa fa-envelope" aria-hidden="true"></i> {{ $usuario->email }}</p>
-                                        <p><b>Fecha de nacimiento:</b> {{ $usuario->usuFdn }} </p>
+                                        <p><b>@lang('messages.Per-Fecha'):</b> {{ $usuario->usuFdn }} </p>
                                         <br>
                                     </div>
                             </div>
@@ -31,14 +31,14 @@
                         @if (Auth::id() === $usuario->id)
                         <div class="col-md-8">
                             <div class="panel panel-default">
-                                <div class="panel-heading">Actualizar información de perfil</div>
+                                <div class="panel-heading">@lang('messages.Per-Actinfo')</div>
                                     <div class="panel-body-min">
                                         <form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST" action="/perfil/{{ Auth::id()}}/editar">
                                             {!! csrf_field() !!}
 
                                             <!-- NOMBRE -->
                                             <div class="form-group{{ $errors->has('usuAlias') ? ' has-error' : '' }}">
-                                                <label class="col-md-4 control-label">Alias</label>
+                                                <label class="col-md-4 control-label">@lang('messages.Per-Alias')</label>
 
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name="usuAlias" value="{{ Auth::user()->usuAlias }}">
@@ -54,7 +54,7 @@
 
                                             <!-- E-MAIL -->
                                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                                <label class="col-md-4 control-label">Dirección E-Mail</label>
+                                                <label class="col-md-4 control-label">@lang('messages.Per-Direccion')</label>
 
                                                 <div class="col-md-6">
                                                     <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
@@ -70,7 +70,7 @@
 
                                             <!-- FECHA NACIMIENTO -->
                                             <div class="form-group{{ $errors->has('usuFdn') ? ' has-error' : '' }}">
-                                                <label class="col-md-4 control-label">Fecha nacimiento</label>
+                                                <label class="col-md-4 control-label">@lang('messages.Per-Fecha')</label>
 
                                                 <div class="col-md-6">
                                                     <input type="date" class="form-control" name="usuFdn" value="{{ Auth::user()->usuFdn }}">
@@ -86,10 +86,10 @@
 
                                             <!-- AVATAR -->
                                             <div class="form-group{{ $errors->has('usuAvatar') ? ' has-error' : '' }}">
-                                                <label class="col-md-4 control-label">Imagen de perfil</label>
+                                                <label class="col-md-4 control-label">@lang('messages.Per-Imagen')</label>
 
                                                 <div class="col-md-6">
-                                                    <input type="file" class="form-control" name="usuAvatar" value="{{ Auth::user()->usuAvatar }}">
+                                                    <input data-buttonText="@lang('messages.Per-Examinar')" type="file" class="form-control" name="usuAvatar" value="{{ Auth::user()->usuAvatar }}">
 
                                                     @if ($errors->has('usuAvatar'))
                                                         <br>
@@ -104,7 +104,7 @@
                                             <div class="form-group">
                                                 <div class="col-md-6 col-md-offset-4">
                                                     <button type="submit" class="btn btn-info">
-                                                        <i class="fa fa-btn fa-user"></i> Actualizar
+                                                        <i class="fa fa-btn fa-user"></i> @lang('messages.Per-Actualizar')
                                                     </button>
                                                 </div>
                                             </div>
@@ -114,13 +114,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel panel-default">
-                                        <div class="panel-heading">Cambiar contraseña</div>
+                                        <div class="panel-heading">@lang('messages.Per-Cambiarpswd')</div>
                                             <div class="panel-body-min">
                                                 <form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST" action="/perfil/{{ Auth::id()}}/editar/password">
                                                     {!! csrf_field() !!}
 
                                                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                        <label class="col-md-4 control-label">Contraseña</label>
+                                                        <label class="col-md-4 control-label">@lang('messages.Per-Pswd')</label>
 
                                                         <div class="col-md-6">
                                                             <input type="password" class="form-control" name="password">
@@ -135,7 +135,7 @@
                                                     </div>
 
                                                     <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                                        <label class="col-md-4 control-label">Confirmación contraseña</label>
+                                                        <label class="col-md-4 control-label">@lang('messages.Per-Confpswd')</label>
 
                                                         <div class="col-md-6">
                                                             <input type="password" class="form-control" name="password_confirmation">
@@ -152,7 +152,7 @@
                                                     <div class="form-group">
                                                         <div class="col-md-6 col-md-offset-4">
                                                             <button type="submit" class="btn btn-info">
-                                                                <i class="fa fa-btn fa-user"></i> Actualizar
+                                                                <i class="fa fa-btn fa-user"></i> @lang('messages.Per-Actualizar')
                                                             </button>
                                                         </div>
                                                     </div>

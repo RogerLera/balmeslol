@@ -123,6 +123,15 @@ return [
 
     /* Info objetos */
     'Info-Error'           => 'We\'re sorry, looks like the object you were looking for doesn\'t exist.',
+    'Info-Precio'          => 'Price',
+    'Info-Receta'          => 'Recipe price',
+    'Info-Apartir'         => 'Builts from',
+    'Info-Convierte'       => 'Builts into',
+    'Info-Imagen'          => 'Image',
+    'Info-Nombre'          => 'Name',
+    'Info-Costem'          => 'Upgrade cost',
+    'Info-Costet'          => 'Total cost',
+    'Info-Sehacecon'       => 'Builts with',
     /* End Info campeones */
 
     /* ---Login y registro--- */
@@ -135,10 +144,28 @@ return [
     'Recordarme' => 'Remember me',
     'Iniciar' => 'Login',
 
+    /* perfil.blade.php */
+    'Per-Perfil' => 'Profile',
+    'Per-Detalles' => 'Profile details',
+    'Per-Actinfo' => 'Update profile information',
+    'Per-Alias' => 'Alias',
+    'Per-Direccion' => 'Email address',
+    'Per-Fecha' => 'Date of birthday',
+    'Per-Imagen' => 'Profile image',
+    'Per-Examinar' => 'Examine',
+    'Per-Actualizar' => 'Update',
+    'Per-Cambiarpswd' => 'Change password',
+    'Per-Pswd' => 'Password',
+    'Per-Confpswd' => 'Confirm password',
+
+    /* email.blade.php */
+    'Ema-Rest' => 'Reestablish password',
+    'Ema-Enviar' => 'Send link to restablish password',
+
     /* register.blade.php */ 
     'Registro' => 'Register',
     'Error-exclamacion' => 'Error!',
-    'Email' => 'EMail address',
+    'Email' => 'Email address',
     'Fnacimiento' => 'Date of birth',
     'ImgPerfil' => 'Profile image',
     'Contraseña-Confirmar' => 'Repeat password',

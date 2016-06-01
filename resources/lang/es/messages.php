@@ -139,6 +139,24 @@ return [
     'Alias' => 'Alias',
     'Contraseña' => 'Contraseña',
 
+    /* perfil.blade.php */
+    'Per-Perfil' => 'Perfil',
+    'Per-Detalles' => 'Detalles de perfil',
+    'Per-Actinfo' => 'Actualizar información de perfil',
+    'Per-Alias' => 'Alias',
+    'Per-Direccion' => 'Dirección E-Mail',
+    'Per-Fecha' => 'Fecha nacimiento',
+    'Per-Imagen' => 'Imagen de perfil',
+    'Per-Examinar' => 'Examinar',
+    'Per-Actualizar' => 'Actualizar',
+    'Per-Cambiarpswd' => 'Cambiar contraseña',
+    'Per-Pswd' => 'Contraseña',
+    'Per-Confpswd' => 'Confirmación contraseña',
+
+    /* email.blade.php */
+    'Ema-Rest' => 'Reestablecer contraseña',
+    'Ema-Enviar' => 'Enviar enlace para restablecer la contraseña',
+
     /* login.blade.php */
     'Contraseña-olvidada' => 'Olvidaste tu contraseña?',
     'Iniciar-sesión' => 'Iniciar sesión',
