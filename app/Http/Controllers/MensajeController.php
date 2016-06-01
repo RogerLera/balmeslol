@@ -34,6 +34,7 @@ class MensajeController extends Controller
         // $threads = Thread::forUser($currentUserId)->latest('updated_at')->get();
         // Todos los threads (conversaciones) en que participa el usuario, con mensajes nuevos
         // $threads = Thread::forUserWithNewMessages($currentUserId)->latest('updated_at')->get();
+        Carbon::setLocale('es');
         return view('messenger.index', compact('threads', 'currentUserId'));
     }
     /**

@@ -133,12 +133,29 @@ return [
     'Info-Costem'          => 'Coste mejora',
     'Info-Costet'          => 'Coste total',
     'Info-Sehacecon'       => 'Se hace con',
-    ''                     => '',
     /* End Info campeones */
 
     /* ---Login y registro--- */
     'Alias' => 'Alias',
     'Contraseña' => 'Contraseña',
+
+    /* perfil.blade.php */
+    'Per-Perfil' => 'Perfil',
+    'Per-Detalles' => 'Detalles de perfil',
+    'Per-Actinfo' => 'Actualizar información de perfil',
+    'Per-Alias' => 'Alias',
+    'Per-Direccion' => 'Dirección E-Mail',
+    'Per-Fecha' => 'Fecha nacimiento',
+    'Per-Imagen' => 'Imagen de perfil',
+    'Per-Examinar' => 'Examinar',
+    'Per-Actualizar' => 'Actualizar',
+    'Per-Cambiarpswd' => 'Cambiar contraseña',
+    'Per-Pswd' => 'Contraseña',
+    'Per-Confpswd' => 'Confirmación contraseña',
+
+    /* email.blade.php */
+    'Ema-Rest' => 'Reestablecer contraseña',
+    'Ema-Enviar' => 'Enviar enlace para restablecer la contraseña',
 
     /* login.blade.php */
     'Contraseña-olvidada' => 'Olvidaste tu contraseña?',
@@ -174,7 +191,7 @@ return [
     'PopCamp-Titulo' => 'Estadísticas de popularidad de los campeones',
 
     /* popularidadHechizos.blade.php */
-    'PopHech-Titulo' => 'Estadísticas de bloqueo de los hechizos',
+    'PopHech-Titulo' => 'Estadísticas de popularidad de los hechizos',
 
 
     /* ---Messenger--- */
