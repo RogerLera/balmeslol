@@ -18,14 +18,14 @@
 
     /* Info campeones */
     'Pagina-Error'         => 'Error page',
-    'Inf-Error'            => 'We\'re sorry, looks like the champion you were looking for doesn\'t esixt.',
+    'Inf-Error'            => 'We\'re sorry, looks like the champion you were looking for doesn\'t exist.',
     'Inf-Caract'           => 'Characteristics',
     'Inf-Habilidades'      => 'Abilities',
     'Inf-Habilidad'        => 'Ability',
     /* End Info capeones */
 
     /* Info objetos */
-    'Info-Error'           => 'We\'re sorry, looks like the object you were looking for doesn\'t esixt.',
+    'Info-Error'           => 'We\'re sorry, looks like the object you were looking for doesn\'t exist.',
     /* End Info campeones */
 
     /* ---Login y registro--- */
