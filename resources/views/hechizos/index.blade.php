@@ -9,8 +9,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Hechizos</li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.Hechizos')</li>
                             </ul>
                         </div>
                     </div>
@@ -30,12 +30,12 @@
                                             <p>{{ $hechizo['descripcion'] }}</p>
                                         </div>
                                         <div class="col-md-2">
-                                            <p><b>Se obtiene al nivel: {{ $hechizo['nivel'] }}</b></p>
+                                            <p><b>@lang('messages.Hec-Obtiene'): {{ $hechizo['nivel'] }}</b></p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-2">
-                                            <p><b>Reutilización: {{ $hechizo['reutilizacion'] }} segundos</b></p>
+                                            <p><b>@lang('messages.Hec-Reutilizacion'): {{ $hechizo['reutilizacion'] }} @lang('messages.Hec-Segundos')</b></p>
                                         </div>
                                     </div>
                                     

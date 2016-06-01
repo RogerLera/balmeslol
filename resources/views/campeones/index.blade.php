@@ -9,28 +9,28 @@
                         <div class="row">
                              <div class="col-md-12">
                                 <ul class="breadcrumb">
-                                    <li><a href="{{ url('/') }}">Inicio</a></li>
-                                    <li class="active">Campeones</li>
+                                    <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                    <li class="active">@lang('messages.Campeones')</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <p>Campeón a buscar</p>
-                                <input type="text" id="buscarcampeon" class="form-control" placeholder="Buscar campeón">
+                                <p>@lang('messages.Cam-Campeonbuscar')</p>
+                                <input type="text" id="buscarcampeon" class="form-control" placeholder="@lang('messages.Cam-Buscarcampeon')">
                             </div>
                             <div class="col-md-6">
-                                <p>Filtrar</p>
+                                <p>@lang('messages.Cam-Filtrar')</p>
                                 <select class="selectpicker" id="filtrarcampeon">
-                                    <option selected value="Todos"><b>Todos</b></option>
-                                    <option value="Gratis">Rotación Semanal</option>
-                                    <optgroup label="Rol">
-                                    <option value="Mage">Mago</option>
-                                    <option value="Fighter">Luchador</option>
-                                    <option value="Support">Soporte</option>
-                                    <option value="Assassin">Asesino</option>
-                                    <option value="Tank">Tanque</option>
-                                    <option value="Marksman">Tirador</option>
+                                    <option selected value="Todos"><b>@lang('messages.Cam-Todos')</b></option>
+                                    <option value="Gratis">@lang('messages.Cam-Rotacion')</option>
+                                    <optgroup label="@lang('messages.Cam-Rol')">
+                                    <option value="Mage">@lang('messages.Cam-Mago')</option>
+                                    <option value="Fighter">@lang('messages.Cam-Luchador')</option>
+                                    <option value="Support">@lang('messages.Cam-Soporte')</option>
+                                    <option value="Assassin">@lang('messages.Cam-Asesino')</option>
+                                    <option value="Tank">@lang('messages.Cam-Tanque')</option>
+                                    <option value="Marksman">@lang('messages.Cam-Tirador')</option>
                                 </select>
                                 <br>
                                 <br>

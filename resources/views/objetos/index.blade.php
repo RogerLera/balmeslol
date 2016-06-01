@@ -9,8 +9,8 @@
                     <div class="row">
                          <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Objetos</li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.Objetos')</li>
                             </ul>
                         </div>
                     </div>
@@ -18,116 +18,116 @@
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Escribe el nombre del objeto que quieras buscar</p>
-                                    <input type="text" id="buscarobjeto" class="form-control" placeholder="Buscar objeto">
+                                    <p>@lang('messages.Obj-Busqueda')</p>
+                                    <input type="text" id="buscarobjeto" class="form-control" placeholder="@lang('messages.Obj-Buscarobj')">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Filtrar objetos</p>
+                                    <p>@lang('messages.Obj-Filtro')</p>
                                     <table id="filtrarObjeto" class="table-custom">
                                         <tbody>
                                             <tr>
-                                                <th>Objetos iniciales</th>
+                                                <th>@lang('messages.Obj-Iniciales')</th>
                                             </tr>
                                             <tr>
-                                                    <td>Jungla</td>
+                                                    <td>@lang('messages.Obj-Jungla')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="Jungle"></td>
                                             </tr>
                                             <tr>
-                                                <td>Actividad en las calles</td>
+                                                <td>@lang('messages.Obj-Actividad')</td>
                                                 <td><input type="checkbox" class="filtroObjeto" value="Lane"></td>
                                             </tr>
                                             <tr>
-                                                <th>Herramientas</th>
+                                                <th>@lang('messages.Obj-Herramientas')</th>
                                             </tr>
                                             <tr>
-                                                    <td>De un solo uso</td>
+                                                    <td>@lang('messages.Obj-Unuso')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="Consumable"></td>
                                             </tr>
                                             <tr>
-                                                <td>Ganancias de Oro</td>
+                                                <td>@lang('messages.Obj-Oro')</td>
                                                 <td><input type="checkbox" class="filtroObjeto" value="GoldPer"></td>
                                             </tr>
                                             <tr>
-                                                <td>Visión</td>
+                                                <td>@lang('messages.Obj-Vision')</td>
                                                 <td><input type="checkbox" class="filtroObjeto" value="Vision"></td>
                                             </tr>
                                             <tr>
-                                                <td>Talismanes</td>
+                                                <td>@lang('messages.Obj-Talismanes')</td>
                                                 <td><input type="checkbox" class="filtroObjeto" value="Trinket"></td>
                                             </tr>
                                             <tr>
-                                                <th>Defensa</th>
+                                                <th>@lang('messages.Obj-Defensa')</th>
                                             </tr>
                                             <tr>
-                                                    <td>Vida</td>
+                                                    <td>@lang('messages.Obj-Vida')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="Health"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Armadura</td>
+                                                    <td>@lang('messages.Obj-Armadura')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="Armor"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Resistencia mágica</td>
+                                                    <td>@lang('messages.Obj-Rmagica')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="SpellBlock"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Regeneración de vida</td>
+                                                    <td>@lang('messages.Obj-Rvida')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="HealthRegen"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Tenacidad</td>
+                                                    <td>@lang('messages.Obj-Tenacidad')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="Tenacity"></td>
                                             </tr>
                                             <tr>
-                                                <th>Ataque</th>
+                                                <th>@lang('messages.Obj-Ataque')</th>
                                             </tr>
                                             <tr>
-                                                    <td>Velocidad de ataque</td>
+                                                    <td>@lang('messages.Obj-Vataque')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="AttackSpeed"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Impacto crítico</td>
+                                                    <td>@lang('messages.Obj-Impcrit')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="CriticalStrike"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Daño</td>
+                                                    <td>@lang('messages.Obj-Daño')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="Damage"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Robo de vida</td>
+                                                    <td>@lang('messages.Obj-Robovida')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="LifeSteal"></td>
                                             </tr>
                                             <tr>
-                                                <th>Magia</th>
+                                                <th>@lang('messages.Obj-Magia')</th>
                                             </tr>
                                             <tr>
-                                                    <td>Reducción de enfriamiento</td>
+                                                    <td>@lang('messages.Obj-Reduccion')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="CooldownReduction"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Maná</td>
+                                                    <td>@lang('messages.Obj-Mana')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="Mana"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Regeneración de maná</td>
+                                                    <td>@lang('messages.Obj-Rmana')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="ManaRegen"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Poder de habilidad</td>
+                                                    <td>@lang('messages.Obj-Poderhabilidad')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="SpellDamage"></td>
                                             </tr>
                                             <tr>
-                                                <th>Movimiento</th>
+                                                <th>@lang('messages.Obj-Movimiento')</th>
                                             </tr>
                                             <tr>
-                                                    <td>Botas</td>
+                                                    <td>@lang('messages.Obj-Botas')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="Boots"></td>
                                             </tr>
                                             <tr>
-                                                    <td>Otros objetos</td>
+                                                    <td>@lang('messages.Obj-Otros')</td>
                                                     <td><input type="checkbox" class="filtroObjeto" value="Other"></td>
                                             </tr>
                                         </tbody>
