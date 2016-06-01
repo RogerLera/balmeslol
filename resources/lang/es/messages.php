@@ -157,6 +157,20 @@ return [
     'Ema-Rest' => 'Reestablecer contraseña',
     'Ema-Enviar' => 'Enviar enlace para restablecer la contraseña',
 
+    /* guias, index.blade.php */
+    'Gui-Guias' => 'Guías',
+    'Gui-Noexiste' => 'No existe ningúna guía',
+    'Gui-Crea' => '!Crea una guía!',
+    'Gui-Crear' => 'Crear guía',
+    'Gui-Titulo' => 'Título',
+    'Gui-Campeon' => 'Campeón',
+    'Gui-Version' => 'Versión',
+    'Gui-Usuario' => 'Usuario',
+    'Gui-Runas' => 'Runas',
+    '' => '',
+    '' => '',
+    '' => '',
+
     /* login.blade.php */
     'Contraseña-olvidada' => 'Olvidaste tu contraseña?',
     'Iniciar-sesión' => 'Iniciar sesión',

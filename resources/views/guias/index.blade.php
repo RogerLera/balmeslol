@@ -5,8 +5,15 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Guias</div>
                 <div class="panel-body">
+                    <div class="row">
+                         <div class="col-md-12">
+                            <ul class="breadcrumb">
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.Gui-Guias')</li>
+                            </ul>
+                        </div>
+                    </div>
                     @if (count($guias) > 0)
                         @foreach($guias as $guia)
                             <div>
@@ -28,7 +35,7 @@
                             </div>
                         @endforeach
                     @else
-                        <p>No existe ninguna guia! <a href="{{ url('/guias/crear') }}">Crea una guia!</a></p>
+                        <p>@lang('messages.Gui-Noexiste'), <a href="{{ url('/guias/crear') }}">@lang('messages.Gui-Crea')</a></p>
                     @endif
                 </div>
             </div>

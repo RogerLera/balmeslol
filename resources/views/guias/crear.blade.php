@@ -6,14 +6,21 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Crear guia</div>
                 <div class="panel-body">
+                    <div class="row">
+                         <div class="col-md-12">
+                            <ul class="breadcrumb">
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.Gui-Crear')</li>
+                            </ul>
+                        </div>
+                    </div>
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/guias/crear') }}">
                         {!! csrf_field() !!}
 
                         <!-- Título -->
                         <div class="form-group{{ $errors->has('guiTitulo') ? ' has-error' : '' }}">
-                            <label class="col-md-3 control-label">Título</label>
+                            <label class="col-md-3 control-label">@lang('messages.Gui-Titulo')</label>
 
                             <div class="col-md-8">
                                 <input type="text" class="form-control" name="guiTitulo" value="{{ old('guiTitulo') }}">
@@ -28,11 +35,11 @@
 
                         <!-- Campeones -->
                         <div class="form-group{{ $errors->has('camNombre') ? ' has-error' : '' }}">
-                            <label class="col-md-3 control-label">Campeón</label>
+                            <label class="col-md-3 control-label">@lang('messages.Gui-Campeon')</label>
 
                             <div class="col-md-4">
-                                <select class="form-control" name="camNombre">
-                                    <option value="1">Seleciona un campeón</option>
+                                <select class="form-control selectpicker" name="camNombre" data-live-search="true">
+                                    <option value="1">@lang('messages.Gui-Selecciona')</option>
                                     @foreach ($campeones as $campeon)
                                         <option value="{{ $campeon['nombre'] }}">{{ $campeon['nombre'] }}</option>
                                     @endforeach
@@ -51,7 +58,7 @@
                             <label class="col-md-3 control-label">Rol</label>
 
                             <div class="col-md-4">
-                                <select class="form-control" name="rolId">
+                                <select class="form-control selectpicker" name="rolId">
                                     <option value="-">Seleciona un rol</option>
                                     @foreach ($roles as $rol)
                                         <option value="{{ $rol['rolId'] }}">{{ $rol['rolNombre'] }}</option>
@@ -71,7 +78,7 @@
                             <label class="col-md-3 control-label">Versión</label>
 
                             <div class="col-md-4">
-                                <select class="form-control" name="guiVersion">
+                                <select class="form-control selectpicker" name="guiVersion">
                                         <option value="{{ $version }}">{{ $version }}</option>
                                 </select>
 
@@ -84,7 +91,7 @@
                         </div>
 
                         <!-- Usuario de la guia -->
-                        <div class="form-group">
+                        <div class="form-group selectpicker">
                             <label class="col-md-3 control-label">Usuario</label>
 
                             <div class="col-md-4">
