@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-md-6">Mis guias</div>
                         <div class="col-md-3">
-                            <a href="/guias/{{ Auth::id() }}/favoritos">Guias favoritas</a>
+                            <a href="{{ url('/guias/favoritos') }}">Guias favoritas</a>
                         </div>
                         <div class="col-md-3">
                             <a href="{{ url('/guias/crear') }}">Crear guia</a>
@@ -33,7 +33,7 @@
                             </div>
                         @endforeach
                     @else
-                        <p>No existe ninguna guia! <a href="{{ url('/guias/crear') }}">Crea una guia!</a></p>
+                        <p>No tienes ninguna guia en favoritos! <a href="{{ url('/guias') }}">Ver guias</a></p>
                     @endif
                 </div>
             </div>

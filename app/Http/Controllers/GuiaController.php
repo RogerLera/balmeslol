@@ -155,18 +155,53 @@ class GuiaController extends Controller {
         return redirect('/guias');
     }
 
+    public function obtenerGuiasFavoritos($id)
+    {
+        return view('guias.user', [
+            'guias' => $this->guias->guiasFavoritas($id),
+        ]);
+    }
+
+    public function guardarAFavoritos()
+    {
+        $guiId = Input::get('guiId');
+        $usuId = Input::get('usuId');
+        $resultado = 'No se ha podido guardar a favoritos.';
+        $where = ['usuId' => $usuId, 'guiId' => $guiId];
+        $favoritoExistente = Favorito::where($where)->first();
+        if (is_null($favoritoExistente)) {
+            Favorito::create([
+                'usuId' => $usuId,
+                'guiId' => $guiId,
+            ]);
+            $resultado = 'Guardado a favoritos.';
+        }
+        return $resultado;
+    }
+
+    public function borrarDeFavoritos()
+    {
+        $guiId = Input::get('guiId');
+        $usuId = Input::get('usuId');
+        $resultado = 'No se ha podido borrar de favoritos.';
+        $where = ['usuId' => $usuId, 'guiId' => $guiId];
+        $favoritoExistente = Favorito::where($where)->delete();
+        $resultado = 'Borrado de favoritos.';
+        return $resultado;
+    }
+
     public function votacion()
     {
-        $idGuia = Input::get('idGuia');
-        $idUser = Input::get('idUser');
+        $guiId = Input::get('guiId');
+        $usuId = Input::get('usuId');
         $tipo = Input::get('tipo');
         $esNuevo = 0;
-        $where = ['usuId' => $idUser, 'guiId' => $idGuia];
+        $where = ['usuId' => $usuId, 'guiId' => $guiId];
         $votacionExistente = Votacion::where($where)->first();
         if (is_null($votacionExistente)) {
             Votacion::create([
-                'usuId' => $idUser,
-                'guiId' => $idGuia,
+                'usuId' => $usuId,
+                'guiId' => $guiId,
                 'votValoracion' => $tipo,
             ]);
         } else {
@@ -178,13 +213,13 @@ class GuiaController extends Controller {
                 $esNuevo = 2;
             }
         }
-        return $this->actualizarValoracion($idGuia, $tipo, $esNuevo);
+        return $this->actualizarValoracion($guiId, $tipo, $esNuevo);
     }
 
-    public function actualizarValoracion($idGuia, $tipo, $esNuevo)
+    public function actualizarValoracion($guiId, $tipo, $esNuevo)
     {
         $valoracion = 0;
-        $guia = Guia::whereId($idGuia)->firstOrFail();
+        $guia = Guia::whereId($guiId)->firstOrFail();
             if ($esNuevo == 0) {
                 if ($tipo == 1) {
                 $valoracion = $guia->guiPositivo = ($guia->guiPositivo + 1);

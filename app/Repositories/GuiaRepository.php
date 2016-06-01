@@ -2,8 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Usuario;
+use App\User;
 use App\Guia;
+use App\Favorito;
 
 class GuiaRepository
 {
@@ -18,6 +19,11 @@ class GuiaRepository
         return Guia::where('usuId', $id)
                     ->orderBy('created_at', 'desc')
                     ->get();
+    }
+
+    public function guiasFavoritas($id)
+    {
+        $favoritos = Favorito::where('usuId', $id)->get();
     }
 
     /**

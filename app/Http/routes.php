@@ -33,7 +33,9 @@ Route::get('/guias/{id}', 'GuiaController@obtenerGuia')->where('id', '[0-9]+');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/guias/crear', 'GuiaController@formularioCrearGuia');
     // Alomejor necesita crear ruta para favoritos, no desde GuiaController.
-    Route::get('/guias/favoritos', 'GuiaController@obtenerGuiasFavoritos');
+    Route::get('/guias/{id}/favoritos', 'GuiaController@obtenerGuiasFavoritos')->where('id', '[0-9]+');
+    Route::post('/guias/favoritos', 'GuiaController@guardarAFavoritos');
+    Route::delete('/guias/favoritos', 'GuiaController@borrarDeFavoritos');
     Route::post('/guias/votacion', 'GuiaController@votacion');
     Route::get('/guias/usuario/{id}', 'GuiaController@misGuias')->where('id', '[0-9]+');
     Route::post('/guias/crear', 'GuiaController@crearGuia');

@@ -20,6 +20,11 @@
                                     <span id="meGusta{{ $guia->id }}">{{ $guia->guiPositivo}}</span>
                                     <span class="glyphicon glyphicon-thumbs-down" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 'noMeGusta{{ $guia->id }}', 0)"></span>&nbsp;
                                     <span id="noMeGusta{{ $guia->id }}">{{ $guia->guiNegativo}}</span>
+                                    @if (isset($guia->favorito->usuId) && $guia->favorito->usuId == Auth::id())
+                                        <button id="favorito{{ $guia->id }}" type="button" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">Borrar favorito</button>
+                                    @else
+                                        <button id="favorito{{ $guia->id }}" type="button" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')">Añadir favorito</button>
+                                    @endif
                             </div>
                         @endforeach
                     @else

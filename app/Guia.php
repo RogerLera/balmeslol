@@ -4,6 +4,7 @@ namespace App;
 
 use App\User;
 use App\Role;
+use App\Favorito;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -41,4 +42,9 @@ class Guia extends Model
    {
        return $this->hasOne(Role::class, 'rolId', 'rolId');
    }
+
+   public function favorito()
+  {
+      return $this->hasOne(Favorito::class, 'guiId');
+  }
 }
