@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Traits;
+use Config;
 
 trait TraitHechizos {
 
@@ -11,10 +12,9 @@ trait TraitHechizos {
      * @return array associativo con la información de los hechizos.
      */
     public function obtenerHechizos() {
-        // Más adelante implementar sessión con idioma.
-        //$idioma = Session::get('idioma');
+        $idioma = Config::get("app.locale");
         // Obtenemos el json.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=es_ES&spellData=all&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale='.$idioma.'&spellData=all&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
         // Lo transformamos a objetos que php pueda entender.
         $data = json_decode($json);
         // Creamos el array que almazenará los hechizos.

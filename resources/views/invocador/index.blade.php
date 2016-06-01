@@ -9,8 +9,8 @@
                     <div class="row">
                          <div class="col-md-12">
                             <ul class="breadcrumb">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li class="active">Buscar jugador</li>
+                                <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
+                                <li class="active">@lang('messages.Inv-Titulo')</li>
                             </ul>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                                     <img style="width:30%;" src="{{asset('/images/alertwarning') }}.png">
                                 </div>
                                 <div class="col-md-10">
-                                    <p>Lo sentimos, el usuario que intentas buscar no existe.</p>
+                                    <p>@lang('messages.Inv-Error')</p>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                             <div class="summoner-title">
                                                 {{ $invocador['nombre'] }}
                                                 <br>
-                                                Nivel {{ $invocador['nivel'] }}
+                                                @lang('messages.Inv-Nivel') {{ $invocador['nivel'] }}
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +50,7 @@
                             <div class="col-md-8">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        Puntuación personal
+                                        @lang('messages.Inv-Puntuacion')
                                     </div>
                                     <div class="panel-body-stats">
                                         <div class="row">
@@ -62,7 +62,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <h4 style="text-align:center;">Equipo 3v3</h4>
+                                                                            <h4 style="text-align:center;">@lang('messages.Inv-Eq3')</h4>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
@@ -103,9 +103,9 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             @if ($liga['cola'] == "RANKED_TEAM_3x3")
-                                                                                <h4 style="text-align:center;">Equipo 3v3</h4>
+                                                                                <h4 style="text-align:center;">@lang('messages.Inv-Eq3')</h4>
                                                                             @elseif ($liga['cola'] == "RANKED_SOLO_5x5")
-                                                                                <h4 style="text-align:center;">Clasificatoria</h4>
+                                                                                <h4 style="text-align:center;">@lang('messages.Inv-Clasif')</h4>
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -126,15 +126,15 @@
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <h4 style="text-align:center;">{{ $liga['puntos'] }} puntos</h4>
+                                                                            <h4 style="text-align:center;">{{ $liga['puntos'] }} @lang('messages.Inv-puntos')</h4>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-6">
-                                                                            <h5 style="text-align:center;">Victorias: {{ $liga['ganadas'] }}</h5>
+                                                                            <h5 style="text-align:center;">@lang('messages.Inv-Victorias'): {{ $liga['ganadas'] }}</h5>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <h5 style="text-align:center;">Derrotas: {{ $liga['perdidas'] }}</h5>
+                                                                            <h5 style="text-align:center;">@lang('messages.Inv-Derrotas'): {{ $liga['perdidas'] }}</h5>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -150,9 +150,9 @@
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         @if ($i == 1)
-                                                                            <h4 style="text-align:center;">Equipo 3v3</h4>
+                                                                            <h4 style="text-align:center;">@lang('messages.Inv-Eq3')</h4>
                                                                         @else
-                                                                            <h4 style="text-align:center;">Clasificatoria</h4>
+                                                                            <h4 style="text-align:center;">@lang('messages.Inv-Clasif')</h4>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -194,7 +194,7 @@
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <h4 style="text-align:center;">Equipo 5v5</h4>
+                                                                <h4 style="text-align:center;">@lang('messages.Inv-Eq5')</h4>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -235,7 +235,7 @@
                             <div class="col-md-4">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        Estadísticas
+                                        @lang('messages.Inv-Est')
                                     </div>
                                     <div class="panel-body-stats scroll">
                                         @foreach($invocador['estadisticas'] as $estadistica)
@@ -248,31 +248,31 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>Victorias: </td>
+                                                    <td>@lang('messages.Inv-Victorias'): </td>
                                                     <td>{{$estadistica['Victorias']}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Derrotas: </td>
+                                                    <td>@lang('messages.Inv-Derrotas'): </td>
                                                     <td>{{$estadistica['Derrotas']}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Campeones Asesinados: </td>
+                                                    <td>@lang('messages.Inv-CampAses'): </td>
                                                     <td>{{$estadistica['Monstruos Asesinados']}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Asistencias: </td>
+                                                    <td>@lang('messages.Inv-Asistencias'): </td>
                                                     <td>{{$estadistica['Asistencias']}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Torres destruidas: </td>
+                                                    <td>@lang('messages.Inv-Torres'): </td>
                                                     <td>{{$estadistica['Torres Destruidas']}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Subditos Asesinados</td>
+                                                    <td>@lang('messages.Inv-Cs')</td>
                                                     <td>{{$estadistica['Subditos Asesinados']}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Monstruos Asesinados</td>
+                                                    <td>@lang('messages.Inv-Monstruos')</td>
                                                     <td>{{$estadistica['Monstruos Asesinados']}}</td>
                                                 </tr>
                                                 </tbody>
@@ -286,13 +286,13 @@
                             <div class="col-md-12">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        Historial de partidas
+                                        @lang('messages.Inv-Historial')
                                     </div>
                                     <div class="panel-body-min">
                                          @foreach($invocador['partidas'] as $partida)
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    <h6 class="game-title">{{$partida['Tipo']}} - {{$partida['Resultado']}} - {{$partida['Duracion']}} minutos</h6>
+                                                    <h6 class="game-title">{{$partida['Tipo']}} - {{$partida['Resultado']}} - {{$partida['Duracion']}} @lang('messages.Inv-minutos')</h6>
                                                 </div>
                                                  @if ($partida['Resultado'] == "VICTORIA")
                                                     <div class="panel-body-win">
@@ -309,15 +309,15 @@
                                                                  </div>
                                                             </div>
                                                             <div class="col-md-2" style="margin-top:5%">
-                                                                <p class="champ-played-text">Nivel {{$partida['Nivel']}}</p>
+                                                                <p class="champ-played-text">@lang('messages.Inv-Nivel') {{$partida['Nivel']}}</p>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <p class="champ-played-text">{{$partida['KDA']}} KDA</p>
+                                                                        <p class="champ-played-text">{{$partida['KDA']}} @lang('messages.Inv-KDA')</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <p class="champ-played-text">{{$partida['Ratio KDA']}} ratio KDA</p>
+                                                                        <p class="champ-played-text">{{$partida['Ratio KDA']}} @lang('messages.Inv-KDAratio')</p>
                                                                     </div>
                                                                 </div>
                                                             </div>

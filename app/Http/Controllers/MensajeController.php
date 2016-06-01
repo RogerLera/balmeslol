@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use Config;
 
 /**
  * Clase MensajeController que nos servira para gestionar los mensajes y mostrarlos. 
@@ -34,7 +35,10 @@ class MensajeController extends Controller
         // $threads = Thread::forUser($currentUserId)->latest('updated_at')->get();
         // Todos los threads (conversaciones) en que participa el usuario, con mensajes nuevos
         // $threads = Thread::forUserWithNewMessages($currentUserId)->latest('updated_at')->get();
-        Carbon::setLocale('es');
+        $idioma = Config::get("app.locale");
+        if ($idioma === "es_ES") {
+            Carbon::setLocale('es');
+        }
         return view('messenger.index', compact('threads', 'currentUserId'));
     }
     /**
@@ -61,7 +65,10 @@ class MensajeController extends Controller
         }        
         $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
         $thread->markAsRead($userId);
-        Carbon::setLocale('es');
+        $idioma = Config::get("app.locale");
+        if ($idioma === "es_ES") {
+            Carbon::setLocale('es');
+        }
         return view('messenger.show', compact('thread', 'users'));
     }
     /**

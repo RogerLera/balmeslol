@@ -41,7 +41,7 @@ class GuiaController extends Controller {
      *
      * @return información guias a la vista.
      */
-    public function index() {
+    public function index(Request $request) {
         return view('guias.index', [
             'guias' => $this->guias->totalGuias(),
         ]);
@@ -157,7 +157,7 @@ class GuiaController extends Controller {
 
     public function obtenerGuiasFavoritos($id)
     {
-        return view('guias.user', [
+        return view('guias.favoritos', [
             'guias' => $this->guias->guiasFavoritas($id),
         ]);
     }

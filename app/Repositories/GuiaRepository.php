@@ -23,7 +23,14 @@ class GuiaRepository
 
     public function guiasFavoritas($id)
     {
-        $favoritos = Favorito::where('usuId', $id)->get();
+        $favoritos = Favorito::where('usuId', $id)
+                                ->orderBy('created_at', 'asc')
+                                ->get();
+        $guias = array();
+        foreach ($favoritos as $favorito) {
+            $guias[] = Guia::whereId($favorito->guiId)->get();
+        }
+        return $guias;
     }
 
     /**

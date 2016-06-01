@@ -2,6 +2,6 @@
 //Array que devuelve los lenguajes disponibles
 
 return [
-    'es' => 'Español',
-    'en' => 'English',
+    'es_ES' => 'Español',
+    'en_US' => 'English',
 ];
