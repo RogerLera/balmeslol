@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Traits\TraitHechizos;
 use App\Traits\TraitVersionActual;
+use Config;
 
 /**
  * Clase HechizoController que llama la vista para mostrar los datos referente a los
@@ -33,8 +34,9 @@ class HechizoController extends Controller {
     */
     public function obtenerHechizos()
     {
+        $idioma = Config::get("app.locale");
         // Obtenemos el json y lo parseamos a hechizo php.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=es_ES&spellData=all&api_key=c6745175-3719-4356-993e-65c331d8f4ae');
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale='.$idioma.'&spellData=all&api_key=c6745175-3719-4356-993e-65c331d8f4ae');
         $data = json_decode($json);
 
         // Creamos el array contenedor de todos los hechizos.

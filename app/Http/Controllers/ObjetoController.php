@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Traits\TraitVersionActual;
+use Config;
 
 /**
  * Clase ObjetoController que llama la vista para mostrar los datos referente a los
@@ -44,8 +45,9 @@ class ObjetoController extends Controller
      * @return array associativo con la información de los objetos.
      */
     public function obtenerObjetos() {
+        $idioma = Config::get("app.locale");
         // Obtenemos el json y lo parseamos a objeto php.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale=es_ES&itemListData=image,tags&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale='.$idioma.'&itemListData=image,tags&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
         $data = json_decode($json);
 
         // Creamos el array contenedor de todos los objetos.
@@ -73,10 +75,11 @@ class ObjetoController extends Controller
      * @return array associativo con la información del objeto.
      */
     public function obtenerObjetoPorId($id) {
+        $idioma = Config::get("app.locale");
         $json = "Empty";
-        if (strpos(get_headers('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
+        if (strpos(get_headers('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale='.$idioma.'&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
             // Obtenemos el json y lo parseamos a objeto php.
-            $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+            $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale='.$idioma.'&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
             $data = json_decode($json);
 
             // Realizamos todos los cambios al apartado $data->description que nos llega,
@@ -127,8 +130,9 @@ class ObjetoController extends Controller
      * @return array associativo con la información del objeto.
      */
     private function obtenerObjetodelObjetoPorId($id) {
+        $idioma = Config::get("app.locale");
         // Obtenemos el json y lo parseamos a objeto php.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale=es_ES&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale='.$idioma.'&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         $data = json_decode($json);
 
         // Creamos el array objeto que tiene toda la información.

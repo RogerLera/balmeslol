@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Traits;
+use Config;
 
 trait TraitObjetos {
 
@@ -11,8 +12,9 @@ trait TraitObjetos {
      * @return array associativo con la información de los objetos.
      */
     public function obtenerObjetos() {
+        $idioma = Config::get("app.locale");
         // Obtenemos el json y lo parseamos a objeto php.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale=es_ES&itemListData=image,tags&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale='.$idioma.'&itemListData=image,tags&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
         $data = json_decode($json);
 
         // Creamos el array contenedor de todos los objetos.

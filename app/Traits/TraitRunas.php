@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Traits;
+use Config;
 
 trait TraitRunas {
 
@@ -12,10 +13,9 @@ trait TraitRunas {
      * @return array associativo con la información de los runas.
      */
     public function obtenerRunas() {
-        // Más adelante implementar sessión con idioma.
-        //$idioma = Session::get('idioma');
+        $idioma = Config::get("app.locale");
         // Obtenemos el json.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune?locale=es_ES&runeListData=image&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune?locale='.$idioma.'&runeListData=image&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         // Lo transformamos a objetos que php pueda entender.
         $data = json_decode($json);
         // Creamos el array que almazenará los runas.

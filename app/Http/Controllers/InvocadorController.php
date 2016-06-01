@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Traits\TraitVersionActual;
+use Config;
 
 /**
  * Clase InvocadorController que llama la vista para mostrar los datos referente a un
  * invocador según su región, obteniendo la información de la API Riot en formato .json.
  */
 class InvocadorController extends Controller {
+
+    use TraitVersionActual;
 
     /**
      * Método principal que se llama al hacer una búsqueda de un jugador. Nos lleva a la vista de su perfil.
@@ -52,7 +56,7 @@ class InvocadorController extends Controller {
                 'id' => $infoInvocador->$nombre->id,
                 'nombre' => $infoInvocador->$nombre->name,
                 'region' => $region,
-                'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/profileicon/' . $infoInvocador->$nombre->profileIconId . '.png',
+                'imagenPerfil' => 'http://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/profileicon/' . $infoInvocador->$nombre->profileIconId . '.png',
                 'nivel' => $infoInvocador->$nombre->summonerLevel,
                 'ligas' => $this->obtenerLiga($infoInvocador->$nombre->id, $region),
                 'estadisticas' => $this->obtenerEstadisticas($infoInvocador->$nombre->id, $region),
@@ -75,6 +79,7 @@ class InvocadorController extends Controller {
         $infoInvocador = json_decode($json);
 
         $estadisticas = ['Monstruos Asesinados', 'Subditos Asesinados', 'Campeones Asesinados', 'Asistencias', 'Torres Destruidas', 'Victorias', 'Derrotas'];
+
         $stats = array();
         $n = 0;
 
@@ -131,12 +136,10 @@ class InvocadorController extends Controller {
             $ligas = array();
             foreach ($infoLiga->$id as $data) {
 
-                if ($data->queue == "RANKED_TEAM_3x3")
-                {
+                if ($data->queue == "RANKED_TEAM_3x3") {
                     $ligastres++;
                 }
-                if ($ligastres <= 1)
-                {
+                if ($ligastres <= 1) {
                     $ligas[$n] = array(
                         'nombre' => $data->name,
                         'tier' => $data->tier,
@@ -253,11 +256,10 @@ class InvocadorController extends Controller {
         }
         $partida['Duracion'] = number_format(($infoPartida->stats->timePlayed / 60), 2, '.', '');
         for ($i = 0; $i < 7; $i++) {
-            $item = "item".$i;
+            $item = "item" . $i;
             if (isset($infoPartida->stats->$item)) {
                 $partida['Items'][$i]['Id'] = $infoPartida->stats->$item;
                 $partida['Items'][$i]['Imagen'] = 'https://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' . $infoPartida->stats->$item . '.png';
-
             }
         }
         $partida['CampeonId'] = $infoPartida->championId;
@@ -296,7 +298,9 @@ class InvocadorController extends Controller {
      * @return type array con los nombres y imágenes referenciados segun la id
      */
     public function obtenerArrayCampeones() {
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=es_ES&champData=image&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
+        $idioma = Config::get("app.locale");
+        
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=' . $idioma . '&champData=image&api_key=1a7388f5-a5a6-4adf-9f7b-cc4e0ae49c6e');
         $data = json_decode($json);
 
         foreach ($data->data as $infoCampeon) {
@@ -308,13 +312,14 @@ class InvocadorController extends Controller {
         return $pj;
     }
 
-     /**
+    /**
      * Método para obtener un array que nos permita referenciar una id de un hechizo con su nombre y su imagen.
      *
      * @return type array con los nombres y imágenes referenciados segun la id
      */
     public function obtenerArrayHechizos() {
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=es_ES&spellData=image&api_key=c6745175-3719-4356-993e-65c331d8f4ae');
+        $idioma = Config::get("app.locale");
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=' . $idioma . '&spellData=image&api_key=c6745175-3719-4356-993e-65c331d8f4ae');
         $data = json_decode($json);
 
         foreach ($data->data as $infoHechizo) {

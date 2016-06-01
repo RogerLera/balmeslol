@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Traits;
+use Config;
 
 trait TraitCampeones {
 
@@ -11,10 +12,9 @@ trait TraitCampeones {
      * @return array associativo con la información de los campeones.
      */
     public function obtenerCampeones() {
-        // Más adelante implementat sessión con idioma.
-        //$idioma = Session::get('idioma');
+        $idioma = Config::get("app.locale");
         // Obtenemos el json.
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=es_ES&champData=image,tags&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale='.$idioma.'&champData=image,tags&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         // Lo transformamos a objetos que php pueda entender.
         $data = json_decode($json);
         // Creamos el array que almazenará los campeones.
@@ -37,10 +37,15 @@ trait TraitCampeones {
 
     public function obtenerHabilidadesCampeon($id)
     {
-        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/' . $id . '?locale=es_ES&champData=spells,passive&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
+        $idioma = Config::get("app.locale");
+        $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/' . $id . '?locale='.$idioma.'&champData=spells,passive&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
         // Lo transformamos a objetos que php pueda entender.
         $infoCampeon = json_decode($json);
-        $habilidades = ['Pasiva', 'Q', 'W', 'E', 'R'];
+        if ($idioma === "es_ES") {
+            $habilidades = ['Pasiva', 'Q', 'W', 'E', 'R'];
+        }else{
+            $habilidades = ['Passive', 'Q', 'W', 'E', 'R'];
+        }
         $campeon;
         $campeon[$habilidades[0]]['nombre'] = $infoCampeon->passive->name;
         $campeon[$habilidades[0]]['imagen'] = 'http://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/passive/' . $infoCampeon->passive->image->full;

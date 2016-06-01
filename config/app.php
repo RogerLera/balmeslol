@@ -58,8 +58,8 @@ return [
       |
      */
     'locales' => [
-    'es' => 'Spanish',
-    'en' => 'English'
+    'es_ES' => 'Spanish',
+    'en_US' => 'English'
   ],    /*
       |--------------------------------------------------------------------------
       | Application Fallback Locale
@@ -70,7 +70,7 @@ return [
       | the language folders that are provided through your application.
       |
      */
-    'fallback_locale' => 'es',
+    'fallback_locale' => 'es_ES',
     /*
       |--------------------------------------------------------------------------
       | Encryption Key
