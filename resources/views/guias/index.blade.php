@@ -33,9 +33,9 @@
                                                 <img class="guide-icon" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
                                                 <div class="row">
                                                     <div class="col-md-10 col-md-offset-2">
-                                                        <span class="fa fa-thumbs-o-up fa-2x" style="color:green;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 'meGusta{{ $guia->id }}', 1)"></span>&nbsp;
+                                                        <span class="fa fa-thumbs-o-up fa-2x" style="color:green;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
                                                         <span id="meGusta{{ $guia->id }}" style="color:green;">{{ $guia->guiPositivo}}</span>
-                                                        <span class="fa fa-thumbs-o-down fa-2x" style="color:red;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 'noMeGusta{{ $guia->id }}', 0)"></span>&nbsp;
+                                                        <span class="fa fa-thumbs-o-down fa-2x" style="color:red;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 0)"></span>&nbsp;
                                                         <span id="noMeGusta{{ $guia->id }}" style="color:red;">{{ $guia->guiNegativo}}</span>
                                                     </div>
                                                 </div>
@@ -72,27 +72,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
-<<<<<<< HEAD
                                 </div>
-=======
-
-
-
-                                    <span class="glyphicon glyphicon-thumbs-up" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
-                                    <span id="meGusta{{ $guia->id }}">{{ $guia->guiPositivo}}</span>
-                                    <span class="glyphicon glyphicon-thumbs-down" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 0)"></span>&nbsp;
-                                        <span id="noMeGusta{{ $guia->id }}">{{ $guia->guiNegativo}}</span>
-                                        @if (isset($guia->favorito->usuId) && $guia->favorito->usuId == Auth::id())
-                                            <span id="favorito{{ $guia->id }}" class="glyphicon glyphicon-star" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')"></span>&nbsp;
-                                        @else
-                                            <span id="favorito{{ $guia->id }}" class="glyphicon glyphicon-star-empty" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')"></span>&nbsp;
-                                        @endif
-
-
->>>>>>> origin/master
                             </div>
                         @endforeach
                     @else

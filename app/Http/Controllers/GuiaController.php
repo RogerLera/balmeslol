@@ -63,7 +63,7 @@ class GuiaController extends Controller {
     public function obtenerGuia(Request $request, $id) {
         $guia = Guia::findOrFail($id);
         $vista = 'guias.guia';
-        if ($request->user()->id == $guia->user->id) {
+        if (isset($request->user()->id) && $request->user()->id == $guia->user->id) {
             $vista = 'guias.editar';
         }
         return view($vista, [
