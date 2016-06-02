@@ -10,7 +10,11 @@
                          <div class="col-md-12">
                             <ul class="breadcrumb">
                                 <li><a href="{{ url('/') }}">@lang('messages.Inicio')</a></li>
-                                <li class="active">@lang('messages.Gui-Guias')</li>
+                                @if ($aMostrar == 'todas')
+                                    <li class="active">@lang('messages.Gui-Guias')</li>
+                                @elseif ($aMostrar == 'usuario')
+                                    <li class="active">@lang('messages.Gui-Misguias')</li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -23,63 +27,148 @@
                         </div>
                     </div>
                     <br>
-                    @if (count($guias) > 0)
-                        @foreach($guias as $guia)
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="guide">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <img class="guide-icon" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
-                                                <div class="row">
-                                                    <div class="col-md-10 col-md-offset-2">
-                                                        <span class="fa fa-thumbs-o-up fa-2x" style="color:green;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
-                                                        <span id="meGusta{{ $guia->id }}" style="color:green;">{{ $guia->guiPositivo}}</span>
-                                                        <span class="fa fa-thumbs-o-down fa-2x" style="color:red;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 0)"></span>&nbsp;
-                                                        <span id="noMeGusta{{ $guia->id }}" style="color:red;">{{ $guia->guiNegativo}}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div clas="col-md-12">
-                                                        &nbsp;
+                    @if ($aMostrar == 'usuario')
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    @lang('messages.Gui-Creadas')
+                                </div>
+                                <div class="panel-body-min">
+                    @endif
+                                    @if (count($guias) > 0)
+                                        @foreach($guias as $guia)
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="guide">
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <img alt="{{ $guia->camNombre }}" class="guide-icon" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
+                                                                <div class="row">
+                                                                    <div class="col-md-10 col-md-offset-2">
+                                                                        <span class="fa fa-thumbs-o-up fa-2x" style="color:green;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
+                                                                        <span id="meGusta{{ $guia->id }}" style="color:green;">{{ $guia->guiPositivo}}</span>
+                                                                        <span class="fa fa-thumbs-o-down fa-2x" style="color:red;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 0)"></span>&nbsp;
+                                                                        <span id="noMeGusta{{ $guia->id }}" style="color:red;">{{ $guia->guiNegativo}}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div clas="col-md-12">
+                                                                        &nbsp;
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <a href="/guias/{{ $guia->id }}"><h4>{{ $guia->guiTitulo }} [{{ $guia->role->rolNombre }}]</h4></a>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p>@lang('messages.Gui-Por'): <a href="/perfil/{{$guia->usuId}}">{{ $guia->user->usuAlias }}</a></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-9">
+                                                                        <p>@lang('messages.Gui-Actualizado'): {{$guia->updated_at}}</p>
+                                                                    </div>
+
+                                                                    <div class="col-md-3">
+                                                                        @if ($guia->usuId != Auth::id())
+                                                                            @if (isset($guia->favorito->usuId) && $guia->favorito->usuId == Auth::id())
+                                                                                <img <img alt="remove-favorite_button" id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/remove-favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">
+                                                                            @else
+                                                                                <img <img alt="favorite_button" id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')">
+                                                                            @endif
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p>@lang('messages.Gui-Version'): {{ $guia->guiVersion }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-10">
-                                                <a href="/guias/{{ $guia->id }}"><h4>{{ $guia->guiTitulo }} [{{ $guia->role->rolNombre }}]</h4></a>
+                                            <br>
+                                        @endforeach
+                                    @else
+                                        <p>@lang('messages.Gui-Noexiste'), <a href="{{ url('/guias/crear') }}">@lang('messages.Gui-Crea')</a></p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--Row-->
+                    @if ($aMostrar == 'usuario')
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Guías favoritas
+                                    </div>
+                                    <div class="panel-body-min">
+                                        @if (count($guiasfav) > 0)
+                                            @foreach($guiasfav as $guia)
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <p>@lang('messages.Gui-Por'): <a href="/perfil/{{$guia->usuId}}">{{ $guia->user->usuAlias }}</a></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-9">
-                                                        <p>@lang('messages.Gui-Actualizado'): {{$guia->updated_at}}</p>
-                                                    </div>
+                                                        <div class="guide">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <img alt="{{ $guia->camNombre }}" class="guide-icon" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
+                                                                    <div class="row">
+                                                                        <div class="col-md-10 col-md-offset-2">
+                                                                            <span class="fa fa-thumbs-o-up fa-2x" style="color:green;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
+                                                                            <span id="meGusta{{ $guia->id }}" style="color:green;">{{ $guia->guiPositivo}}</span>
+                                                                            <span class="fa fa-thumbs-o-down fa-2x" style="color:red;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 0)"></span>&nbsp;
+                                                                            <span id="noMeGusta{{ $guia->id }}" style="color:red;">{{ $guia->guiNegativo}}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div clas="col-md-12">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    <a href="/guias/{{ $guia->id }}"><h4>{{ $guia->guiTitulo }} [{{ $guia->role->rolNombre }}]</h4></a>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <p>@lang('messages.Gui-Por'): <a href="/perfil/{{$guia->usuId}}">{{ $guia->user->usuAlias }}</a></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-9">
+                                                                            <p>@lang('messages.Gui-Actualizado'): {{$guia->updated_at}}</p>
+                                                                        </div>
 
-                                                    <div class="col-md-3">
+                                                                        <div class="col-md-3">
 
-                                                    @if (isset($guia->favorito->usuId) && $guia->favorito->usuId == Auth::id())
-                                                        <img id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/remove-favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">
-                                                    @else
-                                                        <img id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')">
-                                                    @endif
+                                                                        @if (isset($guia->favorito->usuId) && $guia->favorito->usuId == Auth::id())
+                                                                            <img alt="remove-favorite_button" id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/remove-favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">
+                                                                        @else
+                                                                            <img alt="favorite_button" id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')">
+                                                                        @endif
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <p>@lang('messages.Gui-Version'): {{ $guia->guiVersion }}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <p>@lang('messages.Gui-Version'): {{ $guia->guiVersion }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                <br>
+                                            @endforeach
+                                        @else
+                                            <p>@lang('messages.Gui-Favoritos')</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
-                            <br>
-                        @endforeach
-                    @else
-                        <p>@lang('messages.Gui-Noexiste'), <a href="{{ url('/guias/crear') }}">@lang('messages.Gui-Crea')</a></p>
+                        </div>
                     @endif
                 </div><!--Panel body-->
             </div><!--Panel body-->

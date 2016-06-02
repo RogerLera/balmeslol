@@ -78,9 +78,6 @@
                                             <a href="#">@lang('messages.Guias-nuevo')</a>
                                         </li>
                                         <li>
-                                            <a href="#">@lang('messages.Guias-popular')</a>
-                                        </li>
-                                        <li>
                                             <a href="#">@lang('messages.Guias-votado')</a>
                                         </li>
                                     </ul>

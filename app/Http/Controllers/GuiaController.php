@@ -49,14 +49,17 @@ class GuiaController extends Controller {
      */
     public function index(Request $request, $aMostrar) {
         $guias = $this->guias->totalGuias();
+        $guiasfav = "";
         if ($aMostrar == 'usuario') {
             $guias = $this->guias->delUser($request->user()->id);
+            $guiasfav = $this->guias->guiasFavoritas($request->user()->id);
         }
         else if ($aMostrar == 'favoritos') {
             $guias = $this->guias->guiasFavoritas($request->user()->id);
         }
         return view('guias.index', [
             'guias' => $guias,
+            'guiasfav' => $guiasfav,
             'aMostrar' => $aMostrar,
         ]);
     }

@@ -39,7 +39,7 @@
                             <div class="guide">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <img class="guide-icon" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
+                                        <img alt="{{ $guia->camNombre }}" class="guide-icon" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
                                     </div>
                                     <div class="col-md-7">
                                             <p>{{ $guia->camNombre }} [{{ $guia->role->rolNombre }}]</p>

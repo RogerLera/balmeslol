@@ -173,6 +173,9 @@ return [
     'Gui-Actualizado' => 'Actualizado',
     'Gui-Editar' => 'Editar guía',
     'Gui-Contenido' => 'Tabla de contenido',
+    'Gui-Misguias' => 'Mis guías',
+    'Gui-Creadas' => 'Guías creadas',
+    'Gui-Favoritos' => 'No tienes ningúna guía en favoritos.',
 
     /* login.blade.php */
     'Contraseña-olvidada' => 'Olvidaste tu contraseña?',
