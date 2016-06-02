@@ -49,7 +49,6 @@ class GuiaController extends Controller {
      */
     public function index(Request $request, $aMostrar) {
         $guias;
-        print_r($aMostrar);
         $guiasFav = "";
         switch ($aMostrar) {
             case 'usuario':
@@ -66,13 +65,6 @@ class GuiaController extends Controller {
                 $guias = $this->guias->totalGuias();
                 break;
         }
-        /*if ($aMostrar == 'usuario') {
-            $guias = $this->guias->delUser($request->user()->id);
-            $guiasFav = $this->guias->guiasFavoritas($request->user()->id);
-            print_r("p");
-        } else {
-            $guias = $this->guias->totalGuias();
-        }*/
         return view('guias.index', [
             'guias' => $guias,
             'guiasFav' => $guiasFav,
