@@ -17,6 +17,6 @@ class GuiaPolicy
     public function borrarGuia(User $user, Guia $guia)
     {
 
-        return $user->id === $guia->usuId;
+        return $user->id === $guia->usuId || $user->id === 1;
     }
 }
