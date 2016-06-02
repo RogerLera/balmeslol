@@ -105,9 +105,8 @@
     width: 80%;
     border: 2px groove #d0b510;
     border-radius: 10px;
-margin: 10px;
-display: block;
-
+    margin: 10px;
+    display: block;
 }
 
 .guide {

@@ -22,7 +22,7 @@
 
                         </div>
                     </div>
-                            <br>
+                    <br>
                     @if (count($guias) > 0)
                         @foreach($guias as $guia)
                             <div class="row">
@@ -76,6 +76,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                         @endforeach
                     @else
                         <p>@lang('messages.Gui-Noexiste'), <a href="{{ url('/guias/crear') }}">@lang('messages.Gui-Crea')</a></p>
