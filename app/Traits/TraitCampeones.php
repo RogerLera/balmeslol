@@ -35,6 +35,13 @@ trait TraitCampeones {
         return $campeones;
     }
 
+    /**
+     * Método para obtener las habilidades de un campeón, en base a su id, 
+     * en el idioma en el que se esté visualizando la página.
+     * 
+     * @param type $id id del campeón
+     * @return string devuelve un array con las habilidades del campeón
+     */
     public function obtenerHabilidadesCampeon($id)
     {
         $idioma = Config::get("app.locale");

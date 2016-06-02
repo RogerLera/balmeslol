@@ -8,6 +8,12 @@ include(app_path() . "\Graficos\class\pImage.class.php");
 
 trait TraitGraficos {
 
+    /**
+     * Método para generar una imagen del grafico de popularidad de campeones, 
+     * generando a partir de las estadísticas.
+     * 
+     * @param type $estadisticas array con las estadísticas de popularidad de los campeones
+     */
     public function generaGraficoPopularidadCampeones($estadisticas) {
         //info
         $valores = array();
@@ -73,6 +79,12 @@ trait TraitGraficos {
         $myPicture->render(public_path() . "/images/graficos/popularidad_campeones.png");
     }
     
+    /**
+     * Método para generar una imagen del grafico de bloqueo de campeones, 
+     * generando a partir de las estadísticas.
+     * 
+     * @param type $estadisticas array con las estadísticas de bloqueo de los campeones
+     */
     public function generaGraficoBloqueoCampeones($estadisticas) {
         //info
         $valores = array();
@@ -138,6 +150,12 @@ trait TraitGraficos {
         $myPicture->render(public_path() . "/images/graficos/bloqueo_campeones.png");
     }
     
+    /**
+     * Método para generar una imagen del grafico de popularidad de hechizos, 
+     * generando a partir de las estadísticas.
+     * 
+     * @param type $estadisticas array con las estadísticas de popularidad de los hechizos
+     */
     public function generaGraficoPopularidadHechizos($estadisticas) {
         //info
         $valores = array();

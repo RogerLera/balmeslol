@@ -33,16 +33,31 @@ class Guia extends Model
         return $this->belongsTo(User::class, 'usuId');
     }
 
+    /**
+     * Obtenemos las votaciones que tiene la guia.
+     *
+     * @return votaciones que tiene.
+     */
     public function votacions()
     {
         return $this->belongsToMany(User::class, 'votacions');
     }
 
+    /**
+     * Obtenemos el rol al que hace referencia la guia.
+     *
+     * @return rol que referencia.
+     */
     public function role()
    {
        return $this->hasOne(Role::class, 'rolId', 'rolId');
    }
 
+   /**
+     * Obtenemos si la guia es favorita.
+     *
+     * @return favorito o no.
+     */
    public function favorito()
   {
       return $this->hasOne(Favorito::class, 'guiId');

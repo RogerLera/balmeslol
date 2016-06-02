@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Session;
 
 class Language
 {
+    /**
+     * handle del idioma, se preocupara de poner el lenguaje que se ha elegido en sesión
+     * 
+     * @param type $request
+     * @param Closure $next
+     * @return type
+     */
     public function handle($request, Closure $next)
     {
         if (Session::has('applocale') AND array_key_exists(Session::get('applocale'), Config::get('languages'))) {

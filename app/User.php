@@ -59,6 +59,11 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    /**
+     * Obtiene las votaciones que ha realizado el usuario
+     * 
+     * @return type las votaciones realizadas
+     */
     public function votacions()
     {
         return $this->belongsToMany(Guia::class, 'votacions', 'usuId', 'guiId');

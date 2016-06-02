@@ -21,6 +21,11 @@ class GuiaRepository
                     ->get();
     }
 
+    /**
+     * Obtener las guias favoritas del usuario en base a su id
+     * @param type $id id del usuario del que queremos obtener las guias
+     * @return type guias favoritas del usuario en un array
+     */
     public function guiasFavoritas($id)
     {
         $favoritos = Favorito::where('usuId', $id)
