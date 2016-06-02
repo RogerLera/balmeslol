@@ -174,7 +174,7 @@ return [
     /* ---Guias--- */
     /*index.blade.php */
     'Gui-Guias' => 'Guides',
-    'Gui-Noexiste' => 'There\'re no guides actually.',
+    'Gui-Noexiste' => 'There\'re no guides actually',
     'Gui-Crea' => 'Create a guide!',
     'Gui-Crear' => 'Create a guide',
     'Gui-Titulo' => 'Title',
