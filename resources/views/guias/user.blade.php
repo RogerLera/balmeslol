@@ -26,9 +26,9 @@
                                 <p>{{ $guia->guiVersion }}</p>
                                 <p>{{ $guia->role->rolNombre }}</p>
                                 <p>{{ $guia->user->usuAlias }}</p>
-                                    <span class="glyphicon glyphicon-thumbs-up" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 'meGusta{{ $guia->id }}', 1)"></span>&nbsp;
-                                    <span id="meGusta{{ $guia->id }}">{{ $guia->guiPositivo}}</span>
-                                    <span class="glyphicon glyphicon-thumbs-down" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 'noMeGusta{{ $guia->id }}', 0)"></span>&nbsp;
+                                <span class="glyphicon glyphicon-thumbs-up" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
+                                <span id="meGusta{{ $guia->id }}">{{ $guia->guiPositivo}}</span>
+                                <span class="glyphicon glyphicon-thumbs-down" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 0)"></span>&nbsp;
                                     <span id="noMeGusta{{ $guia->id }}">{{ $guia->guiNegativo}}</span>
                                     @if (isset($guia->favorito->usuId) && Auth::user()->favorito->usuId == Auth::id())
                                         <button id="favorito{{ $guia->id }}" type="button" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">Borrar favorito</button>

@@ -10,6 +10,10 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Intervention\Image\Facades\Image;
 use Response;
 
+/**
+* Controlador que maneja el registro de nuevos usuarios, como también la
+* autenticación de los usuarios existentes.
+*/
 class AuthController extends Controller
 {
     /*
@@ -26,16 +30,22 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
-     * Where to redirect users after login / registration.
+     * Donde redireccionar a los usuarios despues del inicio de sessión / registro.
      *
      * @var string
      */
     protected $redirectTo = '/';
 
+    /**
+     * Nombre de la columna de la base de datos con la que se validará al usuario al
+     * iniciar sessión (necesario si no se usa por defecto el 'email').
+     *
+     * @var string
+     */
     protected $username = 'usuAlias';
 
     /**
-     * Create a new authentication controller instance.
+     * Creamos una nueva instancia del controlador autenticación.
      *
      * @return void
      */
@@ -45,7 +55,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Obtener un validador para una solicitud de registro.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -62,7 +72,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Crear un nuevo usuario después de un registro válido.
      *
      * @param  array  $data
      * @return User

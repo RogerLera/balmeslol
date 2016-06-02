@@ -75,7 +75,24 @@
 
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                 </div>
+=======
+
+
+
+                                    <span class="glyphicon glyphicon-thumbs-up" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
+                                    <span id="meGusta{{ $guia->id }}">{{ $guia->guiPositivo}}</span>
+                                    <span class="glyphicon glyphicon-thumbs-down" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 0)"></span>&nbsp;
+                                        <span id="noMeGusta{{ $guia->id }}">{{ $guia->guiNegativo}}</span>
+                                        @if (isset($guia->favorito->usuId) && $guia->favorito->usuId == Auth::id())
+                                            <span id="favorito{{ $guia->id }}" class="glyphicon glyphicon-star" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')"></span>&nbsp;
+                                        @else
+                                            <span id="favorito{{ $guia->id }}" class="glyphicon glyphicon-star-empty" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')"></span>&nbsp;
+                                        @endif
+
+
+>>>>>>> origin/master
                             </div>
                         @endforeach
                     @else
