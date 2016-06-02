@@ -170,6 +170,23 @@ return [
     'ImgPerfil' => 'Profile image',
     'Contraseña-Confirmar' => 'Repeat password',
     'Registrarse' => 'Register',
+    
+    /* ---Guias--- */
+    /*index.blade.php */
+    'Gui-Guias' => 'Guides',
+    'Gui-Noexiste' => 'There\'re no guides actually.',
+    'Gui-Crea' => 'Create a guide!',
+    'Gui-Crear' => 'Create a guide',
+    'Gui-Titulo' => 'Title',
+    'Gui-Campeon' => 'Champion',
+    'Gui-Version' => 'Version',
+    'Gui-Usuario' => 'User',
+    'Gui-Runas' => 'Runes',
+    'Gui-Selecciona' => 'Select a champion',
+    'Gui-Selecrol' => 'Select a role',
+    'Gui-Por' => 'For',
+    'Gui-Actualizado' => 'Updated',
+    'Gui-Editar' => 'Edit guide',
 
     /* ---Estadisticas--- */
     'Esta-Grafica' => 'Graphical statistics',
