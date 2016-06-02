@@ -1,0 +1,25 @@
+{
+    "name": "App\\EstadisticasCampeon",
+    "line": 12,
+    "short_desc": "Objeto EstadisticasCampeon el qual tiene como atributos 'escUsado' (visualizar\nel total de veces que un campe\u00f3n a sido usado) i 'escBloqueado' (visualizar el\ntotal de veces que un campe\u00f3n a sido bloqueado).",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": ".\/app\\EstadisticasCampeon.php",
+    "relative_file": null,
+    "hash": "7cd10a5449b04c47c6b01e329d356b23c69e5257",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

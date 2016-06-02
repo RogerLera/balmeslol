@@ -1,0 +1,25 @@
+{
+    "name": "App\\Role",
+    "line": 10,
+    "short_desc": "Clase Role para los roles, proporciona soporte para las guias.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": ".\/app\\Role.php",
+    "relative_file": null,
+    "hash": "cde3928f9fabb5a938a1294cb5feaedd08b307ef",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

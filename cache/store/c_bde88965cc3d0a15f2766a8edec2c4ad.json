@@ -1,0 +1,84 @@
+{
+    "name": "App\\Http\\Middleware\\Language",
+    "line": 12,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Middleware",
+    "file": ".\/app\\Http\\Middleware\\Language.php",
+    "relative_file": null,
+    "hash": "ae99e1c576617764635e3a18cbbe45087d58b69a",
+    "parent": null,
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Closure": "Closure",
+        "Application": "Illuminate\\Foundation\\Application",
+        "Request": "Illuminate\\Http\\Request",
+        "Redirector": "Illuminate\\Routing\\Redirector",
+        "App": "Illuminate\\Support\\Facades\\App",
+        "Config": "Illuminate\\Support\\Facades\\Config",
+        "Session": "Illuminate\\Support\\Facades\\Session"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "handle": {
+            "name": "handle",
+            "line": 21,
+            "short_desc": "handle del idioma, se preocupara de poner el lenguaje que se ha elegido en sesi\u00f3n",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Middleware\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 21,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Middleware\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "next": {
+                    "name": "next",
+                    "line": 21,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Closure",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Closure",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

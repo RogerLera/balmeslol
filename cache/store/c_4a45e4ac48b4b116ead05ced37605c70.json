@@ -1,0 +1,25 @@
+{
+    "name": "App\\EstadisticasHechizo",
+    "line": 11,
+    "short_desc": "Objeto EstadisticasHechizo el qual tiene como atributo 'eshUsado' (visualizar\nel total de veces que un hechizo a sido seleccionado).",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": ".\/app\\EstadisticasHechizo.php",
+    "relative_file": null,
+    "hash": "0912b8097b990ce9cc39489aaac18d5128e8ee63",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

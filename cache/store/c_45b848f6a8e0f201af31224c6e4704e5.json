@@ -1,0 +1,27 @@
+{
+    "name": "App\\Favorito",
+    "line": 12,
+    "short_desc": "Classe Favorito en la que se almazenan las guias que a un usuario le han gustado.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": ".\/app\\Favorito.php",
+    "relative_file": null,
+    "hash": "41905d517deb498d9153813ee93079112e98ee97",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "User": "App\\User",
+        "Guia": "App\\Guia",
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

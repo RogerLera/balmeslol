@@ -1,0 +1,358 @@
+{
+    "name": "App\\Http\\Controllers\\InvocadorController",
+    "line": 14,
+    "short_desc": "Clase InvocadorController que llama la vista para mostrar los datos referente a un\ninvocador seg\u00fan su regi\u00f3n, obteniendo la informaci\u00f3n de la API Riot en formato .json.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\InvocadorController.php",
+    "relative_file": null,
+    "hash": "f4ccbbade669a2f43c71fa3f543309aeb122c00e",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Requests": "App\\Http\\Requests",
+        "TraitVersionActual": "App\\Traits\\TraitVersionActual",
+        "Config": "Config"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "App\\Traits\\TraitVersionActual": "App\\Traits\\TraitVersionActual"
+    },
+    "properties": [],
+    "methods": {
+        "index": {
+            "name": "index",
+            "line": 23,
+            "short_desc": "M\u00e9todo principal que se llama al hacer una b\u00fasqueda de un jugador. Nos lleva a la vista de su perfil.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "la vista",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 23,
+                    "short_desc": "recoge los par\u00e1metros del input",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerPerfil": {
+            "name": "obtenerPerfil",
+            "line": 34,
+            "short_desc": "M\u00e9todo que a partir de un nick o nombre de jugador, obtiene sus datos de perfil y stats.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "nombre": {
+                    "name": "nombre",
+                    "line": 34,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "region": {
+                    "name": "region",
+                    "line": 34,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerEstadisticas": {
+            "name": "obtenerEstadisticas",
+            "line": 76,
+            "short_desc": "M\u00e9todo que a partir de un id y region obtienes sus estadisticas",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 76,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "region": {
+                    "name": "region",
+                    "line": 76,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerLiga": {
+            "name": "obtenerLiga",
+            "line": 124,
+            "short_desc": "M\u00e9todo que a partir de un id obtienes sus ligas",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 124,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "region": {
+                    "name": "region",
+                    "line": 124,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerListaPartidas": {
+            "name": "obtenerListaPartidas",
+            "line": 183,
+            "short_desc": "M\u00e9todo principal que nos devuelve las \u00faltimas 7 partidas de un usuario en base a su nombre y regi\u00f3n.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "lista de partidas en un array",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "The \"nombre\" @param tag variable name is wrong (should be \"id\")"
+            ],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 183,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "region": {
+                    "name": "region",
+                    "line": 183,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerPartida": {
+            "name": "obtenerPartida",
+            "line": 213,
+            "short_desc": "M\u00e9todo complementario de obtenerListaPartidas donde obtenemos una sola partida para guardarla",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "devuelve un array con los datos de una partida",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"5\" @param tags are expected but only \"3\" found"
+            ],
+            "parameters": {
+                "infoPartida": {
+                    "name": "infoPartida",
+                    "line": 213,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "pj": {
+                    "name": "pj",
+                    "line": 213,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "sp": {
+                    "name": "sp",
+                    "line": 213,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "region": {
+                    "name": "region",
+                    "line": 213,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 213,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerArrayCampeones": {
+            "name": "obtenerArrayCampeones",
+            "line": 300,
+            "short_desc": "M\u00e9todo para obtener un array que nos permita referenciar una id de un personaje con su nombre y su imagen.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "array con los nombres y im\u00e1genes referenciados segun la id",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "obtenerArrayHechizos": {
+            "name": "obtenerArrayHechizos",
+            "line": 320,
+            "short_desc": "M\u00e9todo para obtener un array que nos permita referenciar una id de un hechizo con su nombre y su imagen.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "array con los nombres y im\u00e1genes referenciados segun la id",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

@@ -1,0 +1,114 @@
+{
+    "name": "App\\Repositories\\GuiaRepository",
+    "line": 9,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Repositories",
+    "file": ".\/app\\Repositories\\GuiaRepository.php",
+    "relative_file": null,
+    "hash": "898e382a2bdf4eb655945a830c6d2ebdd79df34e",
+    "parent": null,
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "User": "App\\User",
+        "Guia": "App\\Guia",
+        "Favorito": "App\\Favorito"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "delUser": {
+            "name": "delUser",
+            "line": 17,
+            "short_desc": "Obtener todas las guias del usuario.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Repositories\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 17,
+                    "short_desc": "id user.",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "guiasFavoritas": {
+            "name": "guiasFavoritas",
+            "line": 29,
+            "short_desc": "Obtener las guias favoritas del usuario en base a su id",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Repositories\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "guias favoritas del usuario en un array",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 29,
+                    "short_desc": "id del usuario del que queremos obtener las guias",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Repositories\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "totalGuias": {
+            "name": "totalGuias",
+            "line": 46,
+            "short_desc": "Obtiene todas las guias creadas en la base de datos.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Repositories\\Devuelve",
+                    false
+                ]
+            ],
+            "hint_desc": "las guias.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

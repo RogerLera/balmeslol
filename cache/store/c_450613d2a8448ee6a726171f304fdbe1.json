@@ -1,0 +1,2607 @@
+{
+    "name": "pData",
+    "line": 56,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "",
+    "file": ".\/app\\Graficos\\class\\pData.class.php",
+    "relative_file": null,
+    "hash": "acac7b8c2f96fa37ff092f39e86263c034661588",
+    "parent": null,
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": [],
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "Data": {
+            "name": "Data",
+            "line": 58,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": null,
+            "errors": []
+        },
+        "Palette": {
+            "name": "Palette",
+            "line": 60,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "items": [
+                    {
+                        "key": {
+                            "value": "0"
+                        },
+                        "value": {
+                            "items": [
+                                {
+                                    "key": {
+                                        "value": "R"
+                                    },
+                                    "value": {
+                                        "value": 188
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "G"
+                                    },
+                                    "value": {
+                                        "value": 224
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "B"
+                                    },
+                                    "value": {
+                                        "value": 46
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "Alpha"
+                                    },
+                                    "value": {
+                                        "value": 100
+                                    },
+                                    "byRef": false
+                                }
+                            ]
+                        },
+                        "byRef": false
+                    },
+                    {
+                        "key": {
+                            "value": "1"
+                        },
+                        "value": {
+                            "items": [
+                                {
+                                    "key": {
+                                        "value": "R"
+                                    },
+                                    "value": {
+                                        "value": 224
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "G"
+                                    },
+                                    "value": {
+                                        "value": 100
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "B"
+                                    },
+                                    "value": {
+                                        "value": 46
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "Alpha"
+                                    },
+                                    "value": {
+                                        "value": 100
+                                    },
+                                    "byRef": false
+                                }
+                            ]
+                        },
+                        "byRef": false
+                    },
+                    {
+                        "key": {
+                            "value": "2"
+                        },
+                        "value": {
+                            "items": [
+                                {
+                                    "key": {
+                                        "value": "R"
+                                    },
+                                    "value": {
+                                        "value": 224
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "G"
+                                    },
+                                    "value": {
+                                        "value": 214
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "B"
+                                    },
+                                    "value": {
+                                        "value": 46
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "Alpha"
+                                    },
+                                    "value": {
+                                        "value": 100
+                                    },
+                                    "byRef": false
+                                }
+                            ]
+                        },
+                        "byRef": false
+                    },
+                    {
+                        "key": {
+                            "value": "3"
+                        },
+                        "value": {
+                            "items": [
+                                {
+                                    "key": {
+                                        "value": "R"
+                                    },
+                                    "value": {
+                                        "value": 46
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "G"
+                                    },
+                                    "value": {
+                                        "value": 151
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "B"
+                                    },
+                                    "value": {
+                                        "value": 224
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "Alpha"
+                                    },
+                                    "value": {
+                                        "value": 100
+                                    },
+                                    "byRef": false
+                                }
+                            ]
+                        },
+                        "byRef": false
+                    },
+                    {
+                        "key": {
+                            "value": "4"
+                        },
+                        "value": {
+                            "items": [
+                                {
+                                    "key": {
+                                        "value": "R"
+                                    },
+                                    "value": {
+                                        "value": 176
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "G"
+                                    },
+                                    "value": {
+                                        "value": 46
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "B"
+                                    },
+                                    "value": {
+                                        "value": 224
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "Alpha"
+                                    },
+                                    "value": {
+                                        "value": 100
+                                    },
+                                    "byRef": false
+                                }
+                            ]
+                        },
+                        "byRef": false
+                    },
+                    {
+                        "key": {
+                            "value": "5"
+                        },
+                        "value": {
+                            "items": [
+                                {
+                                    "key": {
+                                        "value": "R"
+                                    },
+                                    "value": {
+                                        "value": 224
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "G"
+                                    },
+                                    "value": {
+                                        "value": 46
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "B"
+                                    },
+                                    "value": {
+                                        "value": 117
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "Alpha"
+                                    },
+                                    "value": {
+                                        "value": 100
+                                    },
+                                    "byRef": false
+                                }
+                            ]
+                        },
+                        "byRef": false
+                    },
+                    {
+                        "key": {
+                            "value": "6"
+                        },
+                        "value": {
+                            "items": [
+                                {
+                                    "key": {
+                                        "value": "R"
+                                    },
+                                    "value": {
+                                        "value": 92
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "G"
+                                    },
+                                    "value": {
+                                        "value": 224
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "B"
+                                    },
+                                    "value": {
+                                        "value": 46
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "Alpha"
+                                    },
+                                    "value": {
+                                        "value": 100
+                                    },
+                                    "byRef": false
+                                }
+                            ]
+                        },
+                        "byRef": false
+                    },
+                    {
+                        "key": {
+                            "value": "7"
+                        },
+                        "value": {
+                            "items": [
+                                {
+                                    "key": {
+                                        "value": "R"
+                                    },
+                                    "value": {
+                                        "value": 224
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "G"
+                                    },
+                                    "value": {
+                                        "value": 176
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "B"
+                                    },
+                                    "value": {
+                                        "value": 46
+                                    },
+                                    "byRef": false
+                                },
+                                {
+                                    "key": {
+                                        "value": "Alpha"
+                                    },
+                                    "value": {
+                                        "value": 100
+                                    },
+                                    "byRef": false
+                                }
+                            ]
+                        },
+                        "byRef": false
+                    }
+                ]
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "pData": {
+            "name": "pData",
+            "line": 70,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "addPoints": {
+            "name": "addPoints",
+            "line": 86,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Values": {
+                    "name": "Values",
+                    "line": 86,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "SerieName": {
+                    "name": "SerieName",
+                    "line": 86,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "'Serie1'",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "stripVOID": {
+            "name": "stripVOID",
+            "line": 109,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Values": {
+                    "name": "Values",
+                    "line": 109,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getSerieCount": {
+            "name": "getSerieCount",
+            "line": 113,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 113,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "removeSerie": {
+            "name": "removeSerie",
+            "line": 117,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 117,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getValueAt": {
+            "name": "getValueAt",
+            "line": 124,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 124,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Index": {
+                    "name": "Index",
+                    "line": 124,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "0",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getValues": {
+            "name": "getValues",
+            "line": 128,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 128,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "reverseSerie": {
+            "name": "reverseSerie",
+            "line": 132,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 132,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getSum": {
+            "name": "getSum",
+            "line": 139,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 139,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getMax": {
+            "name": "getMax",
+            "line": 143,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 143,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getMin": {
+            "name": "getMin",
+            "line": 147,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 147,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setSerieShape": {
+            "name": "setSerieShape",
+            "line": 151,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 151,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Shape": {
+                    "name": "Shape",
+                    "line": 151,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "SERIE_SHAPE_FILLEDCIRCLE",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setSerieDescription": {
+            "name": "setSerieDescription",
+            "line": 158,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 158,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Description": {
+                    "name": "Description",
+                    "line": 158,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "'My serie'",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setSerieDrawable": {
+            "name": "setSerieDrawable",
+            "line": 165,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 165,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Drawable": {
+                    "name": "Drawable",
+                    "line": 165,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "TRUE",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setSeriePicture": {
+            "name": "setSeriePicture",
+            "line": 172,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 172,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Picture": {
+                    "name": "Picture",
+                    "line": 172,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "NULL",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setXAxisName": {
+            "name": "setXAxisName",
+            "line": 179,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Name": {
+                    "name": "Name",
+                    "line": 179,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setXAxisDisplay": {
+            "name": "setXAxisDisplay",
+            "line": 183,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Mode": {
+                    "name": "Mode",
+                    "line": 183,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Format": {
+                    "name": "Format",
+                    "line": 183,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "NULL",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setXAxisUnit": {
+            "name": "setXAxisUnit",
+            "line": 187,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Unit": {
+                    "name": "Unit",
+                    "line": 187,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setAbscissa": {
+            "name": "setAbscissa",
+            "line": 191,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 191,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setAbsicssaPosition": {
+            "name": "setAbsicssaPosition",
+            "line": 194,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Position": {
+                    "name": "Position",
+                    "line": 194,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "AXIS_POSITION_BOTTOM",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setAbscissaName": {
+            "name": "setAbscissaName",
+            "line": 198,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Name": {
+                    "name": "Name",
+                    "line": 198,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setScatterSerie": {
+            "name": "setScatterSerie",
+            "line": 202,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "SerieX": {
+                    "name": "SerieX",
+                    "line": 202,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "SerieY": {
+                    "name": "SerieY",
+                    "line": 202,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "ID": {
+                    "name": "ID",
+                    "line": 202,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "0",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setScatterSerieShape": {
+            "name": "setScatterSerieShape",
+            "line": 206,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "ID": {
+                    "name": "ID",
+                    "line": 206,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Shape": {
+                    "name": "Shape",
+                    "line": 206,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "SERIE_SHAPE_FILLEDCIRCLE",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setScatterSerieDescription": {
+            "name": "setScatterSerieDescription",
+            "line": 210,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "ID": {
+                    "name": "ID",
+                    "line": 210,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Description": {
+                    "name": "Description",
+                    "line": 210,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "'My serie'",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setScatterSeriePicture": {
+            "name": "setScatterSeriePicture",
+            "line": 214,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "ID": {
+                    "name": "ID",
+                    "line": 214,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Picture": {
+                    "name": "Picture",
+                    "line": 214,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "NULL",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setScatterSerieDrawable": {
+            "name": "setScatterSerieDrawable",
+            "line": 218,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "ID": {
+                    "name": "ID",
+                    "line": 218,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Drawable": {
+                    "name": "Drawable",
+                    "line": 218,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "TRUE",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setScatterSerieTicks": {
+            "name": "setScatterSerieTicks",
+            "line": 222,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "ID": {
+                    "name": "ID",
+                    "line": 222,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Width": {
+                    "name": "Width",
+                    "line": 222,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "0",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setScatterSerieWeight": {
+            "name": "setScatterSerieWeight",
+            "line": 226,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "ID": {
+                    "name": "ID",
+                    "line": 226,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Weight": {
+                    "name": "Weight",
+                    "line": 226,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "0",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setScatterSerieColor": {
+            "name": "setScatterSerieColor",
+            "line": 230,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "ID": {
+                    "name": "ID",
+                    "line": 230,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Format": {
+                    "name": "Format",
+                    "line": 230,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "limits": {
+            "name": "limits",
+            "line": 247,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "drawAll": {
+            "name": "drawAll",
+            "line": 267,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getSerieAverage": {
+            "name": "getSerieAverage",
+            "line": 271,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 271,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getGeometricMean": {
+            "name": "getGeometricMean",
+            "line": 283,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 283,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getHarmonicMean": {
+            "name": "getHarmonicMean",
+            "line": 296,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 296,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getStandardDeviation": {
+            "name": "getStandardDeviation",
+            "line": 309,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 309,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getCoefficientOfVariation": {
+            "name": "getCoefficientOfVariation",
+            "line": 329,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 329,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getSerieMedian": {
+            "name": "getSerieMedian",
+            "line": 346,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 346,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getSeriePercentile": {
+            "name": "getSeriePercentile",
+            "line": 364,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 364,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "'Serie1'",
+                    "is_by_ref": false
+                },
+                "Percentil": {
+                    "name": "Percentil",
+                    "line": 364,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "95",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "addRandomValues": {
+            "name": "addRandomValues",
+            "line": 382,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "SerieName": {
+                    "name": "SerieName",
+                    "line": 382,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "'Serie1'",
+                    "is_by_ref": false
+                },
+                "Options": {
+                    "name": "Options",
+                    "line": 382,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "''",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "containsData": {
+            "name": "containsData",
+            "line": 397,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "setAxisDisplay": {
+            "name": "setAxisDisplay",
+            "line": 408,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "AxisID": {
+                    "name": "AxisID",
+                    "line": 408,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Mode": {
+                    "name": "Mode",
+                    "line": 408,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "AXIS_FORMAT_DEFAULT",
+                    "is_by_ref": false
+                },
+                "Format": {
+                    "name": "Format",
+                    "line": 408,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "NULL",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setAxisPosition": {
+            "name": "setAxisPosition",
+            "line": 418,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "AxisID": {
+                    "name": "AxisID",
+                    "line": 418,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Position": {
+                    "name": "Position",
+                    "line": 418,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "AXIS_POSITION_LEFT",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setAxisUnit": {
+            "name": "setAxisUnit",
+            "line": 422,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "AxisID": {
+                    "name": "AxisID",
+                    "line": 422,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Unit": {
+                    "name": "Unit",
+                    "line": 422,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setAxisName": {
+            "name": "setAxisName",
+            "line": 426,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "AxisID": {
+                    "name": "AxisID",
+                    "line": 426,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Name": {
+                    "name": "Name",
+                    "line": 426,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setAxisColor": {
+            "name": "setAxisColor",
+            "line": 430,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "AxisID": {
+                    "name": "AxisID",
+                    "line": 430,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Format": {
+                    "name": "Format",
+                    "line": 430,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setAxisXY": {
+            "name": "setAxisXY",
+            "line": 448,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "AxisID": {
+                    "name": "AxisID",
+                    "line": 448,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Identity": {
+                    "name": "Identity",
+                    "line": 448,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "AXIS_Y",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setSerieOnAxis": {
+            "name": "setSerieOnAxis",
+            "line": 452,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 452,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "AxisID": {
+                    "name": "AxisID",
+                    "line": 452,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setSerieTicks": {
+            "name": "setSerieTicks",
+            "line": 473,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 473,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Width": {
+                    "name": "Width",
+                    "line": 473,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "0",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setSerieWeight": {
+            "name": "setSerieWeight",
+            "line": 480,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 480,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Weight": {
+                    "name": "Weight",
+                    "line": 480,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "0",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getSeriePalette": {
+            "name": "getSeriePalette",
+            "line": 487,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 487,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "setPalette": {
+            "name": "setPalette",
+            "line": 501,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 501,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Format": {
+                    "name": "Format",
+                    "line": 501,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "NULL",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "loadPalette": {
+            "name": "loadPalette",
+            "line": 528,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "FileName": {
+                    "name": "FileName",
+                    "line": 528,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Overwrite": {
+                    "name": "Overwrite",
+                    "line": 528,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "FALSE",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "initScatterSerie": {
+            "name": "initScatterSerie",
+            "line": 563,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "ID": {
+                    "name": "ID",
+                    "line": 563,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "initialise": {
+            "name": "initialise",
+            "line": 585,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Serie": {
+                    "name": "Serie",
+                    "line": 585,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "normalize": {
+            "name": "normalize",
+            "line": 610,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "NormalizationFactor": {
+                    "name": "NormalizationFactor",
+                    "line": 610,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "100",
+                    "is_by_ref": false
+                },
+                "UnitChange": {
+                    "name": "UnitChange",
+                    "line": 610,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "NULL",
+                    "is_by_ref": false
+                },
+                "Round": {
+                    "name": "Round",
+                    "line": 610,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "1",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "importFromCSV": {
+            "name": "importFromCSV",
+            "line": 667,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "FileName": {
+                    "name": "FileName",
+                    "line": 667,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Options": {
+                    "name": "Options",
+                    "line": 667,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "''",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "createFunctionSerie": {
+            "name": "createFunctionSerie",
+            "line": 704,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "SerieName": {
+                    "name": "SerieName",
+                    "line": 704,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Formula": {
+                    "name": "Formula",
+                    "line": 704,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "''",
+                    "is_by_ref": false
+                },
+                "Options": {
+                    "name": "Options",
+                    "line": 704,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": "''",
+                    "is_by_ref": false
+                }
+            }
+        },
+        "negateValues": {
+            "name": "negateValues",
+            "line": 734,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Series": {
+                    "name": "Series",
+                    "line": 734,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getData": {
+            "name": "getData",
+            "line": 753,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "savePalette": {
+            "name": "savePalette",
+            "line": 757,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "ID": {
+                    "name": "ID",
+                    "line": 757,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Color": {
+                    "name": "Color",
+                    "line": 757,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getPalette": {
+            "name": "getPalette",
+            "line": 761,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "saveAxisConfig": {
+            "name": "saveAxisConfig",
+            "line": 765,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Axis": {
+                    "name": "Axis",
+                    "line": 765,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "saveYMargin": {
+            "name": "saveYMargin",
+            "line": 768,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Value": {
+                    "name": "Value",
+                    "line": 768,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "saveExtendedData": {
+            "name": "saveExtendedData",
+            "line": 771,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Tag": {
+                    "name": "Tag",
+                    "line": 771,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Values": {
+                    "name": "Values",
+                    "line": 771,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "saveOrientation": {
+            "name": "saveOrientation",
+            "line": 774,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Orientation": {
+                    "name": "Orientation",
+                    "line": 774,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "convertToArray": {
+            "name": "convertToArray",
+            "line": 777,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "Value": {
+                    "name": "Value",
+                    "line": 777,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "__toString": {
+            "name": "__toString",
+            "line": 781,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "left": {
+            "name": "left",
+            "line": 784,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "value": {
+                    "name": "value",
+                    "line": 784,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "NbChar": {
+                    "name": "NbChar",
+                    "line": 784,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "right": {
+            "name": "right",
+            "line": 785,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "value": {
+                    "name": "value",
+                    "line": 785,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "NbChar": {
+                    "name": "NbChar",
+                    "line": 785,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "mid": {
+            "name": "mid",
+            "line": 786,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "value": {
+                    "name": "value",
+                    "line": 786,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "Depart": {
+                    "name": "Depart",
+                    "line": 786,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "NbChar": {
+                    "name": "NbChar",
+                    "line": 786,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

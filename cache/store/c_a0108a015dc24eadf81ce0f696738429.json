@@ -1,0 +1,529 @@
+{
+    "name": "App\\Http\\Controllers\\GuiaController",
+    "line": 23,
+    "short_desc": "Clase GuiaController que es la que se encarga de redirecionar a las vistas adecuadas\npara las guias y verificar que los datos pasan la validaci\u00f3n correcta antes de guardarlos.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\GuiaController.php",
+    "relative_file": null,
+    "hash": "e538053c1f6acc223f5f219e773cd26c546c68e5",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Input": "Illuminate\\Support\\Facades\\Input",
+        "Guia": "App\\Guia",
+        "Role": "App\\Role",
+        "Votacion": "App\\Votacion",
+        "Requests": "App\\Http\\Requests",
+        "GuiaRepository": "App\\Repositories\\GuiaRepository",
+        "TraitCampeones": "App\\Traits\\TraitCampeones",
+        "TraitHechizos": "App\\Traits\\TraitHechizos",
+        "TraitRunas": "App\\Traits\\TraitRunas",
+        "TraitVersionActual": "App\\Traits\\TraitVersionActual",
+        "TraitObjetos": "App\\Traits\\TraitObjetos"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "App\\Traits\\TraitCampeones": "App\\Traits\\TraitCampeones",
+        "App\\Traits\\TraitHechizos": "App\\Traits\\TraitHechizos",
+        "App\\Traits\\TraitRunas": "App\\Traits\\TraitRunas",
+        "App\\Traits\\TraitObjetos": "App\\Traits\\TraitObjetos",
+        "App\\Traits\\TraitVersionActual": "App\\Traits\\TraitVersionActual"
+    },
+    "properties": [],
+    "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 41,
+            "short_desc": "Crear nueva instancia del controlador.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "guias": {
+                    "name": "guias",
+                    "line": 41,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Repositories\\GuiaRepository",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "App\\Repositories\\GuiaRepository",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "index": {
+            "name": "index",
+            "line": 50,
+            "short_desc": "M\u00e9todo principal que se llama al acceder a la pestanya guias.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\todas",
+                    false
+                ]
+            ],
+            "hint_desc": "las guias que existen en la base de datos a la vista.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 50,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "aMostrar": {
+                    "name": "aMostrar",
+                    "line": 50,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerGuia": {
+            "name": "obtenerGuia",
+            "line": 71,
+            "short_desc": "M\u00e9todo que mustra una guia seleccionada, dependiendo de si es el usuario que\nla a creado o no, se le enviar\u00e1 a una vista u otra (editable o solo lectura).",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\informaci\u00f3n",
+                    false
+                ]
+            ],
+            "hint_desc": "completa de la guia.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 71,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 71,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "misGuias": {
+            "name": "misGuias",
+            "line": 89,
+            "short_desc": "M\u00e9todo que devuelve las gu\u00edas que ha creado el usuario logueado por su id.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\vista",
+                    false
+                ]
+            ],
+            "hint_desc": "resumida de sus guias",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 89,
+                    "short_desc": "id del usuario",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Controllers\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "formularioCrearGuia": {
+            "name": "formularioCrearGuia",
+            "line": 100,
+            "short_desc": "M\u00e9todo que devuelve el formulario para crear una guia.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\vista",
+                    false
+                ]
+            ],
+            "hint_desc": "con la info necesaria para poder crearlas.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "crearGuia": {
+            "name": "crearGuia",
+            "line": 114,
+            "short_desc": "M\u00e9todo que valida y registra una guia nueva a la base de datos.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redireccionamos",
+                    false
+                ]
+            ],
+            "hint_desc": "a la p\u00e1gina de sus guias.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 114,
+                    "short_desc": "datos a guardar.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "editarGuia": {
+            "name": "editarGuia",
+            "line": 138,
+            "short_desc": "M\u00e9todo que edita una guia existente.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redireccionamos",
+                    false
+                ]
+            ],
+            "hint_desc": "a la p\u00e1gina de sus guias.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 138,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 138,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "eliminarGuia": {
+            "name": "eliminarGuia",
+            "line": 165,
+            "short_desc": "M\u00e9todo que elimina una guia existente.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redireccionamos",
+                    false
+                ]
+            ],
+            "hint_desc": "a la p\u00e1gina de sus guias.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 165,
+                    "short_desc": "request.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "guia": {
+                    "name": "guia",
+                    "line": 165,
+                    "short_desc": "guia a eliminar.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Guia",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "App\\Guia",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerGuiasFavoritos": {
+            "name": "obtenerGuiasFavoritos",
+            "line": 179,
+            "short_desc": "M\u00e9todo que muestra todas las guias que el usuario tiene a\u00f1adidas a favoritos.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\vista",
+                    false
+                ]
+            ],
+            "hint_desc": "con las guias que tiene como favoritas.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 179,
+                    "short_desc": "identificador usuario.",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "actualizarValoracion": {
+            "name": "actualizarValoracion",
+            "line": 190,
+            "short_desc": "M\u00e9todo que gestiona las valoraciones, permitira un tipo de valoraci\u00f3n (positiva o negativa)",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "devuelve un array con el numero de valoraciones positiva (0) y negativa (1)",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mostrarHechizosPopUp": {
+            "name": "mostrarHechizosPopUp",
+            "line": 225,
+            "short_desc": "M\u00e9todo para obtener el popup de los hechizos para crear una guia",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "devuelve los hechizos existentes en un array",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mostrarCampeonesPopUp": {
+            "name": "mostrarCampeonesPopUp",
+            "line": 236,
+            "short_desc": "M\u00e9todo para obtener el popup de los campeones para crear una guia",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "devuelve los campeones existentes en un array",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mostrarRunasPopUp": {
+            "name": "mostrarRunasPopUp",
+            "line": 247,
+            "short_desc": "M\u00e9todo para obtener el popup de las runas para crear una guia",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "devuelve las runas existentes en un array",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mostrarObjetosPopUp": {
+            "name": "mostrarObjetosPopUp",
+            "line": 258,
+            "short_desc": "M\u00e9todo para obtener el popup de los objetos para crear una guia",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "devuelve los objetos existentes en un array",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mostrarHabilidadesPopUp": {
+            "name": "mostrarHabilidadesPopUp",
+            "line": 270,
+            "short_desc": "M\u00e9todo para obtener el popup de las habilidades de un campeon en base a su id para crear una guia",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "las habilidades del campeon en cuesti\u00f3n",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 270,
+                    "short_desc": "id del campeon del que queremos obtener sus habilidades",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Controllers\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

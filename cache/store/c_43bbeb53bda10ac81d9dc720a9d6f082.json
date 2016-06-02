@@ -1,0 +1,71 @@
+{
+    "name": "App\\Http\\Controllers\\HechizoController",
+    "line": 15,
+    "short_desc": "Clase HechizoController que llama la vista para mostrar los datos referente a los\nhechizos, obteniendo la informaci\u00f3n de la API Riot en formato .json.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\HechizoController.php",
+    "relative_file": null,
+    "hash": "758d315e89bbe0b904a7fc914269d1008ff5d87b",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Requests": "App\\Http\\Requests",
+        "TraitHechizos": "App\\Traits\\TraitHechizos",
+        "TraitVersionActual": "App\\Traits\\TraitVersionActual",
+        "Config": "Config"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "App\\Traits\\TraitHechizos": "App\\Traits\\TraitHechizos",
+        "App\\Traits\\TraitVersionActual": "App\\Traits\\TraitVersionActual"
+    },
+    "properties": [],
+    "methods": {
+        "index": {
+            "name": "index",
+            "line": 22,
+            "short_desc": "M\u00e9todo principal que nos devuelve la vista de todos los hechizos existentes",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "la vista de los hechizos",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "obtenerHechizos": {
+            "name": "obtenerHechizos",
+            "line": 35,
+            "short_desc": "M\u00e9todo que obtiene todos los hechizos de invocador, en el idioma que se est\u00e1 visualizando la p\u00e0gina.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "associativo con la informaci\u00f3n de los objetos.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

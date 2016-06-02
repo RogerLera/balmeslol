@@ -1,0 +1,54 @@
+{
+    "name": "App\\Http\\Controllers\\Auth\\AuthController",
+    "line": 17,
+    "short_desc": "Controlador que maneja el registro de nuevos usuarios, como tambi\u00e9n la\nautenticaci\u00f3n de los usuarios existentes.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers\\Auth",
+    "file": ".\/app\\Http\\Controllers\\Auth\\AuthController.php",
+    "relative_file": null,
+    "hash": "f62965c84b0539c2f50b8c910df0145e21499015",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "User": "App\\User",
+        "Validator": "Validator",
+        "Controller": "App\\Http\\Controllers\\Controller",
+        "ThrottlesLogins": "Illuminate\\Foundation\\Auth\\ThrottlesLogins",
+        "AuthenticatesAndRegistersUsers": "Illuminate\\Foundation\\Auth\\AuthenticatesAndRegistersUsers",
+        "Image": "Intervention\\Image\\Facades\\Image",
+        "Response": "Response"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Foundation\\Auth\\AuthenticatesAndRegistersUsers": "Illuminate\\Foundation\\Auth\\AuthenticatesAndRegistersUsers",
+        "Illuminate\\Foundation\\Auth\\ThrottlesLogins": "Illuminate\\Foundation\\Auth\\ThrottlesLogins"
+    },
+    "properties": [],
+    "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 52,
+            "short_desc": "Creamos una nueva instancia del controlador autenticaci\u00f3n.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

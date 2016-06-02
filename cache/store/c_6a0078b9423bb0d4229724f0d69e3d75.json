@@ -1,0 +1,154 @@
+{
+    "name": "App\\Http\\Controllers\\MensajeController",
+    "line": 18,
+    "short_desc": "Clase MensajeController que nos servira para gestionar los mensajes y mostrarlos.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\MensajeController.php",
+    "relative_file": null,
+    "hash": "3f3844fe98888b4dbc20281e559858dd416c9876",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "User": "App\\User",
+        "Carbon": "Carbon\\Carbon",
+        "Message": "Cmgmyr\\Messenger\\Models\\Message",
+        "Participant": "Cmgmyr\\Messenger\\Models\\Participant",
+        "Thread": "Cmgmyr\\Messenger\\Models\\Thread",
+        "ModelNotFoundException": "Illuminate\\Database\\Eloquent\\ModelNotFoundException",
+        "Auth": "Illuminate\\Support\\Facades\\Auth",
+        "Input": "Illuminate\\Support\\Facades\\Input",
+        "Session": "Illuminate\\Support\\Facades\\Session",
+        "Config": "Config"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "index": {
+            "name": "index",
+            "line": 25,
+            "short_desc": "Muestra todos los threads (conversaciones) de mensajes segun el usuario logeado.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "show": {
+            "name": "show",
+            "line": 50,
+            "short_desc": "Muestra un thread (conversacion) de mensajes segun la id",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 50,
+                    "short_desc": "id del thread",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "create": {
+            "name": "create",
+            "line": 79,
+            "short_desc": "Crea un nuevo thread (conversacion) de mensajes.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "store": {
+            "name": "store",
+            "line": 93,
+            "short_desc": "Guarda un nuevo mensaje en un thread (conversacion) nuevo",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "update": {
+            "name": "update",
+            "line": 131,
+            "short_desc": "A\u00f1ade un mensaje nuevo para el thread (conversacion) actual",
+            "long_desc": "",
+            "hint": [
+                [
+                    "mixed",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 131,
+                    "short_desc": "id del thread",
+                    "long_desc": null,
+                    "hint": [],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

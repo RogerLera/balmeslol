@@ -1,0 +1,45 @@
+{
+    "name": "App\\Traits\\TraitRunas",
+    "line": 6,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Traits",
+    "file": ".\/app\\Traits\\TraitRunas.php",
+    "relative_file": null,
+    "hash": "e19c6139cf09509fa3969314f4d7df2a183e466c",
+    "parent": null,
+    "modifiers": "Stmt_Trait",
+    "is_trait": true,
+    "is_interface": false,
+    "aliases": {
+        "Config": "Config"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "obtenerRunas": {
+            "name": "obtenerRunas",
+            "line": 15,
+            "short_desc": "M\u00e9todo que obtiene todas las runas de grado 3 (Existen grado 1, 2 y 3),\nen el idioma que se est\u00e1 visualizando la p\u00e0gina.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "associativo con la informaci\u00f3n de los runas.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

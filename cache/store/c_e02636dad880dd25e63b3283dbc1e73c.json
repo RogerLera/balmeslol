@@ -1,0 +1,67 @@
+{
+    "name": "App\\Http\\Controllers\\FavoritoController",
+    "line": 15,
+    "short_desc": "Clase FavoritoController que se encarga de a\u00f1adir\/eliminar un registro a la base\nde datos, dependiendo si se ha dado al boton para guardar a favoritos una guia o\npara eliminarla.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\FavoritoController.php",
+    "relative_file": null,
+    "hash": "63867a4f32a86ff7ed1080370301e3bc569547d2",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Input": "Illuminate\\Support\\Facades\\Input",
+        "Requests": "App\\Http\\Requests",
+        "Favorito": "App\\Favorito"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "guardarAFavoritos": {
+            "name": "guardarAFavoritos",
+            "line": 21,
+            "short_desc": "M\u00e9todo para a\u00f1adir una gu\u00eda a los favoritos del usuario",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "devuelve un mensaje confome se ha guardado",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "borrarDeFavoritos": {
+            "name": "borrarDeFavoritos",
+            "line": 42,
+            "short_desc": "M\u00e9todo para borrar una gu\u00eda a los favoritos del usuario",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "devuelve un mensaje confome se ha borrado",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

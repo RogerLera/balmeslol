@@ -1,0 +1,148 @@
+{
+    "name": "App\\Http\\Controllers\\ObjetoController",
+    "line": 14,
+    "short_desc": "Clase ObjetoController que llama la vista para mostrar los datos referente a los\nobjetos, obteniendo la informaci\u00f3n de la API Riot en formato .json.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\ObjetoController.php",
+    "relative_file": null,
+    "hash": "7394738923e93d871154fc73dbb4fb150d8bab8f",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Requests": "App\\Http\\Requests",
+        "TraitVersionActual": "App\\Traits\\TraitVersionActual",
+        "Config": "Config"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "App\\Traits\\TraitVersionActual": "App\\Traits\\TraitVersionActual"
+    },
+    "properties": [],
+    "methods": {
+        "index": {
+            "name": "index",
+            "line": 24,
+            "short_desc": "M\u00e9todo principal que se llama al acceder a la pestanya objetos.",
+            "long_desc": "Coje del .json toda la informaci\u00f3n necessaria para la vista.",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\informaci\u00f3n",
+                    false
+                ]
+            ],
+            "hint_desc": "objetos a la vista.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 24,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "mostrarObjeto": {
+            "name": "mostrarObjeto",
+            "line": 35,
+            "short_desc": "M\u00e9todo que devuelve a la vista la informaci\u00f3n sobre el objeto seleccionado.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\informaci\u00f3n",
+                    false
+                ]
+            ],
+            "hint_desc": "objeto a la vista.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 35,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerObjetos": {
+            "name": "obtenerObjetos",
+            "line": 47,
+            "short_desc": "M\u00e9todo que obtiene todos los objetos, en el idioma que se est\u00e1 visualizando la p\u00e0gina.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "associativo con la informaci\u00f3n de los objetos.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "obtenerObjetoPorId": {
+            "name": "obtenerObjetoPorId",
+            "line": 77,
+            "short_desc": "M\u00e9todo que a partir de una id, obtiene el objeto deseado.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "associativo con la informaci\u00f3n del objeto.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 77,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

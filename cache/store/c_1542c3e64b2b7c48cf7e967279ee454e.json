@@ -1,0 +1,81 @@
+{
+    "name": "App\\Traits\\TraitCampeones",
+    "line": 6,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Traits",
+    "file": ".\/app\\Traits\\TraitCampeones.php",
+    "relative_file": null,
+    "hash": "647c82694e59e99a1c916a779ae5f7bb3850775f",
+    "parent": null,
+    "modifiers": "Stmt_Trait",
+    "is_trait": true,
+    "is_interface": false,
+    "aliases": {
+        "Config": "Config"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "obtenerCampeones": {
+            "name": "obtenerCampeones",
+            "line": 14,
+            "short_desc": "M\u00e9todo que obtiene todos los campeones, en el idioma que se est\u00e1 visualizando la p\u00e0gina.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "associativo con la informaci\u00f3n de los campeones.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "obtenerHabilidadesCampeon": {
+            "name": "obtenerHabilidadesCampeon",
+            "line": 45,
+            "short_desc": "M\u00e9todo para obtener las habilidades de un campe\u00f3n, en base a su id,\nen el idioma en el que se est\u00e9 visualizando la p\u00e1gina.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "devuelve un array con las habilidades del campe\u00f3n",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 45,
+                    "short_desc": "id del campe\u00f3n",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Traits\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

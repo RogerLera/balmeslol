@@ -1,0 +1,45 @@
+{
+    "name": "App\\Traits\\TraitObjetos",
+    "line": 6,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Traits",
+    "file": ".\/app\\Traits\\TraitObjetos.php",
+    "relative_file": null,
+    "hash": "641400acb0a74937536f7a4aecac32b99824ab18",
+    "parent": null,
+    "modifiers": "Stmt_Trait",
+    "is_trait": true,
+    "is_interface": false,
+    "aliases": {
+        "Config": "Config"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "obtenerObjetos": {
+            "name": "obtenerObjetos",
+            "line": 14,
+            "short_desc": "M\u00e9todo que obtiene todos los objetos, en el idioma que se est\u00e1 visualizando la p\u00e0gina.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "associativo con la informaci\u00f3n de los objetos.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

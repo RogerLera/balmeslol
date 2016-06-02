@@ -1,0 +1,67 @@
+{
+    "name": "App\\Http\\Controllers\\LanguageController",
+    "line": 16,
+    "short_desc": "Clase LanguageController se encarga de cambiar el idioma en el app.blade.php,\npara guardarlo en sesi\u00f3n",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\LanguageController.php",
+    "relative_file": null,
+    "hash": "1a06d497b4ee00f44bbfcd6141fbbb94bf90e495",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Controller": "App\\Http\\Controllers\\Controller",
+        "Requests": "App\\Http\\Requests",
+        "Config": "Config",
+        "Request": "Illuminate\\Http\\Request",
+        "Redirect": "Illuminate\\Support\\Facades\\Redirect",
+        "Session": "Illuminate\\Support\\Facades\\Session"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "switchLang": {
+            "name": "switchLang",
+            "line": 25,
+            "short_desc": "M\u00e9todo que se encargara del cambio de lenguaje del sitio web y lo guardar\u00e0 en sesi\u00f3n",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "redirecciona al usuario para obtener el mismo sitio donde estaba pero con el lenguaje elegido",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "lang": {
+                    "name": "lang",
+                    "line": 25,
+                    "short_desc": "idioma al que cambiara",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Controllers\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

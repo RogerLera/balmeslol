@@ -1,0 +1,81 @@
+{
+    "name": "App\\Policies\\UserPolicy",
+    "line": 6,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Policies",
+    "file": ".\/app\\Policies\\UserPolicy.php",
+    "relative_file": null,
+    "hash": "0f04f59fb08c47d2efc653f5b140e9d8a6366f6e",
+    "parent": null,
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "User": "App\\User",
+        "HandlesAuthorization": "Illuminate\\Auth\\Access\\HandlesAuthorization"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Auth\\Access\\HandlesAuthorization": "Illuminate\\Auth\\Access\\HandlesAuthorization"
+    },
+    "properties": [],
+    "methods": {
+        "permisoUser": {
+            "name": "permisoUser",
+            "line": 16,
+            "short_desc": "Determinamos si el usuario especificado se puede borrar por la persona que lo intenta.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "bool",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "user": {
+                    "name": "user",
+                    "line": 16,
+                    "short_desc": "usuario que quiere realizar la acci\u00f3n",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\User",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "App\\User",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "userABorrar": {
+                    "name": "userABorrar",
+                    "line": 16,
+                    "short_desc": "usuario que se quiere borrar",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\User",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "App\\User",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

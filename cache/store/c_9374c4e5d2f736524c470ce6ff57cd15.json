@@ -1,0 +1,117 @@
+{
+    "name": "App\\Traits\\TraitGraficos",
+    "line": 9,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Traits",
+    "file": ".\/app\\Traits\\TraitGraficos.php",
+    "relative_file": null,
+    "hash": "f40d16320537df392b5e1a350523dc043022f05d",
+    "parent": null,
+    "modifiers": "Stmt_Trait",
+    "is_trait": true,
+    "is_interface": false,
+    "aliases": [],
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "generaGraficoPopularidadCampeones": {
+            "name": "generaGraficoPopularidadCampeones",
+            "line": 17,
+            "short_desc": "M\u00e9todo para generar una imagen del grafico de popularidad de campeones,\ngenerando a partir de las estad\u00edsticas.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "estadisticas": {
+                    "name": "estadisticas",
+                    "line": 17,
+                    "short_desc": "array con las estad\u00edsticas de popularidad de los campeones",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Traits\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "generaGraficoBloqueoCampeones": {
+            "name": "generaGraficoBloqueoCampeones",
+            "line": 88,
+            "short_desc": "M\u00e9todo para generar una imagen del grafico de bloqueo de campeones,\ngenerando a partir de las estad\u00edsticas.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "estadisticas": {
+                    "name": "estadisticas",
+                    "line": 88,
+                    "short_desc": "array con las estad\u00edsticas de bloqueo de los campeones",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Traits\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "generaGraficoPopularidadHechizos": {
+            "name": "generaGraficoPopularidadHechizos",
+            "line": 159,
+            "short_desc": "M\u00e9todo para generar una imagen del grafico de popularidad de hechizos,\ngenerando a partir de las estad\u00edsticas.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "estadisticas": {
+                    "name": "estadisticas",
+                    "line": 159,
+                    "short_desc": "array con las estad\u00edsticas de popularidad de los hechizos",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Traits\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

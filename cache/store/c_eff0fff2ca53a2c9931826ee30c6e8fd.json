@@ -1,0 +1,169 @@
+{
+    "name": "App\\Http\\Controllers\\CampeonController",
+    "line": 15,
+    "short_desc": "Clase CampeonController que llama la vista para mostrar los datos referente a los\ncampeones, obteniendo la informaci\u00f3n de la API Riot en formato .json.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\CampeonController.php",
+    "relative_file": null,
+    "hash": "386c2198dcb6e164e4e3421e769632050fb6fb00",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Requests": "App\\Http\\Requests",
+        "TraitCampeones": "App\\Traits\\TraitCampeones",
+        "TraitVersionActual": "App\\Traits\\TraitVersionActual",
+        "Config": "Config"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "App\\Traits\\TraitCampeones": "App\\Traits\\TraitCampeones",
+        "App\\Traits\\TraitVersionActual": "App\\Traits\\TraitVersionActual"
+    },
+    "properties": [],
+    "methods": {
+        "index": {
+            "name": "index",
+            "line": 27,
+            "short_desc": "M\u00e9todo principal que se llama al acceder a la pestanya campeones.",
+            "long_desc": "Coje del .json toda la informaci\u00f3n necessaria para la vista.",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\informaci\u00f3n",
+                    false
+                ]
+            ],
+            "hint_desc": "campeones a la vista.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 27,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "mostrarCampeon": {
+            "name": "mostrarCampeon",
+            "line": 39,
+            "short_desc": "M\u00e9todo que devuelve a la vista la informaci\u00f3n sobre el campe\u00f3n seleccionado.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\informaci\u00f3n",
+                    false
+                ]
+            ],
+            "hint_desc": "campe\u00f3n a la vista.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 39,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "mostrarCampeonesGratuitos": {
+            "name": "mostrarCampeonesGratuitos",
+            "line": 50,
+            "short_desc": "M\u00e9todo que devuelve a la vista los campeones gratuitos de la semana.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\informaci\u00f3n",
+                    false
+                ]
+            ],
+            "hint_desc": "campe\u00f3n a la vista.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "obtenerCampeonPorId": {
+            "name": "obtenerCampeonPorId",
+            "line": 62,
+            "short_desc": "M\u00e9todo que a partir de una id, obtiene el campe\u00f3n deseado.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "associativo con la informaci\u00f3n del campe\u00f3n.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 62,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "obtenerCampeonesGratis": {
+            "name": "obtenerCampeonesGratis",
+            "line": 165,
+            "short_desc": "M\u00e9todo para obtener los campeones gratuitos de la semana.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "associativo con la informaci\u00f3n de los campeones.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

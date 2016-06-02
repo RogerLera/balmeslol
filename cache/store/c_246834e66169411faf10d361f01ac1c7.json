@@ -1,0 +1,275 @@
+{
+    "name": "App\\Http\\Controllers\\EstadisticasController",
+    "line": 17,
+    "short_desc": "Clase EstadisticasController que guardara datos de las partidas contenidas en\nlos ficheros seed_data, estos ficheros contienen datos de 1000 partidas de\ntipo ranked son ficheros de tipo json, para luego hacer las estadisticas.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\EstadisticasController.php",
+    "relative_file": null,
+    "hash": "dae0bec5d25fc6be47b141b7cf53b052894699a8",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Requests": "App\\Http\\Requests",
+        "DB": "DB",
+        "TraitCampeones": "App\\Traits\\TraitCampeones",
+        "TraitHechizos": "App\\Traits\\TraitHechizos",
+        "TraitGraficos": "App\\Traits\\TraitGraficos"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "App\\Traits\\TraitCampeones": "App\\Traits\\TraitCampeones",
+        "App\\Traits\\TraitGraficos": "App\\Traits\\TraitGraficos",
+        "App\\Traits\\TraitHechizos": "App\\Traits\\TraitHechizos"
+    },
+    "properties": [],
+    "methods": {
+        "generaEstadisticas": {
+            "name": "generaEstadisticas",
+            "line": 29,
+            "short_desc": "M\u00e8todo para guardar las estad\u00edsticas des de una pesta\u00f1a del navbar.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mostrarPopularidadCampeones": {
+            "name": "mostrarPopularidadCampeones",
+            "line": 41,
+            "short_desc": "M\u00e9todo que nos permite ver la popularidas de los campeones por % bas\u00e1ndonos\nen los datos que tenemos en la BBDD.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mostrarPopularidadHechizos": {
+            "name": "mostrarPopularidadHechizos",
+            "line": 53,
+            "short_desc": "M\u00e9todo que nos permite ver la popularidas de los hechizos por % bas\u00e1ndonos en\nlos datos que tenemos en la BBDD.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mostrarBloqueoCampeones": {
+            "name": "mostrarBloqueoCampeones",
+            "line": 65,
+            "short_desc": "M\u00e9todo que nos permite ver los campeones baneados por % bas\u00e1ndonos en los\ndatos que tenemos en la BBDD.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "guardaEstadisticas": {
+            "name": "guardaEstadisticas",
+            "line": 76,
+            "short_desc": "M\u00e9todo principal que carga las estadisticas de un grupo de 10 ficheros que contienen\ndatos de 100 partidas cada uno de tipo ranked.",
+            "long_desc": "Guardaremos datos de: uso de campeones, uso de hechizos y bans de campeones",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "guardaHechizo": {
+            "name": "guardaHechizo",
+            "line": 110,
+            "short_desc": "M\u00e9todo complementario para guardar en la base de datos un hechizo usado por id,\nprimero comprueba que no se haya insertado el hechizo anteriormente.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 110,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Controllers\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "guardaCampeon": {
+            "name": "guardaCampeon",
+            "line": 130,
+            "short_desc": "M\u00e9todo complementario para guardar en la base de datos un campeon usado por id,\nprimero comprueba que no se haya insertado el campeon anteriormente,\nentonces crea un nuevo registro o lo actualiza.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 130,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Controllers\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "guardaCampeonBan": {
+            "name": "guardaCampeonBan",
+            "line": 151,
+            "short_desc": "M\u00e9todo complementario para guardar en la base de datos un campeon baneado por id,\nprimero comprueba que no se haya insertado el campeon anteriormente,\nentonces crea un nuevo registro o lo actualiza.",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 151,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Controllers\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "popularidadCampeones": {
+            "name": "popularidadCampeones",
+            "line": 171,
+            "short_desc": "M\u00e9todo complementario al que muestra los datos, \u00e9ste nos devuelve un array con\nlos datos de las estadisticas de popularidad de los campeones.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "con las estadisticas",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "popularidadHechizos": {
+            "name": "popularidadHechizos",
+            "line": 203,
+            "short_desc": "M\u00e9todo complementario al que muestra los datos\n\u00e9ste nos devuelve un array con los datos de las estadisticas de popularidad de los hechizos",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "bloqueoCampeones": {
+            "name": "bloqueoCampeones",
+            "line": 235,
+            "short_desc": "M\u00e9todo complementario al que muestra los datos\n\u00e9ste nos devuelve un array con los datos de las estadisticas de bloqueo de los campeones",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

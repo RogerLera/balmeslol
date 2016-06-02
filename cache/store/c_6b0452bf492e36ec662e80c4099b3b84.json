@@ -1,0 +1,25 @@
+{
+    "name": "App\\Http\\Kernel",
+    "line": 7,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http",
+    "file": ".\/app\\Http\\Kernel.php",
+    "relative_file": null,
+    "hash": "5860a9710fc8935c63a21aee1b39b9e9b787ab6e",
+    "parent": "Illuminate\\Foundation\\Http\\Kernel",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "HttpKernel": "Illuminate\\Foundation\\Http\\Kernel"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

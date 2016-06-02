@@ -1,0 +1,105 @@
+{
+    "name": "App\\Guia",
+    "line": 14,
+    "short_desc": "Classe Guia alamzena un manual creado por un usuario sobre como jugar\ncon X campe\u00f3n.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": ".\/app\\Guia.php",
+    "relative_file": null,
+    "hash": "32a87c26ef350ef3ee74087ad1d0ee605ed6f02c",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "User": "App\\User",
+        "Role": "App\\Role",
+        "Favorito": "App\\Favorito",
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "user": {
+            "name": "user",
+            "line": 31,
+            "short_desc": "Obtenemos el usuario que a creado la guia.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\usuario",
+                    false
+                ]
+            ],
+            "hint_desc": "al que pertenece.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "votacions": {
+            "name": "votacions",
+            "line": 41,
+            "short_desc": "Obtenemos las votaciones que tiene la guia.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\votaciones",
+                    false
+                ]
+            ],
+            "hint_desc": "que tiene.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "role": {
+            "name": "role",
+            "line": 51,
+            "short_desc": "Obtenemos el rol al que hace referencia la guia.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\rol",
+                    false
+                ]
+            ],
+            "hint_desc": "que referencia.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "favorito": {
+            "name": "favorito",
+            "line": 61,
+            "short_desc": "Obtenemos si la guia es favorita.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\favorito",
+                    false
+                ]
+            ],
+            "hint_desc": "o no.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

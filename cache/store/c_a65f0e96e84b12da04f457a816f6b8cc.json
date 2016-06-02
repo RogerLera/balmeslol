@@ -1,0 +1,43 @@
+{
+    "name": "App\\Traits\\TraitVersionActual",
+    "line": 5,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Traits",
+    "file": ".\/app\\Traits\\TraitVersionActual.php",
+    "relative_file": null,
+    "hash": "02789d1b54b6b0de0d5188822e599e8794701217",
+    "parent": null,
+    "modifiers": "Stmt_Trait",
+    "is_trait": true,
+    "is_interface": false,
+    "aliases": [],
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "version": {
+            "name": "version",
+            "line": 12,
+            "short_desc": "M\u00e9todo para obtener la versi\u00f3n actual del juego.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Traits\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "la versi\u00f3n del juego",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

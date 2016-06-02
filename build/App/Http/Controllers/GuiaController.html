@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>App\Http\Controllers\GuiaController | API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/sami.css">
+        <script src="../../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/typeahead.min.js"></script>
+        <script src="../../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:App_Http_Controllers_GuiaController" data-root-path="../../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../../classes.html">Classes</a></li>
+                                            <li><a href="../../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../../App.html">App</a></li>
+                                        <li><a href="../../../App/Http.html">Http</a></li>
+                                        <li><a href="../../../App/Http/Controllers.html">Controllers</a></li>
+    
+                <li>GuiaController</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>GuiaController</h1>
+    </div>
+
+    <p>    class
+    <strong>GuiaController</strong>        extends <a href="../../../App/Http/Controllers/Controller.html"><abbr title="App\Http\Controllers\Controller">Controller</abbr></a>
+</p>
+
+            <div class="description">
+            <p>Clase GuiaController que es la que se encarga de redirecionar a las vistas adecuadas
+para las guias y verificar que los datos pasan la validación correcta antes de guardarlos.</p>                    </div>
+    
+            <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../../../App/Traits/TraitCampeones.html"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../../../App/Traits/TraitHechizos.html"><abbr title="App\Traits\TraitHechizos">TraitHechizos</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../../../App/Traits/TraitRunas.html"><abbr title="App\Traits\TraitRunas">TraitRunas</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../../../App/Traits/TraitObjetos.html"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../../../App/Traits/TraitVersionActual.html"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <abbr title="Illuminate\Foundation\Auth\Access\AuthorizesRequests">AuthorizesRequests</abbr>
+                                    </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <abbr title="Illuminate\Foundation\Auth\Access\AuthorizesResources">AuthorizesResources</abbr>
+                                    </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <abbr title="Illuminate\Foundation\Bus\DispatchesJobs">DispatchesJobs</abbr>
+                                    </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <abbr title="Illuminate\Foundation\Validation\ValidatesRequests">ValidatesRequests</abbr>
+                                    </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+            </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_obtenerCampeones">obtenerCampeones</a>()
+                                            <p>Método que obtiene todos los campeones, en el idioma que se está visualizando la pàgina.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/TraitCampeones.html#method_obtenerCampeones"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_obtenerHabilidadesCampeon">obtenerHabilidadesCampeon</a>(
+    <abbr title="App\Traits\type">type</abbr> $id)
+                                            <p>Método para obtener las habilidades de un campeón, en base a su id,
+en el idioma en el que se esté visualizando la página.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/TraitCampeones.html#method_obtenerHabilidadesCampeon"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_obtenerHechizos">obtenerHechizos</a>()
+                                            <p>Método que obtiene todos los hechizos, en el idioma que se está visualizando la pàgina.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/TraitHechizos.html#method_obtenerHechizos"><abbr title="App\Traits\TraitHechizos">TraitHechizos</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_obtenerRunas">obtenerRunas</a>()
+                                            <p>Método que obtiene todas las runas de grado 3 (Existen grado 1, 2 y 3),
+en el idioma que se está visualizando la pàgina.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/TraitRunas.html#method_obtenerRunas"><abbr title="App\Traits\TraitRunas">TraitRunas</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_obtenerObjetos">obtenerObjetos</a>()
+                                            <p>Método que obtiene todos los objetos, en el idioma que se está visualizando la pàgina.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/TraitObjetos.html#method_obtenerObjetos"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Traits\type">type</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_version">version</a>()
+                                            <p>Método para obtener la versión actual del juego.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/TraitVersionActual.html#method_version"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(
+    <a href="../../../App/Repositories/GuiaRepository.html"><abbr title="App\Repositories\GuiaRepository">GuiaRepository</abbr></a> $guias)
+                                            <p>Crear nueva instancia del controlador.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\todas">todas</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_index">index</a>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $aMostrar)
+                                            <p>Método principal que se llama al acceder a la pestanya guias.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\información">información</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_obtenerGuia">obtenerGuia</a>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $id)
+                                            <p>Método que mustra una guia seleccionada, dependiendo de si es el usuario que
+la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\vista">vista</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_misGuias">misGuias</a>(
+    <abbr title="App\Http\Controllers\type">type</abbr> $id)
+                                            <p>Método que devuelve las guías que ha creado el usuario logueado por su id.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\vista">vista</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_formularioCrearGuia">formularioCrearGuia</a>()
+                                            <p>Método que devuelve el formulario para crear una guia.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_crearGuia">crearGuia</a>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request)
+                                            <p>Método que valida y registra una guia nueva a la base de datos.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_editarGuia">editarGuia</a>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $id)
+                                            <p>Método que edita una guia existente.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_eliminarGuia">eliminarGuia</a>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, 
+    <a href="../../../App/Guia.html"><abbr title="App\Guia">Guia</abbr></a> $guia)
+                                            <p>Método que elimina una guia existente.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\vista">vista</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_obtenerGuiasFavoritos">obtenerGuiasFavoritos</a>($id)
+                                            <p>Método que muestra todas las guias que el usuario tiene añadidas a favoritos.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_actualizarValoracion">actualizarValoracion</a>()
+                                            <p>Método que gestiona las valoraciones, permitira un tipo de valoración (positiva o negativa)</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_mostrarHechizosPopUp">mostrarHechizosPopUp</a>()
+                                            <p>Método para obtener el popup de los hechizos para crear una guia</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_mostrarCampeonesPopUp">mostrarCampeonesPopUp</a>()
+                                            <p>Método para obtener el popup de los campeones para crear una guia</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_mostrarRunasPopUp">mostrarRunasPopUp</a>()
+                                            <p>Método para obtener el popup de las runas para crear una guia</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_mostrarObjetosPopUp">mostrarObjetosPopUp</a>()
+                                            <p>Método para obtener el popup de los objetos para crear una guia</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_mostrarHabilidadesPopUp">mostrarHabilidadesPopUp</a>(
+    <abbr title="App\Http\Controllers\type">type</abbr> $id)
+                                            <p>Método para obtener el popup de las habilidades de un campeon en base a su id para crear una guia</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_obtenerCampeones">
+        <div class="location">in <a href="../../../App/Traits/TraitCampeones.html#method_obtenerCampeones"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a> at line         line 14</div>
+        <code>                    
+    array
+    <strong>obtenerCampeones</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que obtiene todos los campeones, en el idioma que se está visualizando la pàgina.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    array</td>
+            <td>associativo con la información de los campeones.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_obtenerHabilidadesCampeon">
+        <div class="location">in <a href="../../../App/Traits/TraitCampeones.html#method_obtenerHabilidadesCampeon"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a> at line         line 45</div>
+        <code>                    
+    string
+    <strong>obtenerHabilidadesCampeon</strong>(
+    <abbr title="App\Traits\type">type</abbr> $id)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método para obtener las habilidades de un campeón, en base a su id,
+en el idioma en el que se esté visualizando la página.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="App\Traits\type">type</abbr></td>
+                <td>$id</td>
+                <td>id del campeón</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>devuelve un array con las habilidades del campeón</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_obtenerHechizos">
+        <div class="location">in <a href="../../../App/Traits/TraitHechizos.html#method_obtenerHechizos"><abbr title="App\Traits\TraitHechizos">TraitHechizos</abbr></a> at line         line 14</div>
+        <code>                    
+    array
+    <strong>obtenerHechizos</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que obtiene todos los hechizos, en el idioma que se está visualizando la pàgina.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    array</td>
+            <td>associativo con la información de los hechizos.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_obtenerRunas">
+        <div class="location">in <a href="../../../App/Traits/TraitRunas.html#method_obtenerRunas"><abbr title="App\Traits\TraitRunas">TraitRunas</abbr></a> at line         line 15</div>
+        <code>                    
+    array
+    <strong>obtenerRunas</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que obtiene todas las runas de grado 3 (Existen grado 1, 2 y 3),
+en el idioma que se está visualizando la pàgina.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    array</td>
+            <td>associativo con la información de los runas.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_obtenerObjetos">
+        <div class="location">in <a href="../../../App/Traits/TraitObjetos.html#method_obtenerObjetos"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a> at line         line 14</div>
+        <code>                    
+    array
+    <strong>obtenerObjetos</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que obtiene todos los objetos, en el idioma que se está visualizando la pàgina.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    array</td>
+            <td>associativo con la información de los objetos.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_version">
+        <div class="location">in <a href="../../../App/Traits/TraitVersionActual.html#method_version"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a> at line         line 12</div>
+        <code>                    
+    <abbr title="App\Traits\type">type</abbr>
+    <strong>version</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método para obtener la versión actual del juego.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Traits\type">type</abbr></td>
+            <td>la versión del juego</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at line         line 41</div>
+        <code>                    
+    void
+    <strong>__construct</strong>(
+    <a href="../../../App/Repositories/GuiaRepository.html"><abbr title="App\Repositories\GuiaRepository">GuiaRepository</abbr></a> $guias)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Crear nueva instancia del controlador.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <a href="../../../App/Repositories/GuiaRepository.html"><abbr title="App\Repositories\GuiaRepository">GuiaRepository</abbr></a></td>
+                <td>$guias</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_index">
+        <div class="location">at line         line 50</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\todas">todas</abbr>
+    <strong>index</strong>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $aMostrar)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método principal que se llama al acceder a la pestanya guias.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$aMostrar</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\todas">todas</abbr></td>
+            <td>las guias que existen en la base de datos a la vista.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_obtenerGuia">
+        <div class="location">at line         line 71</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\información">información</abbr>
+    <strong>obtenerGuia</strong>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $id)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que mustra una guia seleccionada, dependiendo de si es el usuario que
+la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$id</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\información">información</abbr></td>
+            <td>completa de la guia.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_misGuias">
+        <div class="location">at line         line 89</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\vista">vista</abbr>
+    <strong>misGuias</strong>(
+    <abbr title="App\Http\Controllers\type">type</abbr> $id)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que devuelve las guías que ha creado el usuario logueado por su id.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="App\Http\Controllers\type">type</abbr></td>
+                <td>$id</td>
+                <td>id del usuario</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\vista">vista</abbr></td>
+            <td>resumida de sus guias</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_formularioCrearGuia">
+        <div class="location">at line         line 100</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\vista">vista</abbr>
+    <strong>formularioCrearGuia</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que devuelve el formulario para crear una guia.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\vista">vista</abbr></td>
+            <td>con la info necesaria para poder crearlas.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_crearGuia">
+        <div class="location">at line         line 114</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr>
+    <strong>crearGuia</strong>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que valida y registra una guia nueva a la base de datos.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td>datos a guardar.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr></td>
+            <td>a la página de sus guias.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_editarGuia">
+        <div class="location">at line         line 138</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr>
+    <strong>editarGuia</strong>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $id)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que edita una guia existente.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$id</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr></td>
+            <td>a la página de sus guias.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_eliminarGuia">
+        <div class="location">at line         line 165</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr>
+    <strong>eliminarGuia</strong>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, 
+    <a href="../../../App/Guia.html"><abbr title="App\Guia">Guia</abbr></a> $guia)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que elimina una guia existente.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td>request.</td>
+            </tr>
+                    <tr>
+                <td>
+    <a href="../../../App/Guia.html"><abbr title="App\Guia">Guia</abbr></a></td>
+                <td>$guia</td>
+                <td>guia a eliminar.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr></td>
+            <td>a la página de sus guias.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_obtenerGuiasFavoritos">
+        <div class="location">at line         line 179</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\vista">vista</abbr>
+    <strong>obtenerGuiasFavoritos</strong>($id)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que muestra todas las guias que el usuario tiene añadidas a favoritos.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$id</td>
+                <td>identificador usuario.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\vista">vista</abbr></td>
+            <td>con las guias que tiene como favoritas.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_actualizarValoracion">
+        <div class="location">at line         line 190</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+    <strong>actualizarValoracion</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que gestiona las valoraciones, permitira un tipo de valoración (positiva o negativa)</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\type">type</abbr></td>
+            <td>devuelve un array con el numero de valoraciones positiva (0) y negativa (1)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_mostrarHechizosPopUp">
+        <div class="location">at line         line 225</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+    <strong>mostrarHechizosPopUp</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método para obtener el popup de los hechizos para crear una guia</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\type">type</abbr></td>
+            <td>devuelve los hechizos existentes en un array</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_mostrarCampeonesPopUp">
+        <div class="location">at line         line 236</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+    <strong>mostrarCampeonesPopUp</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método para obtener el popup de los campeones para crear una guia</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\type">type</abbr></td>
+            <td>devuelve los campeones existentes en un array</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_mostrarRunasPopUp">
+        <div class="location">at line         line 247</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+    <strong>mostrarRunasPopUp</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método para obtener el popup de las runas para crear una guia</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\type">type</abbr></td>
+            <td>devuelve las runas existentes en un array</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_mostrarObjetosPopUp">
+        <div class="location">at line         line 258</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+    <strong>mostrarObjetosPopUp</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método para obtener el popup de los objetos para crear una guia</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\type">type</abbr></td>
+            <td>devuelve los objetos existentes en un array</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_mostrarHabilidadesPopUp">
+        <div class="location">at line         line 270</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\type">type</abbr>
+    <strong>mostrarHabilidadesPopUp</strong>(
+    <abbr title="App\Http\Controllers\type">type</abbr> $id)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método para obtener el popup de las habilidades de un campeon en base a su id para crear una guia</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="App\Http\Controllers\type">type</abbr></td>
+                <td>$id</td>
+                <td>id del campeon del que queremos obtener sus habilidades</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\type">type</abbr></td>
+            <td>las habilidades del campeon en cuestión</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

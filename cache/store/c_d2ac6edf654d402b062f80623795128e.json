@@ -1,0 +1,283 @@
+{
+    "name": "App\\Http\\Controllers\\UserController",
+    "line": 18,
+    "short_desc": "Clase UserController, gestiona todos los aspectos relacionados con el usuario,\naspectos como su perfil, su contrase\u00f1a, su avatar y la eliminaci\u00f3n del mismo.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": ".\/app\\Http\\Controllers\\UserController.php",
+    "relative_file": null,
+    "hash": "c6e7fbc46af0e994b17dacd225bc0344b5e666e5",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "User": "App\\User",
+        "Requests": "App\\Http\\Requests",
+        "Request": "Illuminate\\Http\\Request",
+        "Controller": "App\\Http\\Controllers\\Controller",
+        "Input": "Illuminate\\Support\\Facades\\Input",
+        "ServiceProvider": "Illuminate\\Support\\ServiceProvider",
+        "Response": "Response",
+        "Image": "Intervention\\Image\\Facades\\Image"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "mostrarPerfil": {
+            "name": "mostrarPerfil",
+            "line": 26,
+            "short_desc": "Mostrar un perfil",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\informaci\u00f3n",
+                    false
+                ]
+            ],
+            "hint_desc": "usuario a la vista",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 26,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "formularioEditarUser": {
+            "name": "formularioEditarUser",
+            "line": 39,
+            "short_desc": "Redireccionar al formulario para editar informaci\u00f3n del usuario.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\Respuesta",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 39,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "editarUser": {
+            "name": "editarUser",
+            "line": 50,
+            "short_desc": "M\u00e9todo para cambiar los datos del usuario.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "redireccionamento",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 50,
+                    "short_desc": "datos del input",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 50,
+                    "short_desc": "id del usuario a cambiar",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Controllers\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "editarUserPassword": {
+            "name": "editarUserPassword",
+            "line": 77,
+            "short_desc": "M\u00e9todo para cambiar el password del usuario.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "redireccionamento",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 77,
+                    "short_desc": "nuevo password",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "Illuminate\\Http\\Request",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "id": {
+                    "name": "id",
+                    "line": 77,
+                    "short_desc": "id del usuario a editar",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Controllers\\type",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "eliminarUser": {
+            "name": "eliminarUser",
+            "line": 95,
+            "short_desc": "Eliminar el user especificado.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\redireccionamento",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "\"1\" @param tags are expected but only \"2\" found"
+            ],
+            "parameters": {
+                "user": {
+                    "name": "user",
+                    "line": 95,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\User",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "App\\User",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "mostrarAvatar": {
+            "name": "mostrarAvatar",
+            "line": 107,
+            "short_desc": "M\u00e9todo que carga la imagen binaria de la base de datos.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\$response",
+                    false
+                ]
+            ],
+            "hint_desc": "con la imagen.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "id": {
+                    "name": "id",
+                    "line": 107,
+                    "short_desc": "identificador usuario.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Controllers\\id",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

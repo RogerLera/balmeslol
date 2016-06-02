@@ -1,0 +1,108 @@
+{
+    "name": "App\\User",
+    "line": 11,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": ".\/app\\User.php",
+    "relative_file": null,
+    "hash": "141a5e5abfb628e1406c4ffb3cee8b5428424254",
+    "parent": "Illuminate\\Foundation\\Auth\\User",
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Authenticatable": "Illuminate\\Foundation\\Auth\\User",
+        "Guia": "App\\Guia",
+        "Favorito": "App\\Favorito",
+        "Message": "App\\Message",
+        "Messagable": "Cmgmyr\\Messenger\\Traits\\Messagable"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Cmgmyr\\Messenger\\Traits\\Messagable": "Cmgmyr\\Messenger\\Traits\\Messagable"
+    },
+    "properties": [],
+    "methods": {
+        "guias": {
+            "name": "guias",
+            "line": 37,
+            "short_desc": "Obtener todas las guias que el usuario a creado.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\todas",
+                    false
+                ]
+            ],
+            "hint_desc": "las guias.",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "favorito": {
+            "name": "favorito",
+            "line": 47,
+            "short_desc": "Obtener todos los favoritos.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\todos",
+                    false
+                ]
+            ],
+            "hint_desc": "los favoritos",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "message": {
+            "name": "message",
+            "line": 57,
+            "short_desc": "Obtener todos los mensajes.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\todos",
+                    false
+                ]
+            ],
+            "hint_desc": "los mensajes",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "votacions": {
+            "name": "votacions",
+            "line": 67,
+            "short_desc": "Obtiene las votaciones que ha realizado el usuario",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "las votaciones realizadas",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}
