@@ -107,8 +107,8 @@
                                         Guías favoritas
                                     </div>
                                     <div class="panel-body-min">
-                                        @if (count($guiasfav) > 0)
-                                            @foreach($guiasfav as $guia)
+                                        @if (count($guiasFav) > 0)
+                                            @foreach($guiasFav as $guia)
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="guide">

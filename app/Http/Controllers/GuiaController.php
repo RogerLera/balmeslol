@@ -48,18 +48,34 @@ class GuiaController extends Controller {
      * @return todas las guias que existen en la base de datos a la vista.
      */
     public function index(Request $request, $aMostrar) {
-        $guias = $this->guias->totalGuias();
-        $guiasfav = "";
-        if ($aMostrar == 'usuario') {
+        $guias;
+        print_r($aMostrar);
+        $guiasFav = "";
+        switch ($aMostrar) {
+            case 'usuario':
+                $guias = $this->guias->delUser($request->user()->id);
+                $guiasFav = $this->guias->guiasFavoritas($request->user()->id);
+                break;
+            case 'nuevas':
+                $guias = $this->guias->nuevas();
+                break;
+            case 'masVotadas':
+                $guias = $this->guias->masVotadas();
+                break;
+            default:
+                $guias = $this->guias->totalGuias();
+                break;
+        }
+        /*if ($aMostrar == 'usuario') {
             $guias = $this->guias->delUser($request->user()->id);
-            $guiasfav = $this->guias->guiasFavoritas($request->user()->id);
-        }
-        else if ($aMostrar == 'favoritos') {
-            $guias = $this->guias->guiasFavoritas($request->user()->id);
-        }
+            $guiasFav = $this->guias->guiasFavoritas($request->user()->id);
+            print_r("p");
+        } else {
+            $guias = $this->guias->totalGuias();
+        }*/
         return view('guias.index', [
             'guias' => $guias,
-            'guiasfav' => $guiasfav,
+            'guiasFav' => $guiasFav,
             'aMostrar' => $aMostrar,
         ]);
     }
@@ -80,18 +96,6 @@ class GuiaController extends Controller {
         return view($vista, [
             'guia' => Guia::findOrFail($id),
             'version' => $this->version(),
-        ]);
-    }
-
-    /**
-     * Método que devuelve las guías que ha creado el usuario logueado por su id.
-     *
-     * @param type $id id del usuario
-     * @return vista resumida de sus guias
-     */
-    public function misGuias($id) {
-        return view('guias.user', [
-            'guias' => $this->guias->delUser($id),
         ]);
     }
 
@@ -171,19 +175,6 @@ class GuiaController extends Controller {
         $guia->delete();
 
         return redirect('/guias/usuario');
-    }
-
-    /**
-    * Método que muestra todas las guias que el usuario tiene añadidas a favoritos.
-    *
-    * @param $id identificador usuario.
-    * @return vista con las guias que tiene como favoritas.
-    */
-    public function obtenerGuiasFavoritos($id)
-    {
-        return view('guias.favoritos', [
-            'guias' => $this->guias->guiasFavoritas($id),
-        ]);
     }
 
     /**

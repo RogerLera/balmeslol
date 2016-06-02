@@ -98,12 +98,14 @@ class ObjetoController extends Controller
                 ),
             );
 
+            $objetoYaExistente = $objeto;
+
             // Si existe el atributo 'from' (el objeto viene de otros objetos)
             // guardamos en un array la información de dichos objetos.
             if (isset($data->from)) {
                 for ($n = 0; $n < count($data->from); $n++) {
                     if ($data->from[$n] != 3718 && $data->from[$n] != 3722 && $data->from[$n] != 1313 && $data->from[$n] != 1312 && $data->from[$n] != 3290) {
-                        $objeto['procede'][] = $this->obtenerObjetodelObjetoPorId($data->from[$n]);
+                        $objeto['procede'][] = $this->obtenerObjetodelObjetoPorId($data->from[$n], $objetoYaExistente);
                     }
                 }
             }
@@ -113,7 +115,7 @@ class ObjetoController extends Controller
             if (isset($data->into)) {
                 for ($n = 0; $n < count($data->into); $n++) {
                     if ($data->into[$n] != 3718 && $data->into[$n] != 3722 && $data->into[$n] != 1313 && $data->into[$n] != 1312 && $data->into[$n] != 3290) {
-                        $objeto['mejora'][] = $this->obtenerObjetodelObjetoPorId($data->into[$n]);
+                        $objeto['mejora'][] = $this->obtenerObjetodelObjetoPorId($data->into[$n], $objetoYaExistente);
                     }
                 }
             }
@@ -129,7 +131,7 @@ class ObjetoController extends Controller
      *
      * @return array associativo con la información del objeto.
      */
-    private function obtenerObjetodelObjetoPorId($id) {
+    private function obtenerObjetodelObjetoPorId($id, $objetoYaExistente) {
         $idioma = Config::get("app.locale");
         // Obtenemos el json y lo parseamos a objeto php.
         $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/' . $id . '?locale='.$idioma.'&itemData=gold,stats,image,into,from&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
@@ -150,23 +152,28 @@ class ObjetoController extends Controller
         // guardamos en un array las imagenes de los objetos.
         if (isset($data->from)) {
             for ($n = 0; $n < count($data->from); $n++) {
-                // Llamamos a la función para obtener el objeto del que procede para obtener información a mostrar.
-                $objeto['procede'][$n]['img'] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->from[$n] . '.png';
-                $objeto['procede'][$n]['id'] =  $data->from[$n];
+                if ($data->from[$n] == $objetoYaExistente['id']) {
+                    $objeto['procede'][$n]['id'] = $objetoYaExistente['id'];
+                    $objeto['procede'][$n]['img'] = $objetoYaExistente['imagen'];
+                } else {
+                    // Llamamos a la función para obtener el objeto del que procede para obtener información a mostrar.
+                    $objeto['procede'][$n]['id'] =  $data->from[$n];
+                    $objeto['procede'][$n]['img'] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->from[$n] . '.png';
+                }
             }
             // Ordenamos el array de $objeto['procede'] por id.
-            asort($objeto['procede']);
+            //asort($objeto['procede']);
         }
 
         // Si existe el atributo 'into' (el objeto puede 'mejorarse' para hacer uno de mejor)
         // guardamos en un array las imagenes de los objetos.
         if (isset($data->into)) {
             for ($n = 0; $n < count($data->into); $n++) {
-                $objeto['mejora'][$n]['img'] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->into[$n] . '.png';
                 $objeto['mejora'][$n]['id'] = $data->into[$n];
+                $objeto['mejora'][$n]['img'] = 'https://ddragon.leagueoflegends.com/cdn/' . $this->version() . '/img/item/' . $data->into[$n] . '.png';
             }
             // Ordenamos el array de $objeto['mejora'] por id.
-            asort($objeto['mejora']);
+            //asort($objeto['mejora']);
         }
         // Devolvemos el objeto.
         return $objeto;

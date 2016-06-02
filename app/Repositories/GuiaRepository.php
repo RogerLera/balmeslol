@@ -38,6 +38,18 @@ class GuiaRepository
         return $guias;
     }
 
+    public function nuevas()
+    {
+        return Guia::orderBy('updated_at', 'desc')
+                    ->get();
+    }
+
+    public function masVotadas()
+    {
+        return Guia::orderBy('guiPositivo', 'desc')
+                    ->get();
+    }
+
     /**
      * Obtiene todas las guias creadas en la base de datos.
      *
@@ -46,6 +58,6 @@ class GuiaRepository
     public function totalGuias()
     {
         return Guia::orderBy('created_at', 'desc')
-                    ->get();
+                    ->paginate(10);
     }
 }

@@ -75,10 +75,10 @@
                                             <a href="{{ url('/guias/todas') }}">@lang('messages.Guias-todas')</a>
                                         </li>
                                         <li>
-                                            <a href="#">@lang('messages.Guias-nuevo')</a>
+                                            <a href="{{ url('/guias/nuevas') }}">@lang('messages.Guias-nuevo')</a>
                                         </li>
                                         <li>
-                                            <a href="#">@lang('messages.Guias-votado')</a>
+                                            <a href="{{ url('/guias/masVotadas') }}">@lang('messages.Guias-votado')</a>
                                         </li>
                                     </ul>
                                 </li>
