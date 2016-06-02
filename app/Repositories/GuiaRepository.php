@@ -28,7 +28,7 @@ class GuiaRepository
                                 ->get();
         $guias = array();
         foreach ($favoritos as $favorito) {
-            $guias[] = Guia::whereId($favorito->guiId)->get();
+            $guias[] = Guia::whereId($favorito->guiId)->get()->first();
         }
         return $guias;
     }
