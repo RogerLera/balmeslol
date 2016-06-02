@@ -37,7 +37,7 @@ function votacion(guiId, usuId, tipoVotacion) {
 function favorito(guiId, usuId, buttonId, metodo) {
     var texto = (metodo === 'POST') ? "Borrar favorito" : "Añadir favorito";
     var metodoSiguiente = (metodo === 'POST') ? "'DELETE'" : "'POST'";
-    var img = (metodo === 'POST') ? "images/remove-favorite_button.png" : "images/favorite_button.png";
+    var img = (metodo === 'POST') ? "../images/remove-favorite_button.png" : "../images/favorite_button.png";
     // Empezamos la llamada.
     $.ajax({
         // Tipo POST/DELETE.

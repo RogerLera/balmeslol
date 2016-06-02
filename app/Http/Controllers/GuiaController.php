@@ -47,9 +47,17 @@ class GuiaController extends Controller {
      *
      * @return todas las guias que existen en la base de datos a la vista.
      */
-    public function index(Request $request) {
+    public function index(Request $request, $aMostrar) {
+        $guias = $this->guias->totalGuias();
+        if ($aMostrar == 'usuario') {
+            $guias = $this->guias->delUser($request->user()->id);
+        }
+        else if ($aMostrar == 'favoritos') {
+            $guias = $this->guias->guiasFavoritas($request->user()->id);
+        }
         return view('guias.index', [
-            'guias' => $this->guias->totalGuias(),
+            'guias' => $guias,
+            'aMostrar' => $aMostrar,
         ]);
     }
 
@@ -118,7 +126,7 @@ class GuiaController extends Controller {
 
         Guia::create(Input::all());
 
-        return redirect('/guias');
+        return redirect('/guias/usuario');
     }
 
     /**
@@ -144,7 +152,7 @@ class GuiaController extends Controller {
         $guia->fill(Input::all());
         $guia->save();
 
-        return redirect('/guias');
+        return redirect('/guias/usuario');
     }
 
     /**
@@ -159,7 +167,7 @@ class GuiaController extends Controller {
 
         $guia->delete();
 
-        return redirect('/guias');
+        return redirect('/guias/usuario');
     }
 
     /**
