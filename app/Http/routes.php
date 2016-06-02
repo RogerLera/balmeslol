@@ -49,7 +49,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/perfil/{id}/editar', 'UserController@formularioEditarUser')->where('id', '[0-9]+');
     Route::post('/perfil/{id}/editar', 'UserController@editarUser')->where('id', '[0-9]+');
     Route::post('/perfil/{id}/editar/password', 'UserController@editarUserPassword')->where('id', '[0-9]+');
-    Route::delete('/perfil/{id}', 'UserController@eliminarUser')->where('id', '[0-9]+');
+    Route::delete('/perfil/{id}', 'UserController@eliminarUser');
 });
 
 /* --- MENSAJES Messenger --- */

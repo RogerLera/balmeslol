@@ -87,7 +87,7 @@
                                                                 @if ($guia->usuId == Auth::id() || Auth::id() == 1)
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/guias/') }}/{{$guia->id}}">
+                                                                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/guias/' . $guia->id) }}">
                                                                                 {!! csrf_field() !!}
                                                                                 {{ method_field('DELETE') }}
                                                                                 <button type="submit" class="btn btn-info">

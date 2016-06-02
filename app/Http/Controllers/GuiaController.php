@@ -161,9 +161,9 @@ class GuiaController extends Controller {
      * @param $guia guia a eliminar.
      * @return redireccionamos a la página de sus guias.
      */
-    public function eliminarGuia(Request $request, Guia $guia) {
-      
-        print_r($guia);
+    public function eliminarGuia(Request $request, $id) {
+        $guia = Guia::whereId($id)->first();
+        $this->authorize('borrarGuia', $guia);
         $guia->delete();
 
         return redirect()->back();
