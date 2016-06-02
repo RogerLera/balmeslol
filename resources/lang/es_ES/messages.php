@@ -176,6 +176,7 @@ return [
     'Gui-Misguias' => 'Mis guías',
     'Gui-Creadas' => 'Guías creadas',
     'Gui-Favoritos' => 'No tienes ningúna guía en favoritos.',
+    'Gui-Borrar' => 'Borrar guía',
 
     /* login.blade.php */
     'Contraseña-olvidada' => 'Olvidaste tu contraseña?',

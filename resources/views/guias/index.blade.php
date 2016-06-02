@@ -23,7 +23,6 @@
                             <a href="{{ url('/guias/crear') }}" class="btn btn-success" role="button">
                                 <i class="fa fa-btn fa-sign-in"></i> @lang('messages.Gui-Crear')
                             </a>
-
                         </div>
                     </div>
                     <br>
@@ -43,7 +42,7 @@
                                                     <div class="guide">
                                                         <div class="row">
                                                             <div class="col-md-2">
-                                                                <img alt="{{ $guia->camNombre }}" class="guide-icon" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
+                                                                <img alt="{{ $guia->camNombre }}" class="guide-icon img-responsive" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
                                                                 <div class="row">
                                                                     <div class="col-md-10 col-md-offset-2">
                                                                         <span class="fa fa-thumbs-o-up fa-2x" style="color:green;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
@@ -58,7 +57,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-10">
+                                                            <div class="col-md-9">
                                                                 <a href="/guias/{{ $guia->id }}"><h4>{{ $guia->guiTitulo }} [{{ $guia->role->rolNombre }}]</h4></a>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
@@ -73,9 +72,9 @@
                                                                     <div class="col-md-3">
                                                                         @if ($guia->usuId != Auth::id())
                                                                             @if (isset($guia->favorito->usuId) && $guia->favorito->usuId == Auth::id())
-                                                                                <img <img alt="remove-favorite_button" id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/remove-favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">
+                                                                                <img class="guide-favorite img-responsive" alt="remove-favorite_button" id="favorito{{ $guia->id }}" src="{{asset('/images/remove-favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">
                                                                             @else
-                                                                                <img <img alt="favorite_button" id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')">
+                                                                                <img class="guide-favorite img-responsive" alt="favorite_button" id="favorito{{ $guia->id }}" src="{{asset('/images/favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')">
                                                                             @endif
                                                                         @endif
                                                                     </div>
@@ -85,6 +84,19 @@
                                                                         <p>@lang('messages.Gui-Version'): {{ $guia->guiVersion }}</p>
                                                                     </div>
                                                                 </div>
+                                                                @if ($guia->usuId == Auth::id() || Auth::id() == 1)
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/guias/') }}/{{$guia->id}}">
+                                                                                {!! csrf_field() !!}
+                                                                                {{ method_field('DELETE') }}
+                                                                                <button type="submit" class="btn btn-info">
+                                                                                    @lang('messages.Gui-Borrar')
+                                                                                </button>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -114,7 +126,7 @@
                                                         <div class="guide">
                                                             <div class="row">
                                                                 <div class="col-md-2">
-                                                                    <img alt="{{ $guia->camNombre }}" class="guide-icon" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
+                                                                    <img alt="{{ $guia->camNombre }}" class="guide-icon img-responsive" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
                                                                     <div class="row">
                                                                         <div class="col-md-10 col-md-offset-2">
                                                                             <span class="fa fa-thumbs-o-up fa-2x" style="color:green;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
@@ -144,9 +156,9 @@
                                                                         <div class="col-md-3">
 
                                                                         @if (isset($guia->favorito->usuId) && $guia->favorito->usuId == Auth::id())
-                                                                            <img alt="remove-favorite_button" id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/remove-favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">
+                                                                            <img class="guide-favorite img-responsive" alt="remove-favorite_button" id="favorito{{ $guia->id }}" src="{{asset('/images/remove-favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'DELETE')">
                                                                         @else
-                                                                            <img alt="favorite_button" id="favorito{{ $guia->id }}" style="width:30%;" src="{{asset('/images/favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')">
+                                                                            <img class="guide-favorite img-responsive" alt="favorite_button" id="favorito{{ $guia->id }}" src="{{asset('/images/favorite_button.png') }}" onclick="favorito({{ $guia->id }}, {{ Auth::id() }}, this.id, 'POST')">
                                                                         @endif
                                                                         </div>
                                                                     </div>
@@ -155,6 +167,19 @@
                                                                             <p>@lang('messages.Gui-Version'): {{ $guia->guiVersion }}</p>
                                                                         </div>
                                                                     </div>
+                                                                    @if ($guia->usuId == Auth::id() || Auth::id() == 1)
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/guias/') }}/{{$guia->id}}">
+                                                                                {!! csrf_field() !!}
+                                                                                {{ method_field('DELETE') }}
+                                                                                <button type="submit" class="btn btn-info">
+                                                                                    @lang('messages.Gui-Borrar')
+                                                                                </button>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
                                                                 </div>
                                                             </div>
                                                         </div>

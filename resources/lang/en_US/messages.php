@@ -191,6 +191,7 @@ return [
     'Gui-Misguias' => 'My guides',
     'Gui-Creadas' => 'Created guides',
     'Gui-Favoritos' => 'You don\'t have any favourite guide.',
+    'Gui-Borrar' => 'Delete guide',
 
     /* ---Estadisticas--- */
     'Esta-Grafica' => 'Graphical statistics',

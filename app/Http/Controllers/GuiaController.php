@@ -162,11 +162,11 @@ class GuiaController extends Controller {
      * @return redireccionamos a la página de sus guias.
      */
     public function eliminarGuia(Request $request, Guia $guia) {
-        $this->authorize('destroy', $guia);
-
+      
+        print_r($guia);
         $guia->delete();
 
-        return redirect('/guias/usuario');
+        return redirect()->back();
     }
 
     /**

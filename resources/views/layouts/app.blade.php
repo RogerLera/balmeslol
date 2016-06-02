@@ -20,31 +20,33 @@
     </head>
     <body id="app-layout">
         <div class="container-fluid">
-            <div class="row banner">
-                <div class="col-md-6 col-md-offset-6 col-xs-6 col-xs-offset-6" style="padding-top:30px;">
-                    <form class="navbar-form navbar-right"  accept-charset="ISO-8859-1" role="search" action="/invocador">
-                        <div class="form-group">
-                            <input name="nombre" type="text" class="form-control" placeholder="@lang('messages.Buscarjugador')">
-                            <select class="selectpicker" data-width="fit" name="region">
-                                <option data-subtext="EU Oeste" value="euw">EUW</option>
-                                <option data-subtext="EU Nórdica y Este" value="eune">EUNE</option>
-                                <option data-subtext="Norteamérica" value="na">NA</option>
-                                <option data-subtext="Latinoamérica Norte" value="lan">LAN</option>
-                                <option data-subtext="Latinoamérica Sur" value="las">LAS</option>
-                                <option data-subtext="Brasil" value="br">BR</option>
-                                <option data-subtext="Japón" value="jap">JAP</option>
-                                <option data-subtext="Rusia" value="ru">RU</option>
-                                <option data-subtext="Turquía" value="tr">TR</option>
-                                <option data-subtext="Oceanía" value="oce">OCE</option>
-                                <option data-subtext="Republica de Corea" value="kr">KR</option>
-                            </select>
-                            <button type="submit" class="btn btn-info">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </form>
+            <a href="{{ url('/') }}">
+                <div class="row banner">
+                    <div class="col-md-6 col-md-offset-6 col-xs-6 col-xs-offset-6" style="padding-top:30px;">
+                        <form class="navbar-form navbar-right"  accept-charset="ISO-8859-1" role="search" action="/invocador">
+                            <div class="form-group">
+                                <input name="nombre" type="text" class="form-control" placeholder="@lang('messages.Buscarjugador')">
+                                <select class="selectpicker" data-width="fit" name="region">
+                                    <option data-subtext="EU Oeste" value="euw">EUW</option>
+                                    <option data-subtext="EU Nórdica y Este" value="eune">EUNE</option>
+                                    <option data-subtext="Norteamérica" value="na">NA</option>
+                                    <option data-subtext="Latinoamérica Norte" value="lan">LAN</option>
+                                    <option data-subtext="Latinoamérica Sur" value="las">LAS</option>
+                                    <option data-subtext="Brasil" value="br">BR</option>
+                                    <option data-subtext="Japón" value="jap">JAP</option>
+                                    <option data-subtext="Rusia" value="ru">RU</option>
+                                    <option data-subtext="Turquía" value="tr">TR</option>
+                                    <option data-subtext="Oceanía" value="oce">OCE</option>
+                                    <option data-subtext="Republica de Corea" value="kr">KR</option>
+                                </select>
+                                <button type="submit" class="btn btn-info">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </a>
 
             <div class="row">
                 <nav class="navbar navbar-default">
