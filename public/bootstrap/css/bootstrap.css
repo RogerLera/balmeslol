@@ -245,6 +245,23 @@
 .progress-bar-Ataque {
     background-color: #c71c22;
 }
+
+.progress-bar-Defense {
+    background-color: #73a839;
+}
+
+.progress-bar-Magic {
+    background-color: #033c73;
+}
+
+.progress-bar-Difficulty {
+    background-color: #dd5600;
+}
+
+.progress-bar-Attack {
+    background-color: #c71c22;
+}
+
 .table-estadisticas, .table-estadisticas th {
     background: #e9e9e9;
     text-align: center;
