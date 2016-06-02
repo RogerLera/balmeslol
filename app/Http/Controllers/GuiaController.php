@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Guia;
-use App\Favorito;
 use App\Role;
 use App\Votacion;
 use App\Http\Requests;
@@ -16,8 +15,14 @@ use App\Traits\TraitRunas;
 use App\Traits\TraitVersionActual;
 use App\Traits\TraitObjetos;
 
+/**
+* Clase GuiaController que es la que se encarga de redirecionar a las vistas adecuadas
+* para las guias y verificar que los datos pasan la validación correcta antes de guardarlos.
+*
+*/
 class GuiaController extends Controller {
 
+    // Clases de las quales usamos sus métodos como si fueran de la misma clase (con un $this).
     use TraitCampeones, TraitHechizos, TraitRunas, TraitObjetos, TraitVersionActual;
 
     /**
@@ -28,8 +33,9 @@ class GuiaController extends Controller {
     protected $guias;
 
     /**
-     * Create a new controller instance.
+     * Crear nueva instancia del controlador.
      *
+     * @param GuiaRepository
      * @return void
      */
     public function __construct(GuiaRepository $guias) {
@@ -39,7 +45,7 @@ class GuiaController extends Controller {
     /**
      * Método principal que se llama al acceder a la pestanya guias.
      *
-     * @return información guias a la vista.
+     * @return todas las guias que existen en la base de datos a la vista.
      */
     public function index(Request $request) {
         return view('guias.index', [
@@ -48,7 +54,8 @@ class GuiaController extends Controller {
     }
 
     /**
-     * Método que mustra una guia seleccionada.
+     * Método que mustra una guia seleccionada, dependiendo de si es el usuario que
+     * la a creado o no, se le enviará a una vista u otra (editable o solo lectura).
      *
      * @param $id identificador
      * @return información completa de la guia.
@@ -69,7 +76,7 @@ class GuiaController extends Controller {
      * Método que devuelve las guías que ha creado el usuario logueado por su id.
      *
      * @param type $id id del usuario
-     * @return type vista de las guias
+     * @return vista resumida de sus guias
      */
     public function misGuias($id) {
         return view('guias.user', [
@@ -80,7 +87,7 @@ class GuiaController extends Controller {
     /**
      * Método que devuelve el formulario para crear una guia.
      *
-     * @return información guias a la vista.
+     * @return vista con la info necesaria para poder crearlas.
      */
     public function formularioCrearGuia() {
         return view('guias.crear', [
@@ -91,7 +98,7 @@ class GuiaController extends Controller {
     }
 
     /**
-     * Método que crea una guia nueva.
+     * Método que valida y registra una guia nueva a la base de datos.
      *
      * @param Request $request datos a guardar.
      * @return redireccionamos a la página de sus guias.
@@ -155,6 +162,12 @@ class GuiaController extends Controller {
         return redirect('/guias');
     }
 
+    /**
+    * Método que muestra todas las guias que el usuario tiene añadidas a favoritos.
+    *
+    * @param $id identificador usuario.
+    * @return vista con las guias que tiene como favoritas.
+    */
     public function obtenerGuiasFavoritos($id)
     {
         return view('guias.favoritos', [
@@ -162,80 +175,32 @@ class GuiaController extends Controller {
         ]);
     }
 
-    public function guardarAFavoritos()
+    public function actualizarValoracion()
     {
         $guiId = Input::get('guiId');
-        $usuId = Input::get('usuId');
-        $resultado = 'No se ha podido guardar a favoritos.';
-        $where = ['usuId' => $usuId, 'guiId' => $guiId];
-        $favoritoExistente = Favorito::where($where)->first();
-        if (is_null($favoritoExistente)) {
-            Favorito::create([
-                'usuId' => $usuId,
-                'guiId' => $guiId,
-            ]);
-            $resultado = 'Guardado a favoritos.';
-        }
-        return $resultado;
-    }
-
-    public function borrarDeFavoritos()
-    {
-        $guiId = Input::get('guiId');
-        $usuId = Input::get('usuId');
-        $resultado = 'No se ha podido borrar de favoritos.';
-        $where = ['usuId' => $usuId, 'guiId' => $guiId];
-        $favoritoExistente = Favorito::where($where)->delete();
-        $resultado = 'Borrado de favoritos.';
-        return $resultado;
-    }
-
-    public function votacion()
-    {
-        $guiId = Input::get('guiId');
-        $usuId = Input::get('usuId');
         $tipo = Input::get('tipo');
-        $esNuevo = 0;
-        $where = ['usuId' => $usuId, 'guiId' => $guiId];
-        $votacionExistente = Votacion::where($where)->first();
-        if (is_null($votacionExistente)) {
-            Votacion::create([
-                'usuId' => $usuId,
-                'guiId' => $guiId,
-                'votValoracion' => $tipo,
-            ]);
-        } else {
-            if ($votacionExistente->votValoracion != $tipo) {
-                $votacionExistente->votValoracion = $tipo;
-                $votacionExistente->save();
-                $esNuevo = 1;
-            } else {
-                $esNuevo = 2;
-            }
-        }
-        return $this->actualizarValoracion($guiId, $tipo, $esNuevo);
-    }
-
-    public function actualizarValoracion($guiId, $tipo, $esNuevo)
-    {
-        $valoracion = 0;
+        $esNuevo = Input::get('esNuevo');
+        $valoracion = array();
         $guia = Guia::whereId($guiId)->firstOrFail();
             if ($esNuevo == 0) {
                 if ($tipo == 1) {
-                $valoracion = $guia->guiPositivo = ($guia->guiPositivo + 1);
+                $valoracion[0] = $guia->guiPositivo = ($guia->guiPositivo + 1);
+                $valoracion[1] = $guia->guiNegativo;
                 } else {
-                    $valoracion = $guia->guiNegativo = ($guia->guiNegativo + 1);
+                    $valoracion[0] = $guia->guiPositivo;
+                    $valoracion[1] = $guia->guiNegativo = ($guia->guiNegativo + 1);
                 }
             } else if ($esNuevo == 1) {
                 if ($tipo == 1) {
-                $valoracion = $guia->guiNegativo = ($guia->guiNegativo - 1);
-                $valoracion = $guia->guiPositivo = ($guia->guiPositivo + 1);
+                $valoracion[0] = $guia->guiPositivo = ($guia->guiPositivo + 1);
+                $valoracion[1] = $guia->guiNegativo = ($guia->guiNegativo - 1);
                 } else {
-                    $valoracion = $guia->guiPositivo = ($guia->guiPositivo - 1);
-                    $valoracion = $guia->guiNegativo = ($guia->guiNegativo + 1);
+                    $valoracion[0] = $guia->guiPositivo = ($guia->guiPositivo - 1);
+                    $valoracion[1] = $guia->guiNegativo = ($guia->guiNegativo + 1);
                 }
             } else {
-                $valoracion = ($tipo == 1) ? $guia->guiPositivo : $guia->guiNegativo;
+                $valoracion[0] = $guia->guiPositivo;
+                $valoracion[1] = $guia->guiNegativo;
             }
         $guia->save();
         return $valoracion;
