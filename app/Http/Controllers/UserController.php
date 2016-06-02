@@ -11,15 +11,11 @@ use Illuminate\Support\ServiceProvider;
 use Response;
 use Intervention\Image\Facades\Image;
 
+/**
+ * Clase UserController, gestiona todos los aspectos relacionados con el usuario, 
+ * aspectos como su perfil, su contraseña, su avatar y la eliminación del mismo.
+ */
 class UserController extends Controller {
-
-    /**
-     * Constructor principal.
-     *
-     *  public function __construct() {
-     *     $this->middleware('auth');
-     * }
-     **/
 
     /**
      * Mostrar un perfil

@@ -14,6 +14,10 @@ use App\Favorito;
 */
 class FavoritoController extends Controller {
 
+    /**
+     * Método para añadir una guía a los favoritos del usuario
+     * @return string devuelve un mensaje confome se ha guardado
+     */
     public function guardarAFavoritos()
     {
         $guiId = Input::get('guiId');
@@ -31,6 +35,10 @@ class FavoritoController extends Controller {
         return $resultado;
     }
 
+    /**
+     * Método para borrar una guía a los favoritos del usuario
+     * @return string devuelve un mensaje confome se ha borrado
+     */
     public function borrarDeFavoritos()
     {
         $guiId = Input::get('guiId');

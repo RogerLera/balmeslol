@@ -12,6 +12,11 @@ use App\Votacion;
 * de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
 */
 class VotacionController extends Controller {
+    
+    /**
+     * Método que gestiona las votaciones
+     * @return int 0 nueva, 1 cambio de voto, 2 mismo voto (todo sigue igual)
+     */
     public function votacion()
     {
         $guiId = Input::get('guiId');
