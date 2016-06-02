@@ -48,7 +48,7 @@ return [
 
     /* Footer */
     'copyright'             => '© 2015-2016 Balmeslol basado en la euw api de League of Legends',
-    'contactanos'           => 'Contactanos',  
+    'contactanos'           => 'Contactanos',
     /* End Footer */
 
     /* Welcome.blade.php */
@@ -138,6 +138,41 @@ return [
     /* ---Login y registro--- */
     'Alias' => 'Alias',
     'Contraseña' => 'Contraseña',
+
+    /* perfil.blade.php */
+    'Per-Perfil' => 'Perfil',
+    'Per-Detalles' => 'Detalles de perfil',
+    'Per-Actinfo' => 'Actualizar información de perfil',
+    'Per-Alias' => 'Alias',
+    'Per-Direccion' => 'Dirección E-Mail',
+    'Per-Fecha' => 'Fecha nacimiento',
+    'Per-Imagen' => 'Imagen de perfil',
+    'Per-Examinar' => 'Examinar',
+    'Per-Actualizar' => 'Actualizar',
+    'Per-Cambiarpswd' => 'Cambiar contraseña',
+    'Per-Pswd' => 'Contraseña',
+    'Per-Confpswd' => 'Confirmación contraseña',
+
+    /* email.blade.php */
+    'Ema-Rest' => 'Reestablecer contraseña',
+    'Ema-Enviar' => 'Enviar enlace para restablecer la contraseña',
+
+    /* guias, index.blade.php */
+    'Gui-Guias' => 'Guías',
+    'Gui-Noexiste' => 'No existe ningúna guía',
+    'Gui-Crea' => '!Crea una guía!',
+    'Gui-Crear' => 'Crear guía',
+    'Gui-Titulo' => 'Título',
+    'Gui-Campeon' => 'Campeón',
+    'Gui-Version' => 'Versión',
+    'Gui-Usuario' => 'Usuario',
+    'Gui-Runas' => 'Runas',
+    'Gui-Selecciona' => 'Seleciona un campeón',
+    'Gui-Selecrol' => 'Selecciona un rol',
+    'Gui-Por' => 'Por',
+    'Gui-Actualizado' => 'Actualizado',
+    'Gui-Editar' => 'Editar guía',
+    '' => '',
 
     /* login.blade.php */
     'Contraseña-olvidada' => 'Olvidaste tu contraseña?',

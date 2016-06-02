@@ -101,6 +101,23 @@
     border-radius: 10px;
 }
 
+.guide-icon {
+    width: 80%;
+    border: 2px groove #d0b510;
+    border-radius: 10px;
+margin: 10px;
+display: block;
+
+}
+
+.guide {
+    border: 5px groove #d0b510;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+    background: #233148;
+    color:white;
+}
+
 .splashart {
     position: relative;
     display: block;
@@ -474,7 +491,7 @@ html {
 }
 
 * {
-/*  outline: 1px solid red; */
+  /*outline: 1px solid red; */
 }
 
 body {

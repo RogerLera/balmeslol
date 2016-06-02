@@ -92,8 +92,8 @@
                             <label class="col-md-3 control-label">@lang('messages.Gui-Usuario')</label>
 
                             <div class="col-md-4">
-                                    <input type="hidden" name="usuId" value="{{ Auth::id() }}">
-                                    </p>{{ Auth::user()->usuAlias }}</p>
+                                <input type="hidden" name="usuId" value="{{ Auth::id() }}">
+                                </p>{{ Auth::user()->usuAlias }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -219,7 +219,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </form>
                 </div>
             </div>

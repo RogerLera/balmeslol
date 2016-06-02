@@ -25,7 +25,7 @@ function favorito(guiId, usuId, buttonId, metodo)
 {
     var texto = (metodo === 'POST') ? "Borrar favorito" : "Añadir favorito";
     var metodoSiguiente = (metodo === 'POST') ? "'DELETE'" : "'POST'";
-    var clase = (metodo === 'POST') ? "glyphicon glyphicon-star" : "glyphicon glyphicon-star-empty";
+    var img = (metodo === 'POST') ? "images/remove-favorite_button.png" : "images/favorite_button.png";
     // Empezamos la llamada.
     $.ajax({
         // Tipo POST/DELETE.
@@ -44,7 +44,7 @@ function favorito(guiId, usuId, buttonId, metodo)
             var button = $('#' + buttonId);
             //button.html(texto);
             button.attr('onclick','favorito(' + guiId + ', ' + usuId + ', this.id, ' + metodoSiguiente + ')');
-            button.attr('class',clase);
+            button.attr('src',img);
         }
     });
 }
