@@ -14,6 +14,7 @@ use Config;
  */
 class CampeonController extends Controller {
 
+    // Clases de las quales usamos sus métodos como si fueran de la misma clase (con un $this).
     use TraitCampeones,
         TraitVersionActual;
 
@@ -59,15 +60,19 @@ class CampeonController extends Controller {
      * @return array associativo con la información del campeón.
      */
     public function obtenerCampeonPorId($id) {
+        // Obtenemos el idioma seleccionado de la sesión.
         $idioma = Config::get("app.locale");
-        $json = "Empty";
+        // Creamos variable resultado con el string 'Empty' (vacio).
+        $resultado = "Empty";
+        // Comprovamos si en el header del request al .json nos llega la información correctamente (respuesta servidor 200) o no.
+        // En caso afirmativo, empezamos a trabajar con el json.
         if (strpos(get_headers('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/' . $id . '?locale=' . $idioma . '&champData=image,info,lore,passive,spells,stats&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6')[0], '200') !== false) {
             // Obtenemos el json.
             $json = file_get_contents('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/' . $id . '?locale=' . $idioma . '&champData=image,info,lore,passive,spells,stats&api_key=a9a09074-95bd-4038-addb-a8b5e616e9c6');
             // Lo transformamos a objetos que php pueda entender.
             $infoCampeon = json_decode($json);
-            // Array con los claves de características, estadísticas i habilidades campeón.
 
+            // Array con los claves de características, estadísticas i habilidades campeón, dependiendo el idioma.
             if ($idioma === "es_ES") {
                 $caracteristicas = ['Ataque', 'Defensa', 'Magia', 'Dificultad'];
                 $estadisticas = ['Armadura', 'Ataque', 'Rango', 'Velocidad de ataque', 'Crítico',
@@ -75,16 +80,13 @@ class CampeonController extends Controller {
                     'Resistencia mágica'];
                 $habilidades = ['Pasiva', 'Q', 'W', 'E', 'R'];
                 $porNv = ' por nivel)';
-            }
-            else{
+            } else {
                 $caracteristicas = ['Attack', 'Defense', 'Magic', 'Difficulty'];
-	        $estadisticas = ['Armor', 'Attack', 'Range', 'Attack speed', 'Critical strike',
-							'Life', 'Life regen', 'Speed', 'Mana', 'Mana regen',
-							'Magic resist'];
-	        $habilidades = ['Passive', 'Q', 'W', 'E', 'R'];
+    	        $estadisticas = ['Armor', 'Attack', 'Range', 'Attack speed', 'Critical strike',
+    				'Life', 'Life regen', 'Speed', 'Mana', 'Mana regen', 'Magic resist'];
+    	        $habilidades = ['Passive', 'Q', 'W', 'E', 'R'];
                 $porNv = ' for level)';
             }
-
 
             // Inicializamos el array campeón con toda la información que necessitamos.
             $campeon = array(
@@ -107,23 +109,23 @@ class CampeonController extends Controller {
             // Este bucle tenemos unas condiciones un poco especiales para guardar la información.
             foreach ($infoCampeon->stats as $nombre => $stats) {
                 // Si el nombre de la clave és 'attackspeedoffset', para obtener el valor de la Velocidad
-                // de ataque necessitamos acer una formula: 0.625 / 1 + 'attackspeedoffset'.
+                // de ataque necessitamos hacer una formula: 0.625 / 1 + 'attackspeedoffset'.
                 if ($nombre === 'attackspeedoffset') {
                     $stats = 0.625 / (1 + $stats);
                 }
                 // Las estadísticas que base que mejoran al subir de nivel vienen después de la base con la
                 // que se empieza, en escepción de las de 'attackrange' y 'movespeed'.
                 if ($nombre !== 'attackrange' && $nombre !== 'movespeed') {
-                    // Si count es 1, añadimos a la estaddística base el '(+ X por nivel)'. I ponemos el count a 0.
+                    // Si count es 1, añadimos a la estadística base el '(+ X por nivel)'. I ponemos el count a 0.
                     if ($count == 1) {
                         $campeon['estadisticas'][$estadisticas[$n - 1]] .= " (+" . round($stats, 3) . $porNv;
                         $count = 0;
                         // Sinó, al ser la estadística base la introducimos al array normalmente.
                         // Añadimos uno a count y a n.
                     } else {
-                        $count++;
                         $campeon['estadisticas'][$estadisticas[$n]] = round($stats, 3);
                         $n++;
+                        $count++;
                     }
                     // En caso que el nombre de la estadística sea una de las dos (attackrange o movespeed),
                     // las introducimos sin subir al count, ya que ninguna de estas dos tienen el 'por nivel'.
@@ -148,15 +150,15 @@ class CampeonController extends Controller {
                 $campeon['habilidades'][$habilidades[$n]]['Video'] = $this->videoHabilidadCampeon($id, $n + 1);
                 $n++;
             }
-            // Devolvemos el array campeón.
-            $json = $campeon;
+            // Pasamos a la variable resultado el contenido de campeon.
+            $resultado = $campeon;
         }
-        return $json;
+        // Devolvemos el array con la info (o si no ha entrado al if, el string).
+        return $resultado;
     }
 
     /**
      * Método para obtener los campeones gratuitos de la semana.
-     *
      *
      * @return array associativo con la información de los campeones.
      */
@@ -175,7 +177,7 @@ class CampeonController extends Controller {
                 'id' => $infoCampeon->id,
             );
         }
-        // Ordenamos el array por nombre.
+        // Ordenamos el array por id.
         asort($campeones);
         // Devolvemos el array.
         return $campeones;

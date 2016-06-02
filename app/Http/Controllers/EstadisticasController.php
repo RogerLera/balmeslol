@@ -10,19 +10,20 @@ use App\Traits\TraitHechizos;
 use App\Traits\TraitGraficos;
 
 /**
- * Clase EstadisticasController que guardara datos de las partidas contenidas en los ficheros seed_data,
- * estos ficheros contienen datos de 1000 partidas de tipo ranked
- * son ficheros de tipo json,
- * para luego hacer las estadisticas.
+ * Clase EstadisticasController que guardara datos de las partidas contenidas en
+ * los ficheros seed_data, estos ficheros contienen datos de 1000 partidas de
+ * tipo ranked son ficheros de tipo json, para luego hacer las estadisticas.
  */
 class EstadisticasController extends Controller {
 
+    // Clases de las quales usamos sus métodos como si fueran de la misma clase (con un $this).
     use TraitCampeones,
         TraitGraficos,
         TraitHechizos;
 
     /**
-     * Mètodo para guardar las estadísticas des de una pestaña del navbar
+     * Mètodo para guardar las estadísticas des de una pestaña del navbar.
+     *
      * @return type
      */
     public function generaEstadisticas() {
@@ -32,7 +33,9 @@ class EstadisticasController extends Controller {
     }
 
     /**
-     * Método que nos permite ver la popularidas de los campeones por % basándonos en los datos que tenemos en la BBDD
+     * Método que nos permite ver la popularidas de los campeones por % basándonos
+     * en los datos que tenemos en la BBDD.
+     *
      * @return type
      */
     public function mostrarPopularidadCampeones() {
@@ -42,7 +45,9 @@ class EstadisticasController extends Controller {
     }
 
     /**
-     * Método que nos permite ver la popularidas de los hechizos por % basándonos en los datos que tenemos en la BBDD
+     * Método que nos permite ver la popularidas de los hechizos por % basándonos en
+     * los datos que tenemos en la BBDD.
+     *
      * @return type
      */
     public function mostrarPopularidadHechizos() {
@@ -52,7 +57,9 @@ class EstadisticasController extends Controller {
     }
 
     /**
-     * Método que nos permite ver los campeones baneados por % basándonos en los datos que tenemos en la BBDD
+     * Método que nos permite ver los campeones baneados por % basándonos en los
+     * datos que tenemos en la BBDD.
+     *
      * @return type
      */
     public function mostrarBloqueoCampeones() {
@@ -62,25 +69,30 @@ class EstadisticasController extends Controller {
     }
 
     /**
-     * Método principal que carga las estadisticas de un grupo de 10 ficheros que contienen datos de 100 partidas cada uno de tipo ranked
+     * Método principal que carga las estadisticas de un grupo de 10 ficheros que contienen
+     * datos de 100 partidas cada uno de tipo ranked.
      * Guardaremos datos de: uso de campeones, uso de hechizos y bans de campeones
      */
     public function guardaEstadisticas() {
         for ($i = 1; $i < 11; $i++) {
+            // Obtenemos el json.
             $json = file_get_contents('https://s3-us-west-1.amazonaws.com/riot-api/seed_data/matches' . $i . '.json');
+            // Lo pasamos a objeto php.
             $listaMatch = json_decode($json);
 
             foreach ($listaMatch->matches as $match) {
                 foreach ($match->participants as $p) {
+                    // Guardamos los id de los dos hechizos y campeón usados.
                     $spell1 = $p->spell1Id;
-                    $this->guardaHechizo($spell1);
+                    $this->guardaHechizo($p->spell1Id);
                     $spell2 = $p->spell2Id;
-                    $this->guardaHechizo($spell2);
+                    $this->guardaHechizo($p->spell2Id);
                     $escUsado = $p->championId;
-                    $this->guardaCampeon($escUsado);
+                    $this->guardaCampeon($p->championId);
                 }
                 foreach ($match->teams as $t) {
                     foreach ($t->bans as $b) {
+                        // Guardamos los campeones baneados.
                         $escBloqueado = $b->championId;
                         $this->guardaCampeonBan($escBloqueado);
                     }
@@ -91,8 +103,8 @@ class EstadisticasController extends Controller {
     }
 
     /**
-     * Método complementario para guardar en la bae de datos un hechizo usado por id
-     * primero comprueba que no se haya insertado el hechizo anteriormente,
+     * Método complementario para guardar en la base de datos un hechizo usado por id,
+     * primero comprueba que no se haya insertado el hechizo anteriormente.
      * @param type $id
      */
     public function guardaHechizo($id) {
@@ -109,9 +121,10 @@ class EstadisticasController extends Controller {
     }
 
     /**
-     * Método complementario para guardar en la base de datos un campeon usado por id
+     * Método complementario para guardar en la base de datos un campeon usado por id,
      * primero comprueba que no se haya insertado el campeon anteriormente,
-     * dependiendo de si si o si no, crea un nuevo registro o lo actualiza
+     * entonces crea un nuevo registro o lo actualiza.
+     *
      * @param type $id
      */
     public function guardaCampeon($id) {
@@ -129,9 +142,10 @@ class EstadisticasController extends Controller {
     }
 
     /**
-     * Método complementario para guardar en la base de datos un campeon baneado por id
+     * Método complementario para guardar en la base de datos un campeon baneado por id,
      * primero comprueba que no se haya insertado el campeon anteriormente,
-     * dependiendo de si si o si no, crea un nuevo registro o lo actualiza
+     * entonces crea un nuevo registro o lo actualiza.
+     *
      * @param type $id
      */
     public function guardaCampeonBan($id) {
@@ -149,9 +163,10 @@ class EstadisticasController extends Controller {
     }
 
     /**
-     * Método complementario al que muestra los datos
-     * éste nos devuelve un array con los datos de las estadisticas de popularidad de los campeones
-     * @return type
+     * Método complementario al que muestra los datos, éste nos devuelve un array con
+     * los datos de las estadisticas de popularidad de los campeones.
+     *
+     * @return array con las estadisticas
      */
     public function popularidadCampeones() {
         $result = DB::table('estadisticascampeones')->select('escId', 'escUsado')->orderBy('escUsado', 'desc')->get();
