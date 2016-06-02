@@ -175,6 +175,10 @@ class GuiaController extends Controller {
         ]);
     }
 
+    /**
+     * Método que gestiona las valoraciones, permitira un tipo de valoración (positiva o negativa)
+     * @return type devuelve un array con el numero de valoraciones positiva (0) y negativa (1)
+     */
     public function actualizarValoracion()
     {
         $guiId = Input::get('guiId');
@@ -206,6 +210,10 @@ class GuiaController extends Controller {
         return $valoracion;
     }
 
+    /**
+     * Método para obtener el popup de los hechizos para crear una guia
+     * @return type devuelve los hechizos existentes en un array
+     */
     public function mostrarHechizosPopUp()
     {
         return view('guias.hechizos', [
@@ -213,6 +221,10 @@ class GuiaController extends Controller {
         ]);
     }
 
+    /**
+     * Método para obtener el popup de los campeones para crear una guia
+     * @return type devuelve los campeones existentes en un array
+     */
     public function mostrarCampeonesPopUp()
     {
         return view('guias.campeones', [
@@ -220,6 +232,10 @@ class GuiaController extends Controller {
         ]);
     }
 
+    /**
+     * Método para obtener el popup de las runas para crear una guia
+     * @return type devuelve las runas existentes en un array
+     */
     public function mostrarRunasPopUp()
     {
         return view('guias.runas', [
@@ -227,6 +243,10 @@ class GuiaController extends Controller {
         ]);
     }
 
+    /**
+     * Método para obtener el popup de los objetos para crear una guia
+     * @return type devuelve los objetos existentes en un array
+     */
     public function mostrarObjetosPopUp()
     {
         return view('guias.objetos', [
@@ -234,6 +254,11 @@ class GuiaController extends Controller {
         ]);
     }
 
+    /**
+     * Método para obtener el popup de las habilidades de un campeon en base a su id para crear una guia
+     * @param type $id id del campeon del que queremos obtener sus habilidades
+     * @return type las habilidades del campeon en cuestión
+     */
     public function mostrarHabilidadesPopUp($id)
     {
         return view('guias.habilidades', [
