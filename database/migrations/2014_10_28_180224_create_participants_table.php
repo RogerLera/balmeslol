@@ -15,8 +15,8 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create(Models::table('participants'), function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('thread_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('thread_id')->unsigned()->references('id')->on('threads')->onDelete('cascade');
+            $table->integer('user_id')->unsigned()->references('id')->on('users')->onDelete('cascade');
             $table->timestamp('last_read');
             $table->timestamps();
         });
