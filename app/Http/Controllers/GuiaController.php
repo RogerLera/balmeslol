@@ -45,9 +45,11 @@ class GuiaController extends Controller {
     /**
      * Método principal que se llama al acceder a la pestanya guias.
      *
+     * @param Request $request
+     * @param $aMostrar dependiendo el string que llegue mostraremos unas guias o otras.
      * @return todas las guias que existen en la base de datos a la vista.
      */
-    public function index(Request $request, $aMostrar) {
+    public function index(Request $request, $aMostrar = null) {
         $guias;
         $guiasFav = "";
         switch ($aMostrar) {
