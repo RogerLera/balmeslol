@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": ".\/app\\Http\\Controllers\\LanguageController.php",
     "relative_file": null,
-    "hash": "1a06d497b4ee00f44bbfcd6141fbbb94bf90e495",
+    "hash": "49e144e87b24fa8df8a043c30dbebc4ce778a942",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": "Stmt_Class",
     "is_trait": false,

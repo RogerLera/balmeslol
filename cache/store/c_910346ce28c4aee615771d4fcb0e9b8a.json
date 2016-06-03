@@ -8,7 +8,7 @@
     "namespace": "App\\Events",
     "file": ".\/app\\Events\\Event.php",
     "relative_file": null,
-    "hash": "8bd74fbc098ce1ec94581427dbfb6a2b0c813613",
+    "hash": "b555605af5a72e3f6fc023d800403560a3165d72",
     "parent": null,
     "modifiers": "Stmt_Class",
     "is_trait": false,

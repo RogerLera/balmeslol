@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": ".\/app\\Http\\Controllers\\UserController.php",
     "relative_file": null,
-    "hash": "c6e7fbc46af0e994b17dacd225bc0344b5e666e5",
+    "hash": "4ff6dfe7060a73d469513e6eda91dff9d1515476",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": "Stmt_Class",
     "is_trait": false,

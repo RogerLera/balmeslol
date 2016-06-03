@@ -8,7 +8,7 @@
     "namespace": "App\\Console\\Commands",
     "file": ".\/app\\Console\\Commands\\Inspire.php",
     "relative_file": null,
-    "hash": "d52ce9da831ff9d5468a4bc9586db73cd907b5ba",
+    "hash": "a39664b0d34b882512ea330124406b17747cd1d2",
     "parent": "Illuminate\\Console\\Command",
     "modifiers": "Stmt_Class",
     "is_trait": false,

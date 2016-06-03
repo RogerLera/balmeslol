@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": ".\/app\\Http\\Controllers\\HechizoController.php",
     "relative_file": null,
-    "hash": "758d315e89bbe0b904a7fc914269d1008ff5d87b",
+    "hash": "fd64eaa4118113593a59db97c587e04ea65e4d03",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": "Stmt_Class",
     "is_trait": false,

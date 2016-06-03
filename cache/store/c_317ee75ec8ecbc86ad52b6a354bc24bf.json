@@ -1,14 +1,14 @@
 {
     "name": "App\\Traits\\TraitRunas",
-    "line": 6,
-    "short_desc": "",
+    "line": 10,
+    "short_desc": "Clase TraitRunas que obtiene la informaci\u00f3n sobre las runas, que luego llaman\ndiferentes clases.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Traits",
     "file": ".\/app\\Traits\\TraitRunas.php",
     "relative_file": null,
-    "hash": "e19c6139cf09509fa3969314f4d7df2a183e466c",
+    "hash": "f97479e6c82f9e0b0b1381cbff2834527626556f",
     "parent": null,
     "modifiers": "Stmt_Trait",
     "is_trait": true,
@@ -23,7 +23,7 @@
     "methods": {
         "obtenerRunas": {
             "name": "obtenerRunas",
-            "line": 15,
+            "line": 19,
             "short_desc": "M\u00e9todo que obtiene todas las runas de grado 3 (Existen grado 1, 2 y 3),\nen el idioma que se est\u00e1 visualizando la p\u00e0gina.",
             "long_desc": "",
             "hint": [

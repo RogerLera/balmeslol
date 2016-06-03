@@ -1,14 +1,14 @@
 {
     "name": "App\\Traits\\TraitVersionActual",
-    "line": 5,
-    "short_desc": "",
+    "line": 9,
+    "short_desc": "Clase TraitVersionActual que obtiene la versi\u00f3n actual del juego, usada luego\nen m\u00e1s de una clase.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Traits",
     "file": ".\/app\\Traits\\TraitVersionActual.php",
     "relative_file": null,
-    "hash": "02789d1b54b6b0de0d5188822e599e8794701217",
+    "hash": "5083c6d2c6fcf928375d46385535a15fce4ea8db",
     "parent": null,
     "modifiers": "Stmt_Trait",
     "is_trait": true,
@@ -21,7 +21,7 @@
     "methods": {
         "version": {
             "name": "version",
-            "line": 12,
+            "line": 16,
             "short_desc": "M\u00e9todo para obtener la versi\u00f3n actual del juego.",
             "long_desc": "",
             "hint": [

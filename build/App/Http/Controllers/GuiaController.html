@@ -93,7 +93,8 @@ para las guias y verificar que los datos pasan la validación correcta antes de 
                                             <a href="../../../App/Traits/TraitCampeones.html"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitCampeones que obtiene diferente información sobre los campeones, usada luego
+en más de una clase.
                 </div>
             </div>
                     <div class="row">
@@ -101,7 +102,8 @@ para las guias y verificar que los datos pasan la validación correcta antes de 
                                             <a href="../../../App/Traits/TraitHechizos.html"><abbr title="App\Traits\TraitHechizos">TraitHechizos</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitHechizos que obtiene todos los hechizos en una función, que luego llaman
+diferentes clases.
                 </div>
             </div>
                     <div class="row">
@@ -109,7 +111,8 @@ para las guias y verificar que los datos pasan la validación correcta antes de 
                                             <a href="../../../App/Traits/TraitRunas.html"><abbr title="App\Traits\TraitRunas">TraitRunas</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitRunas que obtiene la información sobre las runas, que luego llaman
+diferentes clases.
                 </div>
             </div>
                     <div class="row">
@@ -117,7 +120,8 @@ para las guias y verificar que los datos pasan la validación correcta antes de 
                                             <a href="../../../App/Traits/TraitObjetos.html"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitObjetos que obtiene todos los objetos en una función, que luego llaman
+diferentes clases.
                 </div>
             </div>
                     <div class="row">
@@ -125,7 +129,8 @@ para las guias y verificar que los datos pasan la validación correcta antes de 
                                             <a href="../../../App/Traits/TraitVersionActual.html"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitVersionActual que obtiene la versión actual del juego, usada luego
+en más de una clase.
                 </div>
             </div>
                     <div class="row">
@@ -247,9 +252,19 @@ en el idioma que se está visualizando la pàgina.</p>                </div>
     <abbr title="App\Http\Controllers\todas">todas</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_index">index</a>(
-    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $aMostrar)
+                    <a href="#method_index">index</a>($aMostrar = null)
                                             <p>Método principal que se llama al acceder a la pestanya guias.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Http\Controllers\todas">todas</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_guiasUsuario">guiasUsuario</a>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request)
+                                            <p>Método que muestra las guias del usuario junto a sus favoritas (si tiene).</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -262,17 +277,6 @@ en el idioma que se está visualizando la pàgina.</p>                </div>
     <abbr title="Illuminate\Http\Request">Request</abbr> $request, $id)
                                             <p>Método que mustra una guia seleccionada, dependiendo de si es el usuario que
 la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-    <abbr title="App\Http\Controllers\vista">vista</abbr>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_misGuias">misGuias</a>(
-    <abbr title="App\Http\Controllers\type">type</abbr> $id)
-                                            <p>Método que devuelve las guías que ha creado el usuario logueado por su id.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -314,19 +318,8 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_eliminarGuia">eliminarGuia</a>(
-    <abbr title="Illuminate\Http\Request">Request</abbr> $request, 
-    <a href="../../../App/Guia.html"><abbr title="App\Guia">Guia</abbr></a> $guia)
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $id)
                                             <p>Método que elimina una guia existente.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-    <abbr title="App\Http\Controllers\vista">vista</abbr>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_obtenerGuiasFavoritos">obtenerGuiasFavoritos</a>($id)
-                                            <p>Método que muestra todas las guias que el usuario tiene añadidas a favoritos.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -398,7 +391,7 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_obtenerCampeones">
-        <div class="location">in <a href="../../../App/Traits/TraitCampeones.html#method_obtenerCampeones"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a> at line         line 14</div>
+        <div class="location">in <a href="../../../App/Traits/TraitCampeones.html#method_obtenerCampeones"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a> at line         line 17</div>
         <code>                    
     array
     <strong>obtenerCampeones</strong>()</code>
@@ -426,7 +419,7 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             </div>
                     <div class="method-item">
                     <h3 id="method_obtenerHabilidadesCampeon">
-        <div class="location">in <a href="../../../App/Traits/TraitCampeones.html#method_obtenerHabilidadesCampeon"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a> at line         line 45</div>
+        <div class="location">in <a href="../../../App/Traits/TraitCampeones.html#method_obtenerHabilidadesCampeon"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a> at line         line 48</div>
         <code>                    
     string
     <strong>obtenerHabilidadesCampeon</strong>(
@@ -467,7 +460,7 @@ en el idioma en el que se esté visualizando la página.</p>                    
             </div>
                     <div class="method-item">
                     <h3 id="method_obtenerHechizos">
-        <div class="location">in <a href="../../../App/Traits/TraitHechizos.html#method_obtenerHechizos"><abbr title="App\Traits\TraitHechizos">TraitHechizos</abbr></a> at line         line 14</div>
+        <div class="location">in <a href="../../../App/Traits/TraitHechizos.html#method_obtenerHechizos"><abbr title="App\Traits\TraitHechizos">TraitHechizos</abbr></a> at line         line 17</div>
         <code>                    
     array
     <strong>obtenerHechizos</strong>()</code>
@@ -495,7 +488,7 @@ en el idioma en el que se esté visualizando la página.</p>                    
             </div>
                     <div class="method-item">
                     <h3 id="method_obtenerRunas">
-        <div class="location">in <a href="../../../App/Traits/TraitRunas.html#method_obtenerRunas"><abbr title="App\Traits\TraitRunas">TraitRunas</abbr></a> at line         line 15</div>
+        <div class="location">in <a href="../../../App/Traits/TraitRunas.html#method_obtenerRunas"><abbr title="App\Traits\TraitRunas">TraitRunas</abbr></a> at line         line 19</div>
         <code>                    
     array
     <strong>obtenerRunas</strong>()</code>
@@ -524,7 +517,7 @@ en el idioma que se está visualizando la pàgina.</p>                          
             </div>
                     <div class="method-item">
                     <h3 id="method_obtenerObjetos">
-        <div class="location">in <a href="../../../App/Traits/TraitObjetos.html#method_obtenerObjetos"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a> at line         line 14</div>
+        <div class="location">in <a href="../../../App/Traits/TraitObjetos.html#method_obtenerObjetos"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a> at line         line 18</div>
         <code>                    
     array
     <strong>obtenerObjetos</strong>()</code>
@@ -552,7 +545,7 @@ en el idioma que se está visualizando la pàgina.</p>                          
             </div>
                     <div class="method-item">
                     <h3 id="method_version">
-        <div class="location">in <a href="../../../App/Traits/TraitVersionActual.html#method_version"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a> at line         line 12</div>
+        <div class="location">in <a href="../../../App/Traits/TraitVersionActual.html#method_version"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a> at line         line 16</div>
         <code>                    
     <abbr title="App\Traits\type">type</abbr>
     <strong>version</strong>()</code>
@@ -620,11 +613,10 @@ en el idioma que se está visualizando la pàgina.</p>                          
             </div>
                     <div class="method-item">
                     <h3 id="method_index">
-        <div class="location">at line         line 50</div>
+        <div class="location">at line         line 52</div>
         <code>                    
     <abbr title="App\Http\Controllers\todas">todas</abbr>
-    <strong>index</strong>(
-    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $aMostrar)</code>
+    <strong>index</strong>($aMostrar = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -633,12 +625,6 @@ en el idioma que se está visualizando la pàgina.</p>                          
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
-                    <tr>
-                <td>
-    <abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
                     <tr>
                 <td></td>
                 <td>$aMostrar</td>
@@ -664,8 +650,48 @@ en el idioma que se está visualizando la pàgina.</p>                          
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_guiasUsuario">
+        <div class="location">at line         line 77</div>
+        <code>                    
+    <abbr title="App\Http\Controllers\todas">todas</abbr>
+    <strong>guiasUsuario</strong>(
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que muestra las guias del usuario junto a sus favoritas (si tiene).</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Http\Controllers\todas">todas</abbr></td>
+            <td>las guias del usuario que existen en la base de datos a la vista.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_obtenerGuia">
-        <div class="location">at line         line 71</div>
+        <div class="location">at line         line 93</div>
         <code>                    
     <abbr title="App\Http\Controllers\información">información</abbr>
     <strong>obtenerGuia</strong>(
@@ -710,48 +736,8 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_misGuias">
-        <div class="location">at line         line 89</div>
-        <code>                    
-    <abbr title="App\Http\Controllers\vista">vista</abbr>
-    <strong>misGuias</strong>(
-    <abbr title="App\Http\Controllers\type">type</abbr> $id)</code>
-    </h3>
-    <div class="details">
-                    <div class="method-description">
-                                    <p>Método que devuelve las guías que ha creado el usuario logueado por su id.</p>                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>
-    <abbr title="App\Http\Controllers\type">type</abbr></td>
-                <td>$id</td>
-                <td>id del usuario</td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>
-    <abbr title="App\Http\Controllers\vista">vista</abbr></td>
-            <td>resumida de sus guias</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_formularioCrearGuia">
-        <div class="location">at line         line 100</div>
+        <div class="location">at line         line 110</div>
         <code>                    
     <abbr title="App\Http\Controllers\vista">vista</abbr>
     <strong>formularioCrearGuia</strong>()</code>
@@ -779,7 +765,7 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             </div>
                     <div class="method-item">
                     <h3 id="method_crearGuia">
-        <div class="location">at line         line 114</div>
+        <div class="location">at line         line 124</div>
         <code>                    
     <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr>
     <strong>crearGuia</strong>(
@@ -819,7 +805,7 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             </div>
                     <div class="method-item">
                     <h3 id="method_editarGuia">
-        <div class="location">at line         line 138</div>
+        <div class="location">at line         line 148</div>
         <code>                    
     <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr>
     <strong>editarGuia</strong>(
@@ -864,12 +850,11 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             </div>
                     <div class="method-item">
                     <h3 id="method_eliminarGuia">
-        <div class="location">at line         line 165</div>
+        <div class="location">at line         line 175</div>
         <code>                    
     <abbr title="App\Http\Controllers\redireccionamos">redireccionamos</abbr>
     <strong>eliminarGuia</strong>(
-    <abbr title="Illuminate\Http\Request">Request</abbr> $request, 
-    <a href="../../../App/Guia.html"><abbr title="App\Guia">Guia</abbr></a> $guia)</code>
+    <abbr title="Illuminate\Http\Request">Request</abbr> $request, $id)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -882,13 +867,12 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
                 <td>
     <abbr title="Illuminate\Http\Request">Request</abbr></td>
                 <td>$request</td>
-                <td>request.</td>
+                <td></td>
             </tr>
                     <tr>
-                <td>
-    <a href="../../../App/Guia.html"><abbr title="App\Guia">Guia</abbr></a></td>
-                <td>$guia</td>
-                <td>guia a eliminar.</td>
+                <td></td>
+                <td>$id</td>
+                <td></td>
             </tr>
             </table>
 
@@ -910,46 +894,8 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_obtenerGuiasFavoritos">
-        <div class="location">at line         line 179</div>
-        <code>                    
-    <abbr title="App\Http\Controllers\vista">vista</abbr>
-    <strong>obtenerGuiasFavoritos</strong>($id)</code>
-    </h3>
-    <div class="details">
-                    <div class="method-description">
-                                    <p>Método que muestra todas las guias que el usuario tiene añadidas a favoritos.</p>                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td></td>
-                <td>$id</td>
-                <td>identificador usuario.</td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>
-    <abbr title="App\Http\Controllers\vista">vista</abbr></td>
-            <td>con las guias que tiene como favoritas.</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_actualizarValoracion">
-        <div class="location">at line         line 190</div>
+        <div class="location">at line         line 187</div>
         <code>                    
     <abbr title="App\Http\Controllers\type">type</abbr>
     <strong>actualizarValoracion</strong>()</code>
@@ -977,7 +923,7 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             </div>
                     <div class="method-item">
                     <h3 id="method_mostrarHechizosPopUp">
-        <div class="location">at line         line 225</div>
+        <div class="location">at line         line 222</div>
         <code>                    
     <abbr title="App\Http\Controllers\type">type</abbr>
     <strong>mostrarHechizosPopUp</strong>()</code>
@@ -1005,7 +951,7 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             </div>
                     <div class="method-item">
                     <h3 id="method_mostrarCampeonesPopUp">
-        <div class="location">at line         line 236</div>
+        <div class="location">at line         line 233</div>
         <code>                    
     <abbr title="App\Http\Controllers\type">type</abbr>
     <strong>mostrarCampeonesPopUp</strong>()</code>
@@ -1033,7 +979,7 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             </div>
                     <div class="method-item">
                     <h3 id="method_mostrarRunasPopUp">
-        <div class="location">at line         line 247</div>
+        <div class="location">at line         line 244</div>
         <code>                    
     <abbr title="App\Http\Controllers\type">type</abbr>
     <strong>mostrarRunasPopUp</strong>()</code>
@@ -1061,7 +1007,7 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             </div>
                     <div class="method-item">
                     <h3 id="method_mostrarObjetosPopUp">
-        <div class="location">at line         line 258</div>
+        <div class="location">at line         line 255</div>
         <code>                    
     <abbr title="App\Http\Controllers\type">type</abbr>
     <strong>mostrarObjetosPopUp</strong>()</code>
@@ -1089,7 +1035,7 @@ la a creado o no, se le enviará a una vista u otra (editable o solo lectura).</
             </div>
                     <div class="method-item">
                     <h3 id="method_mostrarHabilidadesPopUp">
-        <div class="location">at line         line 270</div>
+        <div class="location">at line         line 267</div>
         <code>                    
     <abbr title="App\Http\Controllers\type">type</abbr>
     <strong>mostrarHabilidadesPopUp</strong>(

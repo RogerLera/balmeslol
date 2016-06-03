@@ -8,7 +8,7 @@
     "namespace": "App",
     "file": ".\/app\\Guia.php",
     "relative_file": null,
-    "hash": "32a87c26ef350ef3ee74087ad1d0ee605ed6f02c",
+    "hash": "5d3f8e74d446719c7e3a18ce8fac3465b42a65de",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": "Stmt_Class",
     "is_trait": false,
@@ -43,28 +43,9 @@
             "errors": [],
             "parameters": []
         },
-        "votacions": {
-            "name": "votacions",
-            "line": 41,
-            "short_desc": "Obtenemos las votaciones que tiene la guia.",
-            "long_desc": "",
-            "hint": [
-                [
-                    "\\App\\votaciones",
-                    false
-                ]
-            ],
-            "hint_desc": "que tiene.",
-            "tags": [],
-            "modifiers": "1",
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": []
-        },
         "role": {
             "name": "role",
-            "line": 51,
+            "line": 41,
             "short_desc": "Obtenemos el rol al que hace referencia la guia.",
             "long_desc": "",
             "hint": [
@@ -83,7 +64,7 @@
         },
         "favorito": {
             "name": "favorito",
-            "line": 61,
+            "line": 51,
             "short_desc": "Obtenemos si la guia es favorita.",
             "long_desc": "",
             "hint": [

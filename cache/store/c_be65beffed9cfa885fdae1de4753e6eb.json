@@ -8,7 +8,7 @@
     "namespace": "App\\Providers",
     "file": ".\/app\\Providers\\RouteServiceProvider.php",
     "relative_file": null,
-    "hash": "a75c967dc07e55b3c55016c942375655f6d27381",
+    "hash": "379eb215a6d90b67115cf489352da89e5cc78ba6",
     "parent": "Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
     "modifiers": "Stmt_Class",
     "is_trait": false,

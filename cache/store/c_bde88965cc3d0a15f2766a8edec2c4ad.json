@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Middleware",
     "file": ".\/app\\Http\\Middleware\\Language.php",
     "relative_file": null,
-    "hash": "ae99e1c576617764635e3a18cbbe45087d58b69a",
+    "hash": "5d20d25abe23c5d8a5eac195a1bf59e0e89dcc57",
     "parent": null,
     "modifiers": "Stmt_Class",
     "is_trait": false,

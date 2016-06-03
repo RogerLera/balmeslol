@@ -1,14 +1,14 @@
 {
     "name": "App\\Traits\\TraitCampeones",
-    "line": 6,
-    "short_desc": "",
+    "line": 10,
+    "short_desc": "Clase TraitCampeones que obtiene diferente informaci\u00f3n sobre los campeones, usada luego\nen m\u00e1s de una clase.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Traits",
     "file": ".\/app\\Traits\\TraitCampeones.php",
     "relative_file": null,
-    "hash": "647c82694e59e99a1c916a779ae5f7bb3850775f",
+    "hash": "e2bff32771eb4ee6da854847db93664629ec39c9",
     "parent": null,
     "modifiers": "Stmt_Trait",
     "is_trait": true,
@@ -23,7 +23,7 @@
     "methods": {
         "obtenerCampeones": {
             "name": "obtenerCampeones",
-            "line": 14,
+            "line": 17,
             "short_desc": "M\u00e9todo que obtiene todos los campeones, en el idioma que se est\u00e1 visualizando la p\u00e0gina.",
             "long_desc": "",
             "hint": [
@@ -42,7 +42,7 @@
         },
         "obtenerHabilidadesCampeon": {
             "name": "obtenerHabilidadesCampeon",
-            "line": 45,
+            "line": 48,
             "short_desc": "M\u00e9todo para obtener las habilidades de un campe\u00f3n, en base a su id,\nen el idioma en el que se est\u00e9 visualizando la p\u00e1gina.",
             "long_desc": "",
             "hint": [
@@ -60,7 +60,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 45,
+                    "line": 48,
                     "short_desc": "id del campe\u00f3n",
                     "long_desc": null,
                     "hint": [

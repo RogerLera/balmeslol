@@ -1,14 +1,14 @@
 {
     "name": "App\\User",
-    "line": 11,
-    "short_desc": "",
+    "line": 15,
+    "short_desc": "Clase que repesenta a un usuario. Puede registrarse y enviar mensajes a otros\nusuarios y crear guias.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": ".\/app\\User.php",
     "relative_file": null,
-    "hash": "141a5e5abfb628e1406c4ffb3cee8b5428424254",
+    "hash": "de557e50f4250a0af25160e7be80d5dfb3dfbd70",
     "parent": "Illuminate\\Foundation\\Auth\\User",
     "modifiers": "Stmt_Class",
     "is_trait": false,
@@ -29,7 +29,7 @@
     "methods": {
         "guias": {
             "name": "guias",
-            "line": 37,
+            "line": 41,
             "short_desc": "Obtener todas las guias que el usuario a creado.",
             "long_desc": "",
             "hint": [
@@ -48,7 +48,7 @@
         },
         "favorito": {
             "name": "favorito",
-            "line": 47,
+            "line": 51,
             "short_desc": "Obtener todos los favoritos.",
             "long_desc": "",
             "hint": [
@@ -67,7 +67,7 @@
         },
         "message": {
             "name": "message",
-            "line": 57,
+            "line": 61,
             "short_desc": "Obtener todos los mensajes.",
             "long_desc": "",
             "hint": [
@@ -77,25 +77,6 @@
                 ]
             ],
             "hint_desc": "los mensajes",
-            "tags": [],
-            "modifiers": "1",
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": []
-        },
-        "votacions": {
-            "name": "votacions",
-            "line": 67,
-            "short_desc": "Obtiene las votaciones que ha realizado el usuario",
-            "long_desc": "",
-            "hint": [
-                [
-                    "\\App\\type",
-                    false
-                ]
-            ],
-            "hint_desc": "las votaciones realizadas",
             "tags": [],
             "modifiers": "1",
             "is_by_ref": "",

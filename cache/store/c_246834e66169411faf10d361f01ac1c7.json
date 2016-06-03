@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": ".\/app\\Http\\Controllers\\EstadisticasController.php",
     "relative_file": null,
-    "hash": "dae0bec5d25fc6be47b141b7cf53b052894699a8",
+    "hash": "9905e94c9248a53b3d9dacbbcc75a0f20a4fb620",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": "Stmt_Class",
     "is_trait": false,

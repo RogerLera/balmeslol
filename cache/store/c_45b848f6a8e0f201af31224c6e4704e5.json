@@ -8,7 +8,7 @@
     "namespace": "App",
     "file": ".\/app\\Favorito.php",
     "relative_file": null,
-    "hash": "41905d517deb498d9153813ee93079112e98ee97",
+    "hash": "14d31a4b127c9a0fef69e1152dde7ce7fc19cb11",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": "Stmt_Class",
     "is_trait": false,

@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": ".\/app\\Http\\Controllers\\FavoritoController.php",
     "relative_file": null,
-    "hash": "63867a4f32a86ff7ed1080370301e3bc569547d2",
+    "hash": "4099ce35fdee077be91b599f94685e2ef7f824aa",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": "Stmt_Class",
     "is_trait": false,

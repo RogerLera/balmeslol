@@ -1,14 +1,14 @@
 {
     "name": "App\\Traits\\TraitGraficos",
-    "line": 9,
-    "short_desc": "",
+    "line": 13,
+    "short_desc": "Clase TraitGraficos que genera los graficos que luego se mostraran en la vista\nde las estd\u00edsticas.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Traits",
     "file": ".\/app\\Traits\\TraitGraficos.php",
     "relative_file": null,
-    "hash": "f40d16320537df392b5e1a350523dc043022f05d",
+    "hash": "2c19d4bca10b54afb09fa9f4ff78377451de9782",
     "parent": null,
     "modifiers": "Stmt_Trait",
     "is_trait": true,
@@ -21,7 +21,7 @@
     "methods": {
         "generaGraficoPopularidadCampeones": {
             "name": "generaGraficoPopularidadCampeones",
-            "line": 17,
+            "line": 21,
             "short_desc": "M\u00e9todo para generar una imagen del grafico de popularidad de campeones,\ngenerando a partir de las estad\u00edsticas.",
             "long_desc": "",
             "hint": null,
@@ -34,7 +34,7 @@
             "parameters": {
                 "estadisticas": {
                     "name": "estadisticas",
-                    "line": 17,
+                    "line": 21,
                     "short_desc": "array con las estad\u00edsticas de popularidad de los campeones",
                     "long_desc": null,
                     "hint": [
@@ -52,7 +52,7 @@
         },
         "generaGraficoBloqueoCampeones": {
             "name": "generaGraficoBloqueoCampeones",
-            "line": 88,
+            "line": 92,
             "short_desc": "M\u00e9todo para generar una imagen del grafico de bloqueo de campeones,\ngenerando a partir de las estad\u00edsticas.",
             "long_desc": "",
             "hint": null,
@@ -65,7 +65,7 @@
             "parameters": {
                 "estadisticas": {
                     "name": "estadisticas",
-                    "line": 88,
+                    "line": 92,
                     "short_desc": "array con las estad\u00edsticas de bloqueo de los campeones",
                     "long_desc": null,
                     "hint": [
@@ -83,7 +83,7 @@
         },
         "generaGraficoPopularidadHechizos": {
             "name": "generaGraficoPopularidadHechizos",
-            "line": 159,
+            "line": 163,
             "short_desc": "M\u00e9todo para generar una imagen del grafico de popularidad de hechizos,\ngenerando a partir de las estad\u00edsticas.",
             "long_desc": "",
             "hint": null,
@@ -96,7 +96,7 @@
             "parameters": {
                 "estadisticas": {
                     "name": "estadisticas",
-                    "line": 159,
+                    "line": 163,
                     "short_desc": "array con las estad\u00edsticas de popularidad de los hechizos",
                     "long_desc": null,
                     "hint": [

@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Middleware",
     "file": ".\/app\\Http\\Middleware\\Authenticate.php",
     "relative_file": null,
-    "hash": "a532a368cd6325fe193aabdf759f0890968b7a8b",
+    "hash": "fd684149e64a6b92cb71efd42114d43606bf9242",
     "parent": null,
     "modifiers": "Stmt_Class",
     "is_trait": false,

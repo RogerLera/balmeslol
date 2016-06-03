@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": ".\/app\\Http\\Controllers\\CampeonController.php",
     "relative_file": null,
-    "hash": "386c2198dcb6e164e4e3421e769632050fb6fb00",
+    "hash": "ad20b77e8e7c03270ed50ffe533a105864b06526",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": "Stmt_Class",
     "is_trait": false,

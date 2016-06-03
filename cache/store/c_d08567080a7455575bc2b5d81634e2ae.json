@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": ".\/app\\Http\\Controllers\\InvocadorController.php",
     "relative_file": null,
-    "hash": "f4ccbbade669a2f43c71fa3f543309aeb122c00e",
+    "hash": "f057f1da4531454b5d35dc3f56698018a03d4859",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": "Stmt_Class",
     "is_trait": false,

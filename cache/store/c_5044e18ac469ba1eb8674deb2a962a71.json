@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Middleware",
     "file": ".\/app\\Http\\Middleware\\RedirectIfAuthenticated.php",
     "relative_file": null,
-    "hash": "55d9d6ffb162a487fc6a3ce128b601c5865c92c5",
+    "hash": "eb4a1356227c11489d1085d4f27941d5490e48c3",
     "parent": null,
     "modifiers": "Stmt_Class",
     "is_trait": false,

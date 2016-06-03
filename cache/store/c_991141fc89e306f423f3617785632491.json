@@ -8,7 +8,7 @@
     "namespace": "",
     "file": ".\/app\\Graficos\\class\\pImage.class.php",
     "relative_file": null,
-    "hash": "d123df8bae3170b910381cfeaab3fc1bda0346fe",
+    "hash": "429b0b9dcc9e3843976dcb14c16e45a874208309",
     "parent": "pDraw",
     "modifiers": "Stmt_Class",
     "is_trait": false,

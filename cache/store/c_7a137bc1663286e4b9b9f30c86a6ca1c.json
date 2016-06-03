@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Requests",
     "file": ".\/app\\Http\\Requests\\Request.php",
     "relative_file": null,
-    "hash": "4571b1869e210996f4e2185809655ab3c5b0d845",
+    "hash": "184298a15cd86c0ffc56655f6bfc264fa9401df5",
     "parent": "Illuminate\\Foundation\\Http\\FormRequest",
     "modifiers": "Stmt_Class",
     "is_trait": false,

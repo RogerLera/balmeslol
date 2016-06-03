@@ -93,7 +93,17 @@ objetos, obteniendo la información de la API Riot en formato .json.</p>        
                                             <a href="../../../App/Traits/TraitVersionActual.html"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitVersionActual que obtiene la versión actual del juego, usada luego
+en más de una clase.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../../../App/Traits/TraitObjetos.html"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    Clase TraitObjetos que obtiene todos los objetos en una función, que luego llaman
+diferentes clases.
                 </div>
             </div>
                     <div class="row">
@@ -148,6 +158,16 @@ objetos, obteniendo la información de la API Riot en formato .json.</p>        
                     <div class="row">
                 <div class="col-md-2 type">
                     
+    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_obtenerObjetos">obtenerObjetos</a>()
+                                            <p>Método que obtiene todos los objetos, en el idioma que se está visualizando la pàgina.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/TraitObjetos.html#method_obtenerObjetos"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
     <abbr title="App\Http\Controllers\información">información</abbr>
                 </div>
                 <div class="col-md-8 type">
@@ -172,16 +192,6 @@ objetos, obteniendo la información de la API Riot en formato .json.</p>        
     array
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_obtenerObjetos">obtenerObjetos</a>()
-                                            <p>Método que obtiene todos los objetos, en el idioma que se está visualizando la pàgina.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-    array
-                </div>
-                <div class="col-md-8 type">
                     <a href="#method_obtenerObjetoPorId">obtenerObjetoPorId</a>($id)
                                             <p>Método que a partir de una id, obtiene el objeto deseado.</p>                </div>
                 <div class="col-md-2"></div>
@@ -194,7 +204,7 @@ objetos, obteniendo la información de la API Riot en formato .json.</p>        
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_version">
-        <div class="location">in <a href="../../../App/Traits/TraitVersionActual.html#method_version"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a> at line         line 12</div>
+        <div class="location">in <a href="../../../App/Traits/TraitVersionActual.html#method_version"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a> at line         line 16</div>
         <code>                    
     <abbr title="App\Traits\type">type</abbr>
     <strong>version</strong>()</code>
@@ -221,8 +231,36 @@ objetos, obteniendo la información de la API Riot en formato .json.</p>        
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_obtenerObjetos">
+        <div class="location">in <a href="../../../App/Traits/TraitObjetos.html#method_obtenerObjetos"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a> at line         line 18</div>
+        <code>                    
+    array
+    <strong>obtenerObjetos</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Método que obtiene todos los objetos, en el idioma que se está visualizando la pàgina.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    array</td>
+            <td>associativo con la información de los objetos.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_index">
-        <div class="location">at line         line 24</div>
+        <div class="location">at line         line 25</div>
         <code>                    
     <abbr title="App\Http\Controllers\información">información</abbr>
     <strong>index</strong>(
@@ -262,7 +300,7 @@ objetos, obteniendo la información de la API Riot en formato .json.</p>        
             </div>
                     <div class="method-item">
                     <h3 id="method_mostrarObjeto">
-        <div class="location">at line         line 35</div>
+        <div class="location">at line         line 36</div>
         <code>                    
     <abbr title="App\Http\Controllers\información">información</abbr>
     <strong>mostrarObjeto</strong>($id)</code>
@@ -299,36 +337,8 @@ objetos, obteniendo la información de la API Riot en formato .json.</p>        
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_obtenerObjetos">
-        <div class="location">at line         line 47</div>
-        <code>                    
-    array
-    <strong>obtenerObjetos</strong>()</code>
-    </h3>
-    <div class="details">
-                    <div class="method-description">
-                                    <p>Método que obtiene todos los objetos, en el idioma que se está visualizando la pàgina.</p>                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>
-    array</td>
-            <td>associativo con la información de los objetos.</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_obtenerObjetoPorId">
-        <div class="location">at line         line 77</div>
+        <div class="location">at line         line 47</div>
         <code>                    
     array
     <strong>obtenerObjetoPorId</strong>($id)</code>

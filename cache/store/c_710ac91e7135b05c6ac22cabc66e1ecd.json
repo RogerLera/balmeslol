@@ -1,14 +1,14 @@
 {
     "name": "App\\Traits\\TraitHechizos",
-    "line": 6,
-    "short_desc": "",
+    "line": 10,
+    "short_desc": "Clase TraitHechizos que obtiene todos los hechizos en una funci\u00f3n, que luego llaman\ndiferentes clases.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Traits",
     "file": ".\/app\\Traits\\TraitHechizos.php",
     "relative_file": null,
-    "hash": "d60e19b451c486a20199d3e885473d94992de906",
+    "hash": "838c9db40c495057ef07ea5ead63890c385ba9f7",
     "parent": null,
     "modifiers": "Stmt_Trait",
     "is_trait": true,
@@ -23,7 +23,7 @@
     "methods": {
         "obtenerHechizos": {
             "name": "obtenerHechizos",
-            "line": 14,
+            "line": 17,
             "short_desc": "M\u00e9todo que obtiene todos los hechizos, en el idioma que se est\u00e1 visualizando la p\u00e0gina.",
             "long_desc": "",
             "hint": [

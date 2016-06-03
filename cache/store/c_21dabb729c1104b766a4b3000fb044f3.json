@@ -8,7 +8,7 @@
     "namespace": "App\\Providers",
     "file": ".\/app\\Providers\\EventServiceProvider.php",
     "relative_file": null,
-    "hash": "3355bad187b82d2ce0fd598997c6df3b5763bb33",
+    "hash": "264c6ed0c1076afbb5f4c79f0013dc468cfdd11b",
     "parent": "Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider",
     "modifiers": "Stmt_Class",
     "is_trait": false,

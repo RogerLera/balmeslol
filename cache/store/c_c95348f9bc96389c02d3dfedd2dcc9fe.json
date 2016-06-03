@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": ".\/app\\Http\\Controllers\\VotacionController.php",
     "relative_file": null,
-    "hash": "322983c66a1354bf6cd5a935e65d6acce2be2d19",
+    "hash": "0289600baeb2bed301cc479c41f16635145bff67",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": "Stmt_Class",
     "is_trait": false,

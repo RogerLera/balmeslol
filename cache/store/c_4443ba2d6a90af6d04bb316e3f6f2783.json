@@ -8,7 +8,7 @@
     "namespace": "App\\Console",
     "file": ".\/app\\Console\\Kernel.php",
     "relative_file": null,
-    "hash": "647b764dd93381818c5d3e333cd54146ec5a352b",
+    "hash": "ce097bb138854368e1e3e5d7b766295c47f5d69a",
     "parent": "Illuminate\\Foundation\\Console\\Kernel",
     "modifiers": "Stmt_Class",
     "is_trait": false,

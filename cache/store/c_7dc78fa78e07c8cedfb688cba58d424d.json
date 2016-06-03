@@ -1,14 +1,14 @@
 {
     "name": "App\\Repositories\\GuiaRepository",
-    "line": 9,
-    "short_desc": "",
+    "line": 13,
+    "short_desc": "Clase GuiaRepository que reune los m\u00e9todos para obtener el tipo de guias\nrequeridas en cada llamada. Usado por GuiaController.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Repositories",
     "file": ".\/app\\Repositories\\GuiaRepository.php",
     "relative_file": null,
-    "hash": "898e382a2bdf4eb655945a830c6d2ebdd79df34e",
+    "hash": "a0c73058eba75a58d58d3516b61900332ea1d3fe",
     "parent": null,
     "modifiers": "Stmt_Class",
     "is_trait": false,
@@ -25,7 +25,7 @@
     "methods": {
         "delUser": {
             "name": "delUser",
-            "line": 17,
+            "line": 21,
             "short_desc": "Obtener todas las guias del usuario.",
             "long_desc": "",
             "hint": [
@@ -43,7 +43,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 17,
+                    "line": 21,
                     "short_desc": "id user.",
                     "long_desc": null,
                     "hint": [],
@@ -56,8 +56,8 @@
         },
         "guiasFavoritas": {
             "name": "guiasFavoritas",
-            "line": 29,
-            "short_desc": "Obtener las guias favoritas del usuario en base a su id",
+            "line": 34,
+            "short_desc": "Obtener las guias favoritas del usuario en base a su id.",
             "long_desc": "",
             "hint": [
                 [
@@ -74,7 +74,7 @@
             "parameters": {
                 "id": {
                     "name": "id",
-                    "line": 29,
+                    "line": 34,
                     "short_desc": "id del usuario del que queremos obtener las guias",
                     "long_desc": null,
                     "hint": [
@@ -90,9 +90,47 @@
                 }
             }
         },
+        "nuevas": {
+            "name": "nuevas",
+            "line": 51,
+            "short_desc": "Obtener las guias de m\u00e1s nuevas a viejas.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Repositories\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "guias",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "masVotadas": {
+            "name": "masVotadas",
+            "line": 62,
+            "short_desc": "Obtener las guias de mayor a menor votos.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Repositories\\type",
+                    false
+                ]
+            ],
+            "hint_desc": "guias",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
         "totalGuias": {
             "name": "totalGuias",
-            "line": 46,
+            "line": 73,
             "short_desc": "Obtiene todas las guias creadas en la base de datos.",
             "long_desc": "",
             "hint": [

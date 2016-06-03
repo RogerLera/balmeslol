@@ -8,7 +8,7 @@
     "namespace": "App\\Exceptions",
     "file": ".\/app\\Exceptions\\Handler.php",
     "relative_file": null,
-    "hash": "023548c7411eff12a60b11d6e56e72953a84de2e",
+    "hash": "21741ebd4f0af8957882de3b8aca49020c157d4d",
     "parent": "Illuminate\\Foundation\\Exceptions\\Handler",
     "modifiers": "Stmt_Class",
     "is_trait": false,

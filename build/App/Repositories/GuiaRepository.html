@@ -79,6 +79,9 @@
     <strong>GuiaRepository</strong>
 </p>
 
+            <div class="description">
+            <p>Clase GuiaRepository que reune los métodos para obtener el tipo de guias
+requeridas en cada llamada. Usado por GuiaController.</p>                    </div>
     
     
     
@@ -104,7 +107,27 @@
                 <div class="col-md-8 type">
                     <a href="#method_guiasFavoritas">guiasFavoritas</a>(
     <abbr title="App\Repositories\type">type</abbr> $id)
-                                            <p>Obtener las guias favoritas del usuario en base a su id</p>                </div>
+                                            <p>Obtener las guias favoritas del usuario en base a su id.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Repositories\type">type</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_nuevas">nuevas</a>()
+                                            <p>Obtener las guias de más nuevas a viejas.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="App\Repositories\type">type</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_masVotadas">masVotadas</a>()
+                                            <p>Obtener las guias de mayor a menor votos.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -125,7 +148,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_delUser">
-        <div class="location">at line         line 17</div>
+        <div class="location">at line         line 21</div>
         <code>                    
     <abbr title="App\Repositories\Collection">Collection</abbr>
     <strong>delUser</strong>($id)</code>
@@ -163,7 +186,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_guiasFavoritas">
-        <div class="location">at line         line 29</div>
+        <div class="location">at line         line 34</div>
         <code>                    
     <abbr title="App\Repositories\type">type</abbr>
     <strong>guiasFavoritas</strong>(
@@ -171,7 +194,7 @@
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Obtener las guias favoritas del usuario en base a su id</p>                                </div>
+                                    <p>Obtener las guias favoritas del usuario en base a su id.</p>                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -202,8 +225,64 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_nuevas">
+        <div class="location">at line         line 51</div>
+        <code>                    
+    <abbr title="App\Repositories\type">type</abbr>
+    <strong>nuevas</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Obtener las guias de más nuevas a viejas.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Repositories\type">type</abbr></td>
+            <td>guias</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_masVotadas">
+        <div class="location">at line         line 62</div>
+        <code>                    
+    <abbr title="App\Repositories\type">type</abbr>
+    <strong>masVotadas</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Obtener las guias de mayor a menor votos.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="App\Repositories\type">type</abbr></td>
+            <td>guias</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_totalGuias">
-        <div class="location">at line         line 46</div>
+        <div class="location">at line         line 73</div>
         <code>                    
     <abbr title="App\Repositories\Devuelve">Devuelve</abbr>
     <strong>totalGuias</strong>()</code>

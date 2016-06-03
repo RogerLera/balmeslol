@@ -85,25 +85,6 @@
             </div>
                     <div class="row">
                 <div class="col-md-6">
-                                            <a href="App/EstadisticasCampeon.html"><abbr title="App\EstadisticasCampeon">EstadisticasCampeon</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    Objeto EstadisticasCampeon el qual tiene como atributos 'escUsado' (visualizar
-el total de veces que un campeón a sido usado) i 'escBloqueado' (visualizar el
-total de veces que un campeón a sido bloqueado).
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="App/EstadisticasHechizo.html"><abbr title="App\EstadisticasHechizo">EstadisticasHechizo</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    Objeto EstadisticasHechizo el qual tiene como atributo 'eshUsado' (visualizar
-el total de veces que un hechizo a sido seleccionado).
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
                                             <a href="App/Events/Event.html"><abbr title="App\Events\Event">Event</abbr></a>
                                     </div>
                 <div class="col-md-6">
@@ -334,10 +315,20 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
             </div>
                     <div class="row">
                 <div class="col-md-6">
+                                            <a href="App/Policies/GuiaPolicy.html"><abbr title="App\Policies\GuiaPolicy">GuiaPolicy</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    Clase GuiaPolicy utilizado para autorizar a un usuario si tiene privilegios suficientes
+para borrar una guia o no.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
                                             <a href="App/Policies/UserPolicy.html"><abbr title="App\Policies\UserPolicy">UserPolicy</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase UserPolicy utilizado para autorizar a un usuario si tiene privilegios suficientes
+para eliminar una cuenta de usuario o no.
                 </div>
             </div>
                     <div class="row">
@@ -377,7 +368,8 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
                                             <a href="App/Repositories/GuiaRepository.html"><abbr title="App\Repositories\GuiaRepository">GuiaRepository</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase GuiaRepository que reune los métodos para obtener el tipo de guias
+requeridas en cada llamada. Usado por GuiaController.
                 </div>
             </div>
                     <div class="row">
@@ -393,7 +385,8 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
                                             <a href="App/Traits/TraitCampeones.html"><abbr title="App\Traits\TraitCampeones">TraitCampeones</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitCampeones que obtiene diferente información sobre los campeones, usada luego
+en más de una clase.
                 </div>
             </div>
                     <div class="row">
@@ -401,7 +394,8 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
                                             <a href="App/Traits/TraitGraficos.html"><abbr title="App\Traits\TraitGraficos">TraitGraficos</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitGraficos que genera los graficos que luego se mostraran en la vista
+de las estdísticas.
                 </div>
             </div>
                     <div class="row">
@@ -409,7 +403,8 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
                                             <a href="App/Traits/TraitHechizos.html"><abbr title="App\Traits\TraitHechizos">TraitHechizos</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitHechizos que obtiene todos los hechizos en una función, que luego llaman
+diferentes clases.
                 </div>
             </div>
                     <div class="row">
@@ -417,7 +412,8 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
                                             <a href="App/Traits/TraitObjetos.html"><abbr title="App\Traits\TraitObjetos">TraitObjetos</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitObjetos que obtiene todos los objetos en una función, que luego llaman
+diferentes clases.
                 </div>
             </div>
                     <div class="row">
@@ -425,7 +421,8 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
                                             <a href="App/Traits/TraitRunas.html"><abbr title="App\Traits\TraitRunas">TraitRunas</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitRunas que obtiene la información sobre las runas, que luego llaman
+diferentes clases.
                 </div>
             </div>
                     <div class="row">
@@ -433,7 +430,8 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
                                             <a href="App/Traits/TraitVersionActual.html"><abbr title="App\Traits\TraitVersionActual">TraitVersionActual</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase TraitVersionActual que obtiene la versión actual del juego, usada luego
+en más de una clase.
                 </div>
             </div>
                     <div class="row">
@@ -441,7 +439,8 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
                                             <a href="App/User.html"><abbr title="App\User">User</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase que repesenta a un usuario. Puede registrarse y enviar mensajes a otros
+usuarios y crear guias.
                 </div>
             </div>
                     <div class="row">
@@ -449,7 +448,7 @@ de datos, dependiendo si se ha dado al boton de me gusta o de no me gusta.
                                             <a href="App/Votacion.html"><abbr title="App\Votacion">Votacion</abbr></a>
                                     </div>
                 <div class="col-md-6">
-                    
+                    Clase que representa el tipo de votación echa por un usuario de una guia.
                 </div>
             </div>
                     <div class="row">

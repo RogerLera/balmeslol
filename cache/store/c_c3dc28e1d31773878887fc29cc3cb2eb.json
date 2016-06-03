@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Middleware",
     "file": ".\/app\\Http\\Middleware\\EncryptCookies.php",
     "relative_file": null,
-    "hash": "ccf0bae02c6e4528b6318408edf1dabe123415e8",
+    "hash": "570743640ff348cd3e679291d8ffb3c992cea7ac",
     "parent": "Illuminate\\Cookie\\Middleware\\EncryptCookies",
     "modifiers": "Stmt_Class",
     "is_trait": false,

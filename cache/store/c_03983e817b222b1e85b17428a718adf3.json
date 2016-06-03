@@ -8,7 +8,7 @@
     "namespace": "App\\Jobs",
     "file": ".\/app\\Jobs\\Job.php",
     "relative_file": null,
-    "hash": "0b2ed9aed95724115c2fb4f15237658051d7548a",
+    "hash": "de274fc4944766ea7753f744719f1d623289e387",
     "parent": null,
     "modifiers": "Stmt_Class",
     "is_trait": false,

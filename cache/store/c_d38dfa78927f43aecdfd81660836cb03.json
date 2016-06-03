@@ -1,0 +1,84 @@
+{
+    "name": "App\\Policies\\GuiaPolicy",
+    "line": 12,
+    "short_desc": "Clase GuiaPolicy utilizado para autorizar a un usuario si tiene privilegios suficientes\npara borrar una guia o no.",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Policies",
+    "file": ".\/app\\Policies\\GuiaPolicy.php",
+    "relative_file": null,
+    "hash": "e2fc811ebfc4c14320adbc9af68f1633e1d026f2",
+    "parent": null,
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "User": "App\\User",
+        "Guia": "App\\Guia",
+        "HandlesAuthorization": "Illuminate\\Auth\\Access\\HandlesAuthorization"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Auth\\Access\\HandlesAuthorization": "Illuminate\\Auth\\Access\\HandlesAuthorization"
+    },
+    "properties": [],
+    "methods": {
+        "borrarGuia": {
+            "name": "borrarGuia",
+            "line": 22,
+            "short_desc": "Determinamos si la guia especificado se puede borrar por la persona que lo intenta.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "bool",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [
+                "The \"userABorrar\" @param tag variable name is wrong (should be \"guia\")"
+            ],
+            "parameters": {
+                "user": {
+                    "name": "user",
+                    "line": 22,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\User",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "App\\User",
+                    "default": null,
+                    "is_by_ref": false
+                },
+                "guia": {
+                    "name": "guia",
+                    "line": 22,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Guia",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": "App\\Guia",
+                    "default": null,
+                    "is_by_ref": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

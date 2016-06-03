@@ -8,7 +8,7 @@
     "namespace": "App\\Providers",
     "file": ".\/app\\Providers\\AppServiceProvider.php",
     "relative_file": null,
-    "hash": "64e149d26913bfed9afbf799e911246df447c2a2",
+    "hash": "fbe7ef3231d1fdc6c2436b03fa44b385f98f2b4e",
     "parent": "Illuminate\\Support\\ServiceProvider",
     "modifiers": "Stmt_Class",
     "is_trait": false,

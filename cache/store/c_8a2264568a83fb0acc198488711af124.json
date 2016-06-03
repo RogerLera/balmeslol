@@ -1,14 +1,14 @@
 {
     "name": "App\\Policies\\UserPolicy",
-    "line": 6,
-    "short_desc": "",
+    "line": 11,
+    "short_desc": "Clase UserPolicy utilizado para autorizar a un usuario si tiene privilegios suficientes\npara eliminar una cuenta de usuario o no.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Policies",
     "file": ".\/app\\Policies\\UserPolicy.php",
     "relative_file": null,
-    "hash": "0f04f59fb08c47d2efc653f5b140e9d8a6366f6e",
+    "hash": "8c166d0abe2ec12345a1472ad5343e6aa3e90b30",
     "parent": null,
     "modifiers": "Stmt_Class",
     "is_trait": false,
@@ -26,7 +26,7 @@
     "methods": {
         "permisoUser": {
             "name": "permisoUser",
-            "line": 16,
+            "line": 21,
             "short_desc": "Determinamos si el usuario especificado se puede borrar por la persona que lo intenta.",
             "long_desc": "",
             "hint": [
@@ -44,7 +44,7 @@
             "parameters": {
                 "user": {
                     "name": "user",
-                    "line": 16,
+                    "line": 21,
                     "short_desc": "usuario que quiere realizar la acci\u00f3n",
                     "long_desc": null,
                     "hint": [
@@ -60,7 +60,7 @@
                 },
                 "userABorrar": {
                     "name": "userABorrar",
-                    "line": 16,
+                    "line": 21,
                     "short_desc": "usuario que se quiere borrar",
                     "long_desc": null,
                     "hint": [
