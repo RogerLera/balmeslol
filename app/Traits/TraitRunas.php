@@ -3,6 +3,10 @@
 namespace App\Traits;
 use Config;
 
+/**
+* Clase TraitRunas que obtiene la información sobre las runas, que luego llaman
+* diferentes clases.
+*/
 trait TraitRunas {
 
     /**

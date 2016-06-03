@@ -6,6 +6,10 @@ use App\User;
 use App\Guia;
 use App\Favorito;
 
+/**
+* Clase GuiaRepository que reune los métodos para obtener el tipo de guias
+* requeridas en cada llamada. Usado por GuiaController.
+*/
 class GuiaRepository
 {
     /**
@@ -22,7 +26,8 @@ class GuiaRepository
     }
 
     /**
-     * Obtener las guias favoritas del usuario en base a su id
+     * Obtener las guias favoritas del usuario en base a su id.
+     *
      * @param type $id id del usuario del que queremos obtener las guias
      * @return type guias favoritas del usuario en un array
      */
@@ -38,12 +43,22 @@ class GuiaRepository
         return $guias;
     }
 
+    /**
+     * Obtener las guias de más nuevas a viejas.
+     *
+     * @return type guias
+     */
     public function nuevas()
     {
         return Guia::orderBy('updated_at', 'desc')
                     ->get();
     }
 
+    /**
+     * Obtener las guias de mayor a menor votos.
+     *
+     * @return type guias
+     */
     public function masVotadas()
     {
         return Guia::orderBy('guiPositivo', 'desc')

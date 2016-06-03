@@ -3,6 +3,10 @@
 namespace App\Traits;
 use Config;
 
+/**
+* Clase TraitObjetos que obtiene todos los objetos en una función, que luego llaman
+* diferentes clases.
+*/
 trait TraitObjetos {
 
     /**

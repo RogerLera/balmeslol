@@ -3,11 +3,14 @@
 namespace App\Traits;
 use Config;
 
+/**
+* Clase TraitHechizos que obtiene todos los hechizos en una función, que luego llaman
+* diferentes clases.
+*/
 trait TraitHechizos {
 
     /**
      * Método que obtiene todos los hechizos, en el idioma que se está visualizando la pàgina.
-     *
      *
      * @return array associativo con la información de los hechizos.
      */

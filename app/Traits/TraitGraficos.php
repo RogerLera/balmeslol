@@ -6,12 +6,16 @@ include(app_path() . "\Graficos\class\pData.class.php");
 include(app_path() . "\Graficos\class\pDraw.class.php");
 include(app_path() . "\Graficos\class\pImage.class.php");
 
+/**
+* Clase TraitGraficos que genera los graficos que luego se mostraran en la vista
+* de las estdísticas.
+*/
 trait TraitGraficos {
 
     /**
-     * Método para generar una imagen del grafico de popularidad de campeones, 
+     * Método para generar una imagen del grafico de popularidad de campeones,
      * generando a partir de las estadísticas.
-     * 
+     *
      * @param type $estadisticas array con las estadísticas de popularidad de los campeones
      */
     public function generaGraficoPopularidadCampeones($estadisticas) {
@@ -74,15 +78,15 @@ trait TraitGraficos {
             "7" => array("R" => 224, "G" => 176, "B" => 46, "Alpha" => 100));
 
         $Config = array("OverrideColors" => $Palette, "DisplayValues" => TRUE, "Gradient" => 3, "AroundZero" => 0);
-        $myPicture->drawBarChart($Config);        
+        $myPicture->drawBarChart($Config);
 
         $myPicture->render(public_path() . "/images/graficos/popularidad_campeones.png");
     }
-    
+
     /**
-     * Método para generar una imagen del grafico de bloqueo de campeones, 
+     * Método para generar una imagen del grafico de bloqueo de campeones,
      * generando a partir de las estadísticas.
-     * 
+     *
      * @param type $estadisticas array con las estadísticas de bloqueo de los campeones
      */
     public function generaGraficoBloqueoCampeones($estadisticas) {
@@ -145,15 +149,15 @@ trait TraitGraficos {
             "7" => array("R" => 224, "G" => 176, "B" => 46, "Alpha" => 100));
 
         $Config = array("OverrideColors" => $Palette, "DisplayValues" => TRUE, "Gradient" => 3, "AroundZero" => 0);
-        $myPicture->drawBarChart($Config);        
+        $myPicture->drawBarChart($Config);
 
         $myPicture->render(public_path() . "/images/graficos/bloqueo_campeones.png");
     }
-    
+
     /**
-     * Método para generar una imagen del grafico de popularidad de hechizos, 
+     * Método para generar una imagen del grafico de popularidad de hechizos,
      * generando a partir de las estadísticas.
-     * 
+     *
      * @param type $estadisticas array con las estadísticas de popularidad de los hechizos
      */
     public function generaGraficoPopularidadHechizos($estadisticas) {
@@ -216,8 +220,8 @@ trait TraitGraficos {
             "7" => array("R" => 224, "G" => 176, "B" => 46, "Alpha" => 100));
 
         $Config = array("OverrideColors" => $Palette, "DisplayValues" => TRUE, "Gradient" => 3, "AroundZero" => 0);
-        $myPicture->drawBarChart($Config);  
-        
+        $myPicture->drawBarChart($Config);
+
         /* en teoria así se pueden poner imágenes, pero no funciona inexplicablemente.
         foreach ($estadisticas as $estadistica) {
             $myPicture->drawFromPNG(100, 100,$estadistica['imagen']);

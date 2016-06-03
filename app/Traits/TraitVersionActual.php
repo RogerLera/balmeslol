@@ -2,6 +2,10 @@
 
 namespace App\Traits;
 
+/**
+* Clase TraitVersionActual que obtiene la versión actual del juego, usada luego
+* en más de una clase.
+*/
 trait TraitVersionActual {
 
     /**
