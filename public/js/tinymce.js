@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    // Variable botones, contiene la información de cada boron personalizada (tamaño popup, nombres títulos, ...).
+    // Variable botones, contiene la información de cada botón
+    // personalizado (tamaño popup, nombres títulos, ...).
     var botones = [{
         'boton': 'botonHechizos',
         'nombre': 'Hechizos',
