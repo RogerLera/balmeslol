@@ -74,7 +74,7 @@
                                         </li>
                                         <li class="divider"></li>
                                         <li>
-                                            <a href="{{ url('/guias/todas') }}">@lang('messages.Guias-todas')</a>
+                                            <a href="{{ url('/guias') }}">@lang('messages.Guias-todas')</a>
                                         </li>
                                         <li>
                                             <a href="{{ url('/guias/nuevas') }}">@lang('messages.Guias-nuevo')</a>
