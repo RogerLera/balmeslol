@@ -68,6 +68,12 @@ class GuiaController extends Controller {
         ]);
     }
 
+    /**
+    * Método que muestra las guias del usuario junto a sus favoritas (si tiene).
+    *
+    * @param Request $request
+    * @return todas las guias del usuario que existen en la base de datos a la vista.
+    */
     public function guiasUsuario(Request $request)
     {
         return view('guias.index', [
