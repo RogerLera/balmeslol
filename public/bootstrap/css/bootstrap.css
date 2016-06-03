@@ -120,6 +120,10 @@
     position:absolute;
 }
 
+.centerBlock {
+    padding: 10px;
+}
+
 .splashart {
     position: relative;
     display: block;

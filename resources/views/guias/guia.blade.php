@@ -38,14 +38,16 @@
                         <div class="col-md-9">
                             <div class="guide">
                                 <div class="row">
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <img alt="{{ $guia->camNombre }}" class="guide-icon" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
                                     </div>
                                     <div class="col-md-7">
+                                        <div class="centerBlock">
                                             <p>{{ $guia->camNombre }} [{{ $guia->role->rolNombre }}]</p>
                                             <p>@lang('messages.Gui-Version'): {{ $guia->guiVersion }}</p>
                                             <p>@lang('messages.Gui-Por'): <a href="/perfil/{{$guia->usuId}}">{{ $guia->user->usuAlias }}</a></p>
                                             <p>@lang('messages.Gui-Actualizado'): {{$guia->updated_at}}</p>
+                                        </div>
                                     </div>
                                     <div class="col-md-2" style="margin-top: 40px;">
                                         <span class="fa fa-thumbs-o-up fa-2x" style="color:green;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
