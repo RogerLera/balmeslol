@@ -49,14 +49,9 @@ class GuiaController extends Controller {
      * @param $aMostrar dependiendo el string que llegue mostraremos unas guias o otras.
      * @return todas las guias que existen en la base de datos a la vista.
      */
-    public function index(Request $request, $aMostrar = null) {
+    public function index($aMostrar = null) {
         $guias;
-        $guiasFav = "";
         switch ($aMostrar) {
-            case 'usuario':
-                $guias = $this->guias->delUser($request->user()->id);
-                $guiasFav = $this->guias->guiasFavoritas($request->user()->id);
-                break;
             case 'nuevas':
                 $guias = $this->guias->nuevas();
                 break;
@@ -69,8 +64,16 @@ class GuiaController extends Controller {
         }
         return view('guias.index', [
             'guias' => $guias,
-            'guiasFav' => $guiasFav,
             'aMostrar' => $aMostrar,
+        ]);
+    }
+
+    public function guiasUsuario(Request $request)
+    {
+        return view('guias.index', [
+            'guias' => $this->guias->delUser($request->user()->id),
+            'guiasFav' => $this->guias->guiasFavoritas($request->user()->id),
+            'aMostrar' => 'usuario',
         ]);
     }
 

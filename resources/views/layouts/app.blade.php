@@ -156,7 +156,7 @@
                                         <li><a href="/perfil/{{ Auth::id() }}"><i class="fa fa-btn fa-user"></i> @lang('messages.Usu-perfil')</a></li>
                                         <li><a href="{{URL::to('mensajes')}}"><i class="fa fa-btn fa-envelope"></i> @lang('messages.Usu-mensajes') @include('messenger.unread-count')</a></li>
                                         <li><a href="{{URL::to('mensajes/crear')}}"><i class="fa fa-btn fa-envelope"></i> @lang('messages.Usu-nmensaje')</a></li>
-                                        <li><a href="/guias/usuario"><i class="fa fa-btn fa-star"></i> @lang('messages.Usu-misguias')</a></li>
+                                        <li><a href="/guias/usuario/{{ Auth::id() }}"><i class="fa fa-btn fa-star"></i> @lang('messages.Usu-misguias')</a></li>
                                         <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> @lang('messages.Usu-desconectarse')</a></li>
                                     </ul>
                                 </li>

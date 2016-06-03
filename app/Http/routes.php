@@ -27,13 +27,9 @@ Route::get('/objetos/{id}', 'ObjetoController@mostrarObjeto')->where('id', '[0-9
 Route::get('/hechizos', 'HechizoController@index');
 
 /* --- GUIAS --- */
-
-// Para todos (público).
-Route::get('/guias', 'GuiaController@index');
-Route::get('/guias/{id}', 'GuiaController@obtenerGuia')->where('id', '[0-9]+');
-
 // Solo usuarios registrados.
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/guias/usuario', 'GuiaController@guiasUsuario');
     Route::get('/guias/crear', 'GuiaController@formularioCrearGuia');
     Route::post('/guias/crear', 'GuiaController@crearGuia');
     Route::post('/guias/{id}/editar', 'GuiaController@editarGuia')->where('id', '[0-9]+');
@@ -46,10 +42,12 @@ Route::group(['middleware' => ['auth']], function () {
     /* --- VOTACIONES --- */
     Route::post('/guias/votacion', 'VotacionController@votacion');
     Route::get('/guias/votacion', 'GuiaController@actualizarValoracion');
-
-    // Al recivir un string como variable, se pone al final sinó entra en conflicto con los demas.
-    Route::get('/guias/{aMostrar}', 'GuiaController@index')->where('aMostrar', '[A-Za-z]+');
 });
+
+// Para todos (público).
+Route::get('/guias', 'GuiaController@index');
+Route::get('/guias/{aMostrar}', 'GuiaController@index')->where('aMostrar', '[A-Za-z]+');
+Route::get('/guias/{id}', 'GuiaController@obtenerGuia')->where('id', '[0-9]+');
 
 /* --- USUARIOS --- */
 Route::get('/perfil/{id}', 'UserController@mostrarPerfil')->where('id', '[0-9]+');
