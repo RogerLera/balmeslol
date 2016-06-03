@@ -4,6 +4,11 @@ namespace App\Policies;
 use App\User;
 use App\Guia;
 use Illuminate\Auth\Access\HandlesAuthorization;
+
+/**
+* Clase GuiaPolicy utilizado para autorizar a un usuario si tiene privilegios suficientes
+* para borrar una guia o no.
+*/
 class GuiaPolicy
 {
     use HandlesAuthorization;

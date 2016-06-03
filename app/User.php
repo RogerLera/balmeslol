@@ -8,6 +8,10 @@ use App\Favorito;
 use App\Message;
 use Cmgmyr\Messenger\Traits\Messagable;
 
+/**
+* Clase que repesenta a un usuario. Puede registrarse y enviar mensajes a otros
+* usuarios y crear guias.
+*/
 class User extends Authenticatable
 {
      use Messagable;
@@ -36,7 +40,7 @@ class User extends Authenticatable
     */
     public function guias()
     {
-        return $this->hasMany(Guia::class);
+        return $this->hasMany(Guia::class, 'usuId');
     }
 
     /**
@@ -46,7 +50,7 @@ class User extends Authenticatable
     */
     public function favorito()
     {
-        return $this->hasOne(Favorito::class, 'usuId');
+        return $this->hasMany(Favorito::class, 'usuId');
     }
 
     /**
@@ -57,15 +61,5 @@ class User extends Authenticatable
     public function message()
     {
         return $this->hasMany(Message::class);
-    }
-
-    /**
-     * Obtiene las votaciones que ha realizado el usuario
-     * 
-     * @return type las votaciones realizadas
-     */
-    public function votacions()
-    {
-        return $this->belongsToMany(Guia::class, 'votacions', 'usuId', 'guiId');
     }
 }

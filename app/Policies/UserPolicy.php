@@ -3,6 +3,11 @@ namespace App\Policies;
 
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+
+/**
+* Clase UserPolicy utilizado para autorizar a un usuario si tiene privilegios suficientes
+* para eliminar una cuenta de usuario o no.
+*/
 class UserPolicy
 {
     use HandlesAuthorization;
