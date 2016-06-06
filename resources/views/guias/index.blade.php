@@ -42,7 +42,12 @@
                                                     <div class="guide">
                                                         <div class="row">
                                                             <div class="col-md-2">
-                                                                <img alt="{{ $guia->camNombre }}" class="guide-icon img-responsive" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $guia->camNombre }}.png">
+                                                                {{--*/ $nombreCampeon = str_replace(' ', '', $guia->camNombre); /*--}}
+                                                                {{--*/
+                                                                    if ($nombreCampeon == 'MaestroYi') {$nombreCampeon = 'MasterYi';}
+                                                                    else if (strpos($nombreCampeon, "'") !== false) {$nombreCampeon = str_replace("'", '', $nombreCampeon); $nombreCampeon = ucfirst(strtolower($nombreCampeon));}
+                                                                /*--}}
+                                                                <img alt="{{ $guia->camNombre }}" class="guide-icon img-responsive" src="http://ddragon.leagueoflegends.com/cdn/{{ $guia->guiVersion }}/img/champion/{{ $nombreCampeon }}.png">
                                                                 <div class="row">
                                                                     <div class="col-md-10 col-md-offset-2">
                                                                         <span class="fa fa-thumbs-o-up fa-2x" style="color:green;" onclick="votacion({{ $guia->id }}, {{ Auth::id() }}, 1)"></span>&nbsp;
