@@ -20,7 +20,6 @@
     </head>
     <body id="app-layout">
         <div class="container-fluid">
-            <a href="{{ url('/') }}">
                 <div class="row banner">
                     <div class="col-md-6 col-md-offset-6 col-xs-6 col-xs-offset-6" style="padding-top:30px;">
                         <form class="navbar-form navbar-right"  accept-charset="ISO-8859-1" role="search" action="/invocador">
@@ -46,8 +45,6 @@
                         </form>
                     </div>
                 </div>
-            </a>
-
             <div class="row">
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">

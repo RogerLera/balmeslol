@@ -12,7 +12,7 @@ use Response;
 use Intervention\Image\Facades\Image;
 
 /**
- * Clase UserController, gestiona todos los aspectos relacionados con el usuario, 
+ * Clase UserController, gestiona todos los aspectos relacionados con el usuario,
  * aspectos como su perfil, su contraseña, su avatar y la eliminación del mismo.
  */
 class UserController extends Controller {
@@ -42,7 +42,7 @@ class UserController extends Controller {
 
     /**
      * Método para cambiar los datos del usuario.
-     * 
+     *
      * @param Request $request datos del input
      * @param type $id id del usuario a cambiar
      * @return type redireccionamento
@@ -64,12 +64,12 @@ class UserController extends Controller {
             $user->usuAvatar = $avatar;
         }
         $user->save();
-        return redirect('/perfil/$id');
+        return redirect('/perfil/' . $id);
     }
 
     /**
      * Método para cambiar el password del usuario.
-     * 
+     *
      * @param Request $request nuevo password
      * @param type $id id del usuario a editar
      * @return type redireccionamento
@@ -87,7 +87,7 @@ class UserController extends Controller {
 
     /**
      * Eliminar el user especificado.
-     * 
+     *
      * @param Request $request
      * @param User $user
      * @return redireccionamento
@@ -100,7 +100,7 @@ class UserController extends Controller {
 
     /**
      * Método que carga la imagen binaria de la base de datos.
-     * 
+     *
      * @param id identificador usuario.
      * @return $response con la imagen.
      */
